@@ -1,16 +1,9 @@
-# vixan next js
+# Operant Biomedical Research Federation
 
-- jamilrayhan100@gmail.com
+- sirviravindra609@gmail.com
 
 <details>
-<summary> vixan  </summary>
+<summary> Operant Biomedical Research Federation  </summary>
 
--   [** vixan **](https://www.facebook.com/jamil.rayhan100)
-
-    -   vixan Next js
-    -   vixan HTML
-    -   vixan Wordpress
-    -   vixan PSD
-    -   vixan Figma
     
 </details>
