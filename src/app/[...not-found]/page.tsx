@@ -1,14 +1,12 @@
-'use client'
+"use client";
 
-
-import React from 'react';
-import Wrapper from '@/layouts/Wrapper';
-import Error from '@/components/error';
+import React from "react";
+import Wrapper from "@/layouts/Wrapper";
+import Error from "@/components/error";
 
 // export const metadata = {
-//   title: "404 error || Vixan - Digital  Creative Agency Next js Template",
+//   title: "404 error || Operant Biomedical Research Federation",
 // };
-
 
 const index = () => {
   return (

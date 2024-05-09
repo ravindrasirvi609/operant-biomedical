@@ -11,7 +11,7 @@ import PortfolioDetailsArea from '@/components/details/PortfolioDetailsArea';
 
 
 // export const metadata = {
-//   title: "Portfolio Details Vixan - Digital  Creative Agency Next js Template",
+//   title: "Portfolio Details Operant Biomedical Research Federation",
 // };
 
 
