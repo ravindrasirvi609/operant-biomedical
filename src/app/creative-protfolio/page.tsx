@@ -12,7 +12,7 @@ import AboutHomeFour from "@/components/about/AboutHomeFour";
 import FooterOne from "@/layouts/footers/FooterOne";
 
 // export const metadata = {
-//   title: "Creative Protfolio Operant Biomedical Research Federation",
+//   title: "Operant Biomedical Research Federation",
 // };
 
 const index = () => {
