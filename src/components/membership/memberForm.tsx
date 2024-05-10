@@ -1,8 +1,38 @@
-"use client";
-
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const MembersForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    collegeName: "",
+    profilePicture: null,
+  });
+
+  const handleChange = (e: any) => {
+    if (e.target.type === "file") {
+      setFormData({ ...formData, [e.target.name]: e.target.files[0] });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("your-api-endpoint", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response.data); // Handle success response
+    } catch (error) {
+      console.error(error); // Handle error response
+    }
+  };
+
   return (
     <>
       <div className="cs_height_150 cs_height_lg_120"></div>
@@ -20,29 +50,33 @@ const MembersForm = () => {
               </div>
               <div className="cs_height_80 cs_height_lg_20"></div>
               <div className="cs_from anim_div_ShowDowns">
-                <form onClick={(e) => e.preventDefault()}>
+                <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="cs_field_group col">
                       <input
                         className="cs_input_field"
                         type="text"
-                        id="test1"
+                        id="name"
                         placeholder="Name"
-                        name="test"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                       />
-                      <label htmlFor="test1" className="cs_input_label">
+                      <label htmlFor="name" className="cs_input_label">
                         Name
                       </label>
                     </div>
                     <div className="cs_field_group col">
                       <input
                         className="cs_input_field"
-                        type="text"
-                        id="test2"
-                        placeholder="Name"
-                        name="test"
+                        type="email"
+                        id="email"
+                        placeholder="Email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                       />
-                      <label htmlFor="test2" className="cs_input_label">
+                      <label htmlFor="email" className="cs_input_label">
                         Email
                       </label>
                     </div>
@@ -53,11 +87,13 @@ const MembersForm = () => {
                       <input
                         className="cs_input_field"
                         type="text"
-                        id="test3"
-                        placeholder="Name"
-                        name="test"
+                        id="phone"
+                        placeholder="Phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                       />
-                      <label htmlFor="test3" className="cs_input_label">
+                      <label htmlFor="phone" className="cs_input_label">
                         Phone
                       </label>
                     </div>
@@ -65,11 +101,13 @@ const MembersForm = () => {
                       <input
                         className="cs_input_field"
                         type="text"
-                        id="test4"
-                        placeholder="Name"
-                        name="test"
+                        id="subject"
+                        placeholder="Subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
                       />
-                      <label htmlFor="test4" className="cs_input_label">
+                      <label htmlFor="subject" className="cs_input_label">
                         Subject
                       </label>
                     </div>
@@ -79,12 +117,26 @@ const MembersForm = () => {
                     <input
                       className="cs_input_field"
                       type="text"
-                      id="test5"
-                      placeholder="Message"
-                      name="test"
+                      id="collegeName"
+                      placeholder="College Name"
+                      name="collegeName"
+                      value={formData.collegeName}
+                      onChange={handleChange}
                     />
-                    <label htmlFor="test5" className="cs_input_label">
-                      Message
+                    <label htmlFor="collegeName" className="cs_input_label">
+                      College Name
+                    </label>
+                  </div>
+                  <div className="cs_field_group">
+                    <input
+                      className="cs_input_field"
+                      type="file"
+                      id="profilePicture"
+                      name="profilePicture"
+                      onChange={handleChange}
+                    />
+                    <label htmlFor="profilePicture" className="cs_input_label">
+                      Profile Picture
                     </label>
                   </div>
                   <div className="cs_height_60 cs_height_lg_60"></div>
