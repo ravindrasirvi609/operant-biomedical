@@ -22,14 +22,18 @@ const MembersForm = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.post("your-api-endpoint", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log(response.data); // Handle success response
+      const response = await axios.post(
+        "/api/membership/newMembership",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response.data);
     } catch (error) {
-      console.error(error); // Handle error response
+      console.error(error);
     }
   };
 
