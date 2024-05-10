@@ -228,20 +228,6 @@ const MembersForm: React.FC = () => {
                     <input
                       className="cs_input_field"
                       type="text"
-                      id="bio"
-                      placeholder="Bio"
-                      name="bio"
-                      value={formData.bio}
-                      onChange={handleChange}
-                    />
-                    <label htmlFor="bio" className="cs_input_label">
-                      Bio
-                    </label>
-                  </div>
-                  <div className="cs_field_group col">
-                    <input
-                      className="cs_input_field"
-                      type="text"
                       id="collegeName"
                       placeholder="College Name"
                       name="collegeName"
@@ -372,6 +358,22 @@ const MembersForm: React.FC = () => {
                       Website
                     </label>
                   </div>
+                </div>
+
+                <div className="cs_height_60 cs_height_lg_60"></div>
+                <div className="cs_field_group">
+                  <input
+                    className="cs_input_field"
+                    id="bio"
+                    placeholder="Bio"
+                    name="bio"
+                    type="text"
+                    value={formData.bio}
+                    onChange={handleChange}
+                  ></input>
+                  <label htmlFor="bio" className="cs_input_label">
+                    Bio
+                  </label>
                 </div>
                 <div className="cs_field_group">
                   <input
