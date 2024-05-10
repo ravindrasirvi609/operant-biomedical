@@ -13,13 +13,13 @@ interface DataType {
 
 const about_slider: DataType[] = [
   {
-    img: "/assets/img/about-img-1.jpg",
+    img: "/assets/img/medical-group-of-doctors-biochemists-having-onlin-2023-11-27-05-23-53-utc.jpg",
     sub_title: "Our Mission",
     title: `Igniting Innovation to Revolutionize Your Institution`,
     des: `Welcome to our Medical Research Federation! We are dedicated to empowering institutions like yours to thrive in the digital era. From pioneering research platforms to strategic digital outreach, we offer tailored solutions to enhance your online impact. Join us as we navigate the evolving landscape of digital innovation in medical research.`,
   },
   {
-    img: "/assets/img/medical-workers-discussing-chest-x-ray-2023-11-27-05-09-13-utc.jpg",
+    img: "/assets/img/young-muslim-female-clinician-pointing-at-laptop-s-2023-11-27-05-35-33-utc.JPG",
     sub_title: "Our Mission",
     title: `Unleashing Ingenuity to Revolutionize Your Institution`,
     des: `Welcome to our Medical Research Federation! At the forefront of digital advancement, we're here to propel institutions like yours to success in the online sphere. Whether it's crafting dynamic research platforms or deploying strategic digital campaigns, we possess the expertise and tools to amplify your online visibility. Let us guide you through the dynamic landscape of digital evolution in medical research.`,

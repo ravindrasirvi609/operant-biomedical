@@ -5,9 +5,12 @@ import Image, { StaticImageData } from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import portfolio_img_1 from "@/assets/img/portfolio_1.jpg";
-import portfolio_img_2 from "@/assets/img/portfolio_2.jpg";
-import portfolio_img_3 from "@/assets/img/portfolio_3.jpg";
+import portfolio_img_1 from "@/assets/img/cryopreservation-expert-freezing-cells-in-cryogeni-2023-11-27-05-06-12-utc.jpg";
+import portfolio_img_2 from "@/assets/img/scientist-in-white-protective-uniform-works-with-c-2023-11-27-05-06-25-utc.jpg";
+import portfolio_img_3 from "@/assets/img/futuristic-interaction-intern-shares-data-with-hi-2023-11-27-05-15-19-utc.jpg";
+import portfolio_img_4 from "@/assets/img/closeup-of-scientific-microscope-data-analysis-in-2023-11-27-04-50-22-utc.jpg";
+import portfolio_img_5 from "@/assets/img/scientist-in-white-protective-uniform-works-with-c-2023-11-27-05-06-25-utc.jpg";
+import portfolio_img_6 from "@/assets/img/radiologist-setting-mri-scanner-for-patient-2024-03-28-19-40-34-utc.jpg";
 
 interface DataType {
   img: StaticImageData;
@@ -33,17 +36,17 @@ const portfolio_slider: DataType[] = [
     category: "Pharma Research Publications",
   },
   {
-    img: portfolio_img_1,
+    img: portfolio_img_4,
     title: "Drug Repurposing Strategies",
     category: "Pharma Research Publications",
   },
   {
-    img: portfolio_img_2,
+    img: portfolio_img_5,
     title: "Biopharmaceutical Manufacturing Trends",
     category: "Pharma Research Publications",
   },
   {
-    img: portfolio_img_2,
+    img: portfolio_img_6,
     title: "Regulatory Compliance Updates",
     category: "Pharma Research Publications",
   },

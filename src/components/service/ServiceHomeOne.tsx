@@ -76,7 +76,7 @@ const ServiceHomeOne = () => {
                   <div
                     className="cs_card_number cs_primary_font"
                     style={{
-                      backgroundImage: `url(/assets/img/hero_img_1.jpg)`,
+                      backgroundImage: `url(/assets/img/group-of-doctors-talking-about-corona-virus-on-con-2023-11-27-05-33-54-utc.jpg)`,
                     }}
                   >
                     0{i + 1}
