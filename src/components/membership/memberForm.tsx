@@ -104,6 +104,7 @@ const MembersForm: React.FC = () => {
                       name="title"
                       value={formData.title}
                       onChange={handleChange}
+                      required
                     >
                       <option value="">Select Title</option>
                       <option value="MR">Mr.</option>
@@ -126,6 +127,7 @@ const MembersForm: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="name" className="cs_input_label">
                       Name
@@ -142,6 +144,7 @@ const MembersForm: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="email" className="cs_input_label">
                       Email
@@ -156,6 +159,7 @@ const MembersForm: React.FC = () => {
                       name="department"
                       value={formData.department}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="department" className="cs_input_label">
                       Department
@@ -172,6 +176,7 @@ const MembersForm: React.FC = () => {
                       name="designation"
                       value={formData.designation}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="designation" className="cs_input_label">
                       Designation
@@ -186,6 +191,7 @@ const MembersForm: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="phone" className="cs_input_label">
                       Phone
@@ -203,6 +209,7 @@ const MembersForm: React.FC = () => {
                       name="DateOfBirth"
                       value={formData.DateOfBirth.toString()}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="DateOfBirth" className="cs_input_label">
                       Date Of Birth
@@ -217,6 +224,7 @@ const MembersForm: React.FC = () => {
                       name="aadharNumber"
                       value={formData.aadharNumber}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="aadharNumber" className="cs_input_label">
                       Aadhar Number
@@ -233,6 +241,7 @@ const MembersForm: React.FC = () => {
                       name="collegeName"
                       value={formData.collegeName}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="collegeName" className="cs_input_label">
                       College Name
