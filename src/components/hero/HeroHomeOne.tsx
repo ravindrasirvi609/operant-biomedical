@@ -12,21 +12,21 @@ interface DataType {
 
 const hero_slider: DataType[] = [
   {
-    img: `/assets/img/hero_img_1.jpg`,
+    img: `/assets/img/hero-img-2.jpg`,
     sub_title: "Medical Research Federation",
     title: "Expert in the medical Research Publication and Conference",
     des: `Welcome to our Medical Research Federation! We are dedicated to advancing healthcare through cutting-edge research and collaboration. Our federation specializes in fostering partnerships among medical professionals, researchers, and institutions to drive innovation and improve patient outcomes. From pioneering studies to breakthrough treatments, we are committed to pushing the boundaries of medical knowledge. Join us in shaping the future of healthcare`,
   },
   {
-    img: `/assets/img/hero_img_1.jpg`,
+    img: `/assets/img/hero-img-3.jpg`,
     sub_title: "Medical Research Federation",
     title:
       "Specialized Medical Research Solutions Tailored to Your Institution",
     des: `Welcome to our Medical Research Federation! We're dedicated to empowering institutions like yours to thrive in the digital landscape. From innovative research platforms to strategic outreach and engagement strategies, we offer the expertise and resources to enhance your online footprint. Let us navigate the dynamic realm of digital together, advancing medical research for a healthier future.`,
   },
   {
-    img: `/assets/img/hero_img_1.jpg`,
-    sub_title: "Creative Agency",
+    img: `/assets/img/hero-img-4.jpg`,
+    sub_title: "Medical Research Federation",
     title: "Cutting-Edge Research Solutions Customized for Your Institution",
     des: `Welcome to our Medical Research Federation! We excel in supporting institutions like yours to excel in the digital realm. Whether it's crafting cutting-edge research platforms or devising impactful digital outreach strategies, we possess the tools and know-how to enhance your online impact. Let us be your guide in navigating the ever-evolving digital landscape, driving forward the frontiers of medical research.`,
   },
