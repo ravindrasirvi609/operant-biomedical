@@ -1,5 +1,7 @@
 "use client";
 
+import AboutHomeFour from "@/components/about/AboutHomeFour";
+import MembershipList from "@/components/membership/member-list";
 import Wrapper from "@/layouts/Wrapper";
 import FooterOne from "@/layouts/footers/FooterOne";
 import HeaderOne from "@/layouts/headers/HeaderOne";
@@ -16,9 +18,8 @@ const index = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <h1 className="cs_height_219 cs_height_lg_120">
-              MemberShip Students
-            </h1>
+            <MembershipList />
+            <AboutHomeFour />
           </main>
           <FooterOne />
         </div>
