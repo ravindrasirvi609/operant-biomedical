@@ -8,6 +8,8 @@ interface FormValues {
   department: string;
   designation: string;
   phone: string;
+  DateOfBirth: Date;
+  aadharNumber: string;
   bio: string;
   collegeName: string;
   address: string;
@@ -29,6 +31,8 @@ const MembersForm: React.FC = () => {
     department: "",
     designation: "",
     phone: "",
+    DateOfBirth: new Date(),
+    aadharNumber: "",
     bio: "",
     collegeName: "",
     address: "",
@@ -185,6 +189,37 @@ const MembersForm: React.FC = () => {
                     />
                     <label htmlFor="phone" className="cs_input_label">
                       Phone
+                    </label>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="cs_field_group col">
+                    <input
+                      className="cs_input_field"
+                      type="date"
+                      id="DateOfBirth"
+                      placeholder="Date Of Birth"
+                      name="DateOfBirth"
+                      value={formData.DateOfBirth.toString()}
+                      onChange={handleChange}
+                    />
+                    <label htmlFor="DateOfBirth" className="cs_input_label">
+                      Date Of Birth
+                    </label>
+                  </div>
+                  <div className="cs_field_group col">
+                    <input
+                      className="cs_input_field"
+                      type="text"
+                      id="aadharNumber"
+                      placeholder="Aadhar Number"
+                      name="aadharNumber"
+                      value={formData.aadharNumber}
+                      onChange={handleChange}
+                    />
+                    <label htmlFor="aadharNumber" className="cs_input_label">
+                      Aadhar Number
                     </label>
                   </div>
                 </div>

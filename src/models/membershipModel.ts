@@ -17,6 +17,8 @@ const membershipSchema = new Schema(
     department: String,
     designation: String,
     phone: String,
+    DateOfBirth: Date,
+    aadharNumber: String,
     bio: String,
     imageUrl: String,
     collegeName: String,
