@@ -1,5 +1,6 @@
 "use client";
 
+import MembersForm from "@/components/membership/memberForm";
 import Wrapper from "@/layouts/Wrapper";
 import FooterOne from "@/layouts/footers/FooterOne";
 import HeaderOne from "@/layouts/headers/HeaderOne";
@@ -16,9 +17,7 @@ const index = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <h1 className="cs_height_219 cs_height_lg_120">
-              MemberShip Students
-            </h1>
+            <MembersForm />
           </main>
           <FooterOne />
         </div>
