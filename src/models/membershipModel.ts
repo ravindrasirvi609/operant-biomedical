@@ -8,9 +8,8 @@ const membershipSchema = new Schema(
       required: true,
     },
 
-    email: {
-      type: Date,
-    },
+    email: String,
+
     phone: String,
     bio: String,
     imageUrl: String,
