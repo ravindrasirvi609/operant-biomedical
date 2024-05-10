@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -10,6 +11,7 @@ const MembersForm = () => {
     collegeName: "",
     profilePicture: null,
   });
+  const [loading, setLoading] = useState(false); // State variable for loading
 
   const handleChange = (e: any) => {
     if (e.target.type === "file") {
@@ -21,6 +23,8 @@ const MembersForm = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setLoading(true); // Start loading
+
     try {
       const response = await axios.post(
         "/api/membership/newMembership",
@@ -32,13 +36,27 @@ const MembersForm = () => {
         }
       );
       console.log(response.data);
+      setLoading(false); // Stop loading
+      setFormData({
+        // Reset form after successful submission
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        collegeName: "",
+        profilePicture: null,
+      });
     } catch (error) {
       console.error(error);
+      setLoading(false); // Stop loading on error
     }
   };
 
   return (
     <>
+      {/* Loader */}
+      {loading && <div>Loading...</div>}
+
       <div className="cs_height_150 cs_height_lg_120"></div>
       <section>
         <div className="container">
@@ -147,6 +165,7 @@ const MembersForm = () => {
                   <button
                     type="submit"
                     className="cs_btn cs_style_1 cs_type_btn"
+                    disabled={loading} // Disable button while submitting
                   >
                     <span>Submit Now</span>
                     <svg
