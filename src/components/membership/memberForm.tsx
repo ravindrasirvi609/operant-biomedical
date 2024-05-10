@@ -115,7 +115,7 @@ const MembersForm: React.FC = () => {
                       <option value="REV">Rev.</option>
                     </select>
                     <label htmlFor="title" className="cs_input_label">
-                      Title
+                      Title <span className="danger">*</span>
                     </label>
                   </div>
                   <div className="cs_field_group col">
@@ -130,7 +130,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="name" className="cs_input_label">
-                      Name
+                      Name <span className="danger">*</span>
                     </label>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="email" className="cs_input_label">
-                      Email
+                      Email <span className="danger">*</span>
                     </label>
                   </div>
                   <div className="cs_field_group col">
@@ -162,7 +162,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="department" className="cs_input_label">
-                      Department
+                      Department <span className="danger">*</span>
                     </label>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="designation" className="cs_input_label">
-                      Designation
+                      Designation <span className="danger">*</span>
                     </label>
                   </div>
                   <div className="cs_field_group col">
@@ -194,7 +194,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="phone" className="cs_input_label">
-                      Phone
+                      Phone <span className="danger">*</span>
                     </label>
                   </div>
                 </div>
@@ -212,7 +212,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="DateOfBirth" className="cs_input_label">
-                      Date Of Birth
+                      Date Of Birth <span className="danger">*</span>
                     </label>
                   </div>
                   <div className="cs_field_group col">
@@ -227,7 +227,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="aadharNumber" className="cs_input_label">
-                      Aadhar Number
+                      Aadhar Number <span className="danger">*</span>
                     </label>
                   </div>
                 </div>
@@ -244,7 +244,7 @@ const MembersForm: React.FC = () => {
                       required
                     />
                     <label htmlFor="collegeName" className="cs_input_label">
-                      College Name
+                      College Name <span className="danger">*</span>
                     </label>
                   </div>
                 </div>
