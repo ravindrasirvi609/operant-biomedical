@@ -3,7 +3,11 @@ const { Schema } = mongoose;
 
 const membershipSchema = new Schema(
   {
-    title: ["MR", "MRS", "MS", "DR", "PROF", "REV"],
+    title: {
+      type: String,
+      enum: ["MR", "MRS", "MS", "DR", "PROF", "REV"],
+      required: true,
+    },
     name: {
       type: String,
       required: true,

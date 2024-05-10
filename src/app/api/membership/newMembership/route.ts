@@ -28,17 +28,45 @@ export async function POST(req: NextRequest) {
       message = "success";
       imgUrl = res.result.secure_url;
 
-      const { name, email, phone, bio, collegeName, subject } =
-        Object.fromEntries(formData.entries());
-
-      const newBlogPost = new Membership({
+      const {
+        title,
         name,
         email,
+        department,
+        designation,
+        phone,
+        bio,
+        collegeName,
+        address,
+        city,
+        state,
+        country,
+        postalCode,
+        twitter,
+        linkedin,
+        website,
+        membershipPlan,
+      } = Object.fromEntries(formData.entries());
+
+      const newBlogPost = new Membership({
+        title,
+        name,
+        email,
+        department,
+        designation,
         phone,
         bio,
         collegeName,
         imageUrl: imgUrl,
-        subject,
+        address,
+        city,
+        state,
+        country,
+        postalCode,
+        twitter,
+        linkedin,
+        website,
+        membershipPlan,
       });
 
       const savedBlogPost = await newBlogPost.save();
