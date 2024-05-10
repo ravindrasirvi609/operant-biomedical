@@ -3,26 +3,31 @@ const { Schema } = mongoose;
 
 const membershipSchema = new Schema(
   {
+    title: ["MR", "MRS", "MS", "DR", "PROF", "REV"],
     name: {
       type: String,
       required: true,
     },
 
     email: String,
-
+    department: String,
+    designation: String,
     phone: String,
     bio: String,
     imageUrl: String,
-    subject: String,
     collegeName: String,
-    occupation: String,
-    education: String,
-    location: String,
-    website: String,
+    address: String,
+    city: String,
+    state: String,
+    country: String,
+    postalCode: String,
     twitter: String,
-    facebook: String,
     linkedin: String,
-    instagram: String,
+    website: String,
+    membershipPlan: {
+      type: Schema.Types.ObjectId,
+      ref: "MembershipPlan",
+    },
   },
   {
     timestamps: true,

@@ -1,9 +1,33 @@
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import Image from "next/image";
-import team_data from "@/data/team_data";
 import Link from "next/link";
+import axios from "axios";
+
+interface Membership {
+  imageUrl: string;
+  name: string;
+  subject: string;
+  // Add more properties if needed
+}
 
 const MembershipList = () => {
+  const [team_data, setTeam_data] = useState<Membership[]>([]);
+
+  useEffect(() => {
+    const fetchMembershipList = async () => {
+      try {
+        const response = await axios.post("/api/membership/membershipList", {
+          method: "POST",
+        });
+        setTeam_data(response.data.memberships);
+        console.log(response.data); // Handle response data as needed
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchMembershipList(); // Call the async function
+  }, []); // Empty dependency array to run only once on mount
   return (
     <>
       <div className="cs_height_219 cs_height_lg_120"></div>
@@ -25,15 +49,20 @@ const MembershipList = () => {
             {team_data.slice(0, 4).map((item, i) => (
               <div key={i} className="cs_team_img">
                 <Link href="/team-details">
-                  <Image src={item.img} alt="teamsimg1" />
+                  <Image
+                    src={item.imageUrl}
+                    alt="teamsimg1"
+                    width={200}
+                    height={200}
+                  />
                   <div className="cs_portfolio_overlay"></div>
                 </Link>
 
                 <div className="cs_team_text">
                   <Link href="/team-details">
-                    <h6 className="cs_team_text_title">{item.avatar_name}</h6>
+                    <h6 className="cs_team_text_title">{item.name}</h6>
                   </Link>
-                  <p className="cs_team_subtitle">{item.designation}</p>
+                  <p className="cs_team_subtitle">{item.subject}</p>
                 </div>
               </div>
             ))}
@@ -43,14 +72,14 @@ const MembershipList = () => {
             {team_data.slice(4, 8).map((item, i) => (
               <div key={i} className="cs_team_img">
                 <Link href="/team-details">
-                  <Image src={item.img} alt="teamsimg5" />
+                  <Image src={item.imageUrl} alt="teamsimg5" />
                   <div className="cs_portfolio_overlay"></div>
                 </Link>
                 <div className="cs_team_text">
                   <Link href="/team-details">
-                    <h6 className="cs_team_text_title">{item.avatar_name}</h6>
+                    <h6 className="cs_team_text_title">{item.name}</h6>
                   </Link>
-                  <p className="cs_team_subtitle">{item.designation}</p>
+                  <p className="cs_team_subtitle">{item.subject}</p>
                 </div>
               </div>
             ))}
