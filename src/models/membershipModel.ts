@@ -13,7 +13,11 @@ const membershipSchema = new Schema(
       required: true,
     },
 
-    email: String,
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     department: String,
     designation: String,
     phone: String,
@@ -30,6 +34,11 @@ const membershipSchema = new Schema(
     twitter: String,
     linkedin: String,
     website: String,
+    membershipId: String,
+    isValidMember: {
+      type: Boolean,
+      default: false,
+    },
     membershipPlan: {
       type: Schema.Types.ObjectId,
       ref: "MembershipPlan",

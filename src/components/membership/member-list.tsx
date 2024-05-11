@@ -72,7 +72,12 @@ const MembershipList = () => {
             {team_data.slice(4, 8).map((item, i) => (
               <div key={i} className="cs_team_img">
                 <Link href="/team-details">
-                  <Image src={item.imageUrl} alt="teamsimg5" />
+                  <Image
+                    src={item.imageUrl}
+                    alt="teamsimg5"
+                    width={200}
+                    height={200}
+                  />
                   <div className="cs_portfolio_overlay"></div>
                 </Link>
                 <div className="cs_team_text">
