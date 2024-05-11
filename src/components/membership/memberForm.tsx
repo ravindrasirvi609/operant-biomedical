@@ -194,9 +194,16 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
           },
         }
       );
-      await makePayment();
-      console.log(response.data);
+      console.log("Payment successful", response.data.blogPost.email);
+
       setEmail(response.data.blogPost.email);
+      if (email) {
+        await makePayment();
+        console.log("Payment successful" + email);
+      } else {
+        console.log("Email not set. Cannot proceed with payment.");
+      }
+      console.log(response.data);
       console.log("email", email);
 
       setLoading(false);
