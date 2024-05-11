@@ -1,39 +1,25 @@
+"use client";
 import axios from "axios";
 import Link from "next/link";
-import React, { use, useEffect } from "react";
+import React, { use, useEffect, useState } from "react";
 
 interface DataType {
-  id: string;
+  _id: string;
   title: string;
+  price: number;
   description: string;
 }
-const service_data: DataType[] = [
-  {
-    id: "Basic",
-    title: "₹29/month",
-    description: `Access essential features and resources for biomedical research.`,
-  },
-
-  {
-    id: "Advanced",
-    title: "₹99/month",
-    description: `Gain access to advanced features, premium support, and exclusive resources.`,
-  },
-  {
-    id: "Premium",
-    title: "₹199/month",
-    description: `Enjoy full access to all platform features, personalized assistance, and priority `,
-  },
-];
 
 const MembershipPlanDetails = () => {
+  const [membershipPlan, setMembershipPlan] = useState<DataType[]>([]);
   useEffect(() => {
     const getMembershipDetails = async () => {
       try {
         const response = await axios.post(
           "/api/membershipPlan/membershipPlanList"
         );
-        console.log(response.data);
+        setMembershipPlan(response.data.membershipPlans);
+        console.log(response.data.membershipPlans);
       } catch (error) {
         console.error(error);
       }
@@ -61,8 +47,8 @@ const MembershipPlanDetails = () => {
           <div>
             <div className="cs_work cs_work_1">
               <div className="cs_card_work cs_style_1">
-                {service_data.map((item, i) => (
-                  <Link href={`/membership/${item.id}`} key={i}>
+                {membershipPlan.map((item, i) => (
+                  <Link href={`/membership/${item._id}`} key={i}>
                     <div className="cs_card cs_mt_nthchild_0 anim_div_ShowLeftSide">
                       <div className="cs_card cs_style_1">
                         <div className="cs_posagation">
@@ -70,11 +56,11 @@ const MembershipPlanDetails = () => {
                           <div className="cs_work_style_2"></div>
                         </div>
                         <div className="cs_stroke_number">
-                          <span>{item.id}</span>
+                          <span>{item.title}</span>
                         </div>
                       </div>
 
-                      <h6 className="cs_work_title">{item.title}</h6>
+                      <h6 className="cs_work_title">{item.price} ₹/month</h6>
                       <p className="cs_work_subtitle">{item.description}</p>
                     </div>
                   </Link>

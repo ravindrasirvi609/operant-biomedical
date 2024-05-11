@@ -59,7 +59,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
 
   const [formData, setFormData] = useState<FormValues>(initialValues);
   const [loading, setLoading] = useState(false);
-
+  const [email, setEmail] = useState<string>("");
   const [paymentInitialized, setPaymentInitialized] = useState(false);
   const [planDetails, setPlanDetails] = useState<planDetails>();
 
@@ -74,13 +74,15 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
       id
     );
 
+    console.log("response", response.data.membershipPlan);
+
     const planDetails = {
-      price: response.data.data.price,
+      price: response.data.membershipPlan.price,
       currency: "INR",
-      planId: response.data.data._id,
-      name: response.data.data.name,
-      features: response.data.data.features,
-      benefits: response.data.data.benefits,
+      planId: response.data.membershipPlan._id,
+      name: response.data.membershipPlan.name,
+      features: response.data.membershipPlan.features,
+      benefits: response.data.membershipPlan.benefits,
     };
 
     setPlanDetails(planDetails);
@@ -116,6 +118,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
             currency: data.currency,
             status: "success",
             plan: planDetails?.planId,
+            user: email,
           };
 
           const resultRes = await axios.post(
@@ -180,7 +183,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-
+    setEmail(formData.email);
     try {
       const response = await axios.post(
         "/api/membership/newMembership",
@@ -191,7 +194,11 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
           },
         }
       );
+      await makePayment();
       console.log(response.data);
+      setEmail(response.data.blogPost.email);
+      console.log("email", email);
+
       setLoading(false);
       setFormData(initialValues);
     } catch (error) {
@@ -531,7 +538,6 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                   type="submit"
                   className="cs_btn cs_style_1 cs_type_btn"
                   disabled={loading}
-                  onClick={makePayment}
                 >
                   <span>Submit Now</span>
                   <svg

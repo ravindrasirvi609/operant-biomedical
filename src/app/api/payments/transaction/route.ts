@@ -1,6 +1,7 @@
 import { connect } from "@/dbConfig/dbConfig";
 import RazorpayTransaction from "@/models/transactionModel";
 import { NextRequest, NextResponse } from "next/server";
+import Membership from "@/models/membershipModel";
 
 connect();
 export async function POST(request: NextRequest) {
@@ -22,6 +23,7 @@ export async function POST(request: NextRequest) {
       status,
       plan,
       membership,
+      user,
     } = requestBody;
 
     const razorpayTransaction = new RazorpayTransaction({
@@ -33,8 +35,13 @@ export async function POST(request: NextRequest) {
       status,
       membership,
       plan,
+      user,
     });
 
+    const membershipPlan = await Membership.findOneAndUpdate(
+      { email: user },
+      { isValidMember: true }
+    );
     await razorpayTransaction.save();
 
     return NextResponse.json(
