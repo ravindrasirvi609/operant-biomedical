@@ -1,5 +1,6 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { use, useEffect } from "react";
 
 interface DataType {
   id: string;
@@ -26,6 +27,20 @@ const service_data: DataType[] = [
 ];
 
 const MembershipPlanDetails = () => {
+  useEffect(() => {
+    const getMembershipDetails = async () => {
+      try {
+        const response = await axios.post(
+          "/api/membershipPlan/membershipPlanList"
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getMembershipDetails();
+  }, []);
   return (
     <>
       <div className="cs_height_150 cs_height_lg_50"></div>

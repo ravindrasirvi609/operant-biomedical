@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 connect();
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
     const membershipPlans = await MembershipPlan.find();
     return NextResponse.json({ membershipPlans });

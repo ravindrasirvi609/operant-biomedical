@@ -69,7 +69,10 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   }, [pramsId]);
 
   const getMembershipDetails = async (id: string) => {
-    const response = await axios.post("/api/subscriptionPlans/planDetails", id);
+    const response = await axios.post(
+      "/api/membershipPlan/membershipPlanDetails",
+      id
+    );
 
     const planDetails = {
       price: response.data.data.price,
