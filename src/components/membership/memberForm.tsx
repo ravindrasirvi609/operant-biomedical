@@ -64,11 +64,11 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   const [planDetails, setPlanDetails] = useState<planDetails>();
 
   useEffect(() => {
-    getEventDetails(pramsId);
+    getMembershipDetails(pramsId);
     initializeRazorpay();
   }, [pramsId]);
 
-  const getEventDetails = async (id: string) => {
+  const getMembershipDetails = async (id: string) => {
     const response = await axios.post("/api/subscriptionPlans/planDetails", id);
 
     const planDetails = {
