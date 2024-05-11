@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 interface FormValues {
@@ -23,7 +23,18 @@ interface FormValues {
   profilePicture: File | null;
 }
 
-const MembersForm: React.FC = () => {
+interface planDetails {
+  features?: string[];
+  benefits?: string[];
+  name?: string;
+  planId?: string;
+  price: number;
+  currency: string;
+}
+interface MembersFormProps {
+  pramsId: any;
+}
+const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   const initialValues: FormValues = {
     title: "",
     name: "",
@@ -48,6 +59,113 @@ const MembersForm: React.FC = () => {
 
   const [formData, setFormData] = useState<FormValues>(initialValues);
   const [loading, setLoading] = useState(false);
+
+  const [paymentInitialized, setPaymentInitialized] = useState(false);
+  const [planDetails, setPlanDetails] = useState<planDetails>();
+
+  useEffect(() => {
+    getEventDetails(pramsId);
+    initializeRazorpay();
+  }, [pramsId]);
+
+  const getEventDetails = async (id: string) => {
+    const response = await axios.post("/api/subscriptionPlans/planDetails", id);
+
+    const planDetails = {
+      price: response.data.data.price,
+      currency: "INR",
+      planId: response.data.data._id,
+      name: response.data.data.name,
+      features: response.data.data.features,
+      benefits: response.data.data.benefits,
+    };
+
+    setPlanDetails(planDetails);
+  };
+
+  const makePayment = async () => {
+    if (!paymentInitialized) {
+      alert("Razorpay SDK failed to load");
+      return;
+    }
+
+    try {
+      const payload = {
+        amount: 1,
+        currency: "INR",
+        payment_capture: 1,
+      };
+      const response = await axios.post("/api/payments/rozorpay", payload);
+      const data = response.data;
+
+      const options = {
+        name: "Operant Biomedical federation",
+        currency: data.currency,
+        amount: data.amount,
+        order_id: data.id,
+        description: "Thank you",
+        handler: async function (response: any) {
+          const payment = {
+            paymentId: response.razorpay_payment_id,
+            orderId: response.razorpay_order_id,
+            signature: response.razorpay_signature,
+            amount: data.amount,
+            currency: data.currency,
+            status: "success",
+            plan: planDetails?.planId,
+          };
+
+          const resultRes = await axios.post(
+            "/api/payments/transaction",
+            payment
+          );
+
+          try {
+            const json = {
+              orderId: resultRes.data.transaction.orderId,
+            };
+            const invoiceResponse = await axios.post(
+              "/api/payments/invoice",
+              json,
+              { responseType: "arraybuffer" }
+            );
+
+            const blob = new Blob([invoiceResponse.data], {
+              type: "application/pdf",
+            });
+
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = `invoice_${data.id}.pdf`;
+
+            document.body.appendChild(link);
+            setTimeout(() => {
+              link.click();
+
+              document.body.removeChild(link);
+            }, 1000);
+          } catch (error) {
+            console.error("Error downloading invoice:", error);
+          }
+        },
+      };
+
+      const paymentObject = new (window as any).Razorpay(options);
+      paymentObject.open();
+    } catch (error: any) {}
+  };
+
+  const initializeRazorpay = () => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => {
+      setPaymentInitialized(true);
+    };
+    script.onerror = () => {
+      setPaymentInitialized(false);
+    };
+    document.body.appendChild(script);
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -410,6 +528,7 @@ const MembersForm: React.FC = () => {
                   type="submit"
                   className="cs_btn cs_style_1 cs_type_btn"
                   disabled={loading}
+                  onClick={makePayment}
                 >
                   <span>Submit Now</span>
                   <svg

@@ -10,13 +10,17 @@ import React from "react";
 //   title: "Blog Details Operant Biomedical Research Federation",
 // };
 
-const index = () => {
+const index = ({ params }: any) => {
+  const pramsId = params;
+
   return (
     <Wrapper>
       <HeaderOne />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <main>{/* <MembersForm /> */}</main>
+          <main>
+            <MembersForm pramsId={pramsId} />
+          </main>
           <FooterOne />
         </div>
       </div>
