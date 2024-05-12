@@ -11,8 +11,9 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
     const transactionData = await RazorpayTransaction.findOne({
       orderId,
     }).exec();
+    console.log("transactionData", transactionData);
 
-    const userData = await Membership.findById(transactionData.user);
+    const userData = await Membership.findOne({ email: transactionData.user });
 
     const planDetails = await membershipPlan.findById(transactionData.plan);
 
@@ -158,7 +159,7 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
                         <div class="title">Invoice</div>
                         <div class="subject">
                             <p class="from"><b>From:</b></p>
-                            <p class="from">NextGEN Leaders</p>
+                            <p class="from">Operant BioMedical federation</p>
                             <p class="from">Pali Rajsthan</p>
                         </div>
                     </div>
