@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 interface FormValues {
@@ -62,6 +62,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   const [email, setEmail] = useState<string>("");
   const [paymentInitialized, setPaymentInitialized] = useState(false);
   const [planDetails, setPlanDetails] = useState<planDetails>();
+  const emailRef = useRef<string>(""); // Use ref to store email
 
   useEffect(() => {
     getMembershipDetails(pramsId);
@@ -102,6 +103,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
       };
       const response = await axios.post("/api/payments/rozorpay", payload);
       const data = response.data;
+      const email = emailRef.current; // Access email value from the ref
 
       const options = {
         name: "Operant Biomedical federation",
@@ -183,7 +185,6 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setEmail(formData.email);
     try {
       const response = await axios.post(
         "/api/membership/newMembership",
@@ -194,26 +195,29 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
           },
         }
       );
-      console.log("Payment successful", response.data.blogPost.email);
 
-      setEmail(response.data.blogPost.email);
-      if (email) {
+      console.log("API Response:", response.data); // Log the entire response for debugging
+
+      // Log the value of email just before setting it
+      console.log("Email from response:", response.data.blogPost.email);
+
+      const emailFromResponse = response.data.blogPost.email;
+
+      if (emailFromResponse) {
+        emailRef.current = emailFromResponse;
         await makePayment();
-        console.log("Payment successful" + email);
+        console.log("Payment successful for email:", emailFromResponse);
       } else {
         console.log("Email not set. Cannot proceed with payment.");
       }
-      console.log(response.data);
-      console.log("email", email);
 
       setLoading(false);
-      setFormData(initialValues);
+      // setFormData(initialValues);
     } catch (error) {
       console.error(error);
       setLoading(false);
     }
   };
-
   return (
     <>
       <div className="cs_height_150 cs_height_lg_120"></div>

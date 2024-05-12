@@ -28,7 +28,9 @@ export async function POST(req: NextRequest) {
       message = "success";
       imgUrl = res.result.secure_url;
 
-      const membershipNumber = await generateMembershipNumber();
+      const membershipId = await generateMembershipNumber();
+
+      console.log("membershipNumber", membershipId);
 
       const {
         title,
@@ -73,7 +75,7 @@ export async function POST(req: NextRequest) {
         linkedin,
         website,
         membershipPlan,
-        membershipNumber: membershipNumber,
+        membershipId: membershipId,
       });
 
       const savedBlogPost = await newBlogPost.save();
@@ -108,7 +110,7 @@ async function generateMembershipNumber() {
 
   const lastMembership = await Membership.findOne().sort({ createdAt: -1 });
   const sequenceNumber = lastMembership
-    ? parseInt(lastMembership.membershipNumber.slice(-4)) + 1
+    ? parseInt(lastMembership.membershipId.slice(-4)) + 1
     : 1;
   const sequenceNumberStr = String(sequenceNumber).padStart(4, "0");
 
