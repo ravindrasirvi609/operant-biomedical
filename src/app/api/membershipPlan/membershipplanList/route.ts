@@ -4,8 +4,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 connect();
 
-export async function POST(req: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
+    await connect();
+
     const membershipPlans = await MembershipPlan.find();
     return NextResponse.json({ membershipPlans });
   } catch (error: any) {

@@ -15,7 +15,7 @@ const MembershipPlanDetails = () => {
   useEffect(() => {
     const getMembershipDetails = async () => {
       try {
-        const response = await axios.post(
+        const response = await axios.get(
           "/api/membershipPlan/membershipPlanList"
         );
         setMembershipPlan(response.data.membershipPlans);
