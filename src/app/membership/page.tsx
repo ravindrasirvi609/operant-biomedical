@@ -17,7 +17,7 @@ const index = () => {
   useEffect(() => {
     const getMembershipDetails = async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.post(
           "/api/membershipPlan/membershipPlanList"
         );
         console.log(response.data.membershipPlans);

@@ -33,8 +33,8 @@ const membershipPlanSchema = new Schema(
   }
 );
 
-const Membership =
+const MembershipPlan =
   mongoose.models.membershipPlan ||
   mongoose.model("membershipPlan", membershipPlanSchema);
 
-export default Membership;
+export default MembershipPlan;
