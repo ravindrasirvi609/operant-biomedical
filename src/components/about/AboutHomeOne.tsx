@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { use, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import axios from "axios";
 
 interface DataType {
   img: string;
@@ -33,6 +34,13 @@ const about_slider: DataType[] = [
 ];
 
 const AboutHomeOne = () => {
+  useEffect(() => {
+    axios
+      .post("/api/membershipPlan/membershipPlanList", { id: 2 })
+      .then((response) => {
+        console.log(response.data);
+      });
+  }, []);
   return (
     <>
       <div className="cs_height_130 cs_height_lg_60"></div>
