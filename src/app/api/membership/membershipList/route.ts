@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const memberships = await Membership.find();
     const membershipPlans = await MembershipPlan.find();
 
-    return NextResponse.json({ membershipPlans });
+    return NextResponse.json({ membershipPlans, memberships });
   } catch (error: any) {
     console.error("Error retrieving memberships:", error);
     return NextResponse.json(

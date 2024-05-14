@@ -13,19 +13,19 @@ interface DataType {
 const MembershipPlanDetails = () => {
   const [membershipPlan, setMembershipPlan] = useState<DataType[]>([]);
   useEffect(() => {
-    const getMembershipDetails = async () => {
+    const fetchMembershipList = async () => {
       try {
-        const response = await axios.get(
-          "/api/membershipPlan/membershipPlanList"
-        );
+        const response = await axios.post("/api/membership/membershipList", {
+          method: "POST",
+        });
         setMembershipPlan(response.data.membershipPlans);
-        console.log(response.data.membershipPlans);
+        console.log(response.data); // Handle response data as needed
       } catch (error) {
         console.error(error);
       }
     };
 
-    getMembershipDetails();
+    fetchMembershipList(); // Call the async function
   }, []);
   return (
     <>
