@@ -399,7 +399,7 @@ const HeaderOne = () => {
                   <hr className="mt-2 me-5 mb-2" />
                   <h2>
                     <a
-                      href="mailto:info@email.com"
+                      href="mailto:admin@opf.org.in."
                       className="cs_primary_font cs_text_btn"
                     >
                       <span className="cs_black">info@obrf.com</span>
