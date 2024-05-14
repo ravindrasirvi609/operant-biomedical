@@ -55,7 +55,7 @@ const HeroService = () => {
           <div className="cs_section_heading cs_style_1">
             <div className="cs_section_heading_text">
               <h2 className="cs_section_title anim_word_writting">
-                Transform Your Online Presence with Our Digital Agency Services
+                Discover Our Comprehensive Range of Professional Services{" "}
               </h2>
             </div>
           </div>

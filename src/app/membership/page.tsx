@@ -18,7 +18,8 @@ const index = () => {
     const getMembershipDetails = async () => {
       try {
         const response = await axios.post(
-          "/api/membershipPlan/membershipPlanList"
+          "/api/membershipPlan/membershipPlanList",
+          { id: 1 }
         );
         console.log(response.data.membershipPlans);
       } catch (error) {

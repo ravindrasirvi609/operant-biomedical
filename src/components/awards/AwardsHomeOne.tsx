@@ -1,5 +1,5 @@
-'use client'
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 import award_img_1 from "@/assets/img/award_1.svg";
 import award_img_2 from "@/assets/img/award_2.svg";
 import award_img_3 from "@/assets/img/award_3.svg";
@@ -7,8 +7,7 @@ import award_img_3 from "@/assets/img/award_3.svg";
 import award_thumb_1 from "@/assets/img/award_thumb_1.jpg";
 import award_thumb_2 from "@/assets/img/award_thumb_2.jpg";
 import award_thumb_3 from "@/assets/img/award_thumb_3.jpg";
-import Image, { StaticImageData } from 'next/image';
-
+import Image, { StaticImageData } from "next/image";
 
 interface DataType {
   id: number;
@@ -17,37 +16,37 @@ interface DataType {
   brand: string;
   title: string;
   des: string;
-}[]
+}
+[];
 
 const award_data: DataType[] = [
   {
     id: 1,
     ward_img: award_img_1,
     img: award_thumb_1,
-    brand: `Dribbbble`,
-    title: `IOS App Design Award`,
-    des: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design.`,
+    brand: `PCI`,
+    title: `Innovation Award`,
+    des: `Recognizing our pioneering research initiatives, driving transformative advancements in healthcare.`,
   },
   {
     id: 2,
     ward_img: award_img_2,
     img: award_thumb_2,
-    brand: `Envato`,
-    title: `Elite Author Award`,
-    des: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design.`,
+    brand: `NMC`,
+    title: `Excellence in Collaboration`,
+    des: `Honoring our commitment to interdisciplinary partnerships, accelerating breakthroughs for improved patient outcomes.`,
   },
   {
     id: 3,
     ward_img: award_img_3,
     img: award_thumb_3,
-    brand: `Awwward`,
-    title: `CSS Design Award`,
-    des: `Welcome to our digital agency We specialize in helping business most like yours succeed online. From website design.`,
+    brand: `ACPTI`,
+    title: `Community Impact Award`,
+    des: `Celebrating our dedication to fostering inclusivity and driving positive change in global health.`,
   },
-]
+];
 
-const AwardsHomeOne = ({style_2}: any) => {
-
+const AwardsHomeOne = ({ style_2 }: any) => {
   const [activeTab, setActiveTab] = useState(0);
   const handleMouseEnter = (index: any) => {
     setActiveTab(index);
@@ -55,7 +54,7 @@ const AwardsHomeOne = ({style_2}: any) => {
 
   return (
     <>
-    {style_2 ? <div className="cs_height_145 cs_height_lg_60"></div> : null}
+      {style_2 ? <div className="cs_height_145 cs_height_lg_60"></div> : null}
       <section>
         <div className="container">
           <div className="cs_section_heading cs_style_1 cs_type_1 swiper-slide swiper-slide-active">
@@ -70,19 +69,21 @@ const AwardsHomeOne = ({style_2}: any) => {
           </div>
           <div className="cs_height_100 cs_height_lg_60"></div>
           <div className="cs_card_2_list">
-            {award_data.map((item, i) =>
-              <div key={i}
+            {award_data.map((item, i) => (
+              <div
+                key={i}
                 onMouseEnter={() => handleMouseEnter(i)}
-                className={`cs_card cs_style_2 cs_hover_tab anim_div_ShowDowns ${activeTab === i ? 'active' : ''}`}>
+                className={`cs_card cs_style_2 cs_hover_tab anim_div_ShowDowns ${
+                  activeTab === i ? "active" : ""
+                }`}
+              >
                 <div className="cs_card_left">
                   <div className="cs_card_logo">
                     <Image src={item.ward_img} alt="Award" />
                   </div>
                   <div>
                     <h2 className="cs_card_title">{item.title}</h2>
-                    <div className="cs_card_subtitle">
-                      {item.des}
-                    </div>
+                    <div className="cs_card_subtitle">{item.des}</div>
                   </div>
                 </div>
                 <div className="cs_card_right">
@@ -92,8 +93,7 @@ const AwardsHomeOne = ({style_2}: any) => {
                   <Image src={item.img} alt="Thumb" />
                 </div>
               </div>
-            )}
-
+            ))}
           </div>
         </div>
       </section>

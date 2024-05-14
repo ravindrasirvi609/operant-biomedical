@@ -4,7 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import avatar_img from "@/assets/img/avatar_1.jpg";
+import neha from "@/assets/img/neha.jpg";
 import testimonial_thumb from "@/assets/img/female-scientist-researcher-conducting-an-experime-2023-11-27-05-29-39-utc.jpg";
+
 import Image, { StaticImageData } from "next/image";
 
 interface DataType {
@@ -17,21 +19,21 @@ interface DataType {
 const testimonial_data: DataType[] = [
   {
     img: avatar_img,
-    name: `Delores Olivo`,
+    name: `Dr. Aarav Sharma`,
     location: `From Mumbai`,
-    des: `“Welcome to our Biomedical Research Platform. We specialize in facilitating institutions like yours to excel in the digital realm of medical research. From designing and developing advanced research platforms to implementing effective digital marketing strategies, we're here to elevate your research endeavors”`,
+    des: `“Working with the Operant Biomedical Research Federation team has been an enlightening experience. Their dedication and expertise are unmatched, driving impactful changes in the field.”`,
   },
   {
-    img: avatar_img,
-    name: `Delores Olivo`,
+    img: neha,
+    name: `Dr. Neha Patel`,
     location: `From Chennai`,
-    des: `“Welcome to our Biomedical Research Platform. We specialize in empowering institutions like yours to thrive in the digital landscape of medical research. From innovative research platform design and development to strategic digital marketing initiatives, we're dedicated to enhancing your research outcomes”`,
+    des: `“As a member of the Operant team, I've witnessed firsthand the commitment to excellence and collaboration. Together, we're shaping the future of biomedicine”`,
   },
   {
     img: avatar_img,
-    name: `Delores Olivo`,
+    name: `Dr. Vikram Singh`,
     location: `From Pune`,
-    des: `“Welcome to our Biomedical Research Platform. We specialize in empowering institutions like yours to excel in the digital realm of medical research. From website design and development tailored to research needs to comprehensive digital marketing strategies, we're committed to advancing your research initiatives”`,
+    des: `“The Operant Biomedical Research Federation fosters a culture of innovation and inclusivity. It's inspiring to be part of a team that's making a real difference in healthcare.”`,
   },
 ];
 
