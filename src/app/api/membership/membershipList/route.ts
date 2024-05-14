@@ -1,5 +1,6 @@
 import { connect } from "@/dbConfig/dbConfig";
 import Membership from "@/models/membershipModel";
+import MembershipPlan from "@/models/membershipPlanModel";
 import { NextRequest, NextResponse } from "next/server";
 
 connect();
@@ -7,7 +8,9 @@ connect();
 export async function POST(req: NextRequest) {
   try {
     const memberships = await Membership.find();
-    return NextResponse.json({ memberships });
+    const membershipPlans = await MembershipPlan.find();
+
+    return NextResponse.json({ membershipPlans });
   } catch (error: any) {
     console.error("Error retrieving memberships:", error);
     return NextResponse.json(
