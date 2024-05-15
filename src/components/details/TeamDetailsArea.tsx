@@ -13,6 +13,16 @@ interface DataType {
 const TeamDetailsArea = (teamData: any) => {
   console.log("teamData hhihihihihhhiiih", teamData.teamData.member);
 
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", options);
+  };
+
   return (
     <>
       <div className="cs_height_219 cs_height_lg_120"></div>
@@ -54,7 +64,7 @@ const TeamDetailsArea = (teamData: any) => {
                     Date Of Birth
                   </p>
                   <p className="col-md-4 col-10">
-                    {teamData.teamData.member.DateOfBirth}
+                    {formatDate(teamData.teamData.member.DateOfBirth)}
                   </p>
                 </div>
                 <div className="d-flex">

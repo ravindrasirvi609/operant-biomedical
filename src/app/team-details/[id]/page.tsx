@@ -50,8 +50,6 @@ const TeamDetails: React.FC<TeamDetailsProps> = ({ params }: any) => {
           <div id="smooth-content">
             <main>
               <TeamDetailsArea teamData={teamData} />
-              <ServiceTeam />
-              <AboutHomeFour />
             </main>
             <FooterOne />
           </div>
