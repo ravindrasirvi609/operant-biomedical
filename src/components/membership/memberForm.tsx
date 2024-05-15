@@ -544,14 +544,20 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                     type="file"
                     id="profilePicture"
                     name="profilePicture"
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        profilePicture: e.target.files
-                          ? e.target.files[0]
-                          : null,
-                      })
-                    }
+                    accept=".jpg, .jpeg, .png"
+                    onChange={(e) => {
+                      const file = e.target.files ? e.target.files[0] : null;
+                      if (file && file.size > 2 * 1024 * 1024) {
+                        // If the file size is greater than 2MB, show an error message and reset the input field
+                        alert("File size exceeds 2MB");
+                        e.target.value = ""; // Reset the input field
+                      } else {
+                        setFormData({
+                          ...formData,
+                          profilePicture: file,
+                        });
+                      }
+                    }}
                   />
                   <label htmlFor="profilePicture" className="cs_input_label">
                     Profile Picture
@@ -562,7 +568,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
 
                 <button
                   type="submit"
-                  className="cs_btn cs_style_1 cs_type_btn"
+                  className="cs_</div>btn cs_style_1 cs_type_btn"
                   disabled={loading}
                 >
                   <span>Submit Now</span>
