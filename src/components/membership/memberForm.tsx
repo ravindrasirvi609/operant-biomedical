@@ -146,7 +146,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
               text: "Your Payment is successful!, You are now a member of Operant Biomedical federation.",
               icon: "success",
             });
-            router.push("/membership");
+            // router.push("/membership");
           }
           try {
             const json = {

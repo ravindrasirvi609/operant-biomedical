@@ -1,18 +1,7 @@
 import React from "react";
-import avatar_img_1 from "@/assets/img/team_detalils.jpg";
 import Image from "next/image";
 
-interface DataType {
-  des: string;
-  info: {
-    title: string;
-    des: string;
-  }[];
-}
-
 const TeamDetailsArea = (teamData: any) => {
-  console.log("teamData hhihihihihhhiiih", teamData.teamData.member);
-
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
       day: "numeric",
@@ -22,7 +11,11 @@ const TeamDetailsArea = (teamData: any) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", options);
   };
+  const member = teamData?.teamData?.member;
 
+  if (!member) {
+    return null; // or return a loading spinner, or some fallback UI
+  }
   return (
     <>
       <div className="cs_height_219 cs_height_lg_120"></div>
@@ -32,9 +25,8 @@ const TeamDetailsArea = (teamData: any) => {
           <div className="cs_section_heading cs_style_1 cs_type_1">
             <div className="cs_section_heading_text anim_text_writting">
               <h2 className="cs_section_title">
-                {teamData.teamData.member.title} {teamData.teamData.member.name}{" "}
-                &nbsp;&bull;&nbsp; {teamData.teamData.member.designation}{" "}
-                {teamData.teamData.member.department}
+                {member.title} {member.name} &nbsp;&bull;&nbsp;{" "}
+                {member.designation} {member.department}
               </h2>
             </div>
           </div>
@@ -45,9 +37,9 @@ const TeamDetailsArea = (teamData: any) => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-5">
-            {teamData.teamData.member.imageUrl && (
+            {member.imageUrl && (
               <Image
-                src={teamData.teamData.member.imageUrl}
+                src={member.imageUrl}
                 alt="team_detalils"
                 width={500}
                 height={500}
@@ -58,59 +50,56 @@ const TeamDetailsArea = (teamData: any) => {
           <div className="col-md-7">
             <div className="cs_team_details">
               <div className="cs_team_details_text">
-                <p>{teamData.teamData.member.bio}</p>
+                <p>{member.bio}</p>
                 <div className="cs_height_50 cs_height_lg_50"></div>
 
-                {teamData.teamData.member.DateOfBirth && (
+                {member.DateOfBirth && (
                   <div className="d-flex">
                     <p className="col-md-2 col-4 cs_medium cs_primary_color">
                       Date Of Birth
                     </p>
                     <p className="col-md-4 col-10">
-                      {formatDate(teamData.teamData.member.DateOfBirth)}
+                      {formatDate(member.DateOfBirth)}
                     </p>
                   </div>
                 )}
 
-                {teamData.teamData.member.address && (
+                {member.address && (
                   <div className="d-flex">
                     <p className="col-md-2 col-4 cs_medium cs_primary_color">
                       Address
                     </p>
                     <p className="col-md-4 col-10">
-                      {teamData.teamData.member.address},{" "}
-                      {teamData.teamData.member.city},{" "}
-                      {teamData.teamData.member.state},{" "}
-                      {teamData.teamData.member.country},{" "}
-                      {teamData.teamData.member.zip}
+                      {member.address}, {member.city}, {member.state},{" "}
+                      {member.country}, {member.zip}
                     </p>
                   </div>
                 )}
               </div>
               <div className="cs_height_50 cs_height_lg_50"></div>
               <div className="cs_btn cs_style_2">
-                {teamData.teamData.member.website && (
+                {member.website && (
                   <a
                     target="_blank"
-                    href={teamData.teamData.member.website}
+                    href={member.website}
                     className="cs_center"
                   >
                     Website
                   </a>
                 )}
-                {teamData.teamData.member.linkdien && (
+                {member.linkdien && (
                   <a
                     target="_blank"
-                    href={teamData.teamData.member.linkdien}
+                    href={member.linkdien}
                     className="cs_center"
                   >
                     linkdien
                   </a>
                 )}
-                {teamData.teamData.member.twitter && (
+                {member.twitter && (
                   <a
                     target="_blank"
-                    href={teamData.teamData.member.twitter}
+                    href={member.twitter}
                     className="cs_center"
                   >
                     Twitter
