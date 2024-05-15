@@ -45,12 +45,14 @@ const TeamDetailsArea = (teamData: any) => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-5">
-            <Image
-              src={teamData.teamData.member.imageUrl}
-              alt="team_detalils"
-              width={500}
-              height={500}
-            />
+            {teamData.teamData.member.imageUrl && (
+              <Image
+                src={teamData.teamData.member.imageUrl}
+                alt="team_detalils"
+                width={500}
+                height={500}
+              />
+            )}
             <div className="cs_height_lg_30"></div>
           </div>
           <div className="col-md-7">
@@ -59,50 +61,61 @@ const TeamDetailsArea = (teamData: any) => {
                 <p>{teamData.teamData.member.bio}</p>
                 <div className="cs_height_50 cs_height_lg_50"></div>
 
-                <div className="d-flex">
-                  <p className="col-md-2 col-4 cs_medium cs_primary_color">
-                    Date Of Birth
-                  </p>
-                  <p className="col-md-4 col-10">
-                    {formatDate(teamData.teamData.member.DateOfBirth)}
-                  </p>
-                </div>
-                <div className="d-flex">
-                  <p className="col-md-2 col-4 cs_medium cs_primary_color">
-                    Address
-                  </p>
-                  <p className="col-md-4 col-10">
-                    {teamData.teamData.member.address},{" "}
-                    {teamData.teamData.member.city},{" "}
-                    {teamData.teamData.member.state},{" "}
-                    {teamData.teamData.member.country},{" "}
-                    {teamData.teamData.member.zip}
-                  </p>
-                </div>
+                {teamData.teamData.member.DateOfBirth && (
+                  <div className="d-flex">
+                    <p className="col-md-2 col-4 cs_medium cs_primary_color">
+                      Date Of Birth
+                    </p>
+                    <p className="col-md-4 col-10">
+                      {formatDate(teamData.teamData.member.DateOfBirth)}
+                    </p>
+                  </div>
+                )}
+
+                {teamData.teamData.member.address && (
+                  <div className="d-flex">
+                    <p className="col-md-2 col-4 cs_medium cs_primary_color">
+                      Address
+                    </p>
+                    <p className="col-md-4 col-10">
+                      {teamData.teamData.member.address},{" "}
+                      {teamData.teamData.member.city},{" "}
+                      {teamData.teamData.member.state},{" "}
+                      {teamData.teamData.member.country},{" "}
+                      {teamData.teamData.member.zip}
+                    </p>
+                  </div>
+                )}
               </div>
               <div className="cs_height_50 cs_height_lg_50"></div>
               <div className="cs_btn cs_style_2">
-                <a
-                  target="_blank"
-                  href={teamData.teamData.member.website}
-                  className="cs_center"
-                >
-                  Website
-                </a>
-                <a
-                  target="_blank"
-                  href={teamData.teamData.member.linkdien}
-                  className="cs_center"
-                >
-                  linkdien
-                </a>
-                <a
-                  target="_blank"
-                  href={teamData.teamData.member.twitter}
-                  className="cs_center"
-                >
-                  Twitter
-                </a>
+                {teamData.teamData.member.website && (
+                  <a
+                    target="_blank"
+                    href={teamData.teamData.member.website}
+                    className="cs_center"
+                  >
+                    Website
+                  </a>
+                )}
+                {teamData.teamData.member.linkdien && (
+                  <a
+                    target="_blank"
+                    href={teamData.teamData.member.linkdien}
+                    className="cs_center"
+                  >
+                    linkdien
+                  </a>
+                )}
+                {teamData.teamData.member.twitter && (
+                  <a
+                    target="_blank"
+                    href={teamData.teamData.member.twitter}
+                    className="cs_center"
+                  >
+                    Twitter
+                  </a>
+                )}
               </div>
             </div>
           </div>
