@@ -7,6 +7,7 @@ interface Membership {
   imageUrl: string;
   name: string;
   subject: string;
+  _id: string;
   // Add more properties if needed
 }
 
@@ -48,7 +49,7 @@ const MembershipList = () => {
           <div className="cs_team_section anim_div_ShowDowns">
             {team_data.slice(0, 4).map((item, i) => (
               <div key={i} className="cs_team_img">
-                <Link href="/team-details">
+                <Link href={`/team-details/${item._id}`}>
                   <Image
                     src={item.imageUrl}
                     alt="teamsimg1"
@@ -59,7 +60,7 @@ const MembershipList = () => {
                 </Link>
 
                 <div className="cs_team_text">
-                  <Link href="/team-details">
+                  <Link href={`/team-details/${item._id}`}>
                     <h6 className="cs_team_text_title">{item.name}</h6>
                   </Link>
                   <p className="cs_team_subtitle">{item.subject}</p>
@@ -71,7 +72,7 @@ const MembershipList = () => {
           <div className="cs_team_section anim_div_ShowDowns">
             {team_data.slice(4, 8).map((item, i) => (
               <div key={i} className="cs_team_img">
-                <Link href="/team-details">
+                <Link href={`/team-details/${item._id}`}>
                   <Image
                     src={item.imageUrl}
                     alt="teamsimg5"
@@ -81,7 +82,7 @@ const MembershipList = () => {
                   <div className="cs_portfolio_overlay"></div>
                 </Link>
                 <div className="cs_team_text">
-                  <Link href="/team-details">
+                  <Link href={`/team-details/${item._id}`}>
                     <h6 className="cs_team_text_title">{item.name}</h6>
                   </Link>
                   <p className="cs_team_subtitle">{item.subject}</p>
