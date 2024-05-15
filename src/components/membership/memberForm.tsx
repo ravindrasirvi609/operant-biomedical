@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 interface FormValues {
   title: string;
@@ -35,6 +37,8 @@ interface MembersFormProps {
   pramsId: any;
 }
 const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
+  const router = useRouter();
+
   const initialValues: FormValues = {
     title: "",
     name: "",
@@ -127,7 +131,23 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
             "/api/payments/transaction",
             payment
           );
+          console.log("resultRes", resultRes);
 
+          if (resultRes.status !== 201) {
+            Swal.fire({
+              title: "Error!",
+              text: "Payment failed, please contact support.",
+              icon: "error",
+            });
+            return;
+          } else {
+            Swal.fire({
+              title: "Good job!",
+              text: "Your Payment is successful!, You are now a member of Operant Biomedical federation.",
+              icon: "success",
+            });
+            router.push("/membership");
+          }
           try {
             const json = {
               orderId: resultRes.data.transaction.orderId,
