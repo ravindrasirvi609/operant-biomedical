@@ -4,15 +4,13 @@ import axios from "axios";
 import Wrapper from "@/layouts/Wrapper";
 import HeaderOne from "@/layouts/headers/HeaderOne";
 import TeamDetailsArea from "@/components/details/TeamDetailsArea";
-import ServiceTeam from "@/components/service/ServiceTeam";
-import AboutHomeFour from "@/components/about/AboutHomeFour";
 import FooterOne from "@/layouts/footers/FooterOne";
 
 interface TeamDetailsProps {
   id: string;
 }
 
-const TeamDetails: React.FC<TeamDetailsProps> = ({ params }: any) => {
+const TeamDetails = ({ params }: any) => {
   const { id } = params;
   const [teamData, setTeamData] = useState<any>(null);
   const [error, setError] = useState<string>("");
