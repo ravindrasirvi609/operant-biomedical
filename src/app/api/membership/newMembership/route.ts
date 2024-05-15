@@ -95,6 +95,11 @@ export async function POST(req: NextRequest) {
         { error: "Validation failed", details: validationErrors },
         { status: 400 }
       );
+    } else if (error.code === 11000 && "email" in error.keyPattern) {
+      return NextResponse.json(
+        { error: "Email already exists" },
+        { status: 400 }
+      );
     } else {
       return NextResponse.json(
         { error: "Failed to add blog post" },

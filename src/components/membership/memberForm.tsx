@@ -215,26 +215,21 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
           },
         }
       );
-
-      console.log("API Response:", response.data); // Log the entire response for debugging
-
-      // Log the value of email just before setting it
-      console.log("Email from response:", response.data.blogPost.email);
-
       const emailFromResponse = response.data.blogPost.email;
-
       if (emailFromResponse) {
         emailRef.current = emailFromResponse;
         await makePayment();
-        console.log("Payment successful for email:", emailFromResponse);
       } else {
-        console.log("Email not set. Cannot proceed with payment.");
+        Swal.fire(
+          "Error",
+          "Email not set. Cannot proceed with payment.",
+          "error"
+        );
       }
-
-      setLoading(false);
-      // setFormData(initialValues);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      Swal.fire("Error", error.response.data.error, "error");
+    } finally {
       setLoading(false);
     }
   };
