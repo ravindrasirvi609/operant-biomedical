@@ -33,7 +33,7 @@ const TeamDetailsArea = (teamData: any) => {
             <div className="cs_section_heading_text anim_text_writting">
               <h2 className="cs_section_title">
                 {teamData.teamData.member.title} {teamData.teamData.member.name}{" "}
-                &nbsp;&bull;&nbsp; {teamData.teamData.member.designation}
+                &nbsp;&bull;&nbsp; {teamData.teamData.member.designation}{" "}
                 {teamData.teamData.member.department}
               </h2>
             </div>
