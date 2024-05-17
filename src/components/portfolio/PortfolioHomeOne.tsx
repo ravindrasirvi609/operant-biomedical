@@ -5,12 +5,12 @@ import Image, { StaticImageData } from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import portfolio_img_1 from "@/assets/img/cryopreservation-expert-freezing-cells-in-cryogeni-2023-11-27-05-06-12-utc.jpg";
-import portfolio_img_2 from "@/assets/img/scientist-in-white-protective-uniform-works-with-c-2023-11-27-05-06-25-utc.jpg";
-import portfolio_img_3 from "@/assets/img/futuristic-interaction-intern-shares-data-with-hi-2023-11-27-05-15-19-utc.jpg";
-import portfolio_img_4 from "@/assets/img/closeup-of-scientific-microscope-data-analysis-in-2023-11-27-04-50-22-utc.jpg";
-import portfolio_img_5 from "@/assets/img/scientist-in-white-protective-uniform-works-with-c-2023-11-27-05-06-25-utc.jpg";
-import portfolio_img_6 from "@/assets/img/radiologist-setting-mri-scanner-for-patient-2024-03-28-19-40-34-utc.jpg";
+import portfolio_img_1 from "@/assets/img/hero_img_33.jpg";
+import portfolio_img_2 from "@/assets/img/hero_img_33.jpg";
+import portfolio_img_3 from "@/assets/img/hero_img_33.jpg";
+import portfolio_img_4 from "@/assets/img/hero_img_33.jpg";
+import portfolio_img_5 from "@/assets/img/hero_img_33.jpg";
+import portfolio_img_6 from "@/assets/img/hero_img_33.jpg";
 
 interface DataType {
   img: StaticImageData;

@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import avatar_img from "@/assets/img/avatar_1.jpg";
-import neha from "@/assets/img/neha.jpg";
-import testimonial_thumb from "@/assets/img/female-scientist-researcher-conducting-an-experime-2023-11-27-05-29-39-utc.jpg";
+import hero_img_33 from "@/assets/img/hero_img_33.jpg";
+import testimonial_thumb from "@/assets/img/hero_img_33.jpg";
 
 import Image, { StaticImageData } from "next/image";
 
@@ -24,7 +24,7 @@ const testimonial_data: DataType[] = [
     des: `“Working with the Operant Biomedical Research Federation team has been an enlightening experience. Their dedication and expertise are unmatched, driving impactful changes in the field.”`,
   },
   {
-    img: neha,
+    img: hero_img_33,
     name: `Dr. Neha Patel`,
     location: `From Chennai`,
     des: `“As a member of the Operant team, I've witnessed firsthand the commitment to excellence and collaboration. Together, we're shaping the future of biomedicine”`,
