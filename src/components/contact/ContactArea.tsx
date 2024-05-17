@@ -231,7 +231,7 @@ const ContactArea = () => {
                     </a>
                     <div className="cs_icon_text">
                       <h6 className="cs_icon_title">Phone</h6>
-                      <p className="cs_icon_subtitle">+91 8107199052</p>
+                      <p className="cs_icon_subtitle">+91-94609-71652</p>
                     </div>
                   </div>
                 </div>

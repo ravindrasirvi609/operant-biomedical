@@ -348,7 +348,7 @@ const HeaderOne = () => {
                   </p>
 
                   <h4 className="cs_phone_number">
-                    <a href="tel:+91 8107199052">
+                    <a href="tel:+91-94609-71652">
                       <svg
                         width="35"
                         height="35"
@@ -369,7 +369,7 @@ const HeaderOne = () => {
                           fill="white"
                         ></path>
                       </svg>
-                      <span className="ms-2">+91 8107199052</span>
+                      <span className="ms-2">+91-94609-71652</span>
                     </a>
                   </h4>
 

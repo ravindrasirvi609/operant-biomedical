@@ -17,7 +17,7 @@ interface DataType {
 
 const footer_data: DataType = {
   email: `admin@opf.org.in.`,
-  phone: `+91 8107199052`,
+  phone: `+91-94609-71652`,
   location: `17, Mayank Nagar, Naya Gaon Road, Pali, Rajasthan - 306401, India.`,
   footer_info: `Welcome to our BioMedical Research Federation We specialize in helping Students most like yours succeed online.`,
   links: [

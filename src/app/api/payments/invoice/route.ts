@@ -141,8 +141,8 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
             <div class="footer">
                 <div class="contact">
                     <div class="bill-to">Contact:</div>
-                    <div class="bill-to1">Phone: +91 8107199052</div>
-                    <div class="bill-to1">Email: sirviravirandra609@gmail.com</div>
+                    <div class="bill-to1">Phone: +91-94609-71652</div>
+                    <div class="bill-to1">Email: admin@opf.org.in</div>
                 </div>
                 <div class="payment">
                     <div class="bill-to">Payment:</div>
