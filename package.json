@@ -30,6 +30,7 @@
     "react-modal-image": "^2.6.0",
     "react-modal-video": "^2.0.1",
     "react-use": "^17.5.0",
+    "resend": "^3.2.0",
     "sass": "^1.70.0",
     "shortid": "^2.2.16",
     "sweetalert2": "^11.11.0",
