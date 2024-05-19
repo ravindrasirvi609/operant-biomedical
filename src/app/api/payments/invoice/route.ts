@@ -33,7 +33,7 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
 
     resend.emails.send({
       from: "dev@ravindrachoudhary.in",
-      to: "ravi.sirvi609@gmail.com", // Replace with the user's email
+      to: `${userData?.email}`, // Replace with the user's email
       subject: "Congratulations! You're Now a Premium Member",
       html: `
     <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
