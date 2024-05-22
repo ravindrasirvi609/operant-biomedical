@@ -21,11 +21,11 @@ const footer_data: DataType = {
   location: `17, Mayank Nagar, Naya Gaon Road, Pali, Rajasthan - 306401, India.`,
   footer_info: `Welcome to our BioMedical Research Federation We specialize in helping Students most like yours succeed online.`,
   links: [
-    { title: `HOME`, link: "/" },
-    { title: `ABOUT`, link: "/about" },
-    { title: `SERVICES`, link: "/service" },
-    { title: `PORTFOLIO`, link: "/portfolio" },
-    { title: `BLOG`, link: "/blog" },
+    { title: `Terms & Conditions`, link: "/terms" },
+    { title: `Privacy Policy`, link: "/privacy" },
+    { title: `Refund & Shipping Policy`, link: "/refund" },
+    // { title: `PORTFOLIO`, link: "/portfolio" },
+    // { title: `BLOG`, link: "/blog" },
     { title: `CONTACT US`, link: "/contact" },
   ],
 };

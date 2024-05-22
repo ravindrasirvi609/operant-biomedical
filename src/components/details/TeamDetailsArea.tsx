@@ -26,8 +26,10 @@ const TeamDetailsArea = (teamData: any) => {
             <div className="cs_section_heading_text anim_text_writting">
               <h2 className="cs_section_title">
                 {member.title} {member.name} &nbsp;&bull;&nbsp;{" "}
-                {member.designation} {member.department}
               </h2>
+              <div className="cs_height_50 cs_height_lg_50">
+                {member.membershipId}
+              </div>
             </div>
           </div>
         </div>
@@ -50,7 +52,39 @@ const TeamDetailsArea = (teamData: any) => {
           <div className="col-md-7">
             <div className="cs_team_details">
               <div className="cs_team_details_text">
-                <p>{member.bio}</p>
+                {member.designation && (
+                  <div className="d-flex">
+                    <p className="col-md-2 col-4 cs_medium cs_primary_color">
+                      Designation
+                    </p>
+                    <p className="col-md-4 col-10">{member.designation}</p>
+                  </div>
+                )}
+                {member.department && (
+                  <div className="d-flex">
+                    <p className="col-md-2 col-4 cs_medium cs_primary_color">
+                      Department
+                    </p>
+                    <p className="col-md-4 col-10">{member.department}</p>
+                  </div>
+                )}
+                {member.collegeName && (
+                  <div className="d-flex">
+                    <p className="col-md-2 col-4 cs_medium cs_primary_color">
+                      Colleage
+                    </p>
+                    <p className="col-md-4 col-10">{member.collegeName}</p>
+                  </div>
+                )}
+
+                {member.bio && (
+                  <div className="d-flex">
+                    <p className="col-md-2 col-4 cs_medium cs_primary_color">
+                      Bio
+                    </p>
+                    <p className="col-md-4 col-10">{member.bio}</p>
+                  </div>
+                )}
                 <div className="cs_height_50 cs_height_lg_50"></div>
 
                 {member.DateOfBirth && (
@@ -71,7 +105,7 @@ const TeamDetailsArea = (teamData: any) => {
                     </p>
                     <p className="col-md-4 col-10">
                       {member.address}, {member.city}, {member.state},{" "}
-                      {member.country}, {member.zip}
+                      {member.country}, {member.postalCode}
                     </p>
                   </div>
                 )}

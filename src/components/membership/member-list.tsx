@@ -7,6 +7,7 @@ interface Membership {
   imageUrl: string;
   name: string;
   subject: string;
+  membershipId: string;
   _id: string;
   // Add more properties if needed
 }
@@ -64,6 +65,7 @@ const MembershipList = () => {
                     <h6 className="cs_team_text_title">{item.name}</h6>
                   </Link>
                   <p className="cs_team_subtitle">{item.subject}</p>
+                  <p className="cs_team_subtitle">{item.membershipId}</p>
                 </div>
               </div>
             ))}
