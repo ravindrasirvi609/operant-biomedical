@@ -29,6 +29,12 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
     }
 
     const planDetails = await membershipPlan.findById(transactionData.plan);
+    console.log(planDetails);
+    if (!planDetails) {
+      throw new Error(
+        `No plan details found for plan ID ${transactionData.plan}`
+      );
+    }
 
     const invoiceHtml = `
 <!DOCTYPE html>
@@ -36,205 +42,125 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice</title>
+    <title>Payment Confirmation</title>
     <style>
-        /* Your CSS styles here */
-        .bill-to,
-        .bill-to1,
-        .bill-to6,
-        .title,
-        .subject,
-        .invoice-number,
-        .bill-to8,
-        .total-due-title1,
-        .quantity3 {
+        .invoice, .header, .client, .items-list, .footer {
             font-family: 'Manrope', sans-serif;
-        }
-        .invoice {
-            position: relative;
-            border-radius: 5px;
-            border: 1px dashed #9747ff;
-            box-sizing: border-box;
-            width: 100%;
-            height: 1644px;
-            overflow: hidden;
-            text-align: left;
-            font-size: 16px;
             color: #333;
         }
-        .property-1default {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: #fff;
-            width: 612px;
-            height: 792px;
-            overflow: hidden;
-        }
-        .footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            border-top: 1px solid #ccc;
+        .invoice {
             width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px dashed #9747ff;
+            border-radius: 5px;
             padding: 20px;
+            box-sizing: border-box;
         }
-        .contact, .payment {
-            display: flex;
-            flex-direction: column;
-        }
-        .bill-to, .bill-to1, .bill-to6 {
-            margin-bottom: 10px;
-        }
-        .auto-layout {
-            position: absolute;
-            top: 90px;
-            left: 20px;
-            width: calc(100% - 40px);
-        }
-        .header, .client, .items-list {
+        .header, .client, .items-list, .footer {
             margin-bottom: 20px;
         }
-        .header {
-            display: flex;
-            justify-content: space-between;
+        .title {
+            font-size: 24px;
+            font-weight: bold;
         }
-        .sender, .invoice-details {
-            width: 48%;
+        .subject, .invoice-details, .contact, .total-due, .items-list {
+            margin-top: 10px;
         }
-        .subject p {
+        .subject p, .invoice-details div, .contact div, .total-due div {
             margin: 5px 0;
         }
-        .invoice-details div {
-            margin-bottom: 10px;
-        }
-        .client {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+        .sender, .invoice-details, .contact, .items-list {
+            width: 100%;
         }
         .items-list .item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             border-bottom: 1px solid #ccc;
             padding: 10px 0;
         }
-        .title-description {
-            width: 60%;
-        }
-        .description {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-        .quantity2, .charges2 {
-            width: 20%;
-            text-align: center;
-        }
-        .total-row {
+        .footer {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-top: 20px;
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap">
 </head>
 <body>
     <div class="invoice">
-        <div class="property-1default">
-            <!-- Footer Section -->
-            
-            <!-- Main Content Section -->
-            <div class="auto-layout">
-                <!-- Header Section -->
-                <div class="header">
-                    <div class="sender">
-                        <div class="title">Invoice</div>
-                        <div class="subject">
-                            <p class="from"><b>From:</b></p>
-                            <p class="from">Operant Biomedical Research federation</p>
-                            <p class="from">Pali Rajsthan</p>
-                        </div>
-                    </div>
-                    <div class="invoice-details">
-                        <div class="invoice-number-title-parent">
-                            <div class="invoice-number-title">Membership Id:</div>
-                            <div class="invoice-number-title">Payment Id:</div>
-                            <div class="issue-date-title">Payment Date</div>
-                        </div>
-                        <div class="invoice-number-parent">
-                            <div class="invoice-number">${
-                              transactionData.membershipId
-                            }</div>
-                            <div class="invoice-number">${
-                              transactionData.paymentId
-                            }</div>
-                            <div class="invoice-number">${transactionData.createdAt.toString()}</div>
-                        </div>
-                    </div>
+        <!-- Header Section -->
+        <div class="header">
+            <div class="sender">
+                <div class="title">Payment Confirmation</div>
+                <div class="subject">
+                    <p><strong>From:</strong></p>
+                    <p>Operant Biomedical Research Federation</p>
+                    <p>Pali, Rajasthan</p>
                 </div>
-                <!-- Client Section -->
-                <div class="client">
-                    <div class="contact">
-                        <div class="bill-to">Bill To:</div>
-                        <div class="bill-to8">${userData.fullName}</div>
-                        <div class="bill-to8">Address: ${
-                          userData.address
-                        }, City: ${userData.city}, State: ${
-      userData.state
-    }, Pincode: ${userData.pincode}</div>
-                        <div class="bill-to8">Phone: ${
-                          userData.number
-                        }, Email: ${userData.email}</div>
-                    </div>
-                    <div class="total-due">
-                        <div class="total-due-title">Total Amount:</div>
-                        <div class="total-due-title1">${
-                          transactionData.amount
-                        }</div>
-                    </div>
+            </div>
+            <div class="invoice-details">
+                <div>
+                    <strong>Membership ID:</strong> ${userData.membershipId}
                 </div>
-                <!-- Items List Section -->
-                <div class="items-list">
-                    <div class="index1">
-                        <div class="deliverables">
-                            <b class="charges">Deliverables</b>
-                        </div>
-                        <div class="quantity">
-                            <b class="charges">Quantity</b>
-                        </div>
-                        <div class="charges1">
-                            <b class="charges">Charges</b>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="title-description">
-                            <div class="title1">${planDetails.name}</div>
-                            <div class="description">${
-                              planDetails.features
-                            }</div>
-                        </div>
-                        <div class="quantity2">1</div>
-                        <div class="charges2">${planDetails.price}</div>
-                    </div>
-                    <!-- Additional items can be added dynamically here -->
+                <div>
+                    <strong>Payment ID:</strong> ${transactionData.paymentId}
                 </div>
-                <!-- Total Amount Section -->
-                <div class="total-row">
-                    <div class="amount">
-                        <div class="title7">Total:</div>
-                    </div>
-                    <div class="amount2">${transactionData.amount}</div>
+                <div>
+                    <strong>Payment Date:</strong> ${transactionData.createdAt.toString()}
                 </div>
+            </div>
+        </div>
+        
+        <!-- Client Section -->
+        <div class="client">
+            <div class="contact">
+                <div><strong>Bill To:</strong></div>
+                <div>${userData.title} ${userData.name}</div>
+                <div>Address: ${userData.address}, City: ${
+      userData.city
+    }, State: ${userData.state}, Pincode: ${userData.postalCode}</div>
+                <div>Phone: ${userData.phone}, Email: ${userData.email}</div>
+            </div>
+            <div class="total-due">
+                <div><strong>Total Amount:</strong></div>
+                <div>${transactionData.amount}</div>
+            </div>
+        </div>
+        
+        <!-- Items List Section -->
+        <div class="items-list">
+            <div class="item">
+                <div>
+                    <strong>Deliverables:</strong> ${planDetails.title}
+                    <p class="description">${planDetails.description}</p>
+                </div>
+                <div>
+                    <strong>Quantity:</strong> 1
+                </div>
+                <div>
+                    <strong>Charges:</strong> ${transactionData.amount}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Section -->
+        <div class="footer">
+            <div class="contact">
+                <div><strong>Contact:</strong></div>
+                <div>Phone: +91-94609-71652</div>
+                <div>Email: admin@opf.org.in</div>
+            </div>
+            <div class="payment">
+                <div><strong>Payment:</strong></div>
+                <div>Payable to RazorPay</div>
+                <div>Account number, Bank</div>
+                <div>*Please make payment before due date</div>
             </div>
         </div>
     </div>
 </body>
 </html>
+
     `;
     return invoiceHtml;
   } catch (error) {
@@ -288,6 +214,10 @@ export async function POST(req: NextRequest) {
     const userData = await Membership.findOne({
       email: transactionData.user,
     });
+    console.log("userData", userData);
+    if (!userData) {
+      throw new Error("User data not found");
+    }
 
     const resend = new Resend(apiKey);
     const res = await fetch("https://api.resend.com/emails", {
