@@ -147,19 +147,7 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
     <div class="invoice">
         <div class="property-1default">
             <!-- Footer Section -->
-            <div class="footer">
-                <div class="contact">
-                    <div class="bill-to">Contact:</div>
-                    <div class="bill-to1">Phone: +91-94609-71652</div>
-                    <div class="bill-to1">Email: admin@opf.org.in</div>
-                </div>
-                <div class="payment">
-                    <div class="bill-to">Payment:</div>
-                    <div class="bill-to1">Payable to RazorPay</div>
-                    <div class="bill-to1">Account number, Bank</div>
-                    <div class="bill-to6">*Please make payment before due date</div>
-                </div>
-            </div>
+            
             <!-- Main Content Section -->
             <div class="auto-layout">
                 <!-- Header Section -->
@@ -168,16 +156,20 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
                         <div class="title">Invoice</div>
                         <div class="subject">
                             <p class="from"><b>From:</b></p>
-                            <p class="from">Operant BioMedical federation</p>
+                            <p class="from">Operant Biomedical Research federation</p>
                             <p class="from">Pali Rajsthan</p>
                         </div>
                     </div>
                     <div class="invoice-details">
                         <div class="invoice-number-title-parent">
+                            <div class="invoice-number-title">Membership Id:</div>
                             <div class="invoice-number-title">Payment Id:</div>
                             <div class="issue-date-title">Payment Date</div>
                         </div>
                         <div class="invoice-number-parent">
+                            <div class="invoice-number">${
+                              transactionData.membershipId
+                            }</div>
                             <div class="invoice-number">${
                               transactionData.paymentId
                             }</div>
@@ -190,7 +182,11 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
                     <div class="contact">
                         <div class="bill-to">Bill To:</div>
                         <div class="bill-to8">${userData.fullName}</div>
-                        <div class="bill-to8"><!-- Dynamic Client Address --></div>
+                        <div class="bill-to8">Address: ${
+                          userData.address
+                        }, City: ${userData.city}, State: ${
+      userData.state
+    }, Pincode: ${userData.pincode}</div>
                         <div class="bill-to8">Phone: ${
                           userData.number
                         }, Email: ${userData.email}</div>
