@@ -319,8 +319,6 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       Department <span className="danger">*</span>
                     </label>
                   </div>
-                </div>
-                <div className="row">
                   <div className="cs_field_group col">
                     <input
                       className="cs_input_field"
@@ -334,6 +332,23 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                     />
                     <label htmlFor="designation" className="cs_input_label">
                       Designation <span className="danger">*</span>
+                    </label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="cs_field_group col">
+                    <input
+                      className="cs_input_field"
+                      type="text"
+                      id="department"
+                      placeholder="Department"
+                      name="department"
+                      value={formData.department}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label htmlFor="department" className="cs_input_label">
+                      Department <span className="danger">*</span>
                     </label>
                   </div>
                   <div className="cs_field_group col">
@@ -568,10 +583,10 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
 
                 <button
                   type="submit"
-                  className="cs_</div>btn cs_style_1 cs_type_btn"
+                  className="cs_btn cs_style_1 cs_type_btn"
                   disabled={loading}
                 >
-                  <span>Submit Now</span>
+                  <span>Pay Now</span>
                   <svg
                     width="19"
                     height="13"
