@@ -42,13 +42,15 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "dev@ravindrachoudhary.in",
+        from: "Operant Biomedical Research Federation <noreply@ravindrachoudhary.in>",
         to: userData.email,
         subject: `Congratulations! You're Now a Premium Member`,
         html: `
       <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
         <h1 style="font-size: 24px; color: #333; text-align: center; margin-bottom: 20px;">Congratulations!</h1>
-        <p style="font-size: 18px;">Dear Member,</p>
+        <p style="font-size: 18px;">Dear ${userData.name},</p>
+                <p style="font-size: 18px;">Welcome to Operant Biomedical Research Federation</p>
+
         <p style="font-size: 18px;">We are thrilled to inform you that your transaction was successful, and you are now a premium member!</p>
 
         <div style="margin-top: 20px;">
@@ -64,6 +66,7 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
           <p style="font-size: 18px;"><strong>Your Premium Plan:</strong></p>
           <ul style="font-size: 18px; padding-left: 20px;">
             <li><strong>Plan:</strong> Premium Membership</li>
+            <li><strong>Membership ID:</strong> ${userData.membershipId}</li>
             <li><strong>Benefits:</strong></li>
             <ul style="font-size: 18px; padding-left: 20px;">
               <li>Access to exclusive content</li>
