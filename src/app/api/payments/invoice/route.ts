@@ -23,71 +23,89 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
       throw new Error(`No user data found for email ${transactionData.user}`);
     }
 
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error("Resend API key not found");
+    }
+
     const transactionId = transactionData.paymentId;
     const transactionDate = transactionData.createdAt.toString();
     const transactionAmount = transactionData.amount;
 
     const planDetails = await membershipPlan.findById(transactionData.plan);
+    const resend = new Resend(apiKey);
+    console.log(resend);
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        from: "dev@ravindrachoudhary.in",
+        to: ["ravi.sirvi609@gmail.com"],
+        subject: `Congratulations! You're Now a Premium Member`,
+        html: `
+      <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
+        <h1 style="font-size: 24px; color: #333; text-align: center; margin-bottom: 20px;">Congratulations!</h1>
+        <p style="font-size: 18px;">Dear Member,</p>
+        <p style="font-size: 18px;">We are thrilled to inform you that your transaction was successful, and you are now a premium member!</p>
 
-    const resend = new Resend(process.env.RESEND_API_KEY!);
-
-    resend.emails.send({
-      from: "dev@ravindrachoudhary.in",
-      to: `${userData?.email}`, // Replace with the user's email
-      subject: "Congratulations! You're Now a Premium Member",
-      html: `
-    <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
-      <h1 style="font-size: 24px; color: #333; text-align: center; margin-bottom: 20px;">Congratulations!</h1>
-      <p style="font-size: 18px;">Dear Member,</p>
-      <p style="font-size: 18px;">We are thrilled to inform you that your transaction was successful, and you are now a premium member!</p>
-      
-      <div style="margin-top: 20px;">
-        <p style="font-size: 18px;"><strong>Transaction Details:</strong></p>
-        <ul style="font-size: 18px; padding-left: 20px;">
-          <li><strong>Transaction ID:</strong> ${transactionId}</li>
-          <li><strong>Date:</strong> ${transactionDate}</li>
-          <li><strong>Amount:</strong> ${transactionAmount}</li>
-        </ul>
-      </div>
-      
-      <div style="margin-top: 20px;">
-        <p style="font-size: 18px;"><strong>Your Premium Plan:</strong></p>
-        <ul style="font-size: 18px; padding-left: 20px;">
-          <li><strong>Plan:</strong> Premium Membership</li>
-          <li><strong>Benefits:</strong></li>
+        <div style="margin-top: 20px;">
+          <p style="font-size: 18px;"><strong>Transaction Details:</strong></p>
           <ul style="font-size: 18px; padding-left: 20px;">
-            <li>Access to exclusive content</li>
-            <li>Priority customer support</li>
-            <li>Advanced features</li>
-            <li>Discounts on future purchases</li>
+            <li><strong>Transaction ID:</strong> ${transactionId}</li>
+            <li><strong>Date:</strong> ${transactionDate}</li>
+            <li><strong>Amount:</strong> ${transactionAmount}</li>
           </ul>
-        </ul>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <p style="font-size: 18px;"><strong>Your Premium Plan:</strong></p>
+          <ul style="font-size: 18px; padding-left: 20px;">
+            <li><strong>Plan:</strong> Premium Membership</li>
+            <li><strong>Benefits:</strong></li>
+            <ul style="font-size: 18px; padding-left: 20px;">
+              <li>Access to exclusive content</li>
+              <li>Priority customer support</li>
+              <li>Advanced features</li>
+              <li>Discounts on future purchases</li>
+            </ul>
+          </ul>
+        </div>
+
+        <p style="font-size: 18px; margin-top: 20px;">We are excited to have you as a premium member! If you have any questions or need assistance, feel free to contact us at admin@opf.org.in</p>
+
+        <p style="font-size: 18px; margin-top: 20px;">Best regards,</p>
+        <p style="font-size: 18px; font-weight: bold;">Operant Bio Medical Research Federation</p>
       </div>
-      
-      <p style="font-size: 18px; margin-top: 20px;">We are excited to have you as a premium member! If you have any questions or need assistance, feel free to contact us at admin@opf.org.in</p>
-      
-      <p style="font-size: 18px; margin-top: 20px;">Best regards,</p>
-      <p style="font-size: 18px; font-weight: bold;">Operant Bio Medical Research Federation</p>
-    </div>
-    <style>
-      @media only screen and (max-width: 600px) {
-        div {
-          padding: 15px;
-          font-size: 16px;
+      <style>
+        @media only screen and (max-width: 600px) {
+          div {
+            padding: 15px;
+            font-size: 16px;
+          }
+          h1 {
+            font-size: 22px;
+          }
+          p {
+            font-size: 16px;
+          }
+          ul {
+            font-size: 16px;
+          }
         }
-        h1 {
-          font-size: 22px;
-        }
-        p {
-          font-size: 16px;
-        }
-        ul {
-          font-size: 16px;
-        }
-      }
-    </style>
-  `,
+      </style>
+    `,
+      }),
     });
+
+    if (res.ok) {
+      const data = await res.json();
+      console.log(data);
+    } else {
+      console.error("Error sending email:", res.status);
+    }
 
     if (!transactionData) {
       throw new Error(`No transaction data found for order ID ${orderId}`);
