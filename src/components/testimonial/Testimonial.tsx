@@ -3,9 +3,10 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import avatar_img from "@/assets/img/avatar_1.jpg";
-import hero_img_33 from "@/assets/img/hero_img_33.jpg";
-import testimonial_thumb from "@/assets/img/hero_img_33.jpg";
+import avatar_img1 from "@/assets/img/testimonial/testimonial_1.jpg";
+import avatar_img2 from "@/assets/img/testimonial/testimonial_2.jpg";
+import avatar_img3 from "@/assets/img/testimonial/testimonial_3.jpg";
+import head_testimonial from "@/assets/img/testimonial/head_testimonial.jpg";
 
 import Image, { StaticImageData } from "next/image";
 
@@ -18,21 +19,21 @@ interface DataType {
 [];
 const testimonial_data: DataType[] = [
   {
-    img: avatar_img,
-    name: `Dr. Aarav Sharma`,
+    img: avatar_img1,
+    name: `Muskan`,
     location: `From Mumbai`,
     des: `“Working with the Operant Biomedical Research Federation team has been an enlightening experience. Their dedication and expertise are unmatched, driving impactful changes in the field.”`,
   },
   {
-    img: hero_img_33,
+    img: avatar_img2,
     name: `Dr. Neha Patel`,
     location: `From Chennai`,
     des: `“As a member of the Operant team, I've witnessed firsthand the commitment to excellence and collaboration. Together, we're shaping the future of biomedicine”`,
   },
   {
-    img: avatar_img,
-    name: `Dr. Vikram Singh`,
-    location: `From Pune`,
+    img: avatar_img3,
+    name: `Shruti Sandesh Morankar`,
+    location: `From Nashik`,
     des: `“The Operant Biomedical Research Federation fosters a culture of innovation and inclusivity. It's inspiring to be part of a team that's making a real difference in healthcare.”`,
   },
 ];
@@ -126,7 +127,13 @@ const Testimonial = ({ style_service }: any) => {
           <div className="row align-items-center">
             <div className="col-lg-4">
               <div>
-                <Image src={testimonial_thumb} alt="" className="w-100" />
+                <Image
+                  src={head_testimonial}
+                  alt=""
+                  className=""
+                  width={600}
+                  height={300}
+                />
               </div>
             </div>
             <div className="col-lg-7 offset-lg-1">
