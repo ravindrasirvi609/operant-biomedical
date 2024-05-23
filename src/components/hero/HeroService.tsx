@@ -10,39 +10,81 @@ interface DataType {
 const banner_data: DataType[] = [
   {
     id: 1,
-    title: "Precision Research Platforms",
+    title: "International Experience Program (IEP)",
     description:
-      "Dive into the future of biomedical research with our Precision Research Platforms.",
+      "The International Experience Program (IEP) is a comprehensive initiative designed to provide individuals with opportunities to gain valuable cross-cultural exposure and professional development in international settings.",
   },
   {
     id: 2,
-    title: "Strategic Grant Funding Assistance",
+    title: "Research Collaboration",
     description:
-      "Unlock the financial resources needed to drive your biomedical research forward with our Strategic Grant Funding Assistance service.",
+      "Research Collaboration facilitates the pooling of expertise, resources, and perspectives from diverse institutions and individuals to tackle complex scientific challenges and drive innovation.",
   },
   {
     id: 3,
-    title: "Clinical Trial Optimization Solutions",
+    title: "Consultation & Expertise, Regulatory Guidance",
     description:
-      "Accelerate the pace of biomedical discovery with our Clinical Trial Optimization Solutions. ",
+      "Consultation & Expertise, Regulatory Guidance provides tailored support and insights to navigate the intricate landscape of regulations, ensuring compliance and facilitating the development and execution of successful strategies in various research projects.",
   },
   {
     id: 4,
-    title: "Translational Research Support Services",
+    title: "Conferences, Guest Lectures, Training & Workshop",
     description:
-      "Bridge the gap between bench and bedside with our Translational Research Support Services.",
+      "Conferences, Guest Lectures, Training & Workshops offer dynamic platforms for knowledge exchange, skill development, and networking, fostering professional growth and innovation in diverse fields.",
   },
   {
     id: 5,
-    title: "Data Analytics and Biostatistics Consulting",
+    title: "Research Grant and Funding assistance",
     description:
-      "Harness the power of data to drive biomedical innovation with our Data Analytics and Biostatistics Consulting services.",
+      "Our Research Grant and Funding Assistance service acts as your strategic partner, unlocking avenues to financial support for your groundbreaking research endeavors. With a blend of expertise and ingenuity, we craft compelling narratives, leveraging your vision to captivate funding bodies. From identifying the perfect funding source to meticulous proposal refinement, we're your allies in securing the resources needed to drive innovation and shape the future of science.",
   },
   {
     id: 6,
-    title: "Regulatory Compliance and Ethics Guidance",
+    title: "Publication Support",
     description:
-      "Navigate the complex landscape of regulatory compliance and ethical considerations with our Regulatory Compliance and Ethics Guidance services.",
+      "Publication Support offers customized services to enhance academic publishing endeavors, ranging from refining manuscripts to selecting appropriate journals, with the goal of enhancing research impact on a global scale. Through their innovative strategies, researchers can craft compelling narratives that leave a lasting academic footprint.",
+  },
+  {
+    id: 7,
+    title: "Intellectual Property Protection",
+    description:
+      "Intellectual Property Protection safeguards your innovative ideas and creations through strategic legal measures, preserving their value and ensuring your rightful ownership in the competitive landscape.",
+  },
+  {
+    id: 8,
+    title: "Customised Research",
+    description:
+      "Customized Biomedical Research tailors scientific inquiries to specific needs, leveraging advanced methodologies to address unique challenges and drive transformative advancements in healthcare.",
+  },
+  {
+    id: 9,
+    title: "Ethical Review Support",
+    description:
+      "Ethical Review Support offers comprehensive assistance in navigating ethical considerations, ensuring research protocols align with regulatory standards and uphold the highest ethical principles.",
+  },
+  {
+    id: 10,
+    title: "Educational Technology Support",
+    description:
+      "Educational Technology Support provides tailored solutions and guidance to integrate innovative educational technologies seamlessly into learning environments, enhancing engagement and optimizing learning outcomes.",
+  },
+  {
+    id: 11,
+    title: "Co—curricular Activities",
+    description:
+      "End-to-end Co-curricular Activities orchestrate comprehensive programs, from conceptualization to execution, fostering holistic development and enriching experiences beyond the classroom.",
+  },
+  {
+    id: 12,
+    title: "Accreditation Support",
+    description:
+      "Accreditation Support streamlines the accreditation process, offering expert guidance and resources to ensure compliance with standards, ultimately enhancing credibility and quality assurance.",
+  },
+  {
+    id: 13,
+    title: "International Collaboration",
+    description:
+      "International Collaboration facilitates cross-border partnerships, harnessing diverse expertise and perspectives to drive innovation, expand networks, and tackle global challenges collaboratively.",
   },
 ];
 
@@ -76,13 +118,13 @@ const HeroService = () => {
                 <div className="cs_card_right">
                   <div className="cs_card_right_in">
                     <h2 className="cs_card_title">
-                      <Link href="/service-details">{item.title}</Link>
+                      {/* <Link href="/service-details">{item.title}</Link> */}
                     </h2>
                     <div className="cs_card_subtitle">{item.description}</div>
                   </div>
                 </div>
                 <div className="cs_card_link_wrap">
-                  <Link href="/service-details" className="cs_card_link">
+                  {/* <Link href="/service-details" className="cs_card_link">
                     <span>
                       <svg
                         width="30"
@@ -127,7 +169,7 @@ const HeroService = () => {
                         ></path>
                       </svg>
                     </span>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ))}

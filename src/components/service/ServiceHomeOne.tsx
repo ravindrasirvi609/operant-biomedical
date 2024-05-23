@@ -11,23 +11,23 @@ interface DataType {
 const service_data: DataType[] = [
   {
     id: 1,
-    title: "Precision Research Platforms",
-    des: "Dive into the future of biomedical research with our Precision Research Platforms.",
+    title: "International Experience Program (IEP)",
+    des: "The International Experience Program (IEP) is a comprehensive initiative designed to provide individuals with opportunities to gain valuable cross-cultural exposure and professional development in international settings.",
   },
   {
     id: 2,
-    title: "Strategic Grant Funding Assistance",
-    des: "Unlock the financial resources needed to drive your biomedical research forward with our Strategic Grant Funding Assistance service.",
+    title: "Research Collaboration",
+    des: "Research Collaboration facilitates the pooling of expertise, resources, and perspectives from diverse institutions and individuals to tackle complex scientific challenges and drive innovation.",
   },
   {
     id: 3,
-    title: "Clinical Trial Optimization Solutions",
-    des: "Accelerate the pace of biomedical discovery with our Clinical Trial Optimization Solutions. ",
+    title: "Consultation & Expertise, Regulatory Guidance",
+    des: "Consultation & Expertise, Regulatory Guidance provides tailored support and insights to navigate the intricate landscape of regulations, ensuring compliance and facilitating the development and execution of successful strategies in various research projects.",
   },
   {
     id: 4,
-    title: "Translational Research Support Services",
-    des: "Bridge the gap between bench and bedside with our Translational Research Support Services.",
+    title: "Conferences, Guest Lectures, Training & Workshop",
+    des: "Conferences, Guest Lectures, Training & Workshops offer dynamic platforms for knowledge exchange, skill development, and networking, fostering professional growth and innovation in diverse fields.",
   },
 ];
 
@@ -85,13 +85,13 @@ const ServiceHomeOne = () => {
                 <div className="cs_card_right">
                   <div className="cs_card_right_in">
                     <h2 className="cs_card_title">
-                      <Link href="/service-details">{item.title}</Link>
+                      {/* <Link href="/service-details">{item.title}</Link> */}
                     </h2>
                     <div className="cs_card_subtitle">{item.des}</div>
                   </div>
                 </div>
                 <div className="cs_card_link_wrap">
-                  <Link href="/service-details" className="cs_card_link">
+                  {/* <Link href="/service-details" className="cs_card_link">
                     <span>
                       <svg
                         width="30"
@@ -136,7 +136,7 @@ const ServiceHomeOne = () => {
                         />
                       </svg>
                     </span>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ))}
