@@ -14,22 +14,22 @@ interface DataType {
 
 const about_slider: DataType[] = [
   {
-    img: "/assets/img/medical-group-of-doctors-biochemists-having-onlin-2023-11-27-05-23-53-utc.jpg",
+    img: "/assets/img/Thumbnail.jpg",
     sub_title: "Our Mission",
-    title: `Igniting Innovation to Revolutionize Your Institution`,
+    title: `Igniting Innovations: Revolutionizing Institutions through Research and Communication`,
     des: `Welcome to our Medical Research Federation! We are dedicated to empowering institutions like yours to thrive in the digital era. From pioneering research platforms to strategic digital outreach, we offer tailored solutions to enhance your online impact. Join us as we navigate the evolving landscape of digital innovation in medical research.`,
   },
   {
-    img: "/assets/img/young-muslim-female-clinician-pointing-at-laptop-s-2023-11-27-05-35-33-utc.JPG",
+    img: "/assets/img/Thumbnail.jpg",
     sub_title: "Our Mission",
-    title: `Unleashing Ingenuity to Revolutionize Your Institution`,
-    des: `Welcome to our Medical Research Federation! At the forefront of digital advancement, we're here to propel institutions like yours to success in the online sphere. Whether it's crafting dynamic research platforms or deploying strategic digital campaigns, we possess the expertise and tools to amplify your online visibility. Let us guide you through the dynamic landscape of digital evolution in medical research.`,
+    title: `From Discovery to Disruption: Revolutionizing Institutions with Premier Research and Conferences`,
+    des: `Empowering healthcare leaders with premier research and expert presentations. Bridging the gap between research and implementation to drive advancements in medical practice and policy. Join us in revolutionizing institutions and improving patient outcomes worldwide.`,
   },
   {
-    img: "/assets/img/medical-meeting-and-doctors-with-laptop-for-resea-2024-03-12-21-29-28-utc.jpg",
+    img: "/assets/img/Thumbnail.jpg",
     sub_title: "Our Mission",
-    title: `Unleashing Innovation to Revolutionize Your Institution`,
-    des: `Welcome to our Medical Research Federation! Our focus is on empowering institutions like yours to thrive in the digital realm. With our expertise ranging from cutting-edge research platforms to strategic digital campaigns, we're equipped to enhance your online footprint. Let us be your partner in navigating the ever-evolving landscape of digital innovation in medical research`,
+    title: `Expert in Medical Research Publications and Conferences`,
+    des: `Elevating research excellence through innovative publishing and impactful presentations. Our expertise ensures your work reaches top-tier journals and resonates with global audiences. By bridging rigorous research with effective dissemination, we transform ideas into real-world solutions, driving progress and improving healthcare outcomes.`,
   },
 ];
 
