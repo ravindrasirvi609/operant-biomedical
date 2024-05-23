@@ -30,30 +30,26 @@ const Refund = () => {
                       To be eligible for a refund, the following conditions must
                       be met:
                     </p>
-                    <ul className="list-group list-group-flush mb-3">
-                      <li className="list-group-item">
+                    <ul className=" mb-3">
+                      <li>
                         The request for a refund must be made within 30 days of
                         the purchase date.
                       </li>
-                      <li className="list-group-item">
+                      <li>
                         The product or service must be unused and in the same
                         condition as when you received it.
                       </li>
-                      <li className="list-group-item">
+                      <li>
                         Proof of purchase, such as a receipt or order number,
                         must be provided.
                       </li>
                     </ul>
                     <h6>Non-Refundable Items</h6>
                     <p>Certain items are non-refundable, including:</p>
-                    <ul className="list-group list-group-flush mb-3">
-                      <li className="list-group-item">
-                        Downloadable software products
-                      </li>
-                      <li className="list-group-item">
-                        Services that have already been rendered
-                      </li>
-                      <li className="list-group-item">
+                    <ul className="mb-3">
+                      <li>Downloadable software products</li>
+                      <li>Services that have already been rendered</li>
+                      <li>
                         Products that have been used or damaged by the customer
                       </li>
                     </ul>
@@ -66,9 +62,11 @@ const Refund = () => {
                     <ul className="list-group list-group-flush mb-3">
                       <li className="list-group-item">
                         Email:{" "}
-                        <a href="mailto:support@obrf.org">support@obrf.org</a>
+                        <a href="mailto:admin@opf.org.in">admin@opf.org.in.</a>
                       </li>
-                      <li className="list-group-item">Phone: (123) 456-7890</li>
+                      <li className="list-group-item">
+                        Phone: +91-94609-71652
+                      </li>
                     </ul>
                     <h6>Processing Refunds</h6>
                     <p>
@@ -129,7 +127,7 @@ const Refund = () => {
                       We currently do not ship outside the domestic United
                       States. If you have any questions regarding our shipping
                       policy, please contact us at{" "}
-                      <a href="mailto:support@obrf.org">support@obrf.org</a>.
+                      <a href="mailto:admin@opf.org.in">admin@opf.org.in</a>.
                     </p>
                   </section>
 
@@ -142,10 +140,10 @@ const Refund = () => {
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
                         By email:{" "}
-                        <a href="mailto:support@obrf.org">support@obrf.org</a>
+                        <a href="mailto:admin@opf.org.in">admin@opf.org.in.</a>
                       </li>
                       <li className="list-group-item">
-                        By phone: (123) 456-7890
+                        By phone: +91-94609-71652
                       </li>
                     </ul>
                   </section>

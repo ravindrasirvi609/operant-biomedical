@@ -35,19 +35,17 @@ const Privacy = () => {
                   <section className="mb-5">
                     <h5>Use of Information</h5>
                     <p>We use the information collected to:</p>
-                    <ul className="list-group list-group-flush mb-3">
-                      <li className="list-group-item">
-                        Provide, maintain, and improve our services
-                      </li>
-                      <li className="list-group-item">
+                    <ul className="mb-3">
+                      <li>Provide, maintain, and improve our services</li>
+                      <li>
                         Communicate with you, including responding to your
                         comments, questions, and requests
                       </li>
-                      <li className="list-group-item">
+                      <li>
                         Send you technical notices, updates, security alerts,
                         and support messages
                       </li>
-                      <li className="list-group-item">
+                      <li>
                         Analyze trends and usage to improve our services and
                         website
                       </li>
@@ -60,16 +58,16 @@ const Privacy = () => {
                       We do not share your personal information with third
                       parties except in the following cases:
                     </p>
-                    <ul className="list-group list-group-flush mb-3">
-                      <li className="list-group-item">With your consent</li>
-                      <li className="list-group-item">
+                    <ul className=" mb-3">
+                      <li>With your consent</li>
+                      <li>
                         For external processing with trusted partners who comply
                         with our Privacy Policy and security measures
                       </li>
-                      <li className="list-group-item">
+                      <li>
                         To comply with laws, regulations, or legal requests
                       </li>
-                      <li className="list-group-item">
+                      <li>
                         To protect the rights, property, and safety of OBRF, our
                         users, or the public
                       </li>
@@ -147,7 +145,7 @@ const Privacy = () => {
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
                         By email:{" "}
-                        <a href="mailto:support@obrf.org">support@obrf.org</a>
+                        <a href="mailto:admin@opf.org.in.">admin@opf.org.in.</a>
                       </li>
                       <li className="list-group-item">
                         By visiting this page on our website:{" "}
