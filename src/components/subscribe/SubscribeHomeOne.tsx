@@ -1,10 +1,31 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const SubscribeHomeOne = () => {
-  const handleSuubmit = (e: any) => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
+    setSuccessMessage("");
+
+    try {
+      const response = await axios.post("YOUR_API_ENDPOINT", { email });
+      if (response.status === 200) {
+        setSuccessMessage("Successfully Subscribed!");
+      } else {
+        setSuccessMessage("Subscription failed. Please try again.");
+      }
+    } catch (error) {
+      setSuccessMessage("Subscription failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
     <>
       <div className="container">
@@ -53,32 +74,49 @@ const SubscribeHomeOne = () => {
             <div className="cs_section_heading_text">
               <h2 className="cs_section_title anim_text_upanddowns">
                 Lead the Way with Our Cutting-Edge <br />
-                Biomedical Research Solutions{" "}
+                Biomedical Research Solutions
               </h2>
             </div>
           </div>
           <div className="cs_height_70 cs_height_lg_40"></div>
-          <form className="cs_newsletter_form" onSubmit={handleSuubmit}>
+          <form className="cs_newsletter_form" onSubmit={handleSubmit}>
             <input
               type="text"
               className="cs_newsletter_input"
               placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="cs_newsletter_btn">
-              <svg
-                width="30"
-                height="26"
-                viewBox="0 0 30 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M29.6063 0.212923C29.3188 0.00917327 28.9413 -0.0183267 28.6288 0.145423L0.503806 14.8329C0.171306 15.0067 -0.0249444 15.3617 0.0025556 15.7354C0.0313056 16.1104 0.280056 16.4304 0.633806 16.5517L8.45256 19.2242L25.1038 4.98667L12.2188 20.5104L25.3226 24.9892C25.4201 25.0217 25.5226 25.0392 25.6251 25.0392C25.7951 25.0392 25.9638 24.9929 26.1126 24.9029C26.3501 24.7579 26.5113 24.5142 26.5526 24.2404L29.9901 1.11542C30.0413 0.765423 29.8938 0.417923 29.6063 0.212923Z"
-                  fill="currentColor"
-                />
-              </svg>
+            <button
+              className="cs_newsletter_btn"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? (
+                <div className="spinner-border text-light" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              ) : (
+                <svg
+                  width="30"
+                  height="26"
+                  viewBox="0 0 30 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M29.6063 0.212923C29.3188 0.00917327 28.9413 -0.0183267 28.6288 0.145423L0.503806 14.8329C0.171306 15.0067 -0.0249444 15.3617 0.0025556 15.7354C0.0313056 16.1104 0.280056 16.4304 0.633806 16.5517L8.45256 19.2242L25.1038 4.98667L12.2188 20.5104L25.3226 24.9892C25.4201 25.0217 25.5226 25.0392 25.6251 25.0392C25.7951 25.0392 25.9638 24.9929 26.1126 24.9029C26.3501 24.7579 26.5113 24.5142 26.5526 24.2404L29.9901 1.11542C30.0413 0.765423 29.8938 0.417923 29.6063 0.212923Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              )}
             </button>
           </form>
+          {successMessage && (
+            <div className="alert alert-success mt-3" role="alert">
+              {successMessage}
+            </div>
+          )}
         </div>
       </div>
     </>

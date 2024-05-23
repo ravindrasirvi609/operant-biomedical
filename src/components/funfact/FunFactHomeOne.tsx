@@ -44,6 +44,7 @@ const FunFactHomeOne = ({ style_2, style_3 }: any) => {
                     style_2 ? "cs_stroke_normal" : "cs_stroke_text"
                   }`}
                 >
+                  {i === 2 && <span>0</span>}
                   <div className="amin_auto_count">
                     <Count number={item.number} add_style={true} />
                   </div>
