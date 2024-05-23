@@ -3,14 +3,20 @@ import { Resend } from "resend";
 
 export async function POST(req: NextRequest) {
   const { name, email, message, subject, phone } = await req.json();
-  const resend = new Resend(process.env.RESEND_API_KEY!);
-
-  resend.emails.send({
-    from: "dev@ravindrachoudhary.in",
-    to: "admin@opf.org.in",
-    subject: `${name} wants to connect with you!`,
-    html: `
-    <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #A8F387; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
+  const apiKey = process.env.RESEND_API_KEY!;
+  const resend = new Resend(apiKey);
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      from: "Contact Form <noreply@ravindrachoudhary.in>",
+      to: "admin@opf.org.in",
+      subject: `Congratulations! You're Now a Premium Member`,
+      html: `
+     <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #A8F387; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
       <h1 style="font-size: 24px; color: #333; text-align: center; margin-bottom: 20px;">Connection Request</h1>
       <p style="font-size: 18px;">Hi there,</p>
       <p style="font-size: 18px;">
@@ -43,11 +49,12 @@ export async function POST(req: NextRequest) {
         }
       }
     </style>
-  `,
+    `,
+    }),
   });
 
   try {
-    console.log("emailRes");
+    console.log("emailRes", res);
   } catch (err: any) {
     console.error("Error sending email", err);
   }

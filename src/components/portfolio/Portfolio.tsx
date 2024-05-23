@@ -31,14 +31,14 @@ const portfolio_data: DataType[] = [
   },
   {
     id: 2,
-    category: "UX Design",
+    category: "Pharmanecia",
     img: portfolio_img_7,
     title: "Project Task Management",
     des: "Digital Services / App Design",
   },
   {
     id: 3,
-    category: "Development",
+    category: "pharmaNEST",
     img: portfolio_img_8,
     title: "Project Task Management",
     des: "Digital Services / App Design",
@@ -97,7 +97,7 @@ const Portfolio = () => {
           <div className="cs_section_heading cs_style_1 cs_type_1">
             <div className="cs_section_heading_text">
               <h2 className="cs_section_title anim_text_writting">
-                Some Recent Project We Successfully Done
+                Showcasing Innovative Projects and Achievements with Pride{" "}
               </h2>
             </div>
           </div>
