@@ -26,43 +26,38 @@ const menu_data: DataType[] = [
     title: "Home",
     link: "/",
     has_dropdown: false,
-    //     sub_menu: [
-    //       {
-    //         id: 1,
-    //         title: "Digital Agency",
-    //         link: "/",
-    //       },
-    //       {
-    //         id: 2,
-    //         title: "Startup Agency",
-    //         link: "/startup-agency",
-    //       },
-    //       {
-    //         id: 3,
-    //         title: "Design Studio",
-    //         link: "/design-studio",
-    //       },
-    //       {
-    //         id: 4,
-    //         title: "Creative Protfolio",
-    //         link: "/creative-protfolio",
-    //       },
-    //       {
-    //         id: 5,
-    //         title: "Marketing Agency",
-    //         link: "/marketing-agency",
-    //       },
-    //     ],
+    // sub_menu: [
+    //   {
+    //     id: 1,
+    //     title: "Digital Agency",
+    //     link: "/",
+    //   },
+    //   {
+    //     id: 2,
+    //     title: "Startup Agency",
+    //     link: "/startup-agency",
+    //   },
+    //   {
+    //     id: 3,
+    //     title: "Design Studio",
+    //     link: "/design-studio",
+    //   },
+    //   {
+    //     id: 4,
+    //     title: "Creative Protfolio",
+    //     link: "/creative-protfolio",
+    //   },
+    //   {
+    //     id: 5,
+    //     title: "Marketing Agency",
+    //     link: "/marketing-agency",
+    //   },
+    // ]
   },
-  {
-    id: 2,
-    title: "About",
-    link: "/about",
-    has_dropdown: false,
-  },
+
   {
     id: 3,
-    title: "Pages",
+    title: "About",
     link: "/about",
     has_dropdown: true,
     sub_menu: [
@@ -77,24 +72,9 @@ const menu_data: DataType[] = [
         link: "/team",
       },
       {
-        id: 3,
-        title: "Team Details",
-        link: "/team-details",
-      },
-      {
-        id: 4,
-        title: "Contact",
-        link: "/contact",
-      },
-      {
         id: 5,
         title: "Faq",
         link: "/faq",
-      },
-      {
-        id: 6,
-        title: "Error",
-        link: "/error",
       },
     ],
   },
@@ -102,37 +82,13 @@ const menu_data: DataType[] = [
     id: 4,
     title: "Services",
     link: "/service",
-    has_dropdown: true,
-    sub_menu: [
-      {
-        id: 1,
-        title: "Services",
-        link: "/service",
-      },
-      {
-        id: 2,
-        title: "Services Details",
-        link: "/service-details",
-      },
-    ],
+    has_dropdown: false,
   },
   {
     id: 5,
-    title: "Portfolio",
+    title: "Impact Stories",
     link: "/portfolio",
-    has_dropdown: true,
-    sub_menu: [
-      {
-        id: 1,
-        title: "Portfolio",
-        link: "/portfolio",
-      },
-      {
-        id: 2,
-        title: "Portfolio Details",
-        link: "/portfolio-details",
-      },
-    ],
+    has_dropdown: false,
   },
   // {
   //   id: 6,
@@ -389,11 +345,6 @@ const HeaderOne = () => {
                         Instagram
                       </a>
                     </li>
-                    <li>
-                      <a target="_blank" href="https://dribbble.com/">
-                        Dribbble
-                      </a>
-                    </li>
                   </ul>
 
                   <hr className="mt-2 me-5 mb-2" />
@@ -402,7 +353,7 @@ const HeaderOne = () => {
                       href="mailto:admin@opf.org.in."
                       className="cs_primary_font cs_text_btn"
                     >
-                      <span className="cs_black">info@obrf.com</span>
+                      <span className="cs_black">admin@opf.org.in</span>
                     </a>
                   </h2>
                 </div>

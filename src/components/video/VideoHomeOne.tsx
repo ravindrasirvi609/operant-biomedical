@@ -13,7 +13,7 @@ const VideoHomeOne = ({ style_2, setIsVideoOpen }: any) => {
             className="cs_video_block cs_style1 cs_video_open cs_bg cs_parallax_bg"
             style={{
               backgroundImage:
-                "url(/assets/img/group-of-doctors-with-tablet-on-conference-medica-2023-11-27-05-15-19-utc.jpg)",
+                "url(/assets/img/testimonial/head_testimonial.jpg)",
               cursor: "pointer",
             }}
           >
