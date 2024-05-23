@@ -118,7 +118,7 @@ const HeroService = () => {
                 <div className="cs_card_right">
                   <div className="cs_card_right_in">
                     <h2 className="cs_card_title">
-                      {/* <Link href="/service-details">{item.title}</Link> */}
+                      <Link href="/service">{item.title}</Link>
                     </h2>
                     <div className="cs_card_subtitle">{item.description}</div>
                   </div>
