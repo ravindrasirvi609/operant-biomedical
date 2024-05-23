@@ -196,7 +196,9 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -250,313 +252,287 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
             <div className="cs_height_80 cs_height_lg_20"></div>
             <div className="cs_from anim_div_ShowDowns">
               <form onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="cs_field_group col">
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="title" className="form-label">
+                      Title
+                    </label>
                     <select
-                      className="cs_input_field"
+                      className="form-select"
                       id="title"
                       name="title"
                       value={formData.title}
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Select Title</option>
-                      <option value="MR">Mr.</option>
-                      <option value="MRS">Mrs.</option>
-                      <option value="MS">Ms.</option>
-                      <option value="DR">Dr.</option>
-                      <option value="PROF">Prof.</option>
-                      <option value="REV">Rev.</option>
+                      <option value="">Choose...</option>
+                      <option value="mr">Mr.</option>
+                      <option value="miss">Miss.</option>
+                      <option value="mrs">Mrs.</option>
                     </select>
-                    <label htmlFor="title" className="cs_input_label">
-                      Title <span className="danger">*</span>
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                  <div className="col-md-6">
+                    <label htmlFor="name" className="form-label">
+                      Name
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="name"
-                      placeholder="Name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="name" className="cs_input_label">
-                      Name <span className="danger">*</span>
-                    </label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="cs_field_group col">
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="email" className="form-label">
+                      Email
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="email"
+                      className="form-control"
                       id="email"
-                      placeholder="Email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="email" className="cs_input_label">
-                      Email <span className="danger">*</span>
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                  <div className="col-md-6">
+                    <label htmlFor="department" className="form-label">
+                      Department
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="department"
-                      placeholder="Department"
                       name="department"
                       value={formData.department}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="department" className="cs_input_label">
-                      Department <span className="danger">*</span>
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                </div>
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="designation" className="form-label">
+                      Designation
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="designation"
-                      placeholder="Designation"
                       name="designation"
                       value={formData.designation}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="designation" className="cs_input_label">
-                      Designation <span className="danger">*</span>
-                    </label>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="cs_field_group col">
-                    <input
-                      className="cs_input_field"
-                      type="text"
-                      id="department"
-                      placeholder="Department"
-                      name="department"
-                      value={formData.department}
-                      onChange={handleChange}
-                      required
-                    />
-                    <label htmlFor="department" className="cs_input_label">
-                      Department <span className="danger">*</span>
+                  <div className="col-md-6">
+                    <label htmlFor="phone" className="form-label">
+                      Phone
                     </label>
-                  </div>
-                  <div className="cs_field_group col">
                     <input
-                      className="cs_input_field"
-                      type="text"
+                      type="number"
+                      className="form-control"
                       id="phone"
-                      placeholder="Phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="phone" className="cs_input_label">
-                      Phone <span className="danger">*</span>
-                    </label>
                   </div>
                 </div>
 
-                <div className="row">
-                  <div className="cs_field_group col">
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="DateOfBirth" className="form-label">
+                      Date Of Birth
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="date"
+                      className="form-control"
                       id="DateOfBirth"
-                      placeholder="Date Of Birth"
                       name="DateOfBirth"
                       value={formData.DateOfBirth.toString()}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="DateOfBirth" className="cs_input_label">
-                      Date Of Birth <span className="danger">*</span>
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                  <div className="col-md-6">
+                    <label htmlFor="aadharNumber" className="form-label">
+                      Aadhar Number
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="aadharNumber"
-                      placeholder="Aadhar Number"
                       name="aadharNumber"
                       value={formData.aadharNumber}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="aadharNumber" className="cs_input_label">
-                      Aadhar Number <span className="danger">*</span>
-                    </label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="cs_field_group col">
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="collegeName" className="form-label">
+                      College Name
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="collegeName"
-                      placeholder="College Name"
                       name="collegeName"
                       value={formData.collegeName}
                       onChange={handleChange}
                       required
                     />
-                    <label htmlFor="collegeName" className="cs_input_label">
-                      College Name <span className="danger">*</span>
-                    </label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="cs_field_group col">
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="address" className="form-label">
+                      Address
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="address"
-                      placeholder="Address"
                       name="address"
                       value={formData.address}
                       onChange={handleChange}
                     />
-                    <label htmlFor="address" className="cs_input_label">
-                      Address
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                  <div className="col-md-6">
+                    <label htmlFor="city" className="form-label">
+                      City
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="city"
-                      placeholder="City"
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
                     />
-                    <label htmlFor="city" className="cs_input_label">
-                      City
-                    </label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="cs_field_group col">
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="state" className="form-label">
+                      State
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="state"
-                      placeholder="State"
                       name="state"
                       value={formData.state}
                       onChange={handleChange}
                     />
-                    <label htmlFor="state" className="cs_input_label">
-                      State
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                  <div className="col-md-6">
+                    <label htmlFor="country" className="form-label">
+                      Country
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="country"
-                      placeholder="Country"
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
                     />
-                    <label htmlFor="country" className="cs_input_label">
-                      Country
-                    </label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="cs_field_group col">
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="postalCode" className="form-label">
+                      Postal Code
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="postalCode"
-                      placeholder="Postal Code"
                       name="postalCode"
                       value={formData.postalCode}
                       onChange={handleChange}
                     />
-                    <label htmlFor="postalCode" className="cs_input_label">
-                      Postal Code
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                  <div className="col-md-6">
+                    <label htmlFor="twitter" className="form-label">
+                      Twitter
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="twitter"
-                      placeholder="Twitter"
                       name="twitter"
                       value={formData.twitter}
                       onChange={handleChange}
                     />
-                    <label htmlFor="twitter" className="cs_input_label">
-                      Twitter
-                    </label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="cs_field_group col">
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="linkedin" className="form-label">
+                      LinkedIn
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="linkedin"
-                      placeholder="LinkedIn"
                       name="linkedin"
                       value={formData.linkedin}
                       onChange={handleChange}
                     />
-                    <label htmlFor="linkedin" className="cs_input_label">
-                      LinkedIn
-                    </label>
                   </div>
-                  <div className="cs_field_group col">
+                  <div className="col-md-6">
+                    <label htmlFor="website" className="form-label">
+                      Website
+                    </label>
                     <input
-                      className="cs_input_field"
                       type="text"
+                      className="form-control"
                       id="website"
-                      placeholder="Website"
                       name="website"
                       value={formData.website}
                       onChange={handleChange}
                     />
-                    <label htmlFor="website" className="cs_input_label">
-                      Website
-                    </label>
                   </div>
                 </div>
 
-                <div className="cs_height_60 cs_height_lg_60"></div>
-                <div className="cs_field_group">
-                  <input
-                    className="cs_input_field"
-                    id="bio"
-                    placeholder="Bio"
-                    name="bio"
-                    type="text"
-                    value={formData.bio}
-                    onChange={handleChange}
-                  ></input>
-                  <label htmlFor="bio" className="cs_input_label">
+                <div className="mb-3">
+                  <label htmlFor="bio" className="form-label">
                     Bio
                   </label>
+                  <textarea
+                    className="form-control"
+                    id="bio"
+                    name="bio"
+                    value={formData.bio}
+                    onChange={handleChange}
+                  ></textarea>
                 </div>
-                <div className="cs_field_group">
+
+                <div className="mb-3">
+                  <label htmlFor="profilePicture" className="form-label">
+                    Profile Picture
+                  </label>
                   <input
-                    className="cs_input_field"
                     type="file"
+                    className="form-control"
                     id="profilePicture"
                     name="profilePicture"
                     accept=".jpg, .jpeg, .png"
@@ -574,32 +550,31 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       }
                     }}
                   />
-                  <label htmlFor="profilePicture" className="cs_input_label">
-                    Profile Picture
-                  </label>
                 </div>
-                <div className="cs_height_60 cs_height_lg_60"></div>
+
                 {loading && <div>Loading...</div>}
 
-                <button
-                  type="submit"
-                  className="cs_btn cs_style_1 cs_type_btn"
-                  disabled={loading}
-                >
-                  <span>Pay Now</span>
-                  <svg
-                    width="19"
-                    height="13"
-                    viewBox="0 0 19 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                <div className="mb-3">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    disabled={loading}
                   >
-                    <path
-                      d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </button>
+                    <span>Pay Now</span>
+                    <svg
+                      width="19"
+                      height="13"
+                      viewBox="0 0 19 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
               </form>
             </div>
           </div>

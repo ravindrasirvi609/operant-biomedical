@@ -60,105 +60,94 @@ const ContactArea = () => {
               <div className="cs_height_80 cs_height_lg_20"></div>
               <div className="cs_from anim_div_ShowDowns">
                 <form onSubmit={handleSubmit}>
-                  <div className="row">
-                    <div className="cs_field_group col">
-                      <input
-                        className="cs_input_field"
-                        type="text"
-                        id="name"
-                        placeholder="Name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
-                      <label htmlFor="name" className="cs_input_label">
-                        Name
-                      </label>
+                  <div className="row mb-3">
+                    <div className="col-md-6">
+                      <div className="form-floating mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="name"
+                          placeholder="Name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                        />
+                        <label htmlFor="name">Name</label>
+                      </div>
                     </div>
-                    <div className="cs_field_group col">
-                      <input
-                        className="cs_input_field"
-                        type="email"
-                        id="email"
-                        placeholder="Email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                      <label htmlFor="email" className="cs_input_label">
-                        Email
-                      </label>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="cs_field_group col">
-                      <input
-                        className="cs_input_field"
-                        type="tel"
-                        id="phone"
-                        placeholder="Phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                      />
-                      <label htmlFor="phone" className="cs_input_label">
-                        Phone
-                      </label>
-                    </div>
-                    <div className="cs_field_group col">
-                      <input
-                        className="cs_input_field"
-                        type="text"
-                        id="subject"
-                        placeholder="Subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                      />
-                      <label htmlFor="subject" className="cs_input_label">
-                        Subject
-                      </label>
+                    <div className="col-md-6">
+                      <div className="form-floating mb-3">
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="email"
+                          placeholder="Email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                        />
+                        <label htmlFor="email">Email</label>
+                      </div>
                     </div>
                   </div>
-                  <div className="cs_field_group">
-                    <input
-                      className="cs_input_field"
-                      type="text"
+                  <div className="row mb-3">
+                    <div className="col-md-6">
+                      <div className="form-floating mb-3">
+                        <input
+                          type="tel"
+                          className="form-control"
+                          id="phone"
+                          placeholder="Phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          required
+                        />
+                        <label htmlFor="phone">Phone</label>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-floating mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="subject"
+                          placeholder="Subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          required
+                        />
+                        <label htmlFor="subject">Subject</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <textarea
+                      className="form-control"
                       id="message"
                       placeholder="Message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      style={{ height: "100px" }}
                       required
                     />
-                    <label htmlFor="message" className="cs_input_label">
-                      Message
-                    </label>
+                    <label htmlFor="message">Message</label>
                   </div>
                   <button
                     type="submit"
-                    className="cs_btn cs_style_1 cs_type_btn"
+                    className="btn btn-primary btn-lg w-100"
                   >
-                    <span>Send Now</span>
-                    {successMessage && <p>{successMessage}</p>}
-
-                    <svg
-                      width="19"
-                      height="13"
-                      viewBox="0 0 19 13"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
+                    Send Now
                   </button>
+                  {successMessage && (
+                    <div className="alert alert-success mt-3" role="alert">
+                      {successMessage}
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
