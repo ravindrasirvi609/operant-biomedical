@@ -14,10 +14,10 @@ export async function POST(req: NextRequest) {
     body: JSON.stringify({
       from: "Contact Form <noreply@ravindrachoudhary.in>",
       to: "admin@opf.org.in",
-      subject: `Congratulations! You're Now a Premium Member`,
+      subject: `${name} wants to connect with you!`,
       html: `
      <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #A8F387; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
-      <h1 style="font-size: 24px; color: #333; text-align: center; margin-bottom: 20px;">Connection Request</h1>
+      <h1 style="font-size: 24px; color: #333; text-align: center; margin-bottom: 20px;">Contact Form</h1>
       <p style="font-size: 18px;">Hi there,</p>
       <p style="font-size: 18px;">
         <strong>${name}</strong> wants to connect with you!
