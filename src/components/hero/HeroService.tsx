@@ -16,33 +16,34 @@ const banner_data: DataType[] = [
   },
   {
     id: 2,
-    title: "Research Collaboration",
+    title: "Precision Research Collaboration",
     description:
-      "Research Collaboration facilitates the pooling of expertise, resources, and perspectives from diverse institutions and individuals to tackle complex scientific challenges and drive innovation.",
+      " Precision Research Collaboration facilitates the pooling of expertise, resources, and perspectives from diverse institutions and individuals to tackle complex scientific challenges and drive innovation.",
   },
+
   {
     id: 3,
-    title: "Consultation & Expertise, Regulatory Guidance",
-    description:
-      "Consultation & Expertise, Regulatory Guidance provides tailored support and insights to navigate the intricate landscape of regulations, ensuring compliance and facilitating the development and execution of successful strategies in various research projects.",
-  },
-  {
-    id: 4,
     title: "Conferences, Guest Lectures, Training & Workshop",
     description:
       "Conferences, Guest Lectures, Training & Workshops offer dynamic platforms for knowledge exchange, skill development, and networking, fostering professional growth and innovation in diverse fields.",
   },
   {
-    id: 5,
-    title: "Research Grant and Funding assistance",
+    id: 4,
+    title: "Strategic Research Grant and Funding assistance",
     description:
       "Our Research Grant and Funding Assistance service acts as your strategic partner, unlocking avenues to financial support for your groundbreaking research endeavors. With a blend of expertise and ingenuity, we craft compelling narratives, leveraging your vision to captivate funding bodies. From identifying the perfect funding source to meticulous proposal refinement, we're your allies in securing the resources needed to drive innovation and shape the future of science.",
   },
   {
-    id: 6,
+    id: 5,
     title: "Publication Support",
     description:
       "Publication Support offers customized services to enhance academic publishing endeavors, ranging from refining manuscripts to selecting appropriate journals, with the goal of enhancing research impact on a global scale. Through their innovative strategies, researchers can craft compelling narratives that leave a lasting academic footprint.",
+  },
+  {
+    id: 6,
+    title: "Consultation & Expertise, Regulatory Guidance",
+    description:
+      "Consultation & Expertise, Regulatory Guidance provides tailored support and insights to navigate the intricate landscape of regulations, ensuring compliance and facilitating the development and execution of successful strategies in various research projects.",
   },
   {
     id: 7,
@@ -86,6 +87,24 @@ const banner_data: DataType[] = [
     description:
       "International Collaboration facilitates cross-border partnerships, harnessing diverse expertise and perspectives to drive innovation, expand networks, and tackle global challenges collaboratively.",
   },
+  {
+    id: 14,
+    title: "Clinical Trial Optimization Solutions",
+    description:
+      "Accelerate the pace of biomedical discovery with our Clinical Trial Optimization Solutions. ",
+  },
+  {
+    id: 15,
+    title: "Translational Research Support Services",
+    description:
+      "Bridge the gap between bench and bedside with our Translational Research Support Services.",
+  },
+  {
+    id: 16,
+    title: "Data Analytics and Biostatistics Consulting",
+    description:
+      "Harness the power of data to drive biomedical innovation with our Data Analytics and Biostatistics Consulting services.",
+  },
 ];
 
 const HeroService = () => {
@@ -112,7 +131,7 @@ const HeroService = () => {
                       backgroundImage: `url('/assets/img/hero_img_1.jpg')`,
                     }}
                   >
-                    0{i + 1}
+                    {i + 1 < 10 ? `0${i + 1}` : i + 1}
                   </div>
                 </div>
                 <div className="cs_card_right">

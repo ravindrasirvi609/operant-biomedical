@@ -255,7 +255,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="title" className="form-label">
-                      Title
+                      Title <span className="text-danger">*</span>
                     </label>
                     <select
                       className="form-select"
@@ -266,14 +266,17 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       required
                     >
                       <option value="">Choose...</option>
-                      <option value="mr">Mr.</option>
-                      <option value="miss">Miss.</option>
-                      <option value="mrs">Mrs.</option>
+                      <option value="MR">Mr.</option>
+                      <option value="MRS">Mrs.</option>
+                      <option value="MS">Ms.</option>
+                      <option value="DR">Dr.</option>
+                      <option value="PROF">Prof.</option>
+                      <option value="REV">Rev.</option>
                     </select>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="name" className="form-label">
-                      Name
+                      Name <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -290,7 +293,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="email" className="form-label">
-                      Email
+                      Email <span className="text-danger">*</span>
                     </label>
                     <input
                       type="email"
@@ -304,7 +307,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="department" className="form-label">
-                      Department
+                      Department <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -321,7 +324,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="designation" className="form-label">
-                      Designation
+                      Designation <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -335,7 +338,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="phone" className="form-label">
-                      Phone
+                      Phone <span className="text-danger">*</span>
                     </label>
                     <input
                       type="number"
@@ -352,7 +355,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="DateOfBirth" className="form-label">
-                      Date Of Birth
+                      Date Of Birth <span className="text-danger">*</span>
                     </label>
                     <input
                       type="date"
@@ -366,7 +369,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="aadharNumber" className="form-label">
-                      Aadhar Number
+                      Aadhar Number <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -383,7 +386,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="collegeName" className="form-label">
-                      College Name
+                      College Name <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -400,7 +403,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="address" className="form-label">
-                      Address
+                      Address <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -409,11 +412,12 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       name="address"
                       value={formData.address}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="city" className="form-label">
-                      City
+                      City <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -422,6 +426,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -429,7 +434,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="state" className="form-label">
-                      State
+                      State <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -438,11 +443,12 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       name="state"
                       value={formData.state}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="country" className="form-label">
-                      Country
+                      Country <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -451,6 +457,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -458,7 +465,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                 <div className="row mb-3">
                   <div className="col-md-6">
                     <label htmlFor="postalCode" className="form-label">
-                      Postal Code
+                      Postal Code <span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
@@ -467,6 +474,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       name="postalCode"
                       value={formData.postalCode}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className="col-md-6">
@@ -515,7 +523,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
 
                 <div className="mb-3">
                   <label htmlFor="bio" className="form-label">
-                    Bio
+                    Bio <span className="text-danger">*</span>
                   </label>
                   <textarea
                     className="form-control"
@@ -523,12 +531,13 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                     name="bio"
                     value={formData.bio}
                     onChange={handleChange}
+                    required
                   ></textarea>
                 </div>
 
                 <div className="mb-3">
                   <label htmlFor="profilePicture" className="form-label">
-                    Profile Picture
+                    Profile Picture <span className="text-danger">*</span>
                   </label>
                   <input
                     type="file"
@@ -536,6 +545,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                     id="profilePicture"
                     name="profilePicture"
                     accept=".jpg, .jpeg, .png"
+                    required
                     onChange={(e) => {
                       const file = e.target.files ? e.target.files[0] : null;
                       if (file && file.size > 2 * 1024 * 1024) {

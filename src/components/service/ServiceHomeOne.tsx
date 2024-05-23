@@ -16,18 +16,18 @@ const service_data: DataType[] = [
   },
   {
     id: 2,
-    title: "Research Collaboration",
-    des: "Research Collaboration facilitates the pooling of expertise, resources, and perspectives from diverse institutions and individuals to tackle complex scientific challenges and drive innovation.",
+    title: "Conferences, Guest Lectures, Training & Workshop",
+    des: "Conferences, Guest Lectures, Training & Workshops offer dynamic platforms for knowledge exchange, skill development, and networking, fostering professional growth and innovation in diverse fields.",
   },
   {
     id: 3,
-    title: "Consultation & Expertise, Regulatory Guidance",
-    des: "Consultation & Expertise, Regulatory Guidance provides tailored support and insights to navigate the intricate landscape of regulations, ensuring compliance and facilitating the development and execution of successful strategies in various research projects.",
+    title: "Strategic Research Grant and Funding assistance",
+    des: "Our Research Grant and Funding Assistance service acts as your strategic partner, unlocking avenues to financial support for your groundbreaking research endeavors. With a blend of expertise and ingenuity, we craft compelling narratives, leveraging your vision to captivate funding bodies. From identifying the perfect funding source to meticulous proposal refinement, we're your allies in securing the resources needed to drive innovation and shape the future of science.",
   },
   {
     id: 4,
-    title: "Conferences, Guest Lectures, Training & Workshop",
-    des: "Conferences, Guest Lectures, Training & Workshops offer dynamic platforms for knowledge exchange, skill development, and networking, fostering professional growth and innovation in diverse fields.",
+    title: "Publication Support",
+    des: "Publication Support offers customized services to enhance academic publishing endeavors, ranging from refining manuscripts to selecting appropriate journals, with the goal of enhancing research impact on a global scale. Through their innovative strategies, researchers can craft compelling narratives that leave a lasting academic footprint.",
   },
 ];
 
@@ -76,7 +76,7 @@ const ServiceHomeOne = () => {
                   <div
                     className="cs_card_number cs_primary_font"
                     style={{
-                      backgroundImage: `url(/assets/img/group-of-doctors-talking-about-corona-virus-on-con-2023-11-27-05-33-54-utc.jpg)`,
+                      backgroundImage: `url(/assets/img/hero_img_1.jpg)`,
                     }}
                   >
                     0{i + 1}
