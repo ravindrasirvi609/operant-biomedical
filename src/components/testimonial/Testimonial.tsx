@@ -26,7 +26,7 @@ const testimonial_data: DataType[] = [
   },
   {
     img: avatar_img2,
-    name: `Dr. Neha Patel`,
+    name: `Neha Patel`,
     location: `From Chennai`,
     des: `“As a member of the Operant team, I've witnessed firsthand the commitment to excellence and collaboration. Together, we're shaping the future of biomedicine”`,
   },
