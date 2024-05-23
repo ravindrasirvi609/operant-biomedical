@@ -13,7 +13,7 @@ const SubscribeHomeOne = () => {
     setSuccessMessage("");
 
     try {
-      const response = await axios.post("YOUR_API_ENDPOINT", { email });
+      const response = await axios.post("/api/emailSubscription", { email });
       if (response.status === 200) {
         setSuccessMessage("Successfully Subscribed!");
       } else {

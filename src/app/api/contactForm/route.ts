@@ -1,8 +1,18 @@
+import ContactModel from "@/models/contactModel";
 import { NextRequest, NextResponse } from "next/server";
+
 import { Resend } from "resend";
 
 export async function POST(req: NextRequest) {
   const { name, email, message, subject, phone } = await req.json();
+  const esponse = await new ContactModel({
+    name,
+    email,
+    message,
+    subject,
+    phone,
+  }).save();
+  console.log("esponse", esponse);
   const apiKey = process.env.RESEND_API_KEY!;
   const resend = new Resend(apiKey);
   const res = await fetch("https://api.resend.com/emails", {
