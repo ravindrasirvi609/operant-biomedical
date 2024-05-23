@@ -21,46 +21,38 @@ interface DataType {
 }
 
 const portfolio_data: DataType[] = [
-  // portfolio pages
   {
     id: 1,
-    category: "Pharma Reserch Publications",
+    category: "Biomedical Research Publications",
     img: portfolio_img_6,
     title: "Project Task Management",
     des: "pharmacy research and ",
   },
   {
     id: 2,
+    category: "Pharma Reserch Publications",
+    img: portfolio_img_6,
+    title: "Project Task Management",
+    des: "pharmacy research and ",
+  },
+  {
+    id: 3,
     category: "Pharmanecia",
     img: portfolio_img_7,
     title: "Project Task Management",
     des: "Digital Services / App Design",
   },
   {
-    id: 3,
-    category: "pharmaNEST",
+    id: 4,
+    category: "PharmaNEST",
     img: portfolio_img_8,
     title: "Project Task Management",
     des: "Digital Services / App Design",
   },
   {
-    id: 4,
-    category: "Finance",
-    img: portfolio_img_9,
-    title: "Project Task Management",
-    des: "Digital Services / App Design",
-  },
-  {
     id: 5,
-    category: "UX Design",
-    img: portfolio_img_10,
-    title: "Project Task Management",
-    des: "Digital Services / App Design",
-  },
-  {
-    id: 6,
-    category: "UI Design",
-    img: portfolio_img_11,
+    category: "PharMAIR",
+    img: portfolio_img_9,
     title: "Project Task Management",
     des: "Digital Services / App Design",
   },
