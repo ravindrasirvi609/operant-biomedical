@@ -11,173 +11,122 @@ const privacy = () => {
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <main>
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="section-title text-center">
-                      <h2>Privacy Policy</h2>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-12">
-                    <p>
-                      At <strong>Company Name</strong>, accessible from{" "}
-                      <a href="https://www.company.com">
-                        https://www.company.com
-                      </a>
-                      , one of our main priorities is the privacy of our
-                      visitors. This Privacy Policy document contains types of
-                      information that is collected and recorded by{" "}
-                      <strong>Company Name</strong> and how we use it.
-                    </p>
-                    <p>
-                      If you have additional questions or require more
-                      information about our Privacy Policy, do not hesitate to
-                      contact us through email at{" "}
-                      <a href="mailto:op@company.com">op@company.com</a>.
-                    </p>
-                    <p>
-                      This Privacy Policy applies only to our online activities
-                      and is valid for visitors to our website with regards to
-                      the information that they shared and/or collect in{" "}
-                      <strong>Company Name</strong>. This policy is not
-                      applicable to any information collected offline or via
-                      channels other than this website.
-                    </p>
-                    <h3>Consent</h3>
-                    <p>
-                      By using our website, you hereby consent to our Privacy
-                      Policy and agree to its terms.
-                    </p>
+              <div className="container my-5">
+                <h1 className="mb-4">Privacy Policy</h1>
 
-                    <h3>Information we collect</h3>
-                    <p>
-                      The personal information that you are asked to provide,
-                      and the reasons why you are asked to provide it, will be
-                      made clear to you at the point we ask you to provide your
-                      personal information.
-                    </p>
-                    <p>
-                      If you contact us directly, we may receive additional
-                      information about you such as your name, email address,
-                      phone number, the contents of the message and/or
-                      attachments you may send us, and any other information you
-                      may choose to provide.
-                    </p>
-                    <p>
-                      When you register for an Account, we may ask for your
-                      contact information, including items such as name, company
-                      name, address, email address, and telephone number.
-                    </p>
+                <p className="lead">
+                  Operant Biomedical Research Federation (OBRF) is committed to
+                  protecting your privacy. This Privacy Policy outlines how we
+                  handle your personal information to protect your privacy.
+                </p>
 
-                    <h3>How we use your information</h3>
-                    <p>
-                      We use the information we collect in various ways,
-                      including to:
-                    </p>
-                    <ul>
-                      <li>Provide, operate, and maintain our website</li>
-                      <li>Improve, personalize, and expand our website</li>
-                      <li>Understand and analyze how you use our website</li>
-                      <li>
-                        Develop new products, services, features, and
-                        functionality
-                      </li>
-                      <li>
-                        Communicate with you, either directly or through one of
-                        our partners, including for customer service, to provide
-                        you with updates and other information relating to the
-                        website, and for marketing and promotional purposes
-                      </li>
-                      <li>Send you emails</li>
-                      <li>Find and prevent fraud</li>
-                    </ul>
+                <h2>Information Collection</h2>
+                <p>
+                  We collect personal information when you register with us, use
+                  our services, or visit our website. The information collected
+                  may include your name, email address, phone number, and other
+                  relevant data necessary for providing our services.
+                </p>
 
-                    <h3>Log Files</h3>
-                    <p>
-                      Company Name follows a standard procedure of using log
-                      files. These files log visitors when they visit websites.
-                      All hosting companies do this and a part of hosting
-                      services' analytics. The information collected by log
-                      files include internet protocol (IP) addresses, browser
-                      type, Internet Service Provider (ISP ), date and time
-                      stamp, referring/exit pages, and possibly the number of
-                      clicks. These are not linked to any information that is
-                      personally identifiable. The purpose of the information is
-                      for analyzing trends, administering the site, tracking
-                      users' movement on the website, and gathering demographic
-                      information.
-                    </p>
+                <h2>Use of Information</h2>
+                <p>We use the information collected to:</p>
+                <ul>
+                  <li>Provide, maintain, and improve our services</li>
+                  <li>
+                    Communicate with you, including responding to your comments,
+                    questions, and requests
+                  </li>
+                  <li>
+                    Send you technical notices, updates, security alerts, and
+                    support messages
+                  </li>
+                  <li>
+                    Analyze trends and usage to improve our services and website
+                  </li>
+                </ul>
 
-                    <h3>Cookies and Web Beacons</h3>
-                    <p>
-                      Like any other website, Company Name uses "cookies". These
-                      cookies are used to store information including visitors'
-                      preferences, and the pages on the website that the visitor
-                      accessed or visited. The information is used to optimize
-                      the users' experience by customizing our web page content
-                      based on visitors' browser type and/or other information.
-                    </p>
+                <h2>Information Sharing</h2>
+                <p>
+                  We do not share your personal information with third parties
+                  except in the following cases:
+                </p>
+                <ul>
+                  <li>With your consent</li>
+                  <li>
+                    For external processing with trusted partners who comply
+                    with our Privacy Policy and security measures
+                  </li>
+                  <li>To comply with laws, regulations, or legal requests</li>
+                  <li>
+                    To protect the rights, property, and safety of OBRF, our
+                    users, or the public
+                  </li>
+                </ul>
 
-                    <h3>Advertising Partners Privacy Policies</h3>
-                    <p>
-                      You may consult this list to find the Privacy Policy for
-                      each of the advertising partners of Company Name.
-                    </p>
-                    <p>
-                      Third-party ad servers or ad networks uses technologies
-                      like cookies, JavaScript, or Web Beacons that are used in
-                      their respective advertisements and links that appear on
-                      <strong>Company Name</strong>, which are sent directly to
-                      users' browser. They automatically receive your IP address
-                      when this occurs. These technologies are used to measure
-                      the effectiveness of their advertising campaigns and/or to
-                      personalize the advertising content that you see on
-                      websites that you visit.
-                    </p>
-                    <p>
-                      <strong>Company Name</strong>Privacy Policy does not apply
-                      to other advertisers or websites. Thus, we are advising
-                      you to consult the respective Privacy Policies of these
-                      third-party ad servers for more detailed information. It
-                      may include their practices and instructions about how to
-                      opt-out of certain options.
-                    </p>
-                    <p>
-                      You can choose to disable cookies through your individual
-                      browser options. To know more detailed information about
-                      cookie management with specific web browsers, it can be
-                      found at the browsers' respective websites.
-                    </p>
-                    <h3>
-                      CCPA Privacy Rights (Do Not Sell My Personal Information)
-                    </h3>
-                    <p>
-                      Under the CCPA, among other rights, California consumers
-                      have the right to:
-                    </p>
-                    <p>
-                      Request that a business that collects a consumer's
-                      personal data disclose the categories and specific pieces
-                      of personal data that a business has collected about
-                      consumers.
-                    </p>
-                    <p>
-                      Request that a business delete any personal data about the
-                      consumer that a business has collected.
-                    </p>
-                    <p>
-                      Request that a business that sells a consumer's personal
-                      data, not sell the consumer's personal data.
-                    </p>
-                    <p>
-                      If you make a request, we have one month to respond to
-                      you. If you would like to exercise any of these rights,
-                      please contact us.
-                    </p>
-                  </div>
-                </div>
+                <h2>Data Security</h2>
+                <p>
+                  We implement security measures to protect your personal
+                  information against unauthorized access, alteration,
+                  disclosure, or destruction. These measures include internal
+                  reviews of our data collection, storage, and processing
+                  practices and security measures, as well as physical security
+                  measures to guard against unauthorized access to systems where
+                  we store personal data.
+                </p>
+
+                <h2>Cookies</h2>
+                <p>
+                  Our website uses cookies to collect information and enhance
+                  your user experience. Cookies are small data files stored on
+                  your device. You can instruct your browser to refuse all
+                  cookies or to indicate when a cookie is being sent. However,
+                  if you do not accept cookies, you may not be able to use some
+                  portions of our website.
+                </p>
+
+                <h2>Third-Party Links</h2>
+                <p>
+                  Our website may contain links to other sites that are not
+                  operated by us. If you click on a third-party link, you will
+                  be directed to that third party's site. We strongly advise you
+                  to review the Privacy Policy of every site you visit. We have
+                  no control over and assume no responsibility for the content,
+                  privacy policies, or practices of any third-party sites or
+                  services.
+                </p>
+
+                <h2>Children's Privacy</h2>
+                <p>
+                  Our services are not directed to individuals under the age of
+                  13. We do not knowingly collect personal information from
+                  children under 13. If we become aware that a child under 13
+                  has provided us with personal information, we will take steps
+                  to delete such information from our servers.
+                </p>
+
+                <h2>Changes to This Privacy Policy</h2>
+                <p>
+                  We may update our Privacy Policy from time to time. We will
+                  notify you of any changes by posting the new Privacy Policy on
+                  this page. You are advised to review this Privacy Policy
+                  periodically for any changes. Changes to this Privacy Policy
+                  are effective when they are posted on this page.
+                </p>
+
+                <h2>Contact Us</h2>
+                <p>
+                  If you have any questions about this Privacy Policy, please
+                  contact us:
+                </p>
+                <ul>
+                  <li>By email: support@obrf.org</li>
+                  <li>
+                    By visiting this page on our website:{" "}
+                    <a href="https://www.obrf.org/contact">
+                      https://www.obrf.org/contact
+                    </a>
+                  </li>
+                </ul>
               </div>
             </main>
             <FooterOne />
