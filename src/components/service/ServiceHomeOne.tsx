@@ -44,7 +44,7 @@ const ServiceHomeOne = () => {
                 Our Services
               </div>
               <h2 className="cs_section_title anim_heading_title">
-                Comprehensive Digital Strategy Transformation
+                Welcome to Our Biomedical Research Consulting Solutions{" "}
               </h2>
             </div>
             <div className="cs_section_heading_right cs_btn_anim">

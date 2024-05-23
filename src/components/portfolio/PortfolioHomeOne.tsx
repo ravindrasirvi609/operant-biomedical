@@ -64,7 +64,7 @@ const PortfolioHomeOne = () => {
                 Portfolio
               </div>
               <h2 className="cs_section_title anim_heading_title">
-                Some Recent Project We Successfully Done
+                Some Recent Conferences & Workshops Successfully Done{" "}
               </h2>
             </div>
           </div>
