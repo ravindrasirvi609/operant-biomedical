@@ -4,9 +4,9 @@ import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import blog_img_1 from "@/assets/img/post_1.jpg";
-import blog_img_2 from "@/assets/img/post_2.jpg";
-import blog_img_3 from "@/assets/img/post_3.jpg";
+import blog_img_1 from "@/assets/img/Picture 1.png";
+import blog_img_2 from "@/assets/img/Picture2.png";
+import blog_img_3 from "@/assets/img/Picture3.png";
 import Image, { StaticImageData } from "next/image";
 
 interface DataType {
@@ -20,20 +20,22 @@ const blog_data: DataType[] = [
   {
     id: 1,
     img: blog_img_1,
-    title: `Reasons Business Needs a Agency`,
-    des: `The art of creative thinking could be a blog that explores the various ways in which people.`,
+    title: `New Clinical Outcome Assessments Could Improve Treatment for Parkinson's`,
+    des: `New Clinical Outcome Assessments Could Improve Treatment for Parkinson's
+Innovative clinical assessments are crucial for developing effective treatments and better understanding Parkinson's disease progression.`,
   },
   {
     id: 2,
     img: blog_img_2,
-    title: `How a Creative Agency Can Help?`,
-    des: `The art of creative thinking could be a blog that explores the various ways in which people.`,
+    title: `6 HOLISTIC SANITATION SOLUTIONS FOR CLEANING AND DISINFECTING VIVARIUMS`,
+    des: `Holistic Sanitation Solutions for Cleaning and Disinfecting Vivariums
+Effective vivarium sanitation ensures research integrity and animal health, requiring thorough chemical verification and equipment maintenance.`,
   },
   {
     id: 3,
     img: blog_img_3,
-    title: `Maximizing Your Marketing Budget`,
-    des: `The art of creative thinking could be a blog that explores the various ways in which people.`,
+    title: `What Could Liquid Biopsy Do for Oncology in the UK and What Is Needed to Realise Its Potential?`,
+    des: `Liquid biopsy offers promising cancer diagnostics but requires addressing accuracy, infrastructure, skills, and cost-effectiveness for NHS integration.`,
   },
 ];
 
@@ -97,12 +99,17 @@ const BlogHomeOne = ({ style_2, style_3 }: any) => {
             {blog_data.map((item, i) => (
               <SwiperSlide key={i} className="swiper-slide">
                 <div className="cs_post cs_style_1">
-                  <Link href="/blog-details" className="cs_post_thumb">
+                  <Link
+                    href={`/blog-details/${item.id}`}
+                    className="cs_post_thumb"
+                  >
                     <Image src={item.img} alt="image-here" />
                   </Link>
                   <div className="cs_post_info">
                     <h2 className="cs_post_title">
-                      <Link href="/blog-details">{item.title}</Link>
+                      <Link href={`/blog-details/${item.id}`}>
+                        {item.title}
+                      </Link>
                     </h2>
                     <p className="cs_m0">{item.des}</p>
                   </div>
