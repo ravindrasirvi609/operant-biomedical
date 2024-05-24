@@ -157,7 +157,7 @@ const ContactArea = () => {
                 data-src="assets/img/map_img.png"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.975124408454!2d73.327797!3d25.789801000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDU5JzM0LjYiTiA3M8KwMjYnMjUuMiJF!5e0!3m2!1sen!2sbd!4v1563075599994!5m2!1sen!2sbd"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.975124408454!2d73.3574091!3d25.7806245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDU5JzM0LjYiTiA3M8KwMjYnMjUuMiJF!5e0!3m2!1sen!2sbd!4v1563075599994!5m2!1sen!2sbd"
                   allowFullScreen={true}
                 ></iframe>
               </div>
