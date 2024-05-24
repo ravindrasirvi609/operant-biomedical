@@ -40,10 +40,10 @@ const MembershipPlanDetails = () => {
               <Link href={"/membership#cs_work_1"}>Become a member</Link>
             </button>
             <p className="cs_mp0 anim_text">
-              Welcome to our digital agency! We specialize in helping businesses
-              like yours succeed online. From website design and development to
-              digital marketing and advertising, we have the tools and expertise
-              to elevate your online presence.
+              There are people and organizations out there who deserve original,
+              independent and high-quality Biomedical Research Knowledge in
+              their lives. To understand. To stay informed. To get ahead. You
+              can join them.
             </p>
             <div className="container">
               <h1 className="mt-5">Membership Benefits</h1>
