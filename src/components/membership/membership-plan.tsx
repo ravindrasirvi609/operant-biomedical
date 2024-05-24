@@ -61,7 +61,7 @@ const MembershipPlanDetails = () => {
                           <div className="cs_work_style_2"></div>
                         </div>
                         <div className="cs_stroke_number hover:bg-primary-color hover:text-white">
-                          <span>{item.title}</span>
+                          <span className="hover_text">{item.title}</span>
                         </div>
                       </div>
 
