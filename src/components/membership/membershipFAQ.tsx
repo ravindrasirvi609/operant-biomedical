@@ -147,46 +147,50 @@ const MemberFaqArea = () => {
 
       <div className="container">
         <div className="cs_accordeon anim_div_ShowDowns">
-          {faq_data.map((item, i) => (
-            <div
-              key={i}
-              onClick={() => toggleAccordion(i)}
-              className={`cs_accordion_item cs_color_1 ${
-                i === activeIndex ? "active cs_icon" : ""
-              }`}
-            >
-              <div className="cs_accordion_header">
-                <p
-                  className="cs_accordion_title cs_m0"
-                  id={`heading${item.id}`}
+          <div className="row">
+            {faq_data.map((item, i) => (
+              <div key={i} className="col-md-6 mb-0">
+                <div
+                  onClick={() => toggleAccordion(i)}
+                  className={`cs_accordion_item cs_color_1 ${
+                    i === activeIndex ? "active cs_icon" : ""
+                  }`}
                 >
-                  {item.question}
-                </p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 25 25"
-                  width="30"
-                  style={{
-                    transform: i === activeIndex ? "rotate(-90deg)" : "none",
-                  }}
-                >
-                  <path
-                    style={{ fill: `#ffffff` }}
-                    d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-                    data-name="Right"
-                  />
-                </svg>
-              </div>
+                  <div className="cs_accordion_header">
+                    <p
+                      className="cs_accordion_title cs_m0"
+                      id={`heading${item.id}`}
+                    >
+                      {item.question}
+                    </p>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25 25"
+                      width="30"
+                      style={{
+                        transform:
+                          i === activeIndex ? "rotate(-90deg)" : "none",
+                      }}
+                    >
+                      <path
+                        style={{ fill: `#ffffff` }}
+                        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                        data-name="Right"
+                      />
+                    </svg>
+                  </div>
 
-              <div
-                className={`cs_accordion_body ${
-                  i === activeIndex ? "" : "d-none"
-                }`}
-              >
-                {item.ans}
+                  <div
+                    className={`cs_accordion_body ${
+                      i === activeIndex ? "" : "d-none"
+                    }`}
+                  >
+                    {item.ans}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       <div className="cs_height_150 cs_height_lg_60"></div>
@@ -195,66 +199,3 @@ const MemberFaqArea = () => {
 };
 
 export default MemberFaqArea;
-
-<div className="container">
-  <div className="m-5">
-    <h6>Ethical Guidance</h6>
-    <p>Support and guidelines for maintaining high ethical standards.</p>
-  </div>
-  <div className="m-5">
-    <h6>Discounted Fees</h6>
-    <p>Reduced rates for conferences, seminars, and workshops.</p>
-  </div>
-  <div className="m-5">
-    <h6>Publication Opportunities</h6>
-    <p>Increased chances to publish in esteemed journals.</p>
-  </div>
-  <div className="m-5">
-    <h6>Special Interest Groups</h6>
-    <p>Join niche groups focusing on specific research areas.</p>
-  </div>
-  <div className="m-5">
-    <h6>Continuing Education Credits</h6>
-    <p>Earn credits to maintain professional certifications.</p>
-  </div>
-  <div className="m-5">
-    <h6>Leadership Roles</h6>
-    <p>Opportunities to serve on committees and boards.</p>
-  </div>
-  <div className="m-5">
-    <h6>Exclusive Webinars</h6>
-    <p>Access to member-only webinars and online training.</p>
-  </div>
-  <div className="m-5">
-    <h6>Awards and Honors</h6>
-    <p>Eligibility for prestigious awards and recognitions.</p>
-  </div>
-  <div className="m-5">
-    <h6>Industry Partnerships</h6>
-    <p>Connections with industry leaders and organizations.</p>
-  </div>
-  <div className="m-5">
-    <h6>Mentorship Programs</h6>
-    <p>Pairing with experienced professionals for guidance.</p>
-  </div>
-  <div className="m-5">
-    <h6>Research Grants</h6>
-    <p>Tailored grants and funding for member projects.</p>
-  </div>
-  <div className="m-5">
-    <h6>Global Reach</h6>
-    <p>Opportunities for international collaborations and exchanges.</p>
-  </div>
-  <div className="m-5">
-    <h6>Policy Impact</h6>
-    <p>Influence and participate in policy development and advocacy.</p>
-  </div>
-  <div className="m-5">
-    <h6>Resource Sharing</h6>
-    <p>Access to shared research tools and resources.</p>
-  </div>
-  <div className="m-5" id="cs_work_1">
-    <h6>Consultation Services</h6>
-    <p>Expert advice and consultation from seasoned researchers.</p>
-  </div>
-</div>;
