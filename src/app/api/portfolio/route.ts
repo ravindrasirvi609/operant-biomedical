@@ -8,7 +8,6 @@ connect();
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    console.log("formData", Array.from(formData.entries()));
 
     const files = formData.getAll("images") as File[];
     const imageUploadPromises = files.map(async (file) => {
