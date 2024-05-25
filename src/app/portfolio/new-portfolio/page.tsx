@@ -218,7 +218,7 @@ const PortfolioForm: React.FC = () => {
             Date
           </label>
           <input
-            type="date"
+            type="text"
             className="form-control"
             id="date"
             name="date"
