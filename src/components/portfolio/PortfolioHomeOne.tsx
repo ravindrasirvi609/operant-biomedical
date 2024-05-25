@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import portfolio_img_1 from "@/assets/img/portfolio/Pharmanecia6_E.png";
 import portfolio_img_2 from "@/assets/img/portfolio/Pharmanecia1_E.png";
-import portfolio_img_3 from "@/assets/img/portfolio/Pharmanecia2_E.png";
+import portfolio_img_3 from "@/assets/img/portfolio/pharmanecia2_E.png";
 import portfolio_img_4 from "@/assets/img/portfolio/Pharmanecia3_E.png";
 import portfolio_img_5 from "@/assets/img/portfolio/Pharmanecia4_E.png";
 import portfolio_img_6 from "@/assets/img/portfolio/Pharmanecia5_E.png";
