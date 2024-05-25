@@ -6,11 +6,10 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 
 import portfolio_img_6 from "@/assets/img/pharmanecia2_E.png";
-import portfolio_img_7 from "@/assets/img/portfolio_2.jpg";
+
 import portfolio_img_8 from "@/assets/img/portfolio_3.jpg";
 import portfolio_img_9 from "@/assets/img/pharmanecia2_E.png";
-import portfolio_img_10 from "@/assets/img/portfolio_6.jpg";
-import portfolio_img_11 from "@/assets/img/portfolio_7.jpg";
+import pharmanecia3_E from "@/assets/img/testimonial/head_testimonial.jpg";
 
 interface DataType {
   id: number;
@@ -23,17 +22,24 @@ interface DataType {
 const portfolio_data: DataType[] = [
   {
     id: 1,
-    category: "Biomedical Research Publications",
+    category: "Pharmanecia",
     img: portfolio_img_6,
     title: "Pharmanecia 1.E",
     des: "V. V. Institute of Pharmaceutical Sciences, Gudlavalleru, in collaboration with Operant Pharmacy Federation (OPF) organized a two day International Conference Pharmanecia'18 on 25 & 26 September, 2018.",
   },
   {
     id: 2,
-    category: "Biomedical Research Publications",
+    category: "Pharmanecia",
     img: portfolio_img_6,
     title: "Pharmanecia 2.E",
-    des: "pharmacy research and ",
+    des: "The conference Organised by Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune & Dr. D. Y. Patil Institute of Pharmaceutical Sciences & Research Pune,",
+  },
+  {
+    id: 3,
+    category: "Pharmanecia",
+    img: pharmanecia3_E,
+    title: "Pharmanecia 3.E",
+    des: "The conference Organised by Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune & Dr. D. Y. Patil Institute of Pharmaceutical Sciences & Research Pune,",
   },
   {
     id: 3,
@@ -48,13 +54,6 @@ const portfolio_data: DataType[] = [
     img: portfolio_img_6,
     title: "Project Task Management",
     des: "pharmacy research and ",
-  },
-  {
-    id: 3,
-    category: "Pharmanecia",
-    img: portfolio_img_7,
-    title: "Project Task Management",
-    des: "Digital Services / App Design",
   },
   {
     id: 4,
