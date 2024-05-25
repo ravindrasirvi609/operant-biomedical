@@ -61,12 +61,24 @@ export async function POST(req: NextRequest) {
       }
     });
 
-    const { title, client, services, date, des } = data as {
+    const {
+      title,
+      client,
+      services,
+      date,
+      des,
+      heading,
+      subHeading,
+      category,
+    } = data as {
       title: string;
       client: string;
       services: string;
       date: string;
       des: string;
+      heading: string;
+      subHeading: string;
+      category: string;
     };
 
     const challenges = Array.isArray(data.challenges)
@@ -82,6 +94,9 @@ export async function POST(req: NextRequest) {
       services: services,
       date: date,
       des: des,
+      heading: heading,
+      subHeading: subHeading,
+      category: category,
       images: imageUrls,
       challenges: challenges.filter(
         (item) => typeof item === "string" && item !== ""

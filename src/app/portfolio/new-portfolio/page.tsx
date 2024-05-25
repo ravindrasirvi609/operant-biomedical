@@ -9,6 +9,9 @@ interface PortfolioDataType {
   services: string;
   date: string;
   des: string;
+  heading: string;
+  subHeading: string;
+  category: string;
   images: File[];
   challenges: string[];
   solutions: string[];
@@ -20,6 +23,9 @@ const PortfolioForm: React.FC = () => {
     title: "",
     client: "",
     services: "",
+    heading: "",
+    subHeading: "",
+    category: "",
     date: "",
     des: "",
     images: [],
@@ -28,7 +34,7 @@ const PortfolioForm: React.FC = () => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -95,6 +101,9 @@ const PortfolioForm: React.FC = () => {
     data.append("services", formData.services);
     data.append("date", formData.date);
     data.append("des", formData.des);
+    data.append("heading", formData.heading);
+    data.append("subHeading", formData.subHeading);
+    data.append("category", formData.category);
     formData.images.forEach((image) => data.append("images", image));
     formData.challenges.forEach((challenge, index) =>
       data.append(`challenges[${index}]`, challenge)
@@ -104,7 +113,7 @@ const PortfolioForm: React.FC = () => {
     );
 
     try {
-      const response = await axios.post("/api/portfolio", data, {
+      const response = await axios.post("/api/portfolio/add-portfolio", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -120,6 +129,51 @@ const PortfolioForm: React.FC = () => {
       <h1 className="text-center my-4">Portfolio Form</h1>
 
       <form onSubmit={handleSubmit} className="container mt-4">
+        <div className="mb-3">
+          <label htmlFor="category" className="form-label">
+            Category
+          </label>
+          <select
+            className="form-select"
+            id="category"
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+          >
+            <option value="Pharmanecia">Pharmanecia</option>
+            <option value="PharmaNEST">PharmaNEST</option>
+            <option value="Biomedical Research Publications">
+              Biomedical Research Publications
+            </option>
+            <option value="PharMAIR">PharMAIR</option>
+          </select>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="heading" className="form-label">
+            Heading
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="heading"
+            name="heading"
+            value={formData.heading}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="subHeading" className="form-label">
+            Sub Heading
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="subHeading"
+            name="subHeading"
+            value={formData.subHeading}
+            onChange={handleChange}
+          />
+        </div>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
             Title

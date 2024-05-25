@@ -1,11 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { use, useEffect } from "react";
 import Image from "next/image";
 import portfolio_data from "@/data/portfolio_data";
+import axios from "axios";
 
 const PortfolioDetailsArea = ({ paramId }: any) => {
   const project = portfolio_data.find((project) => project.id == paramId.id);
+
+  useEffect(() => {
+    const response = async () => {
+      const res = await axios.post("/api/portfolio/portfolio-details", {
+        id: paramId.id,
+      });
+      const data = await res.data;
+      console.log(data);
+    };
+    response();
+  }, [paramId]);
 
   if (!project) {
     return <div>Project not found</div>;

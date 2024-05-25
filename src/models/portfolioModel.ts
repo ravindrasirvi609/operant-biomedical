@@ -1,6 +1,17 @@
 import mongoose from "mongoose";
 
 const portfolioSchema = new mongoose.Schema({
+  category: {
+    type: String,
+    enum: [
+      "Pharmanecia",
+      "PharmaNEST",
+      "Biomedical Research Publications",
+      "PharMAIR",
+    ],
+  },
+  heading: { type: String },
+  subHeading: { type: String },
   title: { type: String },
   client: { type: String },
   services: { type: String },
