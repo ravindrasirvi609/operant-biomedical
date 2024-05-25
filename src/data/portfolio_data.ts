@@ -93,7 +93,7 @@ const portfolio_data: PortfolioDataType[] = [
       pharmanecia3_E6,
     ],
     challenges: [
-      "",
+      "Another project design challenge 1",
       "Another project design challenge 2",
       "Another project design challenge 3",
       "Another project design challenge 4",
