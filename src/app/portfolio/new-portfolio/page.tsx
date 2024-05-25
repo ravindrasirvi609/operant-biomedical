@@ -32,6 +32,8 @@ const PortfolioForm: React.FC = () => {
     challenges: [""],
     solutions: [""],
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -94,6 +96,7 @@ const PortfolioForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     const data = new FormData();
     data.append("id", formData.id.toString());
     data.append("title", formData.title);
@@ -119,182 +122,194 @@ const PortfolioForm: React.FC = () => {
         },
       });
       console.log(response.data);
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000); // Hide success message after 3 seconds
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
       <h1 className="text-center my-4">Portfolio Form</h1>
-
-      <form onSubmit={handleSubmit} className="container mt-4">
-        <div className="mb-3">
-          <label htmlFor="category" className="form-label">
-            Category
-          </label>
-          <select
-            className="form-select"
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-          >
-            <option value="Pharmanecia">Pharmanecia</option>
-            <option value="PharmaNEST">PharmaNEST</option>
-            <option value="Biomedical Research Publications">
-              Biomedical Research Publications
-            </option>
-            <option value="PharMAIR">PharMAIR</option>
-          </select>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="heading" className="form-label">
-            Heading
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="heading"
-            name="heading"
-            value={formData.heading}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="subHeading" className="form-label">
-            Sub Heading
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="subHeading"
-            name="subHeading"
-            value={formData.subHeading}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="title" className="form-label">
-            Title
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="client" className="form-label">
-            Client
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="client"
-            name="client"
-            value={formData.client}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="services" className="form-label">
-            Services
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="services"
-            name="services"
-            value={formData.services}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="date" className="form-label">
-            Date
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="des" className="form-label">
-            Description
-          </label>
-          <textarea
-            className="form-control"
-            id="des"
-            name="des"
-            value={formData.des}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="images" className="form-label">
-            Images
-          </label>
-          <input
-            type="file"
-            className="form-control"
-            id="images"
-            name="images"
-            multiple
-            onChange={handleFileChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Challenges</label>
-          {formData.challenges.map((challenge, index) => (
+      <div className="container mt-4">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="category" className="form-label">
+              Category
+            </label>
+            <select
+              className="form-select"
+              id="category"
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+            >
+              <option value="">Select Category</option>
+              <option value="Pharmanecia">Pharmanecia</option>
+              <option value="PharmaNEST">PharmaNEST</option>
+              <option value="Biomedical Research Publications">
+                Biomedical Research Publications
+              </option>
+              <option value="PharMAIR">PharMAIR</option>
+            </select>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="heading" className="form-label">
+              Heading
+            </label>
             <input
-              key={index}
               type="text"
-              className="form-control mb-2"
-              name={`challenge-${index}`}
-              value={challenge}
-              onChange={(e) => handleChallengeChange(e, index)}
+              className="form-control"
+              id="heading"
+              name="heading"
+              value={formData.heading}
+              onChange={handleChange}
             />
-          ))}
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={handleAddChallenge}
-          >
-            Add Challenge
-          </button>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Solutions</label>
-          {formData.solutions.map((solution, index) => (
+          </div>
+          <div className="mb-3">
+            <label htmlFor="subHeading" className="form-label">
+              Sub Heading
+            </label>
             <input
-              key={index}
               type="text"
-              className="form-control mb-2"
-              name={`solution-${index}`}
-              value={solution}
-              onChange={(e) => handleSolutionChange(e, index)}
+              className="form-control"
+              id="subHeading"
+              name="subHeading"
+              value={formData.subHeading}
+              onChange={handleChange}
             />
-          ))}
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={handleAddSolution}
-          >
-            Add Solution
+          </div>
+          <div className="mb-3">
+            <label htmlFor="title" className="form-label">
+              Title
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="client" className="form-label">
+              Client
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="client"
+              name="client"
+              value={formData.client}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="services" className="form-label">
+              Services
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="services"
+              name="services"
+              value={formData.services}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="date" className="form-label">
+              Date
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="des" className="form-label">
+              Description
+            </label>
+            <textarea
+              className="form-control"
+              id="des"
+              name="des"
+              value={formData.des}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="images" className="form-label">
+              Images
+            </label>
+            <input
+              type="file"
+              className="form-control"
+              id="images"
+              name="images"
+              multiple
+              onChange={handleFileChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Challenges</label>
+            {formData.challenges.map((challenge, index) => (
+              <input
+                key={index}
+                type="text"
+                className="form-control mb-2"
+                name={`challenge-${index}`}
+                value={challenge}
+                onChange={(e) => handleChallengeChange(e, index)}
+              />
+            ))}
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={handleAddChallenge}
+            >
+              Add Challenge
+            </button>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Solutions</label>
+            {formData.solutions.map((solution, index) => (
+              <input
+                key={index}
+                type="text"
+                className="form-control mb-2"
+                name={`solution-${index}`}
+                value={solution}
+                onChange={(e) => handleSolutionChange(e, index)}
+              />
+            ))}
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={handleAddSolution}
+            >
+              Add Solution
+            </button>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
           </button>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+          {loading && <div className="loader">Loading...</div>}
+          {success && (
+            <div className="alert alert-success" role="alert">
+              Successfully submitted the form!
+            </div>
+          )}
+        </form>
+      </div>
     </>
   );
 };
