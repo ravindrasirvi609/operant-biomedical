@@ -192,8 +192,8 @@ const HeaderOne = () => {
           <div className="container">
             <div className="cs_main_header_in">
               <div className="cs_main_header_left">
-                <Link className="cs_site_branding logo-dark" href="/">
-                  <Image src={logo} alt="Logo" />
+                <Link className="cs_site_branding logo-dark mt-4" href="/">
+                  <Image src={Logo_white} alt="Logo" width={200} height={200} />
                 </Link>
                 <Link className="cs_site_branding logo-white" href="/">
                   <Image src={Logo_white} alt="Logo" />

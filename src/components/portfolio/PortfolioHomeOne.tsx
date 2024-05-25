@@ -93,7 +93,7 @@ const PortfolioHomeOne = () => {
             <SwiperSlide key={i} className="swiper-slide">
               <div className="cs_horizontal_scroll">
                 <Link
-                  href="/portfolio-details"
+                  href={`/portfolio-details/${item.id}`}
                   className="cs_portfolio cs_style_1"
                 >
                   <div className="cs_portfolio_img">

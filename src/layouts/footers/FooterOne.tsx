@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import footer_logo from "@/assets/img/Logo_white.png";
+import footer_logo from "@/assets/img/_Logo.png";
 import { CopyRight, SocialLinks } from "@/components/common/SocialLinks";
 
 interface DataType {
@@ -40,7 +40,7 @@ const FooterOne = () => {
           <div className="row">
             <div className="col-lg-5">
               <div className="cs_footer_info">
-                <Image src={footer_logo} alt="Logo" />
+                <Image src={footer_logo} alt="Logo" height={400} width={400} />
                 <p>{footer_info}</p>
                 <a
                   href={`mailto:${email}`}
