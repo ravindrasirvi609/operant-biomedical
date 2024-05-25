@@ -5,9 +5,9 @@ import award_img_2 from "@/assets/img/award_2.svg";
 import award_img_3 from "@/assets/img/award_3.svg";
 
 import award_thumb_2 from "@/assets/img/portfolio/1B1A0823.jpg";
-import award_thumb_3 from "@/assets/img/portfolio/IMG_2141.jpg";
-import award_thumb_4 from "@/assets/img/portfolio/IMG_2070.jpg";
-import award_thumb_1 from "@/assets/img/portfolio/IMG_2008.jpg";
+import award_thumb_3 from "@/assets/img/portfolio/1B1A0823.jpg";
+import award_thumb_4 from "@/assets/img/portfolio/1B1A0823.jpg";
+import award_thumb_1 from "@/assets/img/portfolio/1B1A0823.jpg";
 
 import Image, { StaticImageData } from "next/image";
 
