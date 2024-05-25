@@ -18,6 +18,7 @@ interface PortfolioDataType {
   client: string;
   services: string;
   date: string;
+  des: string;
   images: StaticImageData[];
   challenges: string[];
   solutions: string[];
@@ -31,6 +32,7 @@ const portfolio_data: PortfolioDataType[] = [
     client: "V. V. Institute of Pharmaceutical Sciences, Gudlavalleru",
     services: "Two day International Conference Pharmanecia'1.E",
     date: "25 & 26 September, 2018",
+    des: "The conference aimed to provide a platform for researchers, academicians, and industry professionals to share their knowledge and expertise in the field of pharmaceutical and clinical research. It also sought to foster collaboration and networking among participants, leading to the development of innovative solutions to address the challenges facing the industry.",
     images: [
       protfolio_details_6,
       protfolio_details_2,
@@ -56,6 +58,7 @@ const portfolio_data: PortfolioDataType[] = [
     client: "Another Company Inc, USA",
     services: "UX Research, Prototyping, UI Design",
     date: "01 Feb 2023 - 01 Mar 2023, 1 Month",
+    des: "Another project description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     images: [
       // Replace with actual image imports
       protfolio_details_1,
@@ -84,6 +87,7 @@ const portfolio_data: PortfolioDataType[] = [
       "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
     services: "One day International Conference Pharmanecia'3.E",
     date: "25 Febuary 2023",
+    des: "Another project description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     images: [
       pharmanecia3_E1,
       pharmanecia3_E5,
@@ -112,6 +116,7 @@ const portfolio_data: PortfolioDataType[] = [
       "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
     services: "One day International Conference Pharmanecia'3.E",
     date: "25 Febuary 2023",
+    des: "Another project description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     images: [
       pharmanecia3_E1,
       pharmanecia3_E5,
@@ -140,6 +145,7 @@ const portfolio_data: PortfolioDataType[] = [
       "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
     services: "One day International Conference Pharmanecia'3.E",
     date: "25 Febuary 2023",
+    des: "Another project description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     images: [
       pharmanecia3_E1,
       pharmanecia3_E5,
@@ -168,6 +174,7 @@ const portfolio_data: PortfolioDataType[] = [
       "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
     services: "One day International Conference Pharmanecia'3.E",
     date: "25 Febuary 2023",
+    des: "Another project description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     images: [
       pharmanecia3_E1,
       pharmanecia3_E5,
@@ -196,6 +203,7 @@ const portfolio_data: PortfolioDataType[] = [
       "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
     services: "One day International Conference Pharmanecia'3.E",
     date: "25 Febuary 2023",
+    des: "Another project description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     images: [
       pharmanecia3_E1,
       pharmanecia3_E5,

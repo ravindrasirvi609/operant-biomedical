@@ -34,7 +34,7 @@ const PortfolioDetailsArea = ({ paramId }: any) => {
               <div className="row">
                 <div className="col-md-4">
                   <div className="cs_text_style_1">
-                    <p className="cs_headed_text">Client</p>
+                    <p className="cs_headed_text">Collaborator</p>
                     <h6 className="cs_title_text">{project.client}</h6>
                   </div>
                 </div>
@@ -67,14 +67,9 @@ const PortfolioDetailsArea = ({ paramId }: any) => {
             <div className="anim_div_ShowDowns">
               <div className="cs_img_show_text cs_text_style_1">
                 <h4 className="cs_heading_text anim_heading_title">
-                  Challenges
+                  Objectives
                 </h4>
-                <p className="cs_text_style_body">
-                  Welcome to our digital agency! We specialize in helping
-                  businesses like yours succeed online. From website design and
-                  development to digital marketing and advertising, we have the
-                  tools and expertise to elevate your online presence.
-                </p>
+                <p className="cs_text_style_body">{project.des}</p>
               </div>
               <div className="cs_ul_ml">
                 <ul>
@@ -108,7 +103,7 @@ const PortfolioDetailsArea = ({ paramId }: any) => {
               <div className="cs_solutions_section anim_div_ShowDowns">
                 <div>
                   <h4 className="cs_heading_text anim_heading_title">
-                    Solutions
+                    Key Takeaways:{" "}
                   </h4>
                   <p className="cs_text_style_body">{project.solutions[0]}</p>
                   <p className="cs_text_style_body">{project.solutions[1]}</p>
