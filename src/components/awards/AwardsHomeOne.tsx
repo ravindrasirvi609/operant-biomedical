@@ -4,9 +4,11 @@ import award_img_1 from "@/assets/img/award_1.svg";
 import award_img_2 from "@/assets/img/award_2.svg";
 import award_img_3 from "@/assets/img/award_3.svg";
 
-import award_thumb_1 from "@/assets/img/award_thumb_1.jpg";
-import award_thumb_2 from "@/assets/img/award_thumb_2.jpg";
-import award_thumb_3 from "@/assets/img/award_thumb_3.jpg";
+import award_thumb_2 from "@/assets/img/portfolio/1B1A0823.jpg";
+import award_thumb_3 from "@/assets/img/portfolio/IMG_2141.jpg";
+import award_thumb_4 from "@/assets/img/portfolio/IMG_2070.jpg";
+import award_thumb_1 from "@/assets/img/portfolio/IMG_2008.jpg";
+
 import Image, { StaticImageData } from "next/image";
 
 interface DataType {
@@ -39,7 +41,7 @@ const award_data: DataType[] = [
   {
     id: 3,
     ward_img: award_img_2,
-    img: award_img_2,
+    img: award_thumb_4,
     brand: ``,
     title: `Innovation and Research Excellence`,
     des: `Federation's support for innovation and research excellence, driving advancements in medical science and technology.`,

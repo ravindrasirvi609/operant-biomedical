@@ -58,14 +58,10 @@ const TeamHomeTwo = ({ style_2, style_3 }: any) => {
           <div className="cs_team_section anim_blog">
             {team_data.slice(0, 4).map((item, i) => (
               <div key={i} className="cs_team_img">
-                <Link href="/team-details">
-                  <Image src={item.img} alt="Thumb" />
-                  <div className="cs_portfolio_overlay"></div>
-                </Link>
+                <Image src={item.img} alt="Thumb" />
+                <div className="cs_portfolio_overlay"></div>
                 <div className="cs_team_text">
-                  <Link href="/team-details">
-                    <h6 className="cs_team_text_title">{item.avatar_name}</h6>
-                  </Link>
+                  <h6 className="cs_team_text_title">{item.avatar_name}</h6>
                   <p className="cs_team_subtitle">{item.designation}</p>
                 </div>
               </div>

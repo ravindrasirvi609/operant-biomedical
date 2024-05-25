@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "@/assets/img/logo.svg";
+import logo from "@/assets/img/Logo_white.png";
 
 const BannerAbout = () => {
   return (
@@ -40,7 +40,7 @@ const BannerAbout = () => {
                   </svg>
                 </div>
                 <div className="position-absolute cs_ceneter_text">
-                  <Image src={logo} alt="" />
+                  <Image src={logo} alt="" width={500} height={500} />
                 </div>
               </div>
             </div>

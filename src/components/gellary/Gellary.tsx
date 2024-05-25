@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import gellary_img_1 from "@/assets/img/about_gallery_1.jpg";
-import gellary_img_2 from "@/assets/img/about_gallery_2.jpg";
-import gellary_img_3 from "@/assets/img/about_gallery_3.jpg";
+import gellary_img_1 from "@/assets/img/portfolio/Pharmanecia1_E.png";
+import gellary_img_2 from "@/assets/img/testimonial/head_testimonial.jpg";
+import gellary_img_3 from "@/assets/img/portfolio/1B1A0961.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import agency_story_1 from "@/assets/img/agency_story_1.jpg";
-import agency_story_2 from "@/assets/img/agency_story_2.jpg";
-import agency_story_4 from "@/assets/img/agency_story_4.jpg";
-import agency_story_3 from "@/assets/img/agency_story_3.jpg";
+import agency_story_1 from "@/assets/img/portfolio/Pharmanecia3_E.png";
+import agency_story_2 from "@/assets/img/portfolio/SAI_5165.jpg";
+import agency_story_4 from "@/assets/img/portfolio/SAI_5321.jpg";
+import agency_story_3 from "@/assets/img/portfolio/PVR_7715.jpg";
 import Image from "next/image";
 
 interface DataType {
