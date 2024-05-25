@@ -1,5 +1,5 @@
 import "@/styles/index.scss";
-
+import { Analytics } from "@vercel/analytics/react";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +16,10 @@ export default function RootLayout({
         <title>Operant Biomedical Research Federation</title>
       </head>
 
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
