@@ -38,7 +38,7 @@ const MembershipPlanDetails = () => {
               Specialization & Working Process
             </h4>
             <button className="btn btn-primary" type="button">
-              <Link href={"/membership#cs_work_1"}>Become a member</Link>
+              <Link href={"/membership#cs_work_routes"}>Become a member</Link>
             </button>
             <p className="cs_mp0 anim_text">
               There are people and organizations out there who deserve original,
@@ -48,7 +48,10 @@ const MembershipPlanDetails = () => {
             </p>
             <MemberFaqArea />
           </div>
-          <div className="cs_height_80 cs_height_lg_40" id="cs_work_1"></div>
+          <div
+            className="cs_height_80 cs_height_lg_40"
+            id="cs_work_routes"
+          ></div>
           <div>
             <div className="cs_work cs_work_1">
               <div className="cs_card_work cs_style_1">

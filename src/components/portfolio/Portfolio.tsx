@@ -5,10 +5,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 
-import portfolio_img_6 from "@/assets/img/portfolio_1.jpg";
+import portfolio_img_6 from "@/assets/img/pharmanecia2_E.png";
 import portfolio_img_7 from "@/assets/img/portfolio_2.jpg";
 import portfolio_img_8 from "@/assets/img/portfolio_3.jpg";
-import portfolio_img_9 from "@/assets/img/portfolio_5.jpg";
+import portfolio_img_9 from "@/assets/img/pharmanecia2_E.png";
 import portfolio_img_10 from "@/assets/img/portfolio_6.jpg";
 import portfolio_img_11 from "@/assets/img/portfolio_7.jpg";
 
@@ -25,8 +25,22 @@ const portfolio_data: DataType[] = [
     id: 1,
     category: "Biomedical Research Publications",
     img: portfolio_img_6,
-    title: "Project Task Management",
+    title: "Pharmanecia 1.E",
+    des: "V. V. Institute of Pharmaceutical Sciences, Gudlavalleru, in collaboration with Operant Pharmacy Federation (OPF) organized a two day International Conference Pharmanecia'18 on 25 & 26 September, 2018.",
+  },
+  {
+    id: 2,
+    category: "Biomedical Research Publications",
+    img: portfolio_img_6,
+    title: "Pharmanecia 2.E",
     des: "pharmacy research and ",
+  },
+  {
+    id: 3,
+    category: "Biomedical Research Publications",
+    img: portfolio_img_6,
+    title: "Pharmanecia 3.E",
+    des: "The conference Organised by Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune & Dr. D. Y. Patil Institute of Pharmaceutical Sciences & Research Pune,",
   },
   {
     id: 2,
@@ -46,8 +60,22 @@ const portfolio_data: DataType[] = [
     id: 4,
     category: "PharmaNEST",
     img: portfolio_img_8,
-    title: "Project Task Management",
+    title: "PharmaNEST 1",
     des: "Digital Services / App Design",
+  },
+  {
+    id: 4,
+    category: "PharmaNEST",
+    img: portfolio_img_8,
+    title: "PharmaNEST 2.E",
+    des: "Digital Services / App Design",
+  },
+  {
+    id: 4,
+    category: "PharmaNEST",
+    img: portfolio_img_8,
+    title: "PharmaNEST 3.E",
+    des: "Two days International Conference PharmaNEST 3’E, on “Professional Development and Advanced Training in Artificial Intelligence driven Drug Design, Discovery and Development” was Organized on 14th and 15th October 2022 at Department of Pharmaceutical chemistry, JSS College of Pharmacy, Ooty in association with Operant Pharmacy Federation.",
   },
   {
     id: 5,
@@ -123,7 +151,7 @@ const Portfolio = () => {
                   className="col-md-4 cs_item cs_ui_design cs_development"
                 >
                   <Link
-                    href="/portfolio-details"
+                    href={`/portfolio-details/${item.id}`}
                     className="cs_portfolio cs_style_1"
                   >
                     <div className="cs_portfolio_img">
