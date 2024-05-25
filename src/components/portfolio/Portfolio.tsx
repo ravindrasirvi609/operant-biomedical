@@ -4,9 +4,7 @@ import React, { useState } from "react";
 // import portfolio_data from '@/data/portfolio_data';
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
-
 import portfolio_img_6 from "@/assets/img/pharmanecia2_E.png";
-
 import portfolio_img_8 from "@/assets/img/portfolio_3.jpg";
 import portfolio_img_9 from "@/assets/img/pharmanecia2_E.png";
 import pharmanecia3_E from "@/assets/img/testimonial/head_testimonial.jpg";

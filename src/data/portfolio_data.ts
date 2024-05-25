@@ -104,6 +104,118 @@ const portfolio_data: PortfolioDataType[] = [
       "The exchange of ideas and experiences during the conference led to the formation of new research alliances and initiatives aimed at addressing emerging challenges in the pharmaceutical industry.",
     ],
   },
+  {
+    id: 4,
+    title:
+      "The Pharmanecia 3.E International Conference on Emerging Trends in Pharmaceutical Research",
+    client:
+      "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
+    services: "One day International Conference Pharmanecia'3.E",
+    date: "25 Febuary 2023",
+    images: [
+      pharmanecia3_E1,
+      pharmanecia3_E5,
+      pharmanecia3_E3,
+      pharmanecia3_E4,
+      pharmanecia3_E2,
+      pharmanecia3_E6,
+    ],
+    challenges: [
+      "Another project design challenge 1",
+      "Another project design challenge 2",
+      "Another project design challenge 3",
+      "Another project design challenge 4",
+    ],
+    solutions: [
+      "One of the key outcomes was the dissemination of cutting-edge research findings and insights. Participants presented their research through E-Posters and Oral Presentations, showcasing their novel discoveries and breakthroughs. This contributed to expanding the collective knowledge base in pharmaceutical research and paving the way for further exploration and development.",
+      "The conference also facilitated networking and collaboration among attendees. Researchers had the opportunity to connect with experts in their respective fields, fostering meaningful partnerships and potential collaborations.",
+      "The exchange of ideas and experiences during the conference led to the formation of new research alliances and initiatives aimed at addressing emerging challenges in the pharmaceutical industry.",
+    ],
+  },
+  {
+    id: 5,
+    title:
+      "The Pharmanecia 3.E International Conference on Emerging Trends in Pharmaceutical Research",
+    client:
+      "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
+    services: "One day International Conference Pharmanecia'3.E",
+    date: "25 Febuary 2023",
+    images: [
+      pharmanecia3_E1,
+      pharmanecia3_E5,
+      pharmanecia3_E3,
+      pharmanecia3_E4,
+      pharmanecia3_E2,
+      pharmanecia3_E6,
+    ],
+    challenges: [
+      "Another project design challenge 1",
+      "Another project design challenge 2",
+      "Another project design challenge 3",
+      "Another project design challenge 4",
+    ],
+    solutions: [
+      "One of the key outcomes was the dissemination of cutting-edge research findings and insights. Participants presented their research through E-Posters and Oral Presentations, showcasing their novel discoveries and breakthroughs. This contributed to expanding the collective knowledge base in pharmaceutical research and paving the way for further exploration and development.",
+      "The conference also facilitated networking and collaboration among attendees. Researchers had the opportunity to connect with experts in their respective fields, fostering meaningful partnerships and potential collaborations.",
+      "The exchange of ideas and experiences during the conference led to the formation of new research alliances and initiatives aimed at addressing emerging challenges in the pharmaceutical industry.",
+    ],
+  },
+  {
+    id: 4,
+    title:
+      "The Pharmanecia 3.E International Conference on Emerging Trends in Pharmaceutical Research",
+    client:
+      "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
+    services: "One day International Conference Pharmanecia'3.E",
+    date: "25 Febuary 2023",
+    images: [
+      pharmanecia3_E1,
+      pharmanecia3_E5,
+      pharmanecia3_E3,
+      pharmanecia3_E4,
+      pharmanecia3_E2,
+      pharmanecia3_E6,
+    ],
+    challenges: [
+      "Another project design challenge 1",
+      "Another project design challenge 2",
+      "Another project design challenge 3",
+      "Another project design challenge 4",
+    ],
+    solutions: [
+      "One of the key outcomes was the dissemination of cutting-edge research findings and insights. Participants presented their research through E-Posters and Oral Presentations, showcasing their novel discoveries and breakthroughs. This contributed to expanding the collective knowledge base in pharmaceutical research and paving the way for further exploration and development.",
+      "The conference also facilitated networking and collaboration among attendees. Researchers had the opportunity to connect with experts in their respective fields, fostering meaningful partnerships and potential collaborations.",
+      "The exchange of ideas and experiences during the conference led to the formation of new research alliances and initiatives aimed at addressing emerging challenges in the pharmaceutical industry.",
+    ],
+  },
+  {
+    id: 5,
+    title:
+      "The Pharmanecia 3.E International Conference on Emerging Trends in Pharmaceutical Research",
+    client:
+      "Dr. D. Y. Patil Medical College, Hospital & Research Center, Pune ",
+    services: "One day International Conference Pharmanecia'3.E",
+    date: "25 Febuary 2023",
+    images: [
+      pharmanecia3_E1,
+      pharmanecia3_E5,
+      pharmanecia3_E3,
+      pharmanecia3_E4,
+      pharmanecia3_E2,
+      pharmanecia3_E6,
+    ],
+    challenges: [
+      "Another project design challenge 1",
+      "Another project design challenge 2",
+      "Another project design challenge 3",
+      "Another project design challenge 4",
+    ],
+    solutions: [
+      "One of the key outcomes was the dissemination of cutting-edge research findings and insights. Participants presented their research through E-Posters and Oral Presentations, showcasing their novel discoveries and breakthroughs. This contributed to expanding the collective knowledge base in pharmaceutical research and paving the way for further exploration and development.",
+      "The conference also facilitated networking and collaboration among attendees. Researchers had the opportunity to connect with experts in their respective fields, fostering meaningful partnerships and potential collaborations.",
+      "The exchange of ideas and experiences during the conference led to the formation of new research alliances and initiatives aimed at addressing emerging challenges in the pharmaceutical industry.",
+    ],
+  },
 ];
 
 export default portfolio_data;

@@ -6,13 +6,14 @@ import Image, { StaticImageData } from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import portfolio_img_1 from "@/assets/img/portfolio/Pharmanecia6_E.png";
-import portfolio_img_2 from "@/assets/img/portfolio/Pharmanecia1_E.png";
+import portfolio_img_2 from "@/assets/img/testimonial/head_testimonial.jpg";
 import portfolio_img_3 from "@/assets/img/portfolio/pharmanecia2_E.png";
 import portfolio_img_4 from "@/assets/img/portfolio/Pharmanecia3_E.png";
 import portfolio_img_5 from "@/assets/img/portfolio/Pharmanecia4_E.png";
 import portfolio_img_6 from "@/assets/img/portfolio/Pharmanecia5_E.png";
 
 interface DataType {
+  id: number;
   img: StaticImageData;
   title: string;
   category: string;
@@ -21,31 +22,39 @@ interface DataType {
 
 const portfolio_slider: DataType[] = [
   {
+    id: 1,
     img: portfolio_img_1,
-    title: "Exploring Novel Drug Targets",
-    category: "Pharma Research Publications",
+    title:
+      "Pharmaceutical and Clinical Research in India: Current Scenario, Challenges, Opportunities and Future Perspectives",
+    category: "Pharmanecia",
   },
   {
+    id: 3,
     img: portfolio_img_2,
-    title: "Clinical Trials Advancements",
-    category: "Pharma Research Publications",
+    title:
+      "The Pharmanecia 3.E International Conference on Emerging Trends in Pharmaceutical Research",
+    category: "Pharmanecia",
   },
   {
+    id: 3,
     img: portfolio_img_3,
     title: "Precision Medicine Innovations",
     category: "Pharma Research Publications",
   },
   {
+    id: 4,
     img: portfolio_img_4,
     title: "Drug Repurposing Strategies",
     category: "Pharma Research Publications",
   },
   {
+    id: 5,
     img: portfolio_img_5,
     title: "Biopharmaceutical Manufacturing Trends",
     category: "Pharma Research Publications",
   },
   {
+    id: 6,
     img: portfolio_img_6,
     title: "Regulatory Compliance Updates",
     category: "Pharma Research Publications",
