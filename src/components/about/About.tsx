@@ -77,6 +77,22 @@ const About = () => {
                     outcomes worldwide.
                   </div>
                 </div>
+
+                <div className="m-3">
+                  <div className="cs_section_heading cs_style_1 cs_color_1">
+                    <div className="cs_section_heading_text">
+                      <h4 className="cs_section_title_4 anim_div_ShowLeftSide mt-4 text-center">
+                        Vision:
+                      </h4>
+                    </div>
+                  </div>
+                  <div className="cs_ternary_color">
+                    At Operant Biomedical Research Federation, we envision a
+                    future where ground breaking biomedical research and
+                    collaboration lead to transformative advances in healthcare,
+                    improve patient outcomes and shaping the future of medicine.
+                  </div>
+                </div>
                 <div className="m-3">
                   <div className="cs_section_heading cs_style_1 cs_color_1">
                     <div className="cs_section_heading_text">
@@ -92,21 +108,6 @@ const About = () => {
                     opportunities. By nurturing talent and fostering a culture
                     of innovation, we cultivate a vibrant ecosystem that propels
                     the field forward.
-                  </div>
-                </div>
-                <div className="m-3">
-                  <div className="cs_section_heading cs_style_1 cs_color_1">
-                    <div className="cs_section_heading_text">
-                      <h4 className="cs_section_title_4 anim_div_ShowLeftSide mt-4 text-center">
-                        Vision:
-                      </h4>
-                    </div>
-                  </div>
-                  <div className="cs_ternary_color">
-                    At Operant Biomedical Research Federation, we envision a
-                    future where ground breaking biomedical research and
-                    collaboration lead to transformative advances in healthcare,
-                    improve patient outcomes and shaping the future of medicine.
                   </div>
                 </div>
                 <div className="m-3">

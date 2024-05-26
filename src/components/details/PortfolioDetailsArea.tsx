@@ -60,7 +60,7 @@ const PortfolioDetailsArea = ({ paramId }: any) => {
                 </div>
                 <div className="col-md-4">
                   <div className="cs_text_style_1">
-                    <p className="cs_headed_text">Services</p>
+                    <p className="cs_headed_text">Activity</p>
                     <h6 className="cs_title_text">{project?.services}</h6>
                   </div>
                 </div>
