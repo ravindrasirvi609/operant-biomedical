@@ -8,6 +8,8 @@ const portfolioSchema = new mongoose.Schema({
       "PharmaNEST",
       "Biomedical Research Publications",
       "PharMAIR",
+      "International Conference",
+      "National Conference",
     ],
   },
   heading: { type: String },

@@ -157,6 +157,10 @@ const PortfolioForm: React.FC = () => {
                 Biomedical Research Publications
               </option>
               <option value="PharMAIR">PharMAIR</option>
+              <option value="International Conference">
+                International Conference
+              </option>
+              <option value="National Conference">National Conference</option>
             </select>
           </div>
           <div className="mb-3">
@@ -250,16 +254,17 @@ const PortfolioForm: React.FC = () => {
             ></textarea>
           </div>
           <div className="mb-3">
-            <label htmlFor="des" className="form-label">
-              Description
+            <label htmlFor="images" className="form-label">
+              Images
             </label>
-            <textarea
+            <input
+              type="file"
               className="form-control"
-              id="des"
-              name="des"
-              value={formData.des}
-              onChange={handleChange}
-            ></textarea>
+              id="images"
+              name="images"
+              multiple
+              onChange={handleFileChange}
+            />
           </div>
 
           <div className="mb-3">
