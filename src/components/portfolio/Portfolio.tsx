@@ -6,9 +6,9 @@ import Image from "next/image";
 import axios from "axios";
 
 interface DataType {
-  id: string; // Changed to string as MongoDB IDs are strings
+  id: string;
   category: string;
-  img: string; // Use string for URLs
+  img: string;
   title: string;
   des: string;
 }
@@ -52,7 +52,7 @@ const Portfolio = () => {
   const filterItems = (cateItem: string) => {
     setActiveCategory(cateItem);
     if (cateItem === "All") {
-      return setItems(items); // Show all items
+      return setItems(items);
     } else {
       const filteredItems = items.filter((item) => item.category === cateItem);
       setItems(filteredItems);

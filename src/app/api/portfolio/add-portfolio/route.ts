@@ -70,6 +70,7 @@ export async function POST(req: NextRequest) {
       heading,
       subHeading,
       category,
+      video,
     } = data as {
       title: string;
       client: string;
@@ -79,6 +80,7 @@ export async function POST(req: NextRequest) {
       heading: string;
       subHeading: string;
       category: string;
+      video: string;
     };
 
     const challenges = Array.isArray(data.challenges)
@@ -98,6 +100,7 @@ export async function POST(req: NextRequest) {
       subHeading: subHeading,
       category: category,
       images: imageUrls,
+      video: video,
       challenges: challenges.filter(
         (item) => typeof item === "string" && item !== ""
       ),

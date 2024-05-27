@@ -15,6 +15,7 @@ interface PortfolioDataType {
   images: File[];
   challenges: string[];
   solutions: string[];
+  video: string;
 }
 
 const PortfolioForm: React.FC = () => {
@@ -28,6 +29,7 @@ const PortfolioForm: React.FC = () => {
     category: "",
     date: "",
     des: "",
+    video: "",
     images: [],
     challenges: [""],
     solutions: [""],
@@ -107,6 +109,7 @@ const PortfolioForm: React.FC = () => {
     data.append("heading", formData.heading);
     data.append("subHeading", formData.subHeading);
     data.append("category", formData.category);
+    data.append("video", formData.video);
     formData.images.forEach((image) => data.append("images", image));
     formData.challenges.forEach((challenge, index) =>
       data.append(`challenges[${index}]`, challenge)
@@ -247,16 +250,29 @@ const PortfolioForm: React.FC = () => {
             ></textarea>
           </div>
           <div className="mb-3">
-            <label htmlFor="images" className="form-label">
-              Images
+            <label htmlFor="des" className="form-label">
+              Description
+            </label>
+            <textarea
+              className="form-control"
+              id="des"
+              name="des"
+              value={formData.des}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="video" className="form-label">
+              Video URL
             </label>
             <input
-              type="file"
+              type="text"
               className="form-control"
-              id="images"
-              name="images"
+              id="video"
+              name="video"
               multiple
-              onChange={handleFileChange}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">

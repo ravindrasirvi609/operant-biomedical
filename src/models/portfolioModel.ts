@@ -20,6 +20,7 @@ const portfolioSchema = new mongoose.Schema({
   images: { type: Array },
   challenges: { type: Array },
   solutions: { type: Array },
+  video: { type: String },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
