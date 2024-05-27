@@ -133,12 +133,12 @@ const MemberFaqArea = () => {
 
   return (
     <>
-      <div className="cs_height_219 cs_height_lg_120"></div>
-
       <div className="container">
         <div className="cs_section_heading cs_style_1">
           <div className="cs_section_heading_text">
-            <div className="mb-1 anim_text_writting">Membership Benefits</div>
+            <div className="anim_text_writting text-center">
+              <h1>Membership Benefits</h1>
+            </div>
           </div>
         </div>
       </div>

@@ -34,18 +34,23 @@ const MembershipPlanDetails = () => {
       <section>
         <div className="container">
           <div className="cs_work cs_work_text">
-            <h4 className="anim_heading_title">
-              Specialization & Working Process
-            </h4>
-            <button className="btn btn-primary" type="button">
-              <Link href={"/membership#cs_work_routes"}>Become a member</Link>
-            </button>
+            <div className="d-flex justify-content-between align-items-center mb-4">
+              <h4 className="anim_heading_title">
+                Specialization & Working Process
+              </h4>
+              <button className="btn btn-primary ml-auto" type="button">
+                <Link href={"/membership#cs_work_routes"}>Become a member</Link>
+              </button>
+            </div>
+
             <p className="cs_mp0 anim_text">
               There are people and organizations out there who deserve original,
               independent and high-quality Biomedical Research Knowledge in
               their lives. To understand. To stay informed. To get ahead. You
               can join them.
             </p>
+          </div>
+          <div className="mt-5">
             <MemberFaqArea />
           </div>
           <div
