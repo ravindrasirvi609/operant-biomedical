@@ -17,8 +17,9 @@ import BrandHomeOne from "@/components/brand/BrandHomeOne";
 import FooterOne from "@/layouts/footers/FooterOne";
 import Wrapper from "@/layouts/Wrapper";
 import VideoPopup from "@/components/modals/VideoPopup";
+import { Metadata } from "next";
 
-// export const metadata = {
+// export const metadata: Metadata = {
 //   title: "Operant Biomedical Research Federation",
 // };
 

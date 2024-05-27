@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import award_img_1 from "@/assets/img/award_1.svg";
-import award_img_2 from "@/assets/img/award_2.svg";
-import award_img_3 from "@/assets/img/award_3.svg";
+import award_img_1 from "@/assets/img/awards1.png";
+import award_img_2 from "@/assets/img/awards2.png";
+import award_img_3 from "@/assets/img/awards3.png";
+import award_img_4 from "@/assets/img/awards4.png";
 
 import award_thumb_2 from "@/assets/img/portfolio/1B1A0823.jpg";
 import award_thumb_3 from "@/assets/img/portfolio/1B1A0823.jpg";
@@ -40,7 +41,7 @@ const award_data: DataType[] = [
   },
   {
     id: 3,
-    ward_img: award_img_2,
+    ward_img: award_img_3,
     img: award_thumb_4,
     brand: ``,
     title: `Innovation and Research Excellence`,
@@ -48,7 +49,7 @@ const award_data: DataType[] = [
   },
   {
     id: 5,
-    ward_img: award_img_3,
+    ward_img: award_img_4,
     img: award_thumb_3,
     brand: ``,
     title: `Community Engagement and Outreach`,
