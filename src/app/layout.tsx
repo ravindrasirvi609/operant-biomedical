@@ -1,5 +1,15 @@
 import "@/styles/index.scss";
 import { Analytics } from "@vercel/analytics/react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Operant Biomedical Research Federation",
+    default: "Operant Biomedical Research Federation",
+  },
+  description: "Operant Biomedical Research Federation",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
