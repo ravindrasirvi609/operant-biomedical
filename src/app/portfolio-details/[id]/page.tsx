@@ -55,7 +55,7 @@ const Index = ({ params }: Par) => {
         <div id="smooth-content">
           <main>
             <PortfolioDetailsArea project={project} />
-            <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />
+            {project?.video && <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />}
             <AboutHomeFour />
           </main>
           <FooterOne />
