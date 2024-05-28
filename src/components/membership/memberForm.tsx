@@ -101,7 +101,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
 
     try {
       const payload = {
-        amount: 1,
+        amount: planDetails?.price,
         currency: "INR",
         payment_capture: 1,
       };
@@ -306,23 +306,6 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                     />
                   </div>
                   <div className="col-md-6">
-                    <label htmlFor="department" className="form-label">
-                      Department <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="department"
-                      name="department"
-                      value={formData.department}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-3">
-                  <div className="col-md-6">
                     <label htmlFor="designation" className="form-label">
                       Designation <span className="text-danger">*</span>
                     </label>
@@ -332,6 +315,23 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       id="designation"
                       name="designation"
                       value={formData.designation}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="department" className="form-label">
+                      Department <span className="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="department"
+                      name="department"
+                      value={formData.department}
                       onChange={handleChange}
                       required
                     />
