@@ -73,7 +73,7 @@ const MembershipPlanDetails = () => {
                         </div>
                       </div>
 
-                      <h6 className="cs_work_title">{item.price} ₹/month</h6>
+                      <h6 className="cs_work_title">{item.price} ₹</h6>
                       <p className="cs_work_subtitle">{item.description}</p>
                     </div>
                   </Link>

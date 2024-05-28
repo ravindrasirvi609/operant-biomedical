@@ -25,7 +25,7 @@ interface DataType {
 const award_data: DataType[] = [
   {
     id: 1,
-    ward_img: award_img_1,
+    ward_img: award_img_4,
     img: award_thumb_1,
     brand: ``,
     title: `Commitment to Advancing Biomedical Research:`,
@@ -33,7 +33,7 @@ const award_data: DataType[] = [
   },
   {
     id: 2,
-    ward_img: award_img_2,
+    ward_img: award_img_3,
     img: award_thumb_2,
     brand: ``,
     title: `Excellence in Collaboration`,
@@ -41,7 +41,7 @@ const award_data: DataType[] = [
   },
   {
     id: 3,
-    ward_img: award_img_3,
+    ward_img: award_img_2,
     img: award_thumb_4,
     brand: ``,
     title: `Innovation and Research Excellence`,
@@ -49,7 +49,7 @@ const award_data: DataType[] = [
   },
   {
     id: 5,
-    ward_img: award_img_4,
+    ward_img: award_img_1,
     img: award_thumb_3,
     brand: ``,
     title: `Community Engagement and Outreach`,
