@@ -61,11 +61,11 @@ const menu_data: DataType[] = [
         title: "About",
         link: "/about",
       },
-      {
-        id: 2,
-        title: "Team",
-        link: "/team",
-      },
+      // {
+      //   id: 2,
+      //   title: "Team",
+      //   link: "/team",
+      // },
       {
         id: 5,
         title: "Faq",
