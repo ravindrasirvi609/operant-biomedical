@@ -7,7 +7,7 @@ connect();
 
 export async function POST(req: NextRequest) {
   try {
-    const memberships = await Membership.find();
+    const memberships = await Membership.find({ isValidMember: true });
     const membershipPlans = await MembershipPlan.find();
 
     return NextResponse.json({ membershipPlans, memberships });
