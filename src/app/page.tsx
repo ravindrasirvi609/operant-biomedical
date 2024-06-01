@@ -18,6 +18,7 @@ import FooterOne from "@/layouts/footers/FooterOne";
 import Wrapper from "@/layouts/Wrapper";
 import VideoPopup from "@/components/modals/VideoPopup";
 import { Metadata } from "next";
+import Head from "next/head";
 
 // export const metadata: Metadata = {
 //   title: "Operant Biomedical Research Federation",
@@ -28,6 +29,18 @@ const index = () => {
 
   return (
     <Wrapper>
+      <Head>
+        <title>Operant Biomedical Research Federation</title>
+        <meta
+          name="description"
+          content="Operant Biomedical Research Federation"
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
       <HeaderOne />
       <div id="smooth-wrapper">
         <div id="smooth-content">
