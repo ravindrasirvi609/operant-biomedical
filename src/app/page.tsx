@@ -20,10 +20,6 @@ import VideoPopup from "@/components/modals/VideoPopup";
 import { Metadata } from "next";
 import Head from "next/head";
 
-// export const metadata: Metadata = {
-//   title: "Operant Biomedical Research Federation",
-// };
-
 const index = () => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
