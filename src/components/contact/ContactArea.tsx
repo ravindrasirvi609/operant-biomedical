@@ -153,10 +153,15 @@ const ContactArea = () => {
               </div>
             </div>
             <div className="cs_contact_section_2 anim_div_ShowRightSide">
-              <div className="cs_google_map cs_bg" data-src={map}>
+              <div className=" cs_bg" data-src={map}>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.975124408454!2d73.3574091!3d25.7806245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDU5JzM0LjYiTiA3M8KwMjYnMjUuMiJF!5e0!3m2!1sen!2sbd!4v1563075599994!5m2!1sen!2sbd"
-                  allowFullScreen={true}
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224.54365962631977!2d73.35724810917459!3d25.780518584996607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394273591c130a7d%3A0x473372a0068b1dc6!2sOperant%20Scientific!5e0!3m2!1sen!2sin!4v1717746920333!5m2!1sen!2sin"
+                  width="600"
+                  height="450"
+                  loading="lazy"
+                  style={{ border: "2px solid #fqe", borderRadius: "10px" }}
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
               <div className="cs_height_50 cs_height_lg_50"></div>
