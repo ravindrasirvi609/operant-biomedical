@@ -1,14 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface FormData {
   title: string;
   price: number;
   description: string;
   duration: number;
-  maxAllowedBooks: number;
-  discount: number;
 }
 
 const BookForm: React.FC = () => {
@@ -17,8 +16,6 @@ const BookForm: React.FC = () => {
     price: 0,
     description: "",
     duration: 0,
-    maxAllowedBooks: 0,
-    discount: 0,
   });
   const [loading, setLoading] = useState(false);
 
@@ -45,8 +42,6 @@ const BookForm: React.FC = () => {
         price: 0,
         description: "",
         duration: 0,
-        maxAllowedBooks: 0,
-        discount: 0,
       });
       alert("Form submitted successfully!");
     } catch (error) {
@@ -59,67 +54,70 @@ const BookForm: React.FC = () => {
   };
 
   return (
-    <>
-      {loading && <div>Loading...</div>}
+    <div className="container mt-5">
+      <h2 className="mb-4">Book Form</h2>
+      {loading && <div className="alert alert-info">Loading...</div>}
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Title:
+          </label>
           <input
             type="text"
+            className="form-control"
+            id="title"
             name="title"
             value={formData.title}
             onChange={handleChange}
+            required
           />
         </div>
-        <div>
-          <label>Price:</label>
+        <div className="mb-3">
+          <label htmlFor="price" className="form-label">
+            Price:
+          </label>
           <input
             type="number"
+            className="form-control"
+            id="price"
             name="price"
             value={formData.price}
             onChange={handleChange}
+            required
           />
         </div>
-        <div>
-          <label>Description:</label>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">
+            Description:
+          </label>
           <textarea
+            className="form-control"
+            id="description"
             name="description"
             value={formData.description}
             onChange={handleChange}
+            required
           />
         </div>
-        <div>
-          <label>Duration:</label>
+        <div className="mb-3">
+          <label htmlFor="duration" className="form-label">
+            Duration:
+          </label>
           <input
             type="number"
+            className="form-control"
+            id="duration"
             name="duration"
             value={formData.duration}
             onChange={handleChange}
+            required
           />
         </div>
-        <div>
-          <label>Max Allowed Books:</label>
-          <input
-            type="number"
-            name="maxAllowedBooks"
-            value={formData.maxAllowedBooks}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Discount:</label>
-          <input
-            type="number"
-            name="discount"
-            value={formData.discount}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="btn btn-primary" disabled={loading}>
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 };
 
