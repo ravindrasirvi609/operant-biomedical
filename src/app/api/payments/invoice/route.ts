@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import puppeteer from "puppeteer-core";
+import puppeteer from "puppeteer";
 import { connect } from "@/dbConfig/dbConfig";
 import RazorpayTransaction from "@/models/transactionModel";
 import Membership from "@/models/membershipModel";
@@ -198,7 +198,6 @@ export async function POST(req: NextRequest) {
     // Generate the invoice PDF using Puppeteer
     const browser = await puppeteer.launch({
       headless: true,
-      args: ["--no-sandbox"], // Add this line for running in certain environments
     });
     const page = await browser.newPage();
     await page.setContent(invoiceHtml);
