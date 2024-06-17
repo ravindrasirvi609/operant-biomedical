@@ -150,11 +150,9 @@ async function generateInvoiceHtml(orderId: string): Promise<string> {
                 <div>Phone: +91-94609-71652</div>
                 <div>Email: admin@opf.org.in</div>
             </div>
-            <div class="payment">
-                <div><strong>Payment:</strong></div>
-                <div>Payable to RazorPay</div>
-                <div>Account number, Bank</div>
-                <div>*Please make payment before due date</div>
+            <div class="total-due">
+                <div><strong>Thank you for your payment!</strong></div>
+                <div>Operant Biomedical Research Federation</div>
             </div>
         </div>
     </div>
