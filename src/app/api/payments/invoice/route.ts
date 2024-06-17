@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
 import { connect } from "@/dbConfig/dbConfig";
 import RazorpayTransaction from "@/models/transactionModel";
 import Membership from "@/models/membershipModel";
