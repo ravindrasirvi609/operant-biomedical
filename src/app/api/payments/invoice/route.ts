@@ -52,59 +52,57 @@ export async function POST(req: NextRequest) {
         to: userData.email,
         subject: `Congratulations! You're Now a Premium Member`,
         html: `
-      <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px;">
-        <h1 style="font-size: 24px; color: #333; text-align: center; margin-bottom: 20px;">Congratulations!</h1>
-        <p style="font-size: 18px;">Dear ${userData.name},</p>
-                <p style="font-size: 18px;">Welcome to Operant Biomedical Research Federation</p>
+<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; position: relative;">
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://opf.org.in/wp-content/uploads/2023/01/OPF_Logo.png') no-repeat center center; background-size: 200px; opacity: 0.1; pointer-events: none;"></div>
+  <h1 style="font-size: 24px; color: #154c8c; text-align: center; margin-bottom: 20px; z-index: 1; position: relative;">Congratulations!</h1>
+  <p style="font-size: 18px; z-index: 1; position: relative;">Dear ${userData.name},</p>
+  <p style="font-size: 18px; z-index: 1; position: relative;">Welcome to Operant Biomedical Research Federation</p>
+  <p style="font-size: 18px; z-index: 1; position: relative;">We are thrilled to inform you that your transaction was successful, and you are now a premium member!</p>
+  <div style="margin-top: 20px; z-index: 1; position: relative;">
+    <p style="font-size: 18px;"><strong>Transaction Details:</strong></p>
+    <ul style="font-size: 18px; padding-left: 20px; list-style-type: none; padding: 0;">
+      <li><strong>Transaction ID:</strong> ${transactionData.paymentId}</li>
+      <li><strong>Date:</strong> ${transactionDate}</li>
+      <li><strong>Amount:</strong> ${transactionAmount}</li>
+    </ul>
+  </div>
+  <div style="margin-top: 20px; z-index: 1; position: relative;">
+    <p style="font-size: 18px;"><strong>Your Premium Plan:</strong></p>
+    <ul style="font-size: 18px; padding-left: 20px; list-style-type: none; padding: 0;">
+      <li><strong>Plan:</strong> Premium Membership</li>
+      <li><strong>Membership ID:</strong> ${userData.membershipId}</li>
+      <li><strong>Benefits:</strong></li>
+      <ul style="font-size: 18px; padding-left: 20px; list-style-type: disc;">
+        <li>Access to exclusive content</li>
+        <li>Priority customer support</li>
+        <li>Advanced features</li>
+        <li>Discounts on future purchases</li>
+      </ul>
+    </ul>
+  </div>
+  <p style="font-size: 18px; margin-top: 20px; z-index: 1; position: relative;">We are excited to have you as a premium member! If you have any questions or need assistance, feel free to contact us at <a href="mailto:admin@opf.org.in" style="color: #154c8c; text-decoration: none;">admin@opf.org.in</a></p>
+  <p style="font-size: 18px; margin-top: 20px; z-index: 1; position: relative;">Best regards,</p>
+  <p style="font-size: 18px; font-weight: bold; z-index: 1; position: relative;">Operant Bio Medical Research Federation</p>
+</div>
+<style>
+  @media only screen and (max-width: 600px) {
+    div {
+      padding: 15px;
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 22px;
+    }
+    p, ul {
+      font-size: 16px;
+    }
+    ul ul {
+      padding-left: 15px;
+    }
+  }
+</style>
 
-        <p style="font-size: 18px;">We are thrilled to inform you that your transaction was successful, and you are now a premium member!</p>
 
-        <div style="margin-top: 20px;">
-          <p style="font-size: 18px;"><strong>Transaction Details:</strong></p>
-          <ul style="font-size: 18px; padding-left: 20px;">
-            <li><strong>Transaction ID:</strong> ${transactionData.paymentId}</li>
-            <li><strong>Date:</strong> ${transactionDate}</li>
-            <li><strong>Amount:</strong> ${transactionAmount}</li>
-          </ul>
-        </div>
-
-        <div style="margin-top: 20px;">
-          <p style="font-size: 18px;"><strong>Your Premium Plan:</strong></p>
-          <ul style="font-size: 18px; padding-left: 20px;">
-            <li><strong>Plan:</strong> Premium Membership</li>
-            <li><strong>Membership ID:</strong> ${userData.membershipId}</li>
-            <li><strong>Benefits:</strong></li>
-            <ul style="font-size: 18px; padding-left: 20px;">
-              <li>Access to exclusive content</li>
-              <li>Priority customer support</li>
-              <li>Advanced features</li>
-              <li>Discounts on future purchases</li>
-            </ul>
-          </ul>
-        </div>
-
-        <p style="font-size: 18px; margin-top: 20px;">We are excited to have you as a premium member! If you have any questions or need assistance, feel free to contact us at admin@opf.org.in</p>
-
-        <p style="font-size: 18px; margin-top: 20px;">Best regards,</p>
-        <p style="font-size: 18px; font-weight: bold;">Operant Bio Medical Research Federation</p>
-      </div>
-      <style>
-        @media only screen and (max-width: 600px) {
-          div {
-            padding: 15px;
-            font-size: 16px;
-          }
-          h1 {
-            font-size: 22px;
-          }
-          p {
-            font-size: 16px;
-          }
-          ul {
-            font-size: 16px;
-          }
-        }
-      </style>
     `,
       }),
     });
