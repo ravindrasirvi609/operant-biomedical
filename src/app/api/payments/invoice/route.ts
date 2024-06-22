@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
     <ul style="font-size: 18px; padding-left: 20px; list-style-type: none; padding: 0;">
       <li><strong>Transaction ID:</strong> ${transactionData.paymentId}</li>
       <li><strong>Date:</strong> ${transactionDate}</li>
-      <li><strong>Amount:</strong> ${transactionAmount}</li>
+      <li><strong>Amount:</strong> ${transactionAmount} Rupay Only</li>
     </ul>
   </div>
   <div style="margin-top: 20px; z-index: 1; position: relative;">

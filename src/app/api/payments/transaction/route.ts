@@ -26,11 +26,20 @@ export async function POST(request: NextRequest) {
       user,
     } = requestBody;
 
+    if (!orderId || !paymentId || !signature || !amount || !currency) {
+      return NextResponse.json(
+        { message: "Invalid request body. Missing required fields" },
+        { status: 400 }
+      );
+    }
+
+    const Amount = amount / 100;
+
     const razorpayTransaction = new RazorpayTransaction({
       orderId,
       paymentId,
       signature,
-      amount,
+      Amount,
       currency,
       status,
       membership,

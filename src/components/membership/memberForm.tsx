@@ -79,8 +79,6 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
       id
     );
 
-    console.log("response", response.data.membershipPlan);
-
     const planDetails = {
       price: response.data.membershipPlan.price,
       currency: "INR",
