@@ -101,7 +101,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
 
     try {
       const payload = {
-        amount: 1,
+        amount: planDetails?.price,
         currency: "INR",
         payment_capture: 1,
       };
