@@ -28,10 +28,6 @@ export async function POST(req: NextRequest) {
       message = "success";
       imgUrl = res.result.secure_url;
 
-      const membershipId = await generateMembershipNumber();
-
-      console.log("membershipNumber", membershipId);
-
       const {
         title,
         name,
@@ -75,7 +71,6 @@ export async function POST(req: NextRequest) {
         linkedin,
         website,
         membershipPlan,
-        membershipId: membershipId,
       });
 
       const savedBlogPost = await newBlogPost.save();
@@ -107,17 +102,4 @@ export async function POST(req: NextRequest) {
       );
     }
   }
-}
-async function generateMembershipNumber() {
-  const date = new Date();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = String(date.getFullYear()).slice(-2);
-
-  const lastMembership = await Membership.findOne().sort({ createdAt: -1 });
-  const sequenceNumber = lastMembership
-    ? parseInt(lastMembership.membershipId.slice(-4)) + 1
-    : 1;
-  const sequenceNumberStr = String(sequenceNumber).padStart(4, "0");
-
-  return `OBMF${month}${year}${sequenceNumberStr}`;
 }

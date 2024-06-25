@@ -47,9 +47,12 @@ export async function POST(request: NextRequest) {
       user,
     });
 
+    const membershipId = await generateMembershipNumber();
+
     const membershipPlan = await Membership.findOneAndUpdate(
       { email: user },
-      { isValidMember: true }
+      { isValidMember: true },
+      { membershipId: membershipId }
     );
     await razorpayTransaction.save();
 
@@ -67,4 +70,19 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+async function generateMembershipNumber() {
+  const date = new Date();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = String(date.getFullYear()).slice(-2);
+
+  const lastMembership = await Membership.findOne({ isValidMember: true }).sort(
+    { createdAt: -1 }
+  );
+  const sequenceNumber = lastMembership
+    ? parseInt(lastMembership.membershipId.slice(-4)) + 1
+    : 1;
+  const sequenceNumberStr = String(sequenceNumber).padStart(4, "0");
+
+  return `OBMF${month}${year}${sequenceNumberStr}`;
 }
