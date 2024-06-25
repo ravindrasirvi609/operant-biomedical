@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       orderId,
       paymentId,
       signature,
-      Amount,
+      amount: Amount,
       currency,
       status,
       membership,
