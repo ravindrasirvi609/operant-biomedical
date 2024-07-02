@@ -18,7 +18,7 @@ const index = () => {
       <HeaderOne />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <main>
+          <main className="mt-5">
             <MembershipPlanDetails />
             <MembershipList />
             <AboutHomeFour />

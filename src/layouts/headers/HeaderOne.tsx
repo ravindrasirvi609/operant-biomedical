@@ -192,11 +192,17 @@ const HeaderOne = () => {
           <div className="container">
             <div className="cs_main_header_in">
               <div className="cs_main_header_left">
-                <Link className="cs_site_branding logo-dark mt-4" href="/">
-                  <Image src={Logo_white} alt="Logo" width={200} height={200} />
+                <Link className="cs_site_branding logo-dark mt-2" href="/">
+                  <Image
+                    className="img-fluid"
+                    src={Logo_white}
+                    alt="Logo"
+                    width={100}
+                    height={200}
+                  />
                 </Link>
                 <Link className="cs_site_branding logo-white" href="/">
-                  <Image src={Logo_white} alt="Logo" />
+                  <Image className="img-fluid" src={Logo_white} alt="Logo" />
                 </Link>
               </div>
               <div className="cs_main_header_right">
@@ -236,7 +242,18 @@ const HeaderOne = () => {
         <div className="cs_side_header_overlay"></div>
         <div className="cs_side_header_in">
           <Link className="cs_site_branding" href="/">
-            <Image src={Logo_white} alt="Logo" />
+            <div
+              className="img-fluid"
+              style={{ maxWidth: "100%", height: "auto" }}
+            >
+              <Image
+                src={Logo_white}
+                alt="Logo"
+                layout="responsive"
+                width={200}
+                height={200}
+              />
+            </div>
           </Link>
           <div className="row align-items-end">
             <div className="col-7">
