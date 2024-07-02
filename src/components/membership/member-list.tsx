@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -11,6 +11,14 @@ interface Membership {
   _id: string;
   // Add more properties if needed
 }
+
+const chunkArray = (arr: Membership[], chunkSize: number): Membership[][] => {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    chunks.push(arr.slice(i, i + chunkSize));
+  }
+  return chunks;
+};
 
 const MembershipList = () => {
   const [team_data, setTeam_data] = useState<Membership[]>([]);
@@ -30,6 +38,9 @@ const MembershipList = () => {
 
     fetchMembershipList(); // Call the async function
   }, []); // Empty dependency array to run only once on mount
+
+  const chunkedData = chunkArray(team_data, 4);
+
   return (
     <>
       <div className="cs_height_219 cs_height_lg_120"></div>
@@ -47,51 +58,34 @@ const MembershipList = () => {
       <div className="cs_height_100 cs_height_lg_60"></div>
       <section>
         <div className="container">
-          <div className="cs_team_section anim_div_ShowDowns">
-            {team_data.slice(0, 4).map((item, i) => (
-              <div key={i} className="cs_team_img">
-                <Link href={`/team-details/${item._id}`}>
-                  <Image
-                    src={item.imageUrl}
-                    alt="teamsimg1"
-                    width={200}
-                    height={200}
-                  />
-                  <div className="cs_portfolio_overlay"></div>
-                </Link>
+          {chunkedData.map((chunk, chunkIndex) => (
+            <div
+              key={chunkIndex}
+              className="cs_team_section anim_div_ShowDowns"
+            >
+              {chunk.map((item, i) => (
+                <div key={item._id} className="cs_team_img">
+                  <Link href={`/team-details/${item._id}`}>
+                    <Image
+                      src={item.imageUrl}
+                      alt={item.name}
+                      width={200}
+                      height={200}
+                    />
+                    <div className="cs_portfolio_overlay"></div>
+                  </Link>
 
-                <div className="cs_team_text">
-                  <Link href={`/team-details/${item._id}`}>
-                    <h6 className="cs_team_text_title">{item.name}</h6>
-                  </Link>
-                  <p className="cs_team_subtitle">{item.subject}</p>
-                  <p className="cs_team_subtitle">{item.membershipId}</p>
+                  <div className="cs_team_text">
+                    <Link href={`/team-details/${item._id}`}>
+                      <h6 className="cs_team_text_title">{item.name}</h6>
+                    </Link>
+                    <p className="cs_team_subtitle">{item.subject}</p>
+                    <p className="cs_team_subtitle">{item.membershipId}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          <div className="cs_height_20 cs_height_lg_20"></div>
-          <div className="cs_team_section anim_div_ShowDowns">
-            {team_data.slice(4, 8).map((item, i) => (
-              <div key={i} className="cs_team_img">
-                <Link href={`/team-details/${item._id}`}>
-                  <Image
-                    src={item.imageUrl}
-                    alt="teamsimg5"
-                    width={200}
-                    height={200}
-                  />
-                  <div className="cs_portfolio_overlay"></div>
-                </Link>
-                <div className="cs_team_text">
-                  <Link href={`/team-details/${item._id}`}>
-                    <h6 className="cs_team_text_title">{item.name}</h6>
-                  </Link>
-                  <p className="cs_team_subtitle">{item.subject}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
     </>
