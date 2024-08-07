@@ -25,27 +25,15 @@ const TeamArea = () => {
             {team_data.slice(0, 4).map((item, i) => (
               <div key={i} className="cs_team_img">
                 <Link href="/team-details">
-                  <Image src={item.img} alt="teamsimg1" />
+                  <Image
+                    src={item.img}
+                    alt="teamsimg1"
+                    width={370}
+                    height={370}
+                  />
                   <div className="cs_portfolio_overlay"></div>
                 </Link>
 
-                <div className="cs_team_text">
-                  <Link href="/team-details">
-                    <h6 className="cs_team_text_title">{item.avatar_name}</h6>
-                  </Link>
-                  <p className="cs_team_subtitle">{item.designation}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="cs_height_20 cs_height_lg_20"></div>
-          <div className="cs_team_section anim_div_ShowDowns">
-            {team_data.slice(4, 8).map((item, i) => (
-              <div key={i} className="cs_team_img">
-                <Link href="/team-details">
-                  <Image src={item.img} alt="teamsimg5" />
-                  <div className="cs_portfolio_overlay"></div>
-                </Link>
                 <div className="cs_team_text">
                   <Link href="/team-details">
                     <h6 className="cs_team_text_title">{item.avatar_name}</h6>
