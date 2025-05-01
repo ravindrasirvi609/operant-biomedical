@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import Wrapper from "@/layouts/Wrapper";
 import TeamArea from "@/components/team/TeamArea";
-import FooterOne from "@/layouts/footers/FooterOne";
-import HeaderOne from "@/layouts/headers/HeaderOne";
+
 import AboutHomeFour from "@/components/about/AboutHomeFour";
 
 // export const metadata = {
@@ -12,18 +10,16 @@ import AboutHomeFour from "@/components/about/AboutHomeFour";
 
 const index = () => {
   return (
-    <Wrapper>
-      <HeaderOne />
+    <div>
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
             <TeamArea />
             <AboutHomeFour />
           </main>
-          <FooterOne />
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 

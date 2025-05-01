@@ -1,9 +1,7 @@
 "use client";
 
 import FaqArea from "@/components/faq/FaqArea";
-import Wrapper from "@/layouts/Wrapper";
-import FooterOne from "@/layouts/footers/FooterOne";
-import HeaderOne from "@/layouts/headers/HeaderOne";
+
 import React from "react";
 
 // export const metadata = {
@@ -12,17 +10,15 @@ import React from "react";
 
 const index = () => {
   return (
-    <Wrapper>
-      <HeaderOne />
+    <div>
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
             <FaqArea />
           </main>
-          <FooterOne />
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTheme } from "next-themes";
 import HeroHomeOne from "@/components/hero/HeroHomeOne";
 import AboutHomeOne from "@/components/about/AboutHomeOne";
 import ServiceHomeOne from "@/components/service/ServiceHomeOne";
@@ -14,14 +15,14 @@ import BlogHomeOne from "@/components/blog/BlogHomeOne";
 import SubscribeHomeOne from "@/components/subscribe/SubscribeHomeOne";
 import BrandHomeOne from "@/components/brand/BrandHomeOne";
 import VideoPopup from "@/components/modals/VideoPopup";
-import { Metadata } from "next";
 import Head from "next/head";
 
 const HomePage = () => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
+  const { resolvedTheme } = useTheme();
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
       <Head>
         <title>
           Operant Biomedical Research Federation | Advancing Medical Research
@@ -41,79 +42,77 @@ const HomePage = () => {
         <link rel="manifest" href="/manifest.json" />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50">
-        <main className="relative">
-          {/* Hero Section */}
-          <section className="relative">
-            <HeroHomeOne />
-          </section>
+      <main className="relative">
+        {/* Hero Section */}
+        <section className="relative">
+          <HeroHomeOne />
+        </section>
 
-          {/* Trusted Partners Section */}
-          <section className="py-12 bg-white/50 backdrop-blur-sm">
-            <MarqueeAreaHomeOne />
-          </section>
+        {/* Trusted Partners Section */}
+        <section className="py-12 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border-y border-gray-200 dark:border-gray-700 transition-all duration-300">
+          <MarqueeAreaHomeOne />
+        </section>
 
-          {/* About Section */}
-          <section className="py-20 bg-gradient-to-b from-white/50 to-primary-50/30">
-            <AboutHomeOne />
-          </section>
+        {/* About Section */}
+        <section className="py-20 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 transition-all duration-300">
+          <AboutHomeOne />
+        </section>
 
-          {/* Services Section */}
-          <section className="py-20 bg-white/50 backdrop-blur-sm">
-            <ServiceHomeOne />
-          </section>
+        {/* Services Section */}
+        <section className="py-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border-y border-gray-200 dark:border-gray-700 transition-all duration-300">
+          <ServiceHomeOne />
+        </section>
 
-          {/* Impact Stories Section */}
-          <section className="py-20 bg-gradient-to-b from-primary-50/30 to-white/50">
-            <PortfolioHomeOne />
-          </section>
+        {/* Impact Stories Section */}
+        <section className="py-20 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 transition-all duration-300">
+          <PortfolioHomeOne />
+        </section>
 
-          {/* Awards Section */}
-          <section className="py-20 bg-white/50 backdrop-blur-sm">
-            <AwardsHomeOne />
-          </section>
+        {/* Awards Section */}
+        <section className="py-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border-y border-gray-200 dark:border-gray-700 transition-all duration-300">
+          <AwardsHomeOne />
+        </section>
 
-          {/* Testimonials Section */}
-          <section className="py-20 bg-gradient-to-b from-white/50 to-primary-50/30">
-            <Testimonial />
-          </section>
+        {/* Testimonials Section */}
+        <section className="py-20 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 transition-all duration-300">
+          <Testimonial />
+        </section>
 
-          {/* Statistics Section */}
-          <section className="py-20 bg-white/50 backdrop-blur-sm">
-            <FunFactHomeOne />
-          </section>
+        {/* Statistics Section */}
+        <section className="py-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border-y border-gray-200 dark:border-gray-700 transition-all duration-300">
+          <FunFactHomeOne />
+        </section>
 
-          {/* Video Section */}
-          <section className="py-20 bg-gradient-to-b from-primary-50/30 to-white/50">
-            <VideoHomeOne
-              setIsVideoOpen={setIsVideoOpen}
-              isVideoOpen={isVideoOpen}
-            />
-          </section>
+        {/* Video Section */}
+        <section className="py-20 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 transition-all duration-300">
+          <VideoHomeOne
+            setIsVideoOpen={setIsVideoOpen}
+            isVideoOpen={isVideoOpen}
+          />
+        </section>
 
-          {/* Latest Research Section */}
-          <section className="py-20 bg-white/50 backdrop-blur-sm">
-            <BlogHomeOne />
-          </section>
+        {/* Latest Research Section */}
+        <section className="py-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border-y border-gray-200 dark:border-gray-700 transition-all duration-300">
+          <BlogHomeOne />
+        </section>
 
-          {/* Newsletter Section */}
-          <section className="py-20 bg-gradient-to-b from-white/50 to-primary-50/30">
-            <SubscribeHomeOne />
-          </section>
+        {/* Newsletter Section */}
+        <section className="py-20 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 transition-all duration-300">
+          <SubscribeHomeOne />
+        </section>
 
-          {/* Partners Section */}
-          <section className="py-20 bg-white/50 backdrop-blur-sm">
-            <BrandHomeOne style_2={false} />
-          </section>
-        </main>
+        {/* Partners Section */}
+        <section className="py-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border-y border-gray-200 dark:border-gray-700 transition-all duration-300">
+          <BrandHomeOne style_2={false} />
+        </section>
+      </main>
 
-        {/* Video Modal */}
-        <VideoPopup
-          isVideoOpen={isVideoOpen}
-          setIsVideoOpen={setIsVideoOpen}
-          videoId={"dTuHXUt1weQ"}
-        />
-      </div>
+      {/* Video Modal */}
+      <VideoPopup
+        isVideoOpen={isVideoOpen}
+        setIsVideoOpen={setIsVideoOpen}
+        videoId={"dTuHXUt1weQ"}
+      />
     </div>
   );
 };

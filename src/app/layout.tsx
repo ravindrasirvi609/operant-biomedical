@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/context/ThemeContext";
+import { ThemeProvider } from "next-themes";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 
@@ -28,14 +28,13 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;900&family=Kanit:wght@400;500;600;700&display=swap"
         />
-        <title>Operant Biomedical Research Federation</title>
       </head>
 
-      <body className={inter.className}>
-        <ThemeProvider>
-          <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+      <body className={`${inter.className} antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300">
             <Header />
-            <main>{children}</main>
+            <main className="pt-20">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
