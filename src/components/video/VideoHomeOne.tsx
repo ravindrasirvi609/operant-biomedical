@@ -1,10 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-const VideoHomeOne = () => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
+interface VideoHomeOneProps {
+  setIsVideoOpen: Dispatch<SetStateAction<boolean>>;
+  isVideoOpen: boolean;
+}
+
+const VideoHomeOne = ({ setIsVideoOpen, isVideoOpen }: VideoHomeOneProps) => {
   const [ref, inView] = useInView({
     threshold: 0,
     triggerOnce: true,

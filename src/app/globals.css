@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 340 100% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 340 100% 20%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 340 100% 20%;
+  --primary: 340 100% 20%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 100% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 340 100% 20%;
+  --muted-foreground: 340 100% 20%;
+  --accent: 340 100% 20%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 340 100% 20%;
+  --input: 340 100% 20%;
+  --ring: 340 100% 20%;
+  --radius: 0.5rem;
+}
+
+[data-theme="dark"] {
+  --background: 340 100% 20%;
+  --foreground: 0 0% 100%;
+  --card: 340 100% 20%;
+  --card-foreground: 0 0% 100%;
+  --popover: 340 100% 20%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 340 100% 20%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 100% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 340 100% 20%;
+  --muted-foreground: 0 0% 100%;
+  --accent: 340 100% 20%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 340 100% 20%;
+  --input: 340 100% 20%;
+  --ring: 340 100% 20%;
+}
+
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+  }
+}
+
+@layer components {
+  .glass-dark {
+    @apply bg-[hsl(var(--background))]/80 backdrop-blur-md border-[hsl(var(--border))];
+  }
+  
+  .animate-fade-in {
+    @apply animate-[fadeIn_0.5s_ease-in-out];
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

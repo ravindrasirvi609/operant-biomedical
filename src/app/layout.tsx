@@ -1,23 +1,25 @@
-import "@/styles/globals.css";
+import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/context/ThemeContext";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Operant Biomedical Research Federation",
-    default: "Operant Biomedical Research Federation",
-  },
-  description: "Operant Biomedical Research Federation",
+  title: "Operant Biomedical Research Federation",
+  description:
+    "Advancing healthcare through collaborative research and innovation",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/assets/img/favicon.svg" />
         <link
@@ -27,8 +29,12 @@ export default function RootLayout({
         <title>Operant Biomedical Research Federation</title>
       </head>
 
-      <body>
-        {children}
+      <body className={inter.className}>
+        <ThemeProvider>
+          <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+            <main>{children}</main>
+          </div>
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>

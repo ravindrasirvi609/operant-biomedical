@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import "swiper/css/pagination";
 
 const HeroHomeOne = () => {
   const heroData = [
@@ -16,6 +17,7 @@ const HeroHomeOne = () => {
       img: "/images/hero/hero-1.jpg",
       btn_text: "Explore Research",
       btn_link: "/research",
+      alt: "Medical research laboratory with advanced equipment",
     },
     {
       id: 2,
@@ -26,18 +28,26 @@ const HeroHomeOne = () => {
       img: "/images/hero/hero-2.jpg",
       btn_text: "Join Our Network",
       btn_link: "/membership",
+      alt: "Medical professionals collaborating in a modern research facility",
     },
   ];
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <section
+      className="relative w-full h-screen overflow-hidden"
+      aria-label="Hero Section"
+    >
       <Swiper
-        modules={[Autoplay, EffectFade]}
+        modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
         loop={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
         }}
         className="w-full h-full"
       >
@@ -45,14 +55,16 @@ const HeroHomeOne = () => {
           <SwiperSlide key={index} className="relative w-full h-full">
             <div className="w-full h-full relative overflow-hidden">
               <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat transform transition-transform duration-700 hover:scale-105"
                 style={{ backgroundImage: `url(${item.img})` }}
+                role="img"
+                aria-label={item.alt}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-900/80 to-secondary-900/80 backdrop-blur-[2px]"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-secondary-900/90 backdrop-blur-[2px]"></div>
             </div>
 
             <div className="relative z-10 container mx-auto h-full flex items-center">
-              <div className="max-w-3xl glass-dark p-10 rounded-2xl ml-0 md:ml-10 transform transition-all duration-500">
+              <div className="max-w-3xl glass-dark p-8 md:p-10 rounded-2xl ml-0 md:ml-10 transform transition-all duration-500 hover:shadow-2xl">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="h-px w-10 bg-primary-300"></div>
                   <span className="text-primary-300 uppercase tracking-wider text-sm font-medium">
@@ -67,7 +79,8 @@ const HeroHomeOne = () => {
                 </p>
                 <Link
                   href={item.btn_link}
-                  className="inline-flex items-center px-8 py-4 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-all duration-300 group"
+                  className="inline-flex items-center px-8 py-4 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-black"
+                  aria-label={`${item.btn_text} - ${item.title}`}
                 >
                   {item.btn_text}
                   <svg
@@ -75,6 +88,7 @@ const HeroHomeOne = () => {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -89,7 +103,7 @@ const HeroHomeOne = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 };
 

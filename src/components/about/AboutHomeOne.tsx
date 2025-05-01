@@ -10,20 +10,22 @@ const AboutHomeOne = () => {
   });
 
   return (
-    <div className="container">
+    <section className="container py-20" aria-label="About Section">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Image Section */}
-        <div className="relative">
-          <div className="relative w-full h-[600px] rounded-2xl overflow-hidden">
+        <div className="relative group">
+          <div className="relative w-full h-[600px] rounded-2xl overflow-hidden transform transition-transform duration-700 group-hover:scale-[1.02]">
             <Image
               src="/images/about/about-1.jpg"
-              alt="Medical Research Laboratory"
+              alt="Medical Research Laboratory with advanced equipment and researchers"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent"></div>
           </div>
-          <div className="absolute -bottom-8 -right-8 w-64 h-64 glass-dark rounded-2xl p-6 transform rotate-6">
+          <div className="absolute -bottom-8 -right-8 w-64 h-64 glass-dark rounded-2xl p-6 transform rotate-6 transition-all duration-500 hover:rotate-0 hover:shadow-2xl">
             <div className="text-center">
               <div className="text-4xl font-bold text-primary-300 mb-2">
                 15+
@@ -56,13 +58,14 @@ const AboutHomeOne = () => {
           </p>
 
           <div className="space-y-6 mb-8">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 w-12 h-12 glass-dark rounded-lg flex items-center justify-center">
+            <div className="flex items-start space-x-4 group">
+              <div className="flex-shrink-0 w-12 h-12 glass-dark rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-primary-500/20">
                 <svg
-                  className="w-6 h-6 text-primary-300"
+                  className="w-6 h-6 text-primary-300 transition-transform duration-300 group-hover:scale-110"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -73,7 +76,7 @@ const AboutHomeOne = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
                   Research Excellence
                 </h3>
                 <p className="text-white/80">
@@ -83,13 +86,14 @@ const AboutHomeOne = () => {
               </div>
             </div>
 
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 w-12 h-12 glass-dark rounded-lg flex items-center justify-center">
+            <div className="flex items-start space-x-4 group">
+              <div className="flex-shrink-0 w-12 h-12 glass-dark rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-primary-500/20">
                 <svg
-                  className="w-6 h-6 text-primary-300"
+                  className="w-6 h-6 text-primary-300 transition-transform duration-300 group-hover:scale-110"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -100,7 +104,7 @@ const AboutHomeOne = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
                   Professional Network
                 </h3>
                 <p className="text-white/80">
@@ -110,13 +114,14 @@ const AboutHomeOne = () => {
               </div>
             </div>
 
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 w-12 h-12 glass-dark rounded-lg flex items-center justify-center">
+            <div className="flex items-start space-x-4 group">
+              <div className="flex-shrink-0 w-12 h-12 glass-dark rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-primary-500/20">
                 <svg
-                  className="w-6 h-6 text-primary-300"
+                  className="w-6 h-6 text-primary-300 transition-transform duration-300 group-hover:scale-110"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -127,7 +132,7 @@ const AboutHomeOne = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
                   Innovation Hub
                 </h3>
                 <p className="text-white/80">
@@ -140,7 +145,8 @@ const AboutHomeOne = () => {
 
           <Link
             href="/about"
-            className="inline-flex items-center px-8 py-4 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-all duration-300 group"
+            className="inline-flex items-center px-8 py-4 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-black"
+            aria-label="Learn more about our federation"
           >
             Learn More About Us
             <svg
@@ -148,6 +154,7 @@ const AboutHomeOne = () => {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -159,7 +166,7 @@ const AboutHomeOne = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -20,6 +20,7 @@ const ServiceHomeOne = () => {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
@@ -42,6 +43,7 @@ const ServiceHomeOne = () => {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
@@ -64,6 +66,7 @@ const ServiceHomeOne = () => {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
@@ -86,6 +89,7 @@ const ServiceHomeOne = () => {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
@@ -100,17 +104,17 @@ const ServiceHomeOne = () => {
   ];
 
   return (
-    <div className="container">
+    <section className="container py-20" aria-label="Services Section">
       <div className="text-center mb-16">
         <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
           <span className="text-primary-300 text-sm font-medium">
             Our Services
           </span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Comprehensive Research Support
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-white/80 max-w-2xl mx-auto text-lg">
           We provide a wide range of services to support medical researchers and
           healthcare professionals in their pursuit of excellence.
         </p>
@@ -126,21 +130,22 @@ const ServiceHomeOne = () => {
           <Link
             key={service.id}
             href={service.link}
-            className="group glass-dark rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300"
+            className="group glass-dark rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-black"
+            aria-label={`Learn more about ${service.title}`}
           >
             <div className="text-primary-300 mb-6 group-hover:text-primary-400 transition-colors duration-300">
               {service.icon}
             </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-primary-500 transition-colors duration-300">
+            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary-300 transition-colors duration-300">
               {service.title}
             </h3>
-            <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+            <p className="text-white/80 group-hover:text-white/90 transition-colors duration-300">
               {service.description}
             </p>
           </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -76,6 +76,7 @@ const AwardsHomeOne = ({ style_2 }: AwardsHomeOneProps) => {
       image: "/images/awards/award-1.png",
       description:
         "Recognized for outstanding contributions to medical research and innovation.",
+      alt: "Global Healthcare Awards trophy for Excellence in Medical Research",
     },
     {
       id: 2,
@@ -85,6 +86,7 @@ const AwardsHomeOne = ({ style_2 }: AwardsHomeOneProps) => {
       image: "/images/awards/award-2.png",
       description:
         "Awarded for exceptional research facilities and breakthrough discoveries.",
+      alt: "International Medical Association award for Best Research Institution",
     },
     {
       id: 3,
@@ -94,83 +96,87 @@ const AwardsHomeOne = ({ style_2 }: AwardsHomeOneProps) => {
       image: "/images/awards/award-3.png",
       description:
         "Honored for pioneering healthcare solutions and technological advancements.",
+      alt: "Healthcare Technology Summit award for Innovation in Healthcare",
     },
   ];
 
   return (
-    <>
+    <section className="container py-20" aria-label="Awards Section">
       {style_2 && <div className="h-24 md:h-16"></div>}
-      <div className="container">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
-              Recognition
-            </span>
+      <div className="text-center mb-16">
+        <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+          <span className="text-primary-300 text-sm font-medium">
+            Recognition
+          </span>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Awards & Recognition
+        </h2>
+        <p className="text-white/80 max-w-2xl mx-auto text-lg">
+          Our commitment to excellence in medical research has been recognized
+          by leading healthcare organizations worldwide.
+        </p>
+      </div>
+
+      <div
+        ref={ref}
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
+          inView ? "animate-fade-in" : "opacity-0"
+        }`}
+      >
+        {awards.map((award) => (
+          <div
+            key={award.id}
+            className="glass-dark rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300 group"
+          >
+            <div className="relative w-24 h-24 mx-auto mb-6">
+              <Image
+                src={award.image}
+                alt={award.alt}
+                fill
+                className="object-contain transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
+                {award.title}
+              </h3>
+              <div className="text-primary-300 font-medium mb-2">
+                {award.organization}
+              </div>
+              <div className="text-white/80 mb-4">{award.year}</div>
+              <p className="text-white/80 group-hover:text-white/90 transition-colors duration-300">
+                {award.description}
+              </p>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Awards & Recognition
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Our commitment to excellence in medical research has been recognized
-            by leading healthcare organizations worldwide.
-          </p>
-        </div>
+        ))}
+      </div>
 
-        <div
-          ref={ref}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
-            inView ? "animate-fade-in" : "opacity-0"
-          }`}
-        >
-          {awards.map((award) => (
-            <div
-              key={award.id}
-              className="glass-dark rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="relative w-24 h-24 mx-auto mb-6">
-                <Image
-                  src={award.image}
-                  alt={award.title}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  {award.title}
-                </h3>
-                <div className="text-primary-500 font-medium mb-2">
-                  {award.organization}
-                </div>
-                <div className="text-gray-600 mb-4">{award.year}</div>
-                <p className="text-gray-600">{award.description}</p>
-              </div>
+      {/* Achievement Stats */}
+      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+        {[
+          { number: "50+", label: "Research Awards" },
+          { number: "100+", label: "Publications" },
+          { number: "25+", label: "Countries" },
+          { number: "1000+", label: "Researchers" },
+        ].map((stat, index) => (
+          <div
+            key={index}
+            className="text-center glass-dark rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 group"
+          >
+            <div className="text-3xl md:text-4xl font-bold text-primary-300 mb-2 group-hover:text-primary-400 transition-colors duration-300">
+              {stat.number}
             </div>
-          ))}
-        </div>
-
-        {/* Achievement Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { number: "50+", label: "Research Awards" },
-            { number: "100+", label: "Publications" },
-            { number: "25+", label: "Countries" },
-            { number: "1000+", label: "Researchers" },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="text-center glass-dark rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-primary-500 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-600">{stat.label}</div>
+            <div className="text-white/80 group-hover:text-white/90 transition-colors duration-300">
+              {stat.label}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
       {style_2 && <div className="h-24 md:h-16"></div>}
-    </>
+    </section>
   );
 };
 

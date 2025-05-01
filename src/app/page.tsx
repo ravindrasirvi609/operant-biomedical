@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import HeaderOne from "@/layouts/headers/HeaderOne";
 import HeroHomeOne from "@/components/hero/HeroHomeOne";
 import AboutHomeOne from "@/components/about/AboutHomeOne";
 import ServiceHomeOne from "@/components/service/ServiceHomeOne";
@@ -14,8 +13,6 @@ import VideoHomeOne from "@/components/video/VideoHomeOne";
 import BlogHomeOne from "@/components/blog/BlogHomeOne";
 import SubscribeHomeOne from "@/components/subscribe/SubscribeHomeOne";
 import BrandHomeOne from "@/components/brand/BrandHomeOne";
-import FooterOne from "@/layouts/footers/FooterOne";
-import Wrapper from "@/layouts/Wrapper";
 import VideoPopup from "@/components/modals/VideoPopup";
 import { Metadata } from "next";
 import Head from "next/head";
@@ -24,7 +21,7 @@ const HomePage = () => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
   return (
-    <Wrapper>
+    <div>
       <Head>
         <title>
           Operant Biomedical Research Federation | Advancing Medical Research
@@ -45,8 +42,6 @@ const HomePage = () => {
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50">
-        <HeaderOne />
-
         <main className="relative">
           {/* Hero Section */}
           <section className="relative">
@@ -109,8 +104,6 @@ const HomePage = () => {
           </section>
         </main>
 
-        <FooterOne />
-
         {/* Video Modal */}
         <VideoPopup
           isVideoOpen={isVideoOpen}
@@ -118,7 +111,7 @@ const HomePage = () => {
           videoId={"dTuHXUt1weQ"}
         />
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
