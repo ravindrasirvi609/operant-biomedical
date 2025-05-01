@@ -1,97 +1,92 @@
 "use client";
 import Link from "next/link";
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-interface DataType {
-  img: string;
-  sub_title: string;
-  title: string;
-  des: string;
-}
-
-const hero_slider: DataType[] = [
-  {
-    img: `/assets/img/hero_img_33.jpg`,
-    sub_title: "Biomedical Research Federation",
-    title: "Expert in the medical Research Publication and Conference",
-    des: `Welcome to our Medical Research Federation! We are dedicated to advancing healthcare through cutting-edge research and collaboration. Our federation specializes in fostering partnerships among medical professionals, researchers, and institutions to drive innovation and improve patient outcomes. From pioneering studies to breakthrough treatments, we are committed to pushing the boundaries of medical knowledge. Join us in shaping the future of healthcare`,
-  },
-  {
-    img: `/assets/img/hero_img_33.jpg`,
-    sub_title: "Biomedical Research Federation",
-    title:
-      "Specialized Medical Research Solutions Tailored to Your Institution",
-    des: `Welcome to our Medical Research Federation! We're dedicated to empowering institutions like yours to thrive in the digital landscape. From innovative research platforms to strategic outreach and engagement strategies, we offer the expertise and resources to enhance your online footprint. Let us navigate the dynamic realm of digital together, advancing medical research for a healthier future.`,
-  },
-  {
-    img: `/assets/img/hero_img_33.jpg`,
-    sub_title: "Biomedical Research Federation",
-    title: "Cutting-Edge Research Solutions Customized for Your Institution",
-    des: `Welcome to our Medical Research Federation! We excel in supporting institutions like yours to excel in the digital realm. Whether it's crafting cutting-edge research platforms or devising impactful digital outreach strategies, we possess the tools and know-how to enhance your online impact. Let us be your guide in navigating the ever-evolving digital landscape, driving forward the frontiers of medical research.`,
-  },
-];
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 const HeroHomeOne = () => {
+  const heroData = [
+    {
+      id: 1,
+      title: "Welcome to Operant Biomedical Research",
+      subtitle: "Innovative Research Solutions",
+      description:
+        "We are dedicated to advancing medical research and improving healthcare outcomes through innovative solutions and cutting-edge technology.",
+      img: "/images/hero/hero-1.jpg",
+      btn_text: "Our Services",
+      btn_link: "/service",
+    },
+    {
+      id: 2,
+      title: "Expert Research & Development",
+      subtitle: "Scientific Excellence",
+      description:
+        "Our team of experts combines scientific knowledge with practical experience to deliver exceptional research and development services.",
+      img: "/images/hero/hero-2.jpg",
+      btn_text: "Learn More",
+      btn_link: "/about",
+    },
+  ];
+
   return (
-    <>
+    <div className="relative w-full h-screen overflow-hidden">
       <Swiper
+        modules={[Autoplay, EffectFade]}
+        effect="fade"
         loop={true}
-        slidesPerView={1}
-        autoplay={{ delay: 3000 }}
-        pagination={{ clickable: true }}
-        className="cs_slider cs_slider_1"
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        className="w-full h-full"
       >
-        {hero_slider.map((item, index) => (
-          <SwiperSlide key={index} className="swiper-slide">
-            <div className="cs_hero cs_style1 cs_center cs_parallax">
+        {heroData.map((item, index) => (
+          <SwiperSlide key={index} className="relative w-full h-full">
+            <div className="w-full h-full relative overflow-hidden">
               <div
-                className="cs_hero_bg cs_bg cs_parallax_bg"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${item.img})` }}
-              ></div>
-              <div className="container">
-                <div className="cs_hero_text">
-                  <div className="cs_hero_mini_title">
-                    <svg
-                      width="134"
-                      height="12"
-                      viewBox="0 0 134 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M133.53 6.53033C133.823 6.23744 133.823 5.76256 133.53 5.46967L128.757 0.696699C128.464 0.403806 127.99 0.403806 127.697 0.696699C127.404 0.989593 127.404 1.46447 127.697 1.75736L131.939 6L127.697 10.2426C127.404 10.5355 127.404 11.0104 127.697 11.3033C127.99 11.5962 128.464 11.5962 128.757 11.3033L133.53 6.53033ZM0 6.75H133V5.25H0V6.75Z"
-                        fill="#101010"
-                      />
-                    </svg>
-                    {item.sub_title}
-                  </div>
-                  <div className="cs_height_20 cs_height_lg_20"></div>
-                  <h1 className="cs_hero_title">{item.title}</h1>
-                  <div className="cs_height_70 cs_height_lg_60"></div>
-                  <div className="cs_hero_text_in">
-                    <div className="cs_hero_subtitle">{item.des}</div>
-                    <div className="cs_height_65 cs_height_lg_40"></div>
-                    <div className="cs_hero_btn_wrap">
-                      <div className="cs_round_btn_wrap">
-                        <Link
-                          href="/service"
-                          className="cs_hero_btn cs_round_btn btn-item"
-                        >
-                          <span></span>
-                          Our Services
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+              />
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+            </div>
+
+            <div className="relative z-10 container mx-auto h-full flex items-center">
+              <div className="max-w-3xl glass-dark p-10 rounded-2xl ml-0 md:ml-10 transform transition-all duration-500">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="h-px w-10 bg-primary-400"></div>
+                  <span className="text-primary-300 uppercase tracking-wider text-sm">
+                    {item.subtitle}
+                  </span>
                 </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+                  {item.title}
+                </h1>
+                <p className="text-white/80 text-base md:text-lg mb-8">
+                  {item.description}
+                </p>
+                <Link href={item.btn_link} className="btn-primary group">
+                  {item.btn_text}
+                  <svg
+                    className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        <div className="cs_pagination cs_style1"></div>
       </Swiper>
-    </>
+    </div>
   );
 };
 

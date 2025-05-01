@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import React, { useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 interface DataType {
   id: number;
@@ -117,47 +119,108 @@ const menu_data: DataType[] = [
   },
 ];
 
-const MobileMenu = ({ active, navTitle, openMobileMenu }: any) => {
+interface MobileMenuProps {
+  navTitle: string;
+  setNavTitle: (title: string) => void;
+}
+
+const MobileMenu = ({ navTitle, setNavTitle }: MobileMenuProps) => {
+  const [activeDropdown, setActiveDropdown] = useState("");
+  const router = useRouter();
+
   return (
-    <>
-      <ul
-        className="cs_nav_list"
-        style={{ display: active ? "block" : "none" }}
+    <div
+      className={`fixed inset-0 z-50 transition-all duration-500 ${
+        navTitle === "active" ? "visible" : "invisible"
+      }`}
+    >
+      <div
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={() => setNavTitle("")}
+      />
+      <div
+        className={`absolute top-0 right-0 w-[300px] h-full glass-dark backdrop-blur-md p-6 transform transition-transform duration-500 ${
+          navTitle === "active" ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        {menu_data.map((menu) => (
-          <li
-            key={menu.id}
-            className={`${menu.has_dropdown ? "menu-item-has-children" : ""} ${
-              navTitle === menu.title ? "active" : ""
-            }`}
+        <div className="flex justify-between items-center mb-8">
+          <Link href="/" className="block">
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={120}
+              height={38}
+              className="w-auto h-8"
+            />
+          </Link>
+          <button
+            onClick={() => setNavTitle("")}
+            className="w-10 h-10 flex items-center justify-center text-white/90 hover:text-primary-300 transition-colors duration-300"
           >
-            <Link href={menu.link}>{menu.title}</Link>
-            {menu.has_dropdown && (
-              <>
-                <ul
-                  className="cs_mega_wrapper"
-                  style={{
-                    display: navTitle === menu.title ? "block" : "none",
-                  }}
-                >
-                  {menu.sub_menu?.map((subMenu) => (
-                    <li key={subMenu.id}>
-                      <Link href={subMenu.link}>{subMenu.title}</Link>
-                    </li>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav className="space-y-2">
+          {menu_data.map((item) => (
+            <div key={item.id}>
+              <button
+                onClick={() =>
+                  setActiveDropdown(
+                    activeDropdown === item.title ? "" : item.title
+                  )
+                }
+                className="w-full flex items-center justify-between py-3 px-4 text-white/90 hover:text-primary-300 hover:bg-white/5 rounded-lg transition-all duration-200"
+              >
+                <span className="font-medium">{item.title}</span>
+                {item.has_dropdown && (
+                  <svg
+                    className={`w-5 h-5 transform transition-transform duration-300 ${
+                      activeDropdown === item.title ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                )}
+              </button>
+              {item.has_dropdown && activeDropdown === item.title && (
+                <div className="mt-2 ml-4 space-y-1">
+                  {item.sub_menu?.map((subItem) => (
+                    <Link
+                      key={subItem.id}
+                      href={subItem.link}
+                      className="block py-2.5 px-4 text-white/80 hover:text-primary-300 hover:bg-white/5 rounded-lg transition-all duration-200"
+                    >
+                      {subItem.title}
+                    </Link>
                   ))}
-                </ul>
-                <span
-                  onClick={() => openMobileMenu(menu.title)}
-                  className={`cs_munu_dropdown_toggle ${
-                    navTitle === menu.title ? "active" : ""
-                  }`}
-                ></span>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-    </>
+                </div>
+              )}
+            </div>
+          ))}
+        </nav>
+      </div>
+    </div>
   );
 };
 

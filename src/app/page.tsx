@@ -38,8 +38,8 @@ const index = () => {
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <HeaderOne />
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
+      <div className="relative overflow-hidden">
+        <div>
           <main>
             <HeroHomeOne />
             <MarqueeAreaHomeOne />

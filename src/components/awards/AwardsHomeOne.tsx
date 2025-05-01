@@ -11,6 +11,7 @@ import award_thumb_4 from "@/assets/img/portfolio/1B1A0823.jpg";
 import award_thumb_1 from "@/assets/img/portfolio/1B1A0823.jpg";
 
 import Image, { StaticImageData } from "next/image";
+import { useInView } from "react-intersection-observer";
 
 interface DataType {
   id: number;
@@ -20,7 +21,6 @@ interface DataType {
   title: string;
   des: string;
 }
-[];
 
 const award_data: DataType[] = [
   {
@@ -57,58 +57,71 @@ const award_data: DataType[] = [
   },
 ];
 
-const AwardsHomeOne = ({ style_2 }: any) => {
-  const [activeTab, setActiveTab] = useState(0);
-  const handleMouseEnter = (index: any) => {
-    setActiveTab(index);
-  };
+interface AwardsHomeOneProps {
+  style_2?: boolean;
+}
+
+const AwardsHomeOne = ({ style_2 }: AwardsHomeOneProps) => {
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
   return (
     <>
-      {style_2 ? <div className="cs_height_145 cs_height_lg_60"></div> : null}
-      <section>
-        <div className="container">
-          <div className="cs_section_heading cs_style_1 cs_type_1 swiper-slide swiper-slide-active">
-            <div className="cs_section_heading_text">
-              <div className="cs_section_subtitle anim_div_ShowZoom">
-                Our Excellence
-              </div>
-              <h2 className="cs_section_title anim_heading_title">
-                Recognizing Excellence Our Award Winning Work
-              </h2>
-            </div>
+      {style_2 && <div className="h-24 md:h-16"></div>}
+      <div className="container">
+        <div
+          ref={ref}
+          className={`text-center mb-12 ${
+            inView ? "animate-fade-in" : "opacity-0"
+          }`}
+        >
+          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+            <span className="text-primary-300 text-sm font-medium">
+              Our Achievements
+            </span>
           </div>
-          <div className="cs_height_100 cs_height_lg_60"></div>
-          <div className="cs_card_2_list">
-            {award_data.map((item, i) => (
-              <div
-                key={i}
-                onMouseEnter={() => handleMouseEnter(i)}
-                className={`cs_card cs_style_2 cs_hover_tab anim_div_ShowDowns ${
-                  activeTab === i ? "active" : ""
-                }`}
-              >
-                <div className="cs_card_left">
-                  <div className="cs_card_logo">
-                    <Image src={item.ward_img} alt="Award" />
-                  </div>
-                  <div>
-                    <h2 className="cs_card_title">{item.title}</h2>
-                    <div className="cs_card_subtitle">{item.des}</div>
-                  </div>
-                </div>
-                <div className="cs_card_right">
-                  <h2 className="cs_card_brand">{item.brand}</h2>
-                </div>
-                <div className="cs_card_hover_img">
-                  <Image src={item.img} alt="Thumb" />
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Awards & Recognition
+          </h2>
         </div>
-      </section>
-      <div className="cs_height_145 cs_height_lg_60"></div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {award_data.map((item, index) => (
+            <div
+              key={item.id}
+              className={`glass-dark p-6 rounded-xl transform transition-all duration-500 hover:scale-105 ${
+                inView ? "animate-fade-in" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 relative">
+                    <Image
+                      src={item.ward_img}
+                      alt={item.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/80 mb-4">{item.des}</p>
+                  <div className="text-primary-300 font-medium">
+                    {item.brand}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {style_2 && <div className="h-24 md:h-16"></div>}
     </>
   );
 };

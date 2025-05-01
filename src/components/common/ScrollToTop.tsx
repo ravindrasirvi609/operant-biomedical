@@ -1,39 +1,58 @@
-"use client"
-import UseSticky from "@/hooks/UseSticky";
-import React, { useState, useEffect } from "react";
-
+"use client";
+import React, { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
-  const { sticky }: { sticky: boolean } = UseSticky();
+  const [isVisible, setIsVisible] = useState(false);
 
-  const [showScroll, setShowScroll] = useState(false);
-
-  const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 400) {
-      setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 400) {
-      setShowScroll(false);
-    }
-  };
-
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  // Top: 0 takes us all the way back to the top of the page
+  // Behavior: smooth keeps it smooth!
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", checkScrollTop);
-    return () => window.removeEventListener("scroll", checkScrollTop);
+    // Button is displayed after scrolling for 500 pixels
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 500) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   return (
-    <>
-      <span className={`cs_scrollup ${sticky ? 'cs_scrollup_show' : ''}`} onClick={scrollTop}>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 10L1.7625 11.7625L8.75 4.7875V20H11.25V4.7875L18.225 11.775L20 10L10 0L0 10Z" fill="currentColor"></path>
-        </svg>
-      </span>
-
-    </>
+    <div className="fixed bottom-8 right-8 z-50">
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          className="glass p-3 rounded-full shadow-glass text-white hover:text-primary-300 transition-all duration-300 transform hover:scale-110 hover:rotate-[360deg]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 10l7-7m0 0l7 7m-7-7v18"
+            />
+          </svg>
+        </button>
+      )}
+    </div>
   );
 };
 

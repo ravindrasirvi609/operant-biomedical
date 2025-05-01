@@ -1,68 +1,78 @@
-import React from "react";
-import Count from "../common/Count";
+import Count from "react-countup";
+import { useInView } from "react-intersection-observer";
 
-interface DataType {
-  id: number;
-  title: string;
-  number: number;
+interface FunFactHomeOneProps {
+  style_3?: boolean;
 }
-[];
 
-const counter_data: DataType[] = [
-  {
-    id: 1,
-    title: `Happy Delegates`,
-    number: 30,
-  },
-  {
-    id: 2,
-    title: `Expert Consultants`,
-    number: 30,
-  },
-  {
-    id: 3,
-    title: `Years Experiences`,
-    number: 7,
-  },
-  {
-    id: 4,
-    title: `Countries`,
-    number: 15,
-  },
-];
+const FunFactHomeOne = ({ style_3 }: FunFactHomeOneProps) => {
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
-const FunFactHomeOne = ({ style_2, style_3 }: any) => {
+  const funfactData = [
+    {
+      id: 1,
+      number: 150,
+      title: "Research Projects",
+      icon: "flaticon-research",
+    },
+    {
+      id: 2,
+      number: 50,
+      title: "Expert Researchers",
+      icon: "flaticon-researcher",
+    },
+    {
+      id: 3,
+      number: 100,
+      title: "Publications",
+      icon: "flaticon-publication",
+    },
+    {
+      id: 4,
+      number: 25,
+      title: "Awards Won",
+      icon: "flaticon-award",
+    },
+  ];
+
   return (
     <>
+      {!style_3 && <div className="h-24 md:h-16"></div>}
       <div className="container">
-        <div className="row align-items-center">
-          {counter_data.map((item, i) => (
-            <div key={i} className="col-lg-3">
-              <div className="cs_funfact cs_style1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {funfactData.map((item, i) => (
+            <div key={i} className="text-center">
+              <div className="glass-dark p-6 rounded-xl">
                 <div
-                  className={`cs_funfact_number  me-4 ${
-                    style_2 ? "cs_stroke_normal" : "cs_stroke_text"
+                  ref={ref}
+                  className={`text-4xl font-bold text-primary-400 mb-4 ${
+                    inView ? "animate-fade-in" : "opacity-0"
                   }`}
                 >
-                  {i === 2 && <span>0</span>}
-                  <div className="amin_auto_count">
-                    <Count number={item.number} add_style={true} />
-                  </div>
-                  {i === 0 && <span>K</span>}
+                  <Count
+                    end={item.number}
+                    duration={2.5}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                  />
+                  +
                 </div>
                 <div
-                  className={`cs_funfact_text cs_primary_font ${
-                    style_2 ? "cs_color_1" : ""
+                  className={`text-white/90 text-lg font-medium ${
+                    inView ? "animate-fade-in" : "opacity-0"
                   }`}
                 >
-                  <p>{item.title}</p>
+                  {item.title}
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      {style_3 ? null : <div className="cs_height_150 cs_height_lg_60"></div>}
+      {!style_3 && <div className="h-24 md:h-16"></div>}
     </>
   );
 };

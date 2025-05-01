@@ -24,8 +24,6 @@ const footer_data: DataType = {
     { title: `Terms & Conditions`, link: "/terms" },
     { title: `Privacy Policy`, link: "/privacy" },
     { title: `Refund & Shipping Policy`, link: "/refund" },
-    // { title: `PORTFOLIO`, link: "/portfolio" },
-    // { title: `BLOG`, link: "/blog" },
     { title: `CONTACT US`, link: "/contact" },
   ],
 };
@@ -33,112 +31,151 @@ const { footer_info, email, links, location, phone } = footer_data;
 
 const FooterOne = () => {
   return (
-    <>
-      <footer className="cs_footer cs_primary_bg">
-        <div className="cs_height_150 cs_height_lg_60"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5">
-              <div className="cs_footer_info">
-                <Image src={footer_logo} alt="Logo" height={400} width={400} />
-                <p>{footer_info}</p>
-                <a
-                  href={`mailto:${email}`}
-                  className="cs_primary_font anim_text_upanddowns"
+    <footer className="bg-gradient-to-b from-primary-900 to-primary-800 text-white py-16 relative">
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+      <div className="container mx-auto relative z-10 px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-5">
+            <div className="glass-dark p-8 rounded-xl h-full">
+              <Image
+                src={footer_logo}
+                alt="Operant Biomedical"
+                height={150}
+                width={150}
+                className="mb-6"
+              />
+              <p className="text-white/80 mb-6">{footer_info}</p>
+              <a
+                href={`mailto:${email}`}
+                className="text-primary-300 text-lg font-medium hover:text-white transition-colors duration-300 inline-flex items-center"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <span>{email}</span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-6 offset-lg-1">
-              <div className="cs_footer_social">
-                <SocialLinks />
-              </div>
-              <div className="cs_height_60 cs_height_lg_30"></div>
-              <ul className="cs_footer_contact_list cs_mp0">
-                <li>
-                  <i>
-                    <svg
-                      width="14"
-                      height="19"
-                      viewBox="0 0 14 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M7 0.0195312C3.14027 0.0195312 0 3.01027 0 6.68621C0 7.78973 0.289693 8.88387 0.840408 9.85434L6.6172 17.8047C6.69411 17.9373 6.84065 18.0195 7 18.0195C7.15935 18.0195 7.30589 17.9373 7.3828 17.8047L13.1617 9.85105C13.7103 8.88387 14 7.78969 14 6.68617C14 3.01027 10.8597 0.0195312 7 0.0195312ZM7 10.0195C5.07014 10.0195 3.50002 8.52418 3.50002 6.68621C3.50002 4.84824 5.07014 3.35289 7 3.35289C8.92986 3.35289 10.5 4.84824 10.5 6.68621C10.5 8.52418 8.92986 10.0195 7 10.0195Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </i>
-                  {location}
-                </li>
-                <li>
-                  <i>
-                    <svg
-                      width="18"
-                      height="19"
-                      viewBox="0 0 18 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13.6837 11.9266C13.0957 11.3461 12.3616 11.3461 11.7773 11.9266C11.3316 12.3686 10.8859 12.8105 10.4477 13.26C10.3278 13.3836 10.2267 13.4098 10.0806 13.3274C9.79225 13.1701 9.48513 13.0427 9.20797 12.8704C7.91581 12.0577 6.8334 11.0127 5.87458 9.83668C5.39891 9.2524 4.97568 8.62692 4.6798 7.92279C4.61987 7.78046 4.63111 7.68683 4.74721 7.57072C5.19292 7.14 5.62738 6.69805 6.06559 6.25609C6.67609 5.64185 6.67609 4.92273 6.06185 4.30474C5.71353 3.95268 5.3652 3.6081 5.01688 3.25604C4.65733 2.89648 4.30151 2.53318 3.93821 2.17736C3.35018 1.60432 2.61609 1.60432 2.03181 2.18111C1.58236 2.62306 1.15164 3.07626 0.694705 3.51072C0.271476 3.91148 0.0579884 4.40212 0.0130438 4.97517C-0.0581186 5.90777 0.17035 6.78794 0.492454 7.64563C1.15164 9.42095 2.15541 10.9978 3.37266 12.4435C5.01688 14.3986 6.97947 15.9454 9.27539 17.0615C10.3091 17.5634 11.3803 17.9492 12.5451 18.0129C13.3466 18.0578 14.0433 17.8556 14.6013 17.2301C14.9834 16.8031 15.4141 16.4136 15.8186 16.0053C16.4178 15.3986 16.4216 14.6645 15.8261 14.0652C15.1145 13.3499 14.3991 12.6382 13.6837 11.9266Z"
-                        fill="white"
-                      />
-                      <path
-                        d="M12.9672 8.93825L14.3493 8.70229C14.132 7.4326 13.5328 6.28277 12.6227 5.36889C11.6601 4.40633 10.4428 3.79957 9.10199 3.6123L8.90723 5.00184C9.9447 5.14791 10.8885 5.61609 11.6339 6.36142C12.338 7.06555 12.7987 7.95696 12.9672 8.93825Z"
-                        fill="white"
-                      />
-                      <path
-                        d="M15.1294 2.93344C13.5338 1.33791 11.5151 0.330398 9.28656 0.0195312L9.0918 1.40907C11.0169 1.67874 12.7623 2.55141 14.1406 3.92597C15.4477 5.23311 16.3054 6.88483 16.6163 8.70134L17.9983 8.46538C17.635 6.36047 16.6425 4.45033 15.1294 2.93344Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </i>
-                  {phone}
-                </li>
-                <li>
-                  <i>
-                    <svg
-                      width="18"
-                      height="14"
-                      viewBox="0 0 18 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.5043 8.78757C10.0565 9.08612 9.53631 9.24394 9 9.24394C8.46373 9.24394 7.94356 9.08612 7.49574 8.78757L0.119848 3.87016C0.0789258 3.84288 0.0390586 3.81444 0 3.78519V11.8429C0 12.7667 0.749707 13.4999 1.65702 13.4999H16.3429C17.2668 13.4999 18 12.7502 18 11.8429V3.78516C17.9608 3.81448 17.9209 3.84299 17.8799 3.87031L10.5043 8.78757Z"
-                        fill="white"
-                      />
-                      <path
-                        d="M0.704883 2.99347L8.08077 7.91091C8.35998 8.09707 8.67997 8.19012 8.99996 8.19012C9.31999 8.19012 9.64002 8.09703 9.91923 7.91091L17.2951 2.99347C17.7365 2.69939 18 2.2072 18 1.67599C18 0.762594 17.2569 0.0195312 16.3435 0.0195312H1.65646C0.743098 0.0195664 0 0.762629 0 1.67687C0 2.2072 0.263531 2.69939 0.704883 2.99347Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </i>
-                  {email}
-                </li>
-              </ul>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>{email}</span>
+              </a>
             </div>
           </div>
-          <div className="cs_height_90 cs_height_lg_60"></div>
-          <ul className="cs_footer_nav">
+          <div className="lg:col-span-7">
+            <div className="glass-dark p-8 rounded-xl h-full">
+              <div className="mb-8">
+                <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
+                <div className="flex space-x-4">
+                  <SocialLinks />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="text-primary-300 mr-3 mt-1">
+                    <svg
+                      className="w-5 h-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-white/80">{location}</p>
+                </div>
+
+                <div className="flex items-center">
+                  <div className="text-primary-300 mr-3">
+                    <svg
+                      className="w-5 h-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  </div>
+                  <a
+                    href={`tel:${phone}`}
+                    className="text-white/80 hover:text-white transition-colors duration-300"
+                  >
+                    {phone}
+                  </a>
+                </div>
+
+                <div className="flex items-center">
+                  <div className="text-primary-300 mr-3">
+                    <svg
+                      className="w-5 h-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <a
+                    href={`mailto:${email}`}
+                    className="text-white/80 hover:text-white transition-colors duration-300"
+                  >
+                    {email}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="flex flex-wrap justify-center gap-6">
             {links.map((item, index) => (
-              <li key={index}>
-                <Link href={item.link}>{item.title}</Link>
-              </li>
+              <Link
+                key={index}
+                href={item.link}
+                className="text-white/80 hover:text-white transition-colors duration-300"
+              >
+                {item.title}
+              </Link>
             ))}
-          </ul>
-        </div>
-        <div className="cs_copyright text-center">
-          <div className="container">
-            {" "}
-            <CopyRight />{" "}
           </div>
         </div>
-      </footer>
-    </>
+
+        <div className="mt-8 text-center text-white/60">
+          <CopyRight />
+        </div>
+      </div>
+    </footer>
   );
 };
 

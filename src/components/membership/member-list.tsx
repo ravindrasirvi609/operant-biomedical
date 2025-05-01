@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import { useInView } from "react-intersection-observer";
 
 interface Membership {
   imageUrl: string;
@@ -22,6 +23,10 @@ const chunkArray = (arr: Membership[], chunkSize: number): Membership[][] => {
 
 const MembershipList = () => {
   const [team_data, setTeam_data] = useState<Membership[]>([]);
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
   useEffect(() => {
     const fetchMembershipList = async () => {
@@ -43,51 +48,54 @@ const MembershipList = () => {
 
   return (
     <>
-      <div className="cs_height_219 cs_height_lg_120"></div>
-
+      <div className="h-24 md:h-16"></div>
       <div className="container">
-        <div className="cs_section_heading cs_style_1 cs_type_1">
-          <div className="cs_section_heading_text">
-            <h2 className="cs_section_title anim_text_writting">
-              Exclusive Premium Member Directory
-            </h2>
+        <div
+          ref={ref}
+          className={`text-center mb-12 ${
+            inView ? "animate-fade-in" : "opacity-0"
+          }`}
+        >
+          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+            <span className="text-primary-300 text-sm font-medium">
+              Our Team
+            </span>
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Meet Our Expert Researchers
+          </h2>
         </div>
-      </div>
 
-      <div className="cs_height_100 cs_height_lg_60"></div>
-      <section>
-        <div className="container">
-          {chunkedData.map((chunk, chunkIndex) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {team_data.map((member, index) => (
             <div
-              key={chunkIndex}
-              className="cs_team_section anim_div_ShowDowns"
+              key={member._id}
+              className={`glass-dark p-6 rounded-xl transform transition-all duration-500 hover:scale-105 ${
+                inView ? "animate-fade-in" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${index * 200}ms` }}
             >
-              {chunk.map((item, i) => (
-                <div key={item._id} className="cs_team_img">
-                  <Link href={`/team-details/${item._id}`}>
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.name}
-                      width={200}
-                      height={200}
-                    />
-                    <div className="cs_portfolio_overlay"></div>
-                  </Link>
-
-                  <div className="cs_team_text">
-                    <Link href={`/team-details/${item._id}`}>
-                      <h6 className="cs_team_text_title">{item.name}</h6>
-                    </Link>
-                    <p className="cs_team_subtitle">{item.subject}</p>
-                    <p className="cs_team_subtitle">{item.membershipId}</p>
-                  </div>
-                </div>
-              ))}
+              <div className="relative w-32 h-32 mx-auto mb-6">
+                <Image
+                  src={member.imageUrl}
+                  alt={member.name}
+                  width={128}
+                  height={128}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-white text-center mb-2">
+                {member.name}
+              </h3>
+              <div className="text-primary-300 text-center font-medium mb-4">
+                {member.subject}
+              </div>
+              <p className="text-white/80 text-center">{member.membershipId}</p>
             </div>
           ))}
         </div>
-      </section>
+      </div>
+      <div className="h-24 md:h-16"></div>
     </>
   );
 };
