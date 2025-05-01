@@ -2,7 +2,11 @@
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
-const BrandHomeOne = () => {
+interface BrandHomeOneProps {
+  style_2?: boolean;
+}
+
+const BrandHomeOne = ({ style_2 }: BrandHomeOneProps) => {
   const [ref, inView] = useInView({
     threshold: 0,
     triggerOnce: true,

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Wrapper from "@/layouts/Wrapper";
 import Error from "@/components/error";
 
 // export const metadata = {
@@ -10,7 +9,7 @@ import Error from "@/components/error";
 
 const index = () => {
   return (
-    <Wrapper>
+    <div>
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
@@ -18,7 +17,7 @@ const index = () => {
           </main>
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 

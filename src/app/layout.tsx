@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeContext";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +34,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+            <Header />
             <main>{children}</main>
+            <Footer />
           </div>
         </ThemeProvider>
         <Analytics />

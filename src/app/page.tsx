@@ -85,7 +85,10 @@ const HomePage = () => {
 
           {/* Video Section */}
           <section className="py-20 bg-gradient-to-b from-primary-50/30 to-white/50">
-            <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />
+            <VideoHomeOne
+              setIsVideoOpen={setIsVideoOpen}
+              isVideoOpen={isVideoOpen}
+            />
           </section>
 
           {/* Latest Research Section */}
