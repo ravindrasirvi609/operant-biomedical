@@ -30,6 +30,7 @@ const HeroHomeOne = () => {
       btn_text: "Explore Research",
       btn_link: "/research",
       alt: "Modern medical research laboratory with advanced equipment",
+      highlight: "Pioneering Healthcare Solutions",
     },
     {
       id: 2,
@@ -41,6 +42,7 @@ const HeroHomeOne = () => {
       btn_text: "Join Our Network",
       btn_link: "/membership",
       alt: "Medical professionals collaborating in a modern research facility",
+      highlight: "Innovation at Scale",
     },
     {
       id: 3,
@@ -52,6 +54,7 @@ const HeroHomeOne = () => {
       btn_text: "Learn More",
       btn_link: "/innovation",
       alt: "Advanced medical technology and research equipment",
+      highlight: "Future of Healthcare",
     },
   ];
 
@@ -97,7 +100,7 @@ const HeroHomeOne = () => {
                   quality={100}
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-900/70 to-transparent dark:from-gray-900/95 dark:via-gray-900/75 dark:to-transparent backdrop-blur-[1px] transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent dark:from-black/90 dark:via-black/70 dark:to-transparent backdrop-blur-[2px] transition-all duration-300"></div>
             </div>
 
             <div className="relative z-10 container mx-auto h-full flex items-center">
@@ -105,39 +108,63 @@ const HeroHomeOne = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="max-w-3xl bg-white/10 dark:bg-gray-900/10 backdrop-blur-lg p-8 md:p-12 rounded-2xl ml-0 md:ml-10 transform transition-all duration-500 hover:shadow-2xl border border-white/20 dark:border-gray-700/20"
+                className="max-w-3xl bg-white/5 dark:bg-gray-900/5 backdrop-blur-lg p-8 md:p-12 rounded-2xl ml-0 md:ml-10 transform transition-all duration-500 hover:shadow-2xl border border-white/10 dark:border-gray-700/10"
               >
-                <div className="flex items-center space-x-3 mb-6">
+                {/* Highlight Text */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className="mb-6"
+                >
+                  <span className="inline-block px-4 py-2 bg-primary-500/30 dark:bg-primary-400/30 text-white dark:text-white rounded-full text-sm font-semibold tracking-wider shadow-lg">
+                    {item.highlight}
+                  </span>
+                </motion.div>
+
+                {/* Subtitle */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 + 0.1 }}
+                  className="flex items-center space-x-3 mb-6"
+                >
                   <div className="h-px w-12 bg-primary-300 dark:bg-primary-400 transition-colors duration-300"></div>
                   <span className="text-primary-300 dark:text-primary-400 uppercase tracking-wider text-sm font-medium transition-colors duration-300">
                     {item.subtitle}
                   </span>
-                </div>
+                </motion.div>
+
+                {/* Title */}
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.2 + 0.2 }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 transition-colors duration-300"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 transition-colors duration-300 drop-shadow-lg"
                 >
                   {item.title}
                 </motion.h1>
+
+                {/* Description */}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 + 0.4 }}
-                  className="text-white/90 text-lg md:text-xl mb-10 transition-colors duration-300 max-w-2xl"
+                  transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
+                  className="text-white/90 text-lg md:text-xl mb-10 transition-colors duration-300 max-w-2xl drop-shadow-md"
                 >
                   {item.description}
                 </motion.p>
+
+                {/* Buttons */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 + 0.6 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 + 0.4 }}
                   className="flex flex-col sm:flex-row gap-4"
                 >
                   <Link
                     href={item.btn_link}
-                    className="inline-flex items-center justify-center px-8 py-4 bg-primary-500/90 dark:bg-primary-600/90 text-white rounded-lg hover:bg-primary-600 dark:hover:bg-primary-700 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 backdrop-blur-sm"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-primary-500/90 dark:bg-primary-600/90 text-white rounded-lg hover:bg-primary-600 dark:hover:bg-primary-700 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 backdrop-blur-sm shadow-lg"
                     aria-label={`${item.btn_text} - ${item.title}`}
                   >
                     {item.btn_text}
@@ -158,7 +185,7 @@ const HeroHomeOne = () => {
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-white/10 dark:bg-gray-900/10 text-white rounded-lg hover:bg-white/20 dark:hover:bg-gray-900/20 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-white/50 dark:focus:ring-gray-700/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 backdrop-blur-sm"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-white/10 dark:bg-gray-900/10 text-white rounded-lg hover:bg-white/20 dark:hover:bg-gray-900/20 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-white/50 dark:focus:ring-gray-700/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 backdrop-blur-sm shadow-lg"
                   >
                     Contact Us
                     <svg
