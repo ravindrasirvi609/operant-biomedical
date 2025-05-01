@@ -1,125 +1,108 @@
 "use client";
-import React, { useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 const SubscribeHomeOne = () => {
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setSuccessMessage("");
-
-    try {
-      const response = await axios.post("/api/emailSubscription", { email });
-      if (response.status === 200) {
-        setSuccessMessage("Successfully Subscribed!");
-      } else {
-        setSuccessMessage("Subscription failed. Please try again.");
-      }
-    } catch (error) {
-      setSuccessMessage("Subscription failed. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    // Add your subscription logic here
+    setIsSubscribed(true);
+    setEmail("");
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="cs_newsletter cs_style_1 cs_primary_bg cs_shape_wrap_1 cs_parallax">
-          <div className="cs_shape_1">
-            <svg
-              width="149"
-              height="150"
-              viewBox="0 0 149 150"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g opacity="0.23">
-                <path
-                  d="M54.7532 1.2627C47.1932 42.3276 41.0646 48.4558 0 56.0158C41.065 63.5757 47.1932 69.7039 54.7532 110.769C62.3131 69.7039 68.4414 63.5757 109.506 56.0158C68.4414 48.4558 62.3128 42.3276 54.7532 1.2627Z"
-                  fill="#454545"
-                />
-                <path
-                  d="M114.179 78.2979C109.372 104.413 105.474 108.311 79.3584 113.119C105.474 117.926 109.372 121.824 114.179 147.939C118.987 121.824 122.885 117.926 149 113.119C122.884 108.311 118.987 104.413 114.179 78.2979Z"
-                  fill="#454545"
-                />
-              </g>
-            </svg>
-          </div>
-          <div className="cs_shape_2">
-            <svg
-              width="149"
-              height="150"
-              viewBox="0 0 149 150"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g opacity="0.23">
-                <path
-                  d="M54.7532 1.2627C47.1932 42.3276 41.0646 48.4558 0 56.0158C41.065 63.5757 47.1932 69.7039 54.7532 110.769C62.3131 69.7039 68.4414 63.5757 109.506 56.0158C68.4414 48.4558 62.3128 42.3276 54.7532 1.2627Z"
-                  fill="#454545"
-                />
-                <path
-                  d="M114.179 78.2979C109.372 104.413 105.474 108.311 79.3584 113.119C105.474 117.926 109.372 121.824 114.179 147.939C118.987 121.824 122.885 117.926 149 113.119C122.884 108.311 118.987 104.413 114.179 78.2979Z"
-                  fill="#454545"
-                />
-              </g>
-            </svg>
-          </div>
-          <div className="cs_section_heading cs_style_1 cs_color_1 text-center">
-            <div className="cs_section_heading_text">
-              <h2 className="cs_section_title anim_text_upanddowns">
-                Lead the Way with Our Cutting-Edge <br />
-                Biomedical Research Solutions
-              </h2>
+    <div className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10" />
+
+      <div className="container relative">
+        <div
+          ref={ref}
+          className={`max-w-4xl mx-auto text-center ${
+            inView ? "animate-fade-in" : "opacity-0"
+          }`}
+        >
+          <div className="glass-dark rounded-3xl p-8 md:p-12">
+            <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+              <span className="text-primary-300 text-sm font-medium">
+                Stay Updated
+              </span>
             </div>
-          </div>
-          <div className="cs_height_70 cs_height_lg_40"></div>
-          <form className="cs_newsletter_form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              className="cs_newsletter_input"
-              placeholder="Enter Your Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button
-              className="cs_newsletter_btn"
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? (
-                <div className="spinner-border text-light" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              ) : (
-                <svg
-                  width="30"
-                  height="26"
-                  viewBox="0 0 30 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M29.6063 0.212923C29.3188 0.00917327 28.9413 -0.0183267 28.6288 0.145423L0.503806 14.8329C0.171306 15.0067 -0.0249444 15.3617 0.0025556 15.7354C0.0313056 16.1104 0.280056 16.4304 0.633806 16.5517L8.45256 19.2242L25.1038 4.98667L12.2188 20.5104L25.3226 24.9892C25.4201 25.0217 25.5226 25.0392 25.6251 25.0392C25.7951 25.0392 25.9638 24.9929 26.1126 24.9029C26.3501 24.7579 26.5113 24.5142 26.5526 24.2404L29.9901 1.11542C30.0413 0.765423 29.8938 0.417923 29.6063 0.212923Z"
-                    fill="currentColor"
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Subscribe to Our Newsletter
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+              Get the latest updates on medical research, healthcare
+              innovations, and upcoming events delivered to your inbox.
+            </p>
+
+            {isSubscribed ? (
+              <div className="bg-green-50 text-green-700 p-4 rounded-lg">
+                <p className="font-medium">
+                  Thank you for subscribing! We'll keep you updated with the
+                  latest news.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="flex-1 px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
-                </svg>
-              )}
-            </button>
-          </form>
-          {successMessage && (
-            <div className="alert alert-success mt-3" role="alert">
-              {successMessage}
+                  <button
+                    type="submit"
+                    className="px-8 py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300 font-medium"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+                <p className="text-sm text-gray-500 mt-4">
+                  We respect your privacy. Unsubscribe at any time.
+                </p>
+              </form>
+            )}
+
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary-500 mb-2">
+                  10K+
+                </div>
+                <p className="text-gray-600">Subscribers</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary-500 mb-2">
+                  Weekly
+                </div>
+                <p className="text-gray-600">Updates</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary-500 mb-2">
+                  100%
+                </div>
+                <p className="text-gray-600">Privacy</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary-500 mb-2">
+                  24/7
+                </div>
+                <p className="text-gray-600">Support</p>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

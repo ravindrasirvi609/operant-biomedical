@@ -1,150 +1,146 @@
-import React from "react";
+"use client";
+import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 
-interface DataType {
-  id: number;
-  title: string;
-  des: string;
-}
-[];
-
-const service_data: DataType[] = [
-  {
-    id: 1,
-    title: "International Experience Program (IEP)",
-    des: "The International Experience Program (IEP) is a comprehensive initiative designed to provide individuals with opportunities to gain valuable cross-cultural exposure and professional development in international settings.",
-  },
-  {
-    id: 2,
-    title: "Conferences, Guest Lectures, Training & Workshop",
-    des: "Conferences, Guest Lectures, Training & Workshops offer dynamic platforms for knowledge exchange, skill development, and networking, fostering professional growth and innovation in diverse fields.",
-  },
-  {
-    id: 3,
-    title: "Strategic Research Grant and Funding assistance",
-    des: "Our Research Grant and Funding Assistance service acts as your strategic partner, unlocking avenues to financial support for your groundbreaking research endeavors. With a blend of expertise and ingenuity, we craft compelling narratives, leveraging your vision to captivate funding bodies. From identifying the perfect funding source to meticulous proposal refinement, we're your allies in securing the resources needed to drive innovation and shape the future of science.",
-  },
-  {
-    id: 4,
-    title: "Publication Support",
-    des: "Publication Support offers customized services to enhance academic publishing endeavors, ranging from refining manuscripts to selecting appropriate journals, with the goal of enhancing research impact on a global scale. Through their innovative strategies, researchers can craft compelling narratives that leave a lasting academic footprint.",
-  },
-];
-
 const ServiceHomeOne = () => {
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+
+  const services = [
+    {
+      id: 1,
+      title: "Research Collaboration",
+      description:
+        "Connect with leading medical researchers and institutions to collaborate on groundbreaking healthcare projects.",
+      icon: (
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+          />
+        </svg>
+      ),
+      link: "/services/research-collaboration",
+    },
+    {
+      id: 2,
+      title: "Professional Development",
+      description:
+        "Access advanced training programs and workshops to enhance your medical research expertise.",
+      icon: (
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          />
+        </svg>
+      ),
+      link: "/services/professional-development",
+    },
+    {
+      id: 3,
+      title: "Publication Support",
+      description:
+        "Get expert guidance and support for publishing your research in top-tier medical journals.",
+      icon: (
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+          />
+        </svg>
+      ),
+      link: "/services/publication-support",
+    },
+    {
+      id: 4,
+      title: "Conference Organization",
+      description:
+        "Host and participate in prestigious medical conferences and symposiums worldwide.",
+      icon: (
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+          />
+        </svg>
+      ),
+      link: "/services/conferences",
+    },
+  ];
+
   return (
-    <>
-      <div className="cs_height_150 cs_height_lg_60"></div>
-      <section className="cs_primary_bg position-relative">
-        <div className="cs_height_150 cs_height_lg_60"></div>
-        <div className="container">
-          <div className="cs_section_heading cs_style_1 cs_type_1 cs_color_1">
-            <div className="cs_section_heading_text">
-              <div className="cs_section_subtitle anim_div_ShowZoom">
-                Our Services
-              </div>
-              <h2 className="cs_section_title anim_heading_title">
-                Welcome to Our Biomedical Research Consulting Solutions{" "}
-              </h2>
-            </div>
-            <div className="cs_section_heading_right cs_btn_anim">
-              <Link href="/service" className="cs_btn cs_style_1 cs_color_1">
-                <span>View Services</span>
-                <svg
-                  width="19"
-                  height="13"
-                  viewBox="0 0 19 13"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </div>
-          <div className="cs_height_50 cs_height_lg_10"></div>
-          <div className="cs_card_1_list">
-            {service_data.map((item, i) => (
-              <div
-                key={i}
-                className="cs_card cs_style_1 cs_color_1 anim_div_ShowDowns"
-              >
-                <div className="cs_card_left">
-                  <div
-                    className="cs_card_number cs_primary_font"
-                    style={{
-                      backgroundImage: `url(/assets/img/hero_img_1.jpg)`,
-                    }}
-                  >
-                    0{i + 1}
-                  </div>
-                </div>
-                <div className="cs_card_right">
-                  <div className="cs_card_right_in">
-                    <h2 className="cs_card_title">
-                      <Link href="/service">{item.title}</Link>
-                    </h2>
-                    <div className="cs_card_subtitle">{item.des}</div>
-                  </div>
-                </div>
-                <div className="cs_card_link_wrap">
-                  {/* <Link href="/service-details" className="cs_card_link">
-                    <span>
-                      <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 30 30"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clip-rule="evenodd"
-                          d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          fillRule="evenodd"
-                          clip-rule="evenodd"
-                          d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
-                    <span>
-                      <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 30 30"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clip-rule="evenodd"
-                          d="M0.340728 29.2063C0.722095 29.5875 1.34043 29.5875 1.72188 29.2063L29.0656 1.8625C29.4469 1.48106 29.4469 0.862698 29.0656 0.481253C28.6842 0.100002 28.0658 0.100002 27.6844 0.481253L0.340728 27.825C-0.0406592 28.2064 -0.0406592 28.8248 0.340728 29.2063Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          fillRule="evenodd"
-                          clip-rule="evenodd"
-                          d="M28.375 26.5625C28.9143 26.5625 29.3516 26.1252 29.3516 25.5859V1.17188C29.3516 0.632618 28.9143 0.195312 28.375 0.195312H3.96094C3.42168 0.195312 2.98438 0.632618 2.98438 1.17188C2.98438 1.71113 3.42168 2.14844 3.96094 2.14844H27.3984V25.5859C27.3984 26.1252 27.8357 26.5625 28.375 26.5625Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
-                  </Link> */}
-                </div>
-              </div>
-            ))}
-          </div>
+    <div className="container">
+      <div className="text-center mb-16">
+        <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+          <span className="text-primary-300 text-sm font-medium">
+            Our Services
+          </span>
         </div>
-        <div className="cs_height_100 cs_height_lg_30"></div>
-      </section>
-    </>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Comprehensive Research Support
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          We provide a wide range of services to support medical researchers and
+          healthcare professionals in their pursuit of excellence.
+        </p>
+      </div>
+
+      <div
+        ref={ref}
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ${
+          inView ? "animate-fade-in" : "opacity-0"
+        }`}
+      >
+        {services.map((service) => (
+          <Link
+            key={service.id}
+            href={service.link}
+            className="group glass-dark rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <div className="text-primary-300 mb-6 group-hover:text-primary-400 transition-colors duration-300">
+              {service.icon}
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-primary-500 transition-colors duration-300">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+              {service.description}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 };
 

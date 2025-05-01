@@ -1,221 +1,122 @@
 "use client";
-import React from "react";
+import { useState } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
-import avatar_img1 from "@/assets/img/testimonial/testimonial_1.jpg";
-import avatar_img2 from "@/assets/img/testimonial/testimonial_2.jpg";
-import avatar_img3 from "@/assets/img/testimonial/testimonial_3.jpg";
-import head_testimonial from "@/assets/img/testimonial/head_testimonial.jpg";
+const Testimonial = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: "Dr. Sarah Johnson",
+      role: "Research Director",
+      organization: "Global Medical Institute",
+      image: "/images/testimonials/testimonial-1.jpg",
+      quote:
+        "The research collaboration opportunities provided by Operant Biomedical have been instrumental in advancing our medical research initiatives. Their commitment to excellence is truly remarkable.",
+    },
+    {
+      id: 2,
+      name: "Prof. Michael Chen",
+      role: "Clinical Researcher",
+      organization: "Healthcare Innovation Center",
+      image: "/images/testimonials/testimonial-2.jpg",
+      quote:
+        "Working with Operant Biomedical has opened new avenues for our clinical research. Their expertise and resources have significantly enhanced our research capabilities.",
+    },
+    {
+      id: 3,
+      name: "Dr. Emily Rodriguez",
+      role: "Medical Director",
+      organization: "Advanced Medical Solutions",
+      image: "/images/testimonials/testimonial-3.jpg",
+      quote:
+        "The professional development programs offered by Operant Biomedical have been invaluable for our team. Their commitment to advancing medical research is inspiring.",
+    },
+  ];
 
-import Image, { StaticImageData } from "next/image";
-
-interface DataType {
-  img: StaticImageData;
-  name: string;
-  location: string;
-  des: string;
-}
-[];
-const testimonial_data: DataType[] = [
-  {
-    img: avatar_img1,
-    name: `Muskan`,
-    location: `From Mumbai`,
-    des: `“Working with the Operant Biomedical Research Federation team has been an enlightening experience. Their dedication and expertise are unmatched, driving impactful changes in the field.”`,
-  },
-  {
-    img: avatar_img2,
-    name: `Neha Patel`,
-    location: `From Chennai`,
-    des: `“As a member of the Operant team, I've witnessed firsthand the commitment to excellence and collaboration. Together, we're shaping the future of biomedicine”`,
-  },
-  {
-    img: avatar_img3,
-    name: `Shruti Sandesh Morankar`,
-    location: `From Nashik`,
-    des: `“The Operant Biomedical Research Federation fosters a culture of innovation and inclusivity. It's inspiring to be part of a team that's making a real difference in healthcare.”`,
-  },
-];
-
-const Testimonial = ({ style_service }: any) => {
   return (
-    <>
-      <section
-        className={`${
-          style_service ? "cs_shape_wrap_3" : "cs_primary_bg cs_shape_wrap_2"
-        }`}
-      >
-        {style_service ? null : (
-          <>
-            <div className="cs_shape_1">
-              <svg
-                width="1041"
-                height="1005"
-                viewBox="0 0 1041 1005"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  opacity="0.3"
-                  cx="538.5"
-                  cy="502.5"
-                  r="501.5"
-                  stroke="#454545"
-                  strokeWidth="2"
-                />
-                <circle
-                  opacity="0.3"
-                  cx="501.5"
-                  cy="526.5"
-                  r="458.5"
-                  stroke="#454545"
-                  strokeWidth="2"
-                />
-                <circle
-                  opacity="0.3"
-                  cx="453"
-                  cy="570"
-                  r="424"
-                  stroke="#454545"
-                  strokeWidth="2"
-                />
-                <circle
-                  opacity="0.3"
-                  cx="396"
-                  cy="591"
-                  r="377"
-                  stroke="#454545"
-                  strokeWidth="2"
-                />
-                <circle
-                  opacity="0.3"
-                  cx="330"
-                  cy="630"
-                  r="329"
-                  stroke="#454545"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
-
-            <div className="cs_shape_2">
-              <svg
-                width="149"
-                height="149"
-                viewBox="0 0 149 149"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g opacity="0.23">
-                  <path
-                    d="M54.7532 1.16162C47.1932 42.2265 41.0646 48.3548 0 55.9147C41.065 63.4746 47.1932 69.6029 54.7532 110.668C62.3131 69.6029 68.4414 63.4746 109.506 55.9147C68.4414 48.3548 62.3128 42.2265 54.7532 1.16162Z"
-                    fill="#454545"
-                  />
-                  <path
-                    d="M114.179 78.1968C109.372 104.312 105.474 108.21 79.3584 113.018C105.474 117.825 109.372 121.723 114.179 147.838C118.987 121.723 122.885 117.825 149 113.018C122.884 108.21 118.987 104.312 114.179 78.1968Z"
-                    fill="#454545"
-                  />
-                </g>
-              </svg>
-            </div>
-          </>
-        )}
-
-        <div className="cs_height_150 cs_height_lg_60"></div>
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-4">
-              <div>
-                <Image
-                  src={head_testimonial}
-                  alt=""
-                  className=""
-                  width={600}
-                  height={300}
-                />
-              </div>
-            </div>
-            <div className="col-lg-7 offset-lg-1">
-              <div
-                className={`cs_testimonial ${
-                  style_service ? "cs_style_2" : "cs_style_1 cs_color_1"
-                }`}
-              >
-                <h2 className="cs_testimonial_title">
-                  Some of our Respected Happy Members Says-{" "}
-                </h2>
-                <Swiper
-                  loop={true}
-                  speed={1000}
-                  autoplay={true}
-                  modules={[Autoplay]}
-                  pagination={{
-                    el: ".cs_pagination",
-                    clickable: true,
-                  }}
-                  className="cs_slider cs_slider_4"
-                >
-                  {testimonial_data.map((item, index) => (
-                    <SwiperSlide key={index} className="swiper-slide">
-                      <div className="cs_testimonial_box">
-                        <div className="cs_testimonial_quote_icon">
-                          <svg
-                            width="61"
-                            height="44"
-                            viewBox="0 0 61 44"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M0 26.2855H12.9844L4.32807 43.4283H17.3125L25.9689 26.2855V0.571289H0V26.2855Z"
-                              fill="#FF6B00"
-                            />
-                            <path
-                              d="M34.625 0.571289V26.2855H47.6094L38.9531 43.4283H51.9375L60.5939 26.2855V0.571289H34.625Z"
-                              fill="#FF6B00"
-                            />
-                          </svg>
-                        </div>
-                        <blockquote className="cs_testimonial_text">
-                          {item.des}
-                        </blockquote>
-                        <div className="cs_testimonial_meta">
-                          <div className="cs_testimonial_avatar">
-                            <Image
-                              src={item.img}
-                              alt="Avatar"
-                              width={100}
-                              height={100}
-                            />
-                          </div>
-                          <div className="cs_testimonial_meta_right">
-                            <h3 className="cs_testimonial_avatar_name">
-                              {item.name}
-                            </h3>
-                            <div className="cs_testimonial_avatar_designation">
-                              {item.location}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-
-                  <div className="cs_pagination cs_style1"></div>
-                </Swiper>
-              </div>
-            </div>
-          </div>
+    <div className="container">
+      <div className="text-center mb-16">
+        <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+          <span className="text-primary-300 text-sm font-medium">
+            Testimonials
+          </span>
         </div>
-        {style_service ? null : (
-          <div className="cs_height_150 cs_height_lg_60"></div>
-        )}
-      </section>
-      {style_service ? null : (
-        <div className="cs_height_115 cs_height_lg_60"></div>
-      )}
-    </>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          What Our Partners Say
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Hear from leading medical professionals and researchers about their
+          experience working with us.
+        </p>
+      </div>
+
+      <div className="max-w-4xl mx-auto">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          className="testimonial-swiper"
+        >
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial.id}>
+              <div className="glass-dark rounded-2xl p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <div className="text-4xl text-primary-300 mb-4">"</div>
+                    <p className="text-lg text-gray-700 mb-6">
+                      {testimonial.quote}
+                    </p>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-800">
+                        {testimonial.name}
+                      </h4>
+                      <div className="text-primary-500 font-medium">
+                        {testimonial.role}
+                      </div>
+                      <div className="text-gray-600">
+                        {testimonial.organization}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Custom Pagination Styles */}
+      <style jsx global>{`
+        .testimonial-swiper .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px;
+          background: #e5e7eb;
+          opacity: 1;
+        }
+        .testimonial-swiper .swiper-pagination-bullet-active {
+          background: #f0a8d0;
+        }
+      `}</style>
+    </div>
   );
 };
 

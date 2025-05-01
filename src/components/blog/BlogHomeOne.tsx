@@ -1,128 +1,166 @@
 "use client";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+const BlogHomeOne = () => {
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
-import blog_img_1 from "@/assets/img/Picture 1.png";
-import blog_img_2 from "@/assets/img/Picture2.png";
-import blog_img_3 from "@/assets/img/Picture3.png";
-import Image, { StaticImageData } from "next/image";
+  const blogPosts = [
+    {
+      id: 1,
+      title: "Breakthrough in Cancer Research",
+      excerpt:
+        "New study reveals promising results in targeted therapy approaches.",
+      image: "/images/blog/post-1.jpg",
+      date: "March 15, 2024",
+      category: "Research",
+      author: {
+        name: "Dr. Sarah Johnson",
+        avatar: "/images/team/author-1.jpg",
+      },
+    },
+    {
+      id: 2,
+      title: "The Future of Medical AI",
+      excerpt:
+        "How artificial intelligence is transforming healthcare delivery.",
+      image: "/images/blog/post-2.jpg",
+      date: "March 10, 2024",
+      category: "Technology",
+      author: {
+        name: "Prof. Michael Chen",
+        avatar: "/images/team/author-2.jpg",
+      },
+    },
+    {
+      id: 3,
+      title: "Global Health Initiatives",
+      excerpt: "Collaborative efforts to improve healthcare access worldwide.",
+      image: "/images/blog/post-3.jpg",
+      date: "March 5, 2024",
+      category: "Global Health",
+      author: {
+        name: "Dr. Emily Rodriguez",
+        avatar: "/images/team/author-3.jpg",
+      },
+    },
+  ];
 
-interface DataType {
-  id: number;
-  img: StaticImageData;
-  title: string;
-  des: string;
-}
-[];
-const blog_data: DataType[] = [
-  {
-    id: 1,
-    img: blog_img_1,
-    title: `New Clinical Outcome Assessments Could Improve Treatment for Parkinson's`,
-    des: `New Clinical Outcome Assessments Could Improve Treatment for Parkinson's
-Innovative clinical assessments are crucial for developing effective treatments and better understanding Parkinson's disease progression.`,
-  },
-  {
-    id: 2,
-    img: blog_img_2,
-    title: `6 HOLISTIC SANITATION SOLUTIONS FOR CLEANING AND DISINFECTING VIVARIUMS`,
-    des: `Holistic Sanitation Solutions for Cleaning and Disinfecting Vivariums
-Effective vivarium sanitation ensures research integrity and animal health, requiring thorough chemical verification and equipment maintenance.`,
-  },
-  {
-    id: 3,
-    img: blog_img_3,
-    title: `What Could Liquid Biopsy Do for Oncology in the UK and What Is Needed to Realise Its Potential?`,
-    des: `Liquid biopsy offers promising cancer diagnostics but requires addressing accuracy, infrastructure, skills, and cost-effectiveness for NHS integration.`,
-  },
-];
-
-const BlogHomeOne = ({ style_2, style_3 }: any) => {
   return (
-    <>
-      <section>
-        <div className="container">
-          {style_3 ? (
-            <div className="cs_section_heading cs_style_1 cs_type_1">
-              <div className="cs_section_heading_text">
-                <h2 className="cs_section_title anim_heading_title">
-                  Related News <br /> New Day New Inspiration
-                </h2>
-              </div>
-            </div>
-          ) : (
-            <div className="cs_section_heading cs_style_1 cs_type_1">
-              <div className="cs_section_heading_text">
-                <div className="cs_section_subtitle anim_div_ShowZoom">
-                  Our Blog
-                </div>
-                <h2 className="cs_section_title anim_heading_title">
-                  New Day <br />
-                  New Inspiration
-                </h2>
-              </div>
-              <div className="cs_section_heading_right cs_btn_anim">
-                <Link href="#" className="cs_btn cs_style_1">
-                  <span>View All Blogs</span>
-                  <svg
-                    width="19"
-                    height="13"
-                    viewBox="0 0 19 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          )}
-          <div className="cs_height_100 cs_height_lg_60"></div>
-          <Swiper
-            loop={true}
-            speed={1000}
-            spaceBetween={30}
-            slidesPerView={"auto"}
-            pagination={{
-              el: ".cs_pagination",
-              clickable: true,
-            }}
-            className={`cs_slider cs_slider_3 anim_blog ${
-              style_2 ? "" : "style_slider"
-            }`}
-          >
-            {blog_data.map((item, i) => (
-              <SwiperSlide key={i} className="swiper-slide">
-                <div className="cs_post cs_style_1">
-                  <Link
-                    href={`/blog-details/${item.id}`}
-                    className="cs_post_thumb"
-                  >
-                    <Image src={item.img} alt="image-here" />
-                  </Link>
-                  <div className="cs_post_info">
-                    <h2 className="cs_post_title">
-                      <Link href={`/blog-details/${item.id}`}>
-                        {item.title}
-                      </Link>
-                    </h2>
-                    <p className="cs_m0">{item.des}</p>
+    <div className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5" />
+
+      <div className="container relative">
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+            <span className="text-primary-300 text-sm font-medium">
+              Latest Updates
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Medical Research Insights
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Stay informed about the latest developments in medical research and
+            healthcare innovation.
+          </p>
+        </div>
+
+        <div
+          ref={ref}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
+            inView ? "animate-fade-in" : "opacity-0"
+          }`}
+        >
+          {blogPosts.map((post) => (
+            <article
+              key={post.id}
+              className="glass-dark rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+            >
+              <Link href={`/blog/${post.id}`} className="block">
+                <div className="relative aspect-w-16 aspect-h-9">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-primary-500 text-white text-sm rounded-full">
+                      {post.category}
+                    </span>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                      <Image
+                        src={post.author.avatar}
+                        alt={post.author.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">{post.date}</p>
+                      <p className="text-sm font-medium text-gray-800">
+                        {post.author.name}
+                      </p>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                  <div className="flex items-center text-primary-500 font-medium">
+                    Read More
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            </article>
+          ))}
         </div>
-      </section>
-      {style_2 ? null : style_3 ? null : (
-        <div className="cs_height_150 cs_height_lg_60"></div>
-      )}
-    </>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/blog"
+            className="inline-flex items-center px-6 py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300"
+          >
+            View All Articles
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 

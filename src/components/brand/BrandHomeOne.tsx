@@ -1,120 +1,111 @@
-'use client'
-import React from 'react';
-import Image, { StaticImageData } from 'next/image';
+"use client";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
+const BrandHomeOne = () => {
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
-type DataType = StaticImageData[];
-import brand_img_1 from "@/assets/img/partner_1.svg"
-import brand_img_2 from "@/assets/img/partner_2.svg"
-import brand_img_3 from "@/assets/img/partner_3.svg"
-import brand_img_4 from "@/assets/img/partner_4.svg"
-import brand_img_5 from "@/assets/img/partner_5.svg"
-import brand_img_6 from "@/assets/img/partner_6.svg"
-import brand_img_7 from "@/assets/img/partner_7.svg"
-import brand_img_8 from "@/assets/img/partner_8.svg"
-import brand_img_9 from "@/assets/img/partner_11.svg"
-const brand_data: DataType = [
-  brand_img_1,
-  brand_img_2,
-  brand_img_3,
-  brand_img_4,
-  brand_img_5,
-  brand_img_6,
-  brand_img_7,
-  brand_img_8,
-  brand_img_9,
+  const partners = [
+    {
+      id: 1,
+      name: "Medical Research Institute",
+      logo: "/images/brands/partner-1.png",
+    },
+    {
+      id: 2,
+      name: "Healthcare Innovation Lab",
+      logo: "/images/brands/partner-2.png",
+    },
+    {
+      id: 3,
+      name: "Global Health Foundation",
+      logo: "/images/brands/partner-3.png",
+    },
+    {
+      id: 4,
+      name: "Biomedical Research Center",
+      logo: "/images/brands/partner-4.png",
+    },
+    {
+      id: 5,
+      name: "Clinical Trials Network",
+      logo: "/images/brands/partner-5.png",
+    },
+  ];
 
-]
-
-import brand_thumb_1 from "@/assets/img/partner_9.svg"
-import brand_thumb_2 from "@/assets/img/partner_10.svg"
-import brand_thumb_3 from "@/assets/img/partner_11.svg"
-import brand_thumb_4 from "@/assets/img/partner_12.svg"
-import brand_thumb_5 from "@/assets/img/partner_13.svg"
-import brand_thumb_6 from "@/assets/img/partner_14.svg"
-import brand_thumb_7 from "@/assets/img/partner_15.svg"
-import brand_thumb_8 from "@/assets/img/partner_1.svg"
-import brand_thumb_9 from "@/assets/img/partner_3.svg"
-
-
-const brand_thumb_data: DataType = [
-  brand_thumb_1,
-  brand_thumb_2,
-  brand_thumb_3,
-  brand_thumb_4,
-  brand_thumb_5,
-  brand_thumb_6,
-  brand_thumb_7,
-  brand_thumb_8,
-  brand_thumb_9,
-]
-
-
-const BrandHomeOne = ({ style_2 }: any) => {
   return (
-    <> 
-      
-      {style_2 ?
-        <>
-          <div className="cs_height_150 cs_height_lg_60"></div>
-          <p className="text-center cs_font_18 cs_normal">
-            130+ Our Client & Partner We Are Working Together
+    <div className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5" />
+
+      <div className="container relative">
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+            <span className="text-primary-300 text-sm font-medium">
+              Our Partners
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Trusted by Leading Healthcare Organizations
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We collaborate with renowned institutions and organizations to
+            advance medical research and healthcare innovation.
           </p>
-          <div className="cs_height_100 cs_height_lg_60"></div>
-        </>
-        :
-        <div className="cs_height_140 cs_height_lg_70"></div>
-      }
-      <div className="cs_moving_section_wrap cs_bold cs_moving_section_hover_push">
-        <div className="cs_moving_section_in">
-          <div className="cs_moving_section cs_animation_speed_40">
-            <div className="cs_partner_logo_wrap">
-              {brand_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
-                </div>
-              )}
+        </div>
+
+        <div
+          ref={ref}
+          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center ${
+            inView ? "animate-fade-in" : "opacity-0"
+          }`}
+        >
+          {partners.map((partner) => (
+            <div
+              key={partner.id}
+              className="glass-dark rounded-xl p-6 flex items-center justify-center hover:transform hover:scale-105 transition-all duration-300"
+            >
+              <div className="relative w-32 h-16">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  fill
+                  className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
             </div>
-          </div>
-          <div className="cs_moving_section cs_animation_speed_40">
-            <div className="cs_partner_logo_wrap">
-              {brand_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
-                </div>
-              )}
-            </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-gray-600">
+            Join our network of partners and contribute to the future of
+            healthcare.
+          </p>
+          <a
+            href="/partners"
+            className="inline-flex items-center mt-4 text-primary-500 font-medium hover:text-primary-600 transition-colors duration-300"
+          >
+            Become a Partner
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
         </div>
       </div>
-      <div className="cs_height_45 cs_height_lg_45"></div>
-      <div className="cs_moving_section_wrap cs_bold cs_moving_section_hover_push">
-        <div className="cs_moving_section_in">
-          <div className="cs_moving_section cs_animation_speed_50">
-            <div className="cs_partner_logo_wrap">
-              {brand_thumb_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="cs_moving_section cs_animation_speed_50">
-            <div className="cs_partner_logo_wrap">
-              {brand_thumb_data.map((item, i) =>
-                <div key={i} className="cs_partner_logo">
-                  <Image src={item} alt="image-here" />
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* {style_2 ? null :
-        <div className="cs_height_140 cs_height_lg_70"></div>
-      } */}
-      <div className="cs_height_140 cs_height_lg_70"></div>
-    </>
+    </div>
   );
 };
 

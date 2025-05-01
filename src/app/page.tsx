@@ -20,53 +20,106 @@ import VideoPopup from "@/components/modals/VideoPopup";
 import { Metadata } from "next";
 import Head from "next/head";
 
-const index = () => {
+const HomePage = () => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
   return (
     <Wrapper>
       <Head>
-        <title>Operant Biomedical Research Federation</title>
+        <title>
+          Operant Biomedical Research Federation | Advancing Medical Research
+        </title>
         <meta
           name="description"
-          content="Operant Biomedical Research Federation"
+          content="Leading biomedical research federation dedicated to advancing medical science through collaborative research, innovation, and professional development for healthcare professionals."
+        />
+        <meta
+          name="keywords"
+          content="biomedical research, medical research, healthcare professionals, medical innovation, research federation"
         />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#F0A8D0" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <HeaderOne />
-      <div className="relative overflow-hidden">
-        <div>
-          <main>
-            <HeroHomeOne />
-            <MarqueeAreaHomeOne />
-            <AboutHomeOne />
-            <ServiceHomeOne />
-            <PortfolioHomeOne />
-            <AwardsHomeOne />
-            <Testimonial />
-            <FunFactHomeOne />
-            <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />
-            <BlogHomeOne />
-            <SubscribeHomeOne />
-            <BrandHomeOne style_2={false} />
-          </main>
-          <FooterOne />
-        </div>
-      </div>
 
-      {/* video modal start */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={"dTuHXUt1weQ"}
-      />
-      {/* video modal end */}
+      <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50">
+        <HeaderOne />
+
+        <main className="relative">
+          {/* Hero Section */}
+          <section className="relative">
+            <HeroHomeOne />
+          </section>
+
+          {/* Trusted Partners Section */}
+          <section className="py-12 bg-white/50 backdrop-blur-sm">
+            <MarqueeAreaHomeOne />
+          </section>
+
+          {/* About Section */}
+          <section className="py-20 bg-gradient-to-b from-white/50 to-primary-50/30">
+            <AboutHomeOne />
+          </section>
+
+          {/* Services Section */}
+          <section className="py-20 bg-white/50 backdrop-blur-sm">
+            <ServiceHomeOne />
+          </section>
+
+          {/* Impact Stories Section */}
+          <section className="py-20 bg-gradient-to-b from-primary-50/30 to-white/50">
+            <PortfolioHomeOne />
+          </section>
+
+          {/* Awards Section */}
+          <section className="py-20 bg-white/50 backdrop-blur-sm">
+            <AwardsHomeOne />
+          </section>
+
+          {/* Testimonials Section */}
+          <section className="py-20 bg-gradient-to-b from-white/50 to-primary-50/30">
+            <Testimonial />
+          </section>
+
+          {/* Statistics Section */}
+          <section className="py-20 bg-white/50 backdrop-blur-sm">
+            <FunFactHomeOne />
+          </section>
+
+          {/* Video Section */}
+          <section className="py-20 bg-gradient-to-b from-primary-50/30 to-white/50">
+            <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />
+          </section>
+
+          {/* Latest Research Section */}
+          <section className="py-20 bg-white/50 backdrop-blur-sm">
+            <BlogHomeOne />
+          </section>
+
+          {/* Newsletter Section */}
+          <section className="py-20 bg-gradient-to-b from-white/50 to-primary-50/30">
+            <SubscribeHomeOne />
+          </section>
+
+          {/* Partners Section */}
+          <section className="py-20 bg-white/50 backdrop-blur-sm">
+            <BrandHomeOne style_2={false} />
+          </section>
+        </main>
+
+        <FooterOne />
+
+        {/* Video Modal */}
+        <VideoPopup
+          isVideoOpen={isVideoOpen}
+          setIsVideoOpen={setIsVideoOpen}
+          videoId={"dTuHXUt1weQ"}
+        />
+      </div>
     </Wrapper>
   );
 };
 
-export default index;
+export default HomePage;
