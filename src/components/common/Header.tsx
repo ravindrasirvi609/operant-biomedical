@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+import Image from "next/image";
 
 interface SubMenuItem {
   id: number;
@@ -116,9 +117,13 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-primary-600 dark:text-primary-400 transition-colors duration-300">
-                Operant
-              </span>
+              <Image
+                src="/assets/img/_Logo.png"
+                alt="Operant Logo"
+                width={100}
+                height={100}
+                className=" bg-primary-500 rounded-full"
+              />
             </Link>
 
             {/* Desktop Navigation */}

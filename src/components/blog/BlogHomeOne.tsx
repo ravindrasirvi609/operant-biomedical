@@ -1,7 +1,9 @@
 "use client";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FiCalendar, FiUser, FiTag } from "react-icons/fi";
 
 const BlogHomeOne = () => {
   const [ref, inView] = useInView({
@@ -9,158 +11,140 @@ const BlogHomeOne = () => {
     triggerOnce: true,
   });
 
-  const blogPosts = [
+  const posts = [
     {
       id: 1,
-      title: "Breakthrough in Cancer Research",
+      title: "Advancements in Medical Research",
       excerpt:
-        "New study reveals promising results in targeted therapy approaches.",
+        "Exploring the latest breakthroughs in medical research and their impact on healthcare.",
       image: "/images/blog/post-1.jpg",
       date: "March 15, 2024",
+      author: "Dr. Sarah Johnson",
       category: "Research",
-      author: {
-        name: "Dr. Sarah Johnson",
-        avatar: "/images/team/author-1.jpg",
-      },
+      slug: "advancements-in-medical-research",
     },
     {
       id: 2,
-      title: "The Future of Medical AI",
+      title: "Innovative Healthcare Solutions",
       excerpt:
-        "How artificial intelligence is transforming healthcare delivery.",
+        "Discover how technology is transforming healthcare delivery and patient care.",
       image: "/images/blog/post-2.jpg",
       date: "March 10, 2024",
-      category: "Technology",
-      author: {
-        name: "Prof. Michael Chen",
-        avatar: "/images/team/author-2.jpg",
-      },
+      author: "Dr. Michael Chen",
+      category: "Innovation",
+      slug: "innovative-healthcare-solutions",
     },
     {
       id: 3,
       title: "Global Health Initiatives",
-      excerpt: "Collaborative efforts to improve healthcare access worldwide.",
+      excerpt:
+        "Understanding the role of international collaboration in improving global health outcomes.",
       image: "/images/blog/post-3.jpg",
       date: "March 5, 2024",
+      author: "Dr. Emily Rodriguez",
       category: "Global Health",
-      author: {
-        name: "Dr. Emily Rodriguez",
-        avatar: "/images/team/author-3.jpg",
-      },
+      slug: "global-health-initiatives",
     },
   ];
 
   return (
-    <div className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5" />
+    <section
+      className="relative py-20 overflow-hidden"
+      aria-label="Blog Section"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#328E6E]/5 to-[#67AE6E]/5" />
 
       <div className="container relative">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
-              Latest Updates
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block px-4 py-2 bg-[#328E6E]/10 rounded-full mb-4">
+            <span className="text-[#328E6E] text-sm font-medium">
+              Latest News
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Medical Research Insights
+            Insights & Updates
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Stay informed about the latest developments in medical research and
             healthcare innovation.
           </p>
-        </div>
+        </motion.div>
 
         <div
           ref={ref}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
-            inView ? "animate-fade-in" : "opacity-0"
-          }`}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {blogPosts.map((post) => (
-            <article
+          {posts.map((post, index) => (
+            <motion.article
               key={post.id}
-              className="glass-dark rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white/90 backdrop-blur-md rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              <Link href={`/blog/${post.id}`} className="block">
-                <div className="relative aspect-w-16 aspect-h-9">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-primary-500 text-white text-sm rounded-full">
-                      {post.category}
-                    </span>
+              <div className="relative h-48">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-[#328E6E] text-white text-sm rounded-full">
+                    {post.category}
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                  <div className="flex items-center gap-1">
+                    <FiCalendar className="w-4 h-4" />
+                    <span>{post.date}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <FiUser className="w-4 h-4" />
+                    <span>{post.author}</span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden">
-                      <Image
-                        src={post.author.avatar}
-                        alt={post.author.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">{post.date}</p>
-                      <p className="text-sm font-medium text-gray-800">
-                        {post.author.name}
-                      </p>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="hover:text-[#328E6E] transition-colors"
+                  >
                     {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <div className="flex items-center text-primary-500 font-medium">
-                    Read More
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            </article>
+                  </Link>
+                </h3>
+                <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="inline-flex items-center text-[#328E6E] hover:text-[#67AE6E] transition-colors"
+                >
+                  Read More
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </motion.article>
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <Link
-            href="/blog"
-            className="inline-flex items-center px-6 py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300"
-          >
-            View All Articles
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </Link>
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

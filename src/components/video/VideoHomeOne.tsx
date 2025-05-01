@@ -1,10 +1,11 @@
 "use client";
-import { useState, Dispatch, SetStateAction } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FiPlay } from "react-icons/fi";
 
 interface VideoHomeOneProps {
-  setIsVideoOpen: Dispatch<SetStateAction<boolean>>;
+  setIsVideoOpen: (value: boolean) => void;
   isVideoOpen: boolean;
 }
 
@@ -14,108 +15,62 @@ const VideoHomeOne = ({ setIsVideoOpen, isVideoOpen }: VideoHomeOneProps) => {
     triggerOnce: true,
   });
 
-  const videoData = {
-    title: "Advancing Medical Research",
-    description:
-      "Watch how we're transforming healthcare through innovative research and collaboration.",
-    thumbnail: "/images/video/thumbnail.jpg",
-    videoUrl: "https://www.youtube.com/embed/your-video-id",
-  };
-
   return (
-    <div className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5" />
+    <section
+      className="relative py-20 overflow-hidden"
+      aria-label="Video Section"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#328E6E]/5 to-[#67AE6E]/5" />
 
       <div className="container relative">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
-              Featured Video
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block px-4 py-2 bg-[#328E6E]/10 rounded-full mb-4">
+            <span className="text-[#328E6E] text-sm font-medium">
+              Watch Our Story
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            {videoData.title}
+            Discover Our Journey
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            {videoData.description}
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Watch how we're transforming healthcare through innovation and
+            research excellence.
           </p>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           ref={ref}
-          className={`relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl ${
-            inView ? "animate-fade-in" : "opacity-0"
-          }`}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8 }}
+          className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl group"
         >
-          <div className="aspect-w-16 aspect-h-9">
+          <div className="relative aspect-video">
             <Image
-              src={videoData.thumbnail}
+              src="/assets/img/video/video-thumbnail.jpg"
               alt="Video Thumbnail"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
             />
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <button
-                onClick={() => setIsVideoOpen(true)}
-                className="w-20 h-20 rounded-full bg-primary-500 hover:bg-primary-600 transition-colors duration-300 flex items-center justify-center group"
-              >
-                <svg
-                  className="w-8 h-8 text-white transform group-hover:scale-110 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#328E6E]/60 to-transparent" />
 
-      {/* Video Modal */}
-      {isVideoOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
-          <div className="relative w-full max-w-4xl aspect-w-16 aspect-h-9">
             <button
-              onClick={() => setIsVideoOpen(false)}
-              className="absolute -top-12 right-0 text-white hover:text-primary-300 transition-colors duration-300"
+              onClick={() => setIsVideoOpen(true)}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#328E6E] rounded-full flex items-center justify-center group-hover:bg-[#67AE6E] transition-all duration-300 hover:scale-110"
+              aria-label="Play Video"
             >
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <FiPlay className="w-8 h-8 text-white transform translate-x-1 group-hover:scale-110 transition-transform duration-300" />
             </button>
-            <iframe
-              src={videoData.videoUrl}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full rounded-lg"
-            />
           </div>
-        </div>
-      )}
-    </div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

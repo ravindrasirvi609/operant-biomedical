@@ -1,115 +1,94 @@
 "use client";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-interface BrandHomeOneProps {
-  style_2?: boolean;
-}
-
-const BrandHomeOne = ({ style_2 }: BrandHomeOneProps) => {
+const BrandHomeOne = () => {
   const [ref, inView] = useInView({
     threshold: 0,
     triggerOnce: true,
   });
 
-  const partners = [
+  const brands = [
     {
       id: 1,
       name: "Medical Research Institute",
-      logo: "/images/brands/partner-1.png",
+      logo: "/images/brands/brand-1.png",
     },
     {
       id: 2,
       name: "Healthcare Innovation Lab",
-      logo: "/images/brands/partner-2.png",
+      logo: "/images/brands/brand-2.png",
     },
     {
       id: 3,
       name: "Global Health Foundation",
-      logo: "/images/brands/partner-3.png",
+      logo: "/images/brands/brand-3.png",
     },
     {
       id: 4,
-      name: "Biomedical Research Center",
-      logo: "/images/brands/partner-4.png",
+      name: "Biomedical Solutions",
+      logo: "/images/brands/brand-4.png",
     },
     {
       id: 5,
-      name: "Clinical Trials Network",
-      logo: "/images/brands/partner-5.png",
+      name: "Clinical Research Center",
+      logo: "/images/brands/brand-5.png",
     },
   ];
 
   return (
-    <div className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5" />
+    <section
+      className="relative py-20 overflow-hidden"
+      aria-label="Brands Section"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#328E6E]/5 to-[#67AE6E]/5" />
 
       <div className="container relative">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block px-4 py-2 bg-[#328E6E]/10 rounded-full mb-4">
+            <span className="text-[#328E6E] text-sm font-medium">
               Our Partners
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Trusted by Leading Healthcare Organizations
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We collaborate with renowned institutions and organizations to
-            advance medical research and healthcare innovation.
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            We collaborate with renowned institutions to advance medical
+            research and healthcare innovation.
           </p>
-        </div>
+        </motion.div>
 
         <div
           ref={ref}
-          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center ${
-            inView ? "animate-fade-in" : "opacity-0"
-          }`}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
         >
-          {partners.map((partner) => (
-            <div
-              key={partner.id}
-              className="glass-dark rounded-xl p-6 flex items-center justify-center hover:transform hover:scale-105 transition-all duration-300"
+          {brands.map((brand, index) => (
+            <motion.div
+              key={brand.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white/90 backdrop-blur-md rounded-xl p-6 flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
-              <div className="relative w-32 h-16">
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  fill
-                  className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
-            </div>
+              <Image
+                src={brand.logo}
+                alt={brand.name}
+                width={120}
+                height={60}
+                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </motion.div>
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600">
-            Join our network of partners and contribute to the future of
-            healthcare.
-          </p>
-          <a
-            href="/partners"
-            className="inline-flex items-center mt-4 text-primary-500 font-medium hover:text-primary-600 transition-colors duration-300"
-          >
-            Become a Partner
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
