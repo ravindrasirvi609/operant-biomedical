@@ -7,12 +7,10 @@ import BannerAbout from "@/components/brand/BannerAbout";
 import BrandHomeOne from "@/components/brand/BrandHomeOne";
 import FunFactHomeOne from "@/components/funfact/FunFactHomeOne";
 import Gellary from "@/components/gellary/Gellary";
-import TeamHomeTwo from "@/components/team/TeamHomeTwo";
 import Testimonial from "@/components/testimonial/Testimonial";
 import VideoHomeOne from "@/components/video/VideoHomeOne";
 import VideoPopup from "@/components/modals/VideoPopup";
-import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";
+
 // export const metadata = {
 //   title: "About Operant Biomedical Research Federation",
 // };
@@ -21,33 +19,35 @@ const index = () => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <main>
+          <main className="overflow-hidden">
             <BannerAbout />
-            <VideoHomeOne
-              isVideoOpen={isVideoOpen}
-              setIsVideoOpen={setIsVideoOpen}
-            />
-            <FunFactHomeOne />
-            <About />
-            {/* <TeamHomeTwo style_2={true} style_3={true} /> */}
-            <AwardsHomeOne />
-            <Testimonial />
-            <Gellary />
-            <BrandHomeOne />
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/80 z-10"></div>
+              <VideoHomeOne
+                isVideoOpen={isVideoOpen}
+                setIsVideoOpen={setIsVideoOpen}
+              />
+            </div>
+            <div className="relative z-20">
+              <FunFactHomeOne />
+              <About />
+              <AwardsHomeOne />
+              <Testimonial />
+              <Gellary />
+              <BrandHomeOne />
+            </div>
           </main>
         </div>
       </div>
 
-      {/* video modal start */}
       <VideoPopup
         isVideoOpen={isVideoOpen}
         setIsVideoOpen={setIsVideoOpen}
         videoId={"dTuHXUt1weQ"}
       />
-      {/* video modal end */}
     </div>
   );
 };

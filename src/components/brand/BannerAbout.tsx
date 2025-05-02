@@ -1,53 +1,75 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import logo from "@/assets/img/Logo_white.png";
 
 const BannerAbout = () => {
   return (
-    <>
-      <div className="cs_height_219 cs_height_lg_120"></div>
-      <section>
-        <div className="container">
-          <div className="cs_section_heading cs_style_1 cs_type_1">
-            <div className="cs_section_heading_text">
-              <h2 className="cs_section_title anim_text_writting">
-                Driving Biomedical Innovation Together <br /> Transforming
-                Healthcare Research. <br />
-              </h2>
-            </div>
-            <div className="cs_section_heading_right">
-              <div className="cs_animated_badge">
-                <div className="rounded_text rotating">
-                  <svg viewBox="0 0 200 200">
-                    <path
-                      id="textPath"
-                      d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0"
-                      transform="translate(100,100)"
-                      fill="none"
-                      strokeWidth="0"
-                    ></path>
-                    <g fontSize="22.1px">
-                      <text textAnchor="start">
-                        <textPath
-                          className="coloring"
-                          href="#textPath"
-                          startOffset="0%"
-                        >
-                          Operant Biomedical Research Federation. &nbsp;
-                        </textPath>
-                      </text>
-                    </g>
-                  </svg>
-                </div>
-                <div className="position-absolute cs_ceneter_text">
-                  <Image src={logo} alt="" width={500} height={500} />
-                </div>
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#328E6E] to-[#67AE6E]">
+      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white space-y-6"
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Driving Biomedical Innovation Together
+            </motion.h2>
+            <motion.p
+              className="text-xl text-white/90"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Transforming Healthcare Research Through Collaboration and
+              Excellence
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex gap-4"
+            >
+              <button className="px-8 py-4 bg-white text-[#328E6E] rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300">
+                Learn More
+              </button>
+              <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-300">
+                Contact Us
+              </button>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative"
+          >
+            <div className="relative w-full aspect-square max-w-md mx-auto">
+              <div className="absolute inset-0 bg-white/10 rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Image
+                  src={logo}
+                  alt="Operant Biomedical Research Federation"
+                  className="w-3/4 h-auto"
+                  priority
+                />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
-    </>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
   );
 };
 
