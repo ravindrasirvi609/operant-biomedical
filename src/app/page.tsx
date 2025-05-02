@@ -47,62 +47,40 @@ const HomePage = () => {
         </section>
 
         {/* Trusted Partners Section */}
-        <section className="py-12 bg-white/80 backdrop-blur-md border-y border-[#67AE6E]/20">
-          <MarqueeAreaHomeOne />
-        </section>
+        <MarqueeAreaHomeOne />
 
         {/* About Section */}
-        <section className="py-20 bg-gradient-to-b from-[#E1EEBC] to-white">
-          <AboutHomeOne />
-        </section>
+        <AboutHomeOne />
 
         {/* Services Section */}
-        <section className="py-20 bg-white/80 backdrop-blur-md border-y border-[#67AE6E]/20">
-          <ServiceHomeOne />
-        </section>
+        <ServiceHomeOne />
 
         {/* Impact Stories Section */}
-        <section className="py-20 bg-gradient-to-b from-[#E1EEBC] to-white">
-          <PortfolioHomeOne />
-        </section>
+        <PortfolioHomeOne />
 
         {/* Awards Section */}
-        <section className="py-20 bg-white/80 backdrop-blur-md border-y border-[#67AE6E]/20">
-          <AwardsHomeOne />
-        </section>
+        <AwardsHomeOne />
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-gradient-to-b from-[#E1EEBC] to-white">
-          <Testimonial />
-        </section>
+        <Testimonial />
 
         {/* Statistics Section */}
-        <section className="py-20 bg-white/80 backdrop-blur-md border-y border-[#67AE6E]/20">
-          <FunFactHomeOne />
-        </section>
+        <FunFactHomeOne />
 
         {/* Video Section */}
-        <section className="py-20 bg-gradient-to-b from-[#E1EEBC] to-white">
-          <VideoHomeOne
-            setIsVideoOpen={setIsVideoOpen}
-            isVideoOpen={isVideoOpen}
-          />
-        </section>
+        <VideoHomeOne
+          setIsVideoOpen={setIsVideoOpen}
+          isVideoOpen={isVideoOpen}
+        />
 
         {/* Latest Research Section */}
-        <section className="py-20 bg-white/80 backdrop-blur-md border-y border-[#67AE6E]/20">
-          <BlogHomeOne />
-        </section>
+        <BlogHomeOne />
 
         {/* Newsletter Section */}
-        <section className="py-20 bg-gradient-to-b from-[#E1EEBC] to-white">
-          <SubscribeHomeOne />
-        </section>
+        <SubscribeHomeOne />
 
         {/* Partners Section */}
-        <section className="py-20 bg-white/80 backdrop-blur-md border-y border-[#67AE6E]/20">
-          <BrandHomeOne />
-        </section>
+        <BrandHomeOne />
       </main>
 
       {/* Video Modal */}

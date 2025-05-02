@@ -40,8 +40,8 @@ const Testimonial = () => {
   return (
     <div className="container">
       <div className="text-center mb-16">
-        <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-          <span className="text-primary-300 text-sm font-medium">
+        <div className="inline-block px-4 py-2 bg-primary-500/20 rounded-full mb-4">
+          <span className="text-primary-800 text-sm font-medium">
             Testimonials
           </span>
         </div>

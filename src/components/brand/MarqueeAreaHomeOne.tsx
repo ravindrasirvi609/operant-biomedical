@@ -71,14 +71,14 @@ const MarqueeAreaHomeOne = () => {
           className="text-center mb-16"
         >
           <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
+            <span className="text-primary-500 text-sm font-medium">
               Our Partners
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Trusted by Leading Medical Institutions
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             We collaborate with prestigious medical institutions and research
             centers worldwide to advance healthcare innovation.
           </p>
@@ -99,7 +99,7 @@ const MarqueeAreaHomeOne = () => {
                     {partner.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-1 group-hover:text-primary-500 transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-gray-800  mb-1 group-hover:text-primary-500 transition-colors duration-300">
                       {partner.name}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">

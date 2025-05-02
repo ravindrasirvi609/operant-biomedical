@@ -18,43 +18,59 @@ const PortfolioHomeOne = () => {
       id: 1,
       title: "Medical Research Lab",
       category: "Research Facility",
-      image: "/assets/img/portfolio/portfolio-1.jpg",
+      image:
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=60",
       link: "/portfolio/medical-research-lab",
+      description:
+        "State-of-the-art research facility dedicated to breakthrough medical discoveries",
     },
     {
       id: 2,
       title: "Healthcare Center",
       category: "Medical Facility",
-      image: "/assets/img/portfolio/portfolio-2.jpg",
+      image:
+        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&auto=format&fit=crop&q=60",
       link: "/portfolio/healthcare-center",
+      description:
+        "Modern healthcare center providing comprehensive medical services",
     },
     {
       id: 3,
       title: "Clinical Trials",
       category: "Research",
-      image: "/assets/img/portfolio/portfolio-3.jpg",
+      image:
+        "https://images.unsplash.com/photo-1576671081837-49000212a370?w=800&auto=format&fit=crop&q=60",
       link: "/portfolio/clinical-trials",
+      description:
+        "Advanced clinical research facility conducting groundbreaking trials",
     },
     {
       id: 4,
       title: "Medical Training Center",
       category: "Education",
-      image: "/assets/img/portfolio/portfolio-4.jpg",
+      image:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=60",
       link: "/portfolio/medical-training",
+      description: "Cutting-edge training facility for medical professionals",
     },
     {
       id: 5,
       title: "Healthcare Innovation Hub",
       category: "Innovation",
-      image: "/assets/img/portfolio/portfolio-5.jpg",
+      image:
+        "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800&auto=format&fit=crop&q=60",
       link: "/portfolio/innovation-hub",
+      description:
+        "Center for healthcare innovation and technological advancement",
     },
     {
       id: 6,
       title: "Global Health Initiative",
       category: "Global Health",
-      image: "/assets/img/portfolio/portfolio-6.jpg",
+      image:
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=60",
       link: "/portfolio/global-health",
+      description: "International healthcare programs making a global impact",
     },
   ];
 
@@ -73,14 +89,14 @@ const PortfolioHomeOne = () => {
           className="text-center mb-16"
         >
           <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
+            <span className="text-primary-500 text-sm font-medium">
               Our Portfolio
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800  mb-4">
             Featured Projects
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-600 text-lg max-w-2xl mx-auto">
             Explore our successful projects and initiatives that have made a
             significant impact in the healthcare industry.
           </p>
@@ -96,7 +112,7 @@ const PortfolioHomeOne = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl"
+              className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="relative w-full h-[300px]">
                 <Image
@@ -105,16 +121,20 @@ const PortfolioHomeOne = () => {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index < 3}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                 <span className="text-primary-300 text-sm font-medium mb-2 block">
                   {project.category}
                 </span>
-                <h3 className="text-xl font-bold text-white mb-4">
+                <h3 className="text-xl font-bold text-white mb-2">
                   {project.title}
                 </h3>
+                <p className="text-gray-200 text-sm mb-4 line-clamp-2">
+                  {project.description}
+                </p>
                 <a
                   href={project.link}
                   className="inline-flex items-center text-white hover:text-primary-300 transition-colors duration-300"

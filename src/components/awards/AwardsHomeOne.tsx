@@ -63,14 +63,14 @@ const AwardsHomeOne = () => {
           className="text-center mb-16"
         >
           <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
+            <span className="text-primary-700 text-sm font-medium">
               Recognition
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800  mb-4">
             Awards & Recognition
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-800 text-lg max-w-2xl mx-auto">
             Our commitment to excellence in healthcare has been recognized by
             leading organizations in the medical industry.
           </p>
@@ -91,14 +91,14 @@ const AwardsHomeOne = () => {
               } rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
             >
               <div className="w-16 h-16 bg-primary-500/10 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <div className="text-primary-300 transition-transform duration-300 group-hover:scale-110">
+                <div className="text-primary-800 transition-transform duration-300 group-hover:scale-110">
                   {award.icon}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+              <h3 className="text-xl font-bold text-gray-800  mb-2">
                 {award.title}
               </h3>
-              <p className="text-primary-300 font-medium mb-2">{award.year}</p>
+              <p className="text-primary-700 font-medium mb-2">{award.year}</p>
               <p className="text-gray-600 dark:text-gray-400">
                 {award.organization}
               </p>
