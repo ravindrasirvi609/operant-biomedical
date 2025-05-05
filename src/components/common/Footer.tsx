@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <Link
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-gradient-to-r from-white to-orange-500 bg-clip-text text-transparent"
             >
               Operant Biomedical
             </Link>
@@ -198,7 +198,7 @@ const Footer: React.FC = () => {
                   />
                 </svg>
                 <span className="text-gray-600 dark:text-gray-300">
-                  123 Innovation Street, Tech City, TC 12345
+                  17, Mayank Nagar Pali (Raj.)
                 </span>
               </li>
               <li className="flex items-start space-x-3">
@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
                   />
                 </svg>
                 <span className="text-gray-600 dark:text-gray-300">
-                  contact@operantbiomedical.com
+                  admin@obrf.com
                 </span>
               </li>
               <li className="flex items-start space-x-3">
@@ -234,7 +234,7 @@ const Footer: React.FC = () => {
                   />
                 </svg>
                 <span className="text-gray-600 dark:text-gray-300">
-                  +1 (555) 123-4567
+                  +91 94609-71652
                 </span>
               </li>
             </ul>

@@ -1,13 +1,9 @@
-import Wrapper from "@/layouts/Wrapper";
-import FooterOne from "@/layouts/footers/FooterOne";
-import HeaderOne from "@/layouts/headers/HeaderOne";
 import React from "react";
 
 const Refund = () => {
   return (
     <div>
-      <Wrapper>
-        <HeaderOne />
+      <div>
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <main>
@@ -150,10 +146,9 @@ const Refund = () => {
                 </div>
               </div>
             </main>
-            <FooterOne />
           </div>
         </div>
-      </Wrapper>
+      </div>
     </div>
   );
 };

@@ -1,10 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Wrapper from "@/layouts/Wrapper";
-import HeaderOne from "@/layouts/headers/HeaderOne";
 import TeamDetailsArea from "@/components/details/TeamDetailsArea";
-import FooterOne from "@/layouts/footers/FooterOne";
 
 interface TeamDetailsProps {
   id: string;
@@ -42,17 +39,13 @@ const TeamDetails = ({ params }: any) => {
 
   return (
     <div>
-      <Wrapper>
-        <HeaderOne />
-        <div id="smooth-wrapper">
-          <div id="smooth-content">
-            <main>
-              <TeamDetailsArea teamData={teamData} />
-            </main>
-            <FooterOne />
-          </div>
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <main>
+            <TeamDetailsArea teamData={teamData} />
+          </main>
         </div>
-      </Wrapper>
+      </div>
     </div>
   );
 };

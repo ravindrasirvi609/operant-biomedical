@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const Error = () => {
   return (
@@ -7,14 +6,6 @@ const Error = () => {
       <div className="h-24 md:h-16"></div>
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="relative w-48 h-48 mx-auto mb-8">
-            <Image
-              src="/images/error/404.png"
-              alt="404 Error"
-              fill
-              className="object-contain"
-            />
-          </div>
           <div className="h-8 md:h-0"></div>
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Page Not Found

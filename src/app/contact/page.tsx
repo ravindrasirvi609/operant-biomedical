@@ -1,7 +1,6 @@
 "use client";
 
 import ContactArea from "@/components/contact/ContactArea";
-
 import React from "react";
 
 // export const metadata = {
@@ -10,10 +9,10 @@ import React from "react";
 
 const index = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <main>
+          <main className="overflow-hidden">
             <ContactArea />
           </main>
         </div>

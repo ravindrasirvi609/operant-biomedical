@@ -1,8 +1,7 @@
 "use client";
 import axios from "axios";
 import Link from "next/link";
-import React, { use, useEffect, useState } from "react";
-import MemberFaqArea from "./membershipFAQ";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface DataType {

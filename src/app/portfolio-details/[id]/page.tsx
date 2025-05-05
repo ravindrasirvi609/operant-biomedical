@@ -1,9 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Wrapper from "@/layouts/Wrapper";
-import FooterOne from "@/layouts/footers/FooterOne";
-import HeaderOne from "@/layouts/headers/HeaderOne";
 import AboutHomeFour from "@/components/about/AboutHomeFour";
 import PortfolioDetailsArea from "@/components/details/PortfolioDetailsArea";
 import VideoHomeOne from "@/components/video/VideoHomeOne";
@@ -49,16 +46,14 @@ const Index = ({ params }: Par) => {
   }, [paramId]);
 
   return (
-    <Wrapper>
-      <HeaderOne />
+    <div>
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
             <PortfolioDetailsArea project={project} />
-            {project?.video && <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />}
+            {/* {project?.video && <VideoHomeOne setIsVideoOpen={setIsVideoOpen} />} */}
             <AboutHomeFour />
           </main>
-          <FooterOne />
         </div>
       </div>
       <VideoPopup
@@ -66,7 +61,7 @@ const Index = ({ params }: Par) => {
         setIsVideoOpen={setIsVideoOpen}
         videoId={project?.video}
       />
-    </Wrapper>
+    </div>
   );
 };
 

@@ -156,43 +156,6 @@ const Header: React.FC = () => {
                 </div>
               ))}
             </nav>
-
-            {/* Theme Toggle and Mobile Menu Button */}
-            <div className="flex items-center space-x-4">
-              {/* Theme Toggle Button */}
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-                aria-label="Toggle theme"
-              >
-                {mounted && (
-                  <motion.div
-                    initial={false}
-                    animate={{ rotate: resolvedTheme === "dark" ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {resolvedTheme === "dark" ? (
-                      <FiSun className="w-5 h-5 text-yellow-500" />
-                    ) : (
-                      <FiMoon className="w-5 h-5 text-gray-700" />
-                    )}
-                  </motion.div>
-                )}
-              </button>
-
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-                aria-label="Toggle menu"
-              >
-                {isMenuOpen ? (
-                  <FiX className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                ) : (
-                  <FiMenu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                )}
-              </button>
-            </div>
           </div>
         </div>
       </div>
