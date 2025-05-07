@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FiFilter, FiExternalLink, FiLoader } from "react-icons/fi";
 
 interface DataType {
   id: string;
@@ -14,14 +17,22 @@ interface DataType {
 }
 
 const Portfolio = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
   const [activeCategory, setActiveCategory] = useState("All");
   const [items, setItems] = useState<DataType[]>([]);
   const [categories, setCategories] = useState<string[]>(["All"]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPortfolios = async () => {
       try {
-        const res = await axios.get("/api/portfolio/portfolio-list"); // Corrected API endpoint
+        setIsLoading(true);
+        const res = await axios.get("/api/portfolio/portfolio-list");
         const data = res.data.portfolios;
 
         const formattedData: DataType[] = data.map((item: any) => ({
@@ -42,7 +53,9 @@ const Portfolio = () => {
         ];
         setCategories(uniqueCategories);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching portfolios:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -51,92 +64,173 @@ const Portfolio = () => {
 
   const filterItems = (cateItem: string) => {
     setActiveCategory(cateItem);
-    if (cateItem === "All") {
-      return setItems(items);
-    } else {
-      const filteredItems = items.filter((item) => item.category === cateItem);
-      setItems(filteredItems);
-    }
   };
 
+  const filteredItems =
+    activeCategory === "All"
+      ? items
+      : items.filter((item) => item.category === activeCategory);
+
   return (
-    <>
-      <div className="cs_height_219 cs_height_lg_120"></div>
+    <section ref={ref} className="py-20 relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5" />
 
-      <section>
-        <div className="container">
-          <div className="cs_section_heading cs_style_1 cs_type_1">
-            <div className="cs_section_heading_text">
-              <h2 className="cs_section_title anim_text_writting">
-                Showcasing Innovative Projects and Achievements with Pride
-              </h2>
-            </div>
+      <div className="container relative">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+            <span className="text-primary-500 text-sm font-medium">
+              Our Work
+            </span>
           </div>
-        </div>
-      </section>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Showcasing Innovative Projects and Achievements
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore our portfolio of groundbreaking research and impactful
+            initiatives in the biomedical field.
+          </p>
+        </motion.div>
 
-      <div className="cs_height_50 cs_height_lg_25"></div>
-      <section className="cs_ui_design">
-        <div className="container">
-          <div>
-            <div className="row">
-              <div className="cs_isotop_item_menu col-md-12">
-                <ul className="anim_div_ShowZoom style_active">
-                  {categories.map((cate, i) => (
-                    <React.Fragment key={i}>
-                      <li
-                        onClick={() => filterItems(cate)}
-                        className={`${cate === activeCategory ? "active" : ""}`}
-                      >
-                        {cate}
-                      </li>
-                    </React.Fragment>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="cs_isotop_items_details row">
-              {items.map((item, i) => (
-                <div
-                  key={i}
-                  className="col-md-4 cs_item cs_ui_design cs_development"
-                >
-                  <Link
-                    href={`/portfolio-details/${item.id}`}
-                    className="cs_portfolio cs_style_1"
+        {/* Filter Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {categories.map((category, index) => (
+            <button
+              key={category}
+              onClick={() => filterItems(category)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2
+                ${
+                  activeCategory === category
+                    ? "bg-primary-500 text-white shadow-lg"
+                    : "bg-white text-gray-600 hover:bg-gray-50"
+                }
+              `}
+            >
+              <FiFilter className="w-4 h-4" />
+              {category}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Loading State */}
+        {isLoading && (
+          <div className="flex justify-center items-center py-20">
+            <FiLoader className="w-8 h-8 text-primary-500 animate-spin" />
+          </div>
+        )}
+
+        {/* Portfolio Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+                onMouseEnter={() => setHoveredItem(item.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <Link href={`/portfolio-details/${item.id}`}>
+                  <div className="relative w-full h-[300px]">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index < 3}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <span className="text-primary-300 text-sm font-medium mb-2 block">
+                      {item.category}
+                    </span>
+                    <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-200 text-sm mb-4 line-clamp-2">
+                      {item.des}
+                    </p>
+                    <div className="flex items-center text-white hover:text-primary-300 transition-colors duration-300">
+                      View Details
+                      <FiExternalLink className="ml-2 w-4 h-4" />
+                    </div>
+                  </div>
+
+                  {/* Quick Info Overlay */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: hoveredItem === item.id ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg"
                   >
-                    <div className="cs_portfolio_img">
-                      <Image
-                        src={item.img}
-                        className="img-fluid"
-                        alt="Thumb"
-                        width={500}
-                        height={300}
-                      />
+                    <div className="text-sm text-gray-600">
+                      <p className="font-medium">Category:</p>
+                      <p>{item.category}</p>
                     </div>
-                    <div className="cs_portfolio_overlay"></div>
-                    <div className="cs_portfolio_info">
-                      <h2 className="cs_portfolio_title">{item.title}</h2>
-                      <div className="cs_portfolio_subtitle">{item.des}</div>
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="cs_height_70 cs_height_lg_30"></div>
-          <div>
-            <div className="cs_hero_btn_wrap text-center">
-              <div className="cs_round_btn_wrap">
-                <a href="#" className="cs_hero_btn cs_round_btn btn-item">
-                  <span></span> Load More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Empty State */}
+        {!isLoading && filteredItems.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12"
+          >
+            <p className="text-gray-600 text-lg">
+              No projects found in this category. Please try another filter.
+            </p>
+          </motion.div>
+        )}
+
+        {/* Load More Button */}
+        {filteredItems.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <button
+              className="px-8 py-3 bg-primary-500 text-white rounded-full font-medium hover:bg-primary-600 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              onClick={() => {
+                /* Implement load more functionality */
+              }}
+            >
+              Load More Projects
+            </button>
+          </motion.div>
+        )}
+      </div>
+    </section>
   );
 };
 
