@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <Link
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-white to-orange-500 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text text-transparent"
             >
               Operant Biomedical
             </Link>

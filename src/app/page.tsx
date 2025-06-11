@@ -82,13 +82,6 @@ const HomePage = () => {
         {/* Partners Section */}
         <BrandHomeOne />
       </main>
-
-      {/* Video Modal */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={"dTuHXUt1weQ"}
-      />
     </div>
   );
 };

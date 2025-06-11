@@ -1,6 +1,5 @@
 "use client";
 
-import AboutHomeFour from "@/components/about/AboutHomeFour";
 import MembershipList from "@/components/membership/member-list";
 import MembershipPlanDetails from "@/components/membership/membership-plan";
 
@@ -18,7 +17,6 @@ const index = () => {
           <main className="mt-5">
             <MembershipPlanDetails />
             <MembershipList />
-            <AboutHomeFour />
           </main>
         </div>
       </div>

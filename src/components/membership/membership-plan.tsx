@@ -84,14 +84,14 @@ const MembershipPlan = () => {
           }`}
         >
           <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
+            <span className="text-primary-600 dark:text-primary-300 text-sm font-medium">
               Membership Plans
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Choose Your Research Plan
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-white/80 text-lg max-w-2xl mx-auto">
             Select the perfect membership plan that aligns with your research
             goals and requirements.
           </p>
@@ -107,20 +107,25 @@ const MembershipPlan = () => {
               style={{ animationDelay: `${index * 200}ms` }}
             >
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   {plan.title}
                 </h3>
-                <div className="text-4xl font-bold text-primary-400 mb-2">
+                <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
                   ₹{plan.price}
                 </div>
-                <p className="text-white/80">{plan.description}</p>
+                <p className="text-gray-600 dark:text-white/80">
+                  {plan.description}
+                </p>
               </div>
 
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-white/90">
+                  <li
+                    key={i}
+                    className="flex items-center text-gray-700 dark:text-white/90"
+                  >
                     <svg
-                      className="w-5 h-5 text-primary-400 mr-3"
+                      className="w-5 h-5 text-primary-600 dark:text-primary-400 mr-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

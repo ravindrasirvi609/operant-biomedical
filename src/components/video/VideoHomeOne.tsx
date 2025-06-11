@@ -51,22 +51,33 @@ const VideoHomeOne = ({ setIsVideoOpen, isVideoOpen }: VideoHomeOneProps) => {
           className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl group"
         >
           <div className="relative aspect-video">
-            <Image
-              src="/assets/img/video/video-thumbnail.jpg"
-              alt="Video Thumbnail"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#328E6E]/60 to-transparent" />
+            {isVideoOpen ? (
+              <iframe
+                src="https://www.youtube.com/embed/dTuHXUt1weQ?autoplay=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            ) : (
+              <>
+                <Image
+                  src="/assets/img/testimonial/head_testimonial.jpg"
+                  alt="Video Thumbnail"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#328E6E]/60 to-transparent" />
 
-            <button
-              onClick={() => setIsVideoOpen(true)}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#328E6E] rounded-full flex items-center justify-center group-hover:bg-[#67AE6E] transition-all duration-300 hover:scale-110"
-              aria-label="Play Video"
-            >
-              <FiPlay className="w-8 h-8 text-white transform translate-x-1 group-hover:scale-110 transition-transform duration-300" />
-            </button>
+                <button
+                  onClick={() => setIsVideoOpen(true)}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#328E6E] rounded-full flex items-center justify-center group-hover:bg-[#67AE6E] transition-all duration-300 hover:scale-110"
+                  aria-label="Play Video"
+                >
+                  <FiPlay className="w-8 h-8 text-white transform translate-x-1 group-hover:scale-110 transition-transform duration-300" />
+                </button>
+              </>
+            )}
           </div>
         </motion.div>
       </div>

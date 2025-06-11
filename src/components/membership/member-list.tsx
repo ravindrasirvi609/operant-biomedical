@@ -56,11 +56,11 @@ const MembershipList = () => {
           }`}
         >
           <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
-            <span className="text-primary-300 text-sm font-medium">
+            <span className="text-primary-600 dark:text-primary-300 text-sm font-medium">
               Our Team
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Meet Our Expert Researchers
           </h2>
         </div>
@@ -83,13 +83,15 @@ const MembershipList = () => {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white text-center mb-2">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-2">
                 {member.name}
               </h3>
-              <div className="text-primary-300 text-center font-medium mb-4">
+              <div className="text-primary-600 dark:text-primary-300 text-center font-medium mb-4">
                 {member.subject}
               </div>
-              <p className="text-white/80 text-center">{member.membershipId}</p>
+              <p className="text-gray-600 dark:text-white/80 text-center">
+                {member.membershipId}
+              </p>
             </div>
           ))}
         </div>
