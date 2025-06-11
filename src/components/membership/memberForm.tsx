@@ -93,7 +93,11 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
 
   const makePayment = async () => {
     if (!paymentInitialized) {
-      alert("Razorpay SDK failed to load");
+      Swal.fire({
+        title: "Error!",
+        text: "Payment system is not ready. Please try again in a moment.",
+        icon: "error",
+      });
       return;
     }
 
@@ -113,84 +117,120 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
         amount: data.amount,
         order_id: data.id,
         description: "Thank you",
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.phone,
+        },
+        theme: {
+          color: "#4F46E5", // Indigo color matching your primary color
+        },
         handler: async function (response: any) {
-          const payment = {
-            paymentId: response.razorpay_payment_id,
-            orderId: response.razorpay_order_id,
-            signature: response.razorpay_signature,
-            amount: data.amount,
-            currency: data.currency,
-            status: "success",
-            plan: planDetails?.planId,
-            user: email,
-          };
-
-          const resultRes = await axios.post(
-            "/api/payments/transaction",
-            payment
-          );
-          console.log("resultRes", resultRes);
-
-          if (resultRes.status !== 201) {
-            Swal.fire({
-              title: "Error!",
-              text: "Payment failed, please contact support.",
-              icon: "error",
-            });
-            return;
-          } else {
-            Swal.fire({
-              title: "Good job!",
-              text: "Your Payment is successful!, You are now a member of Operant Biomedical federation.",
-              icon: "success",
-            });
-            router.push("/membership");
-          }
           try {
-            const json = {
-              orderId: resultRes.data.transaction.orderId,
+            const payment = {
+              paymentId: response.razorpay_payment_id,
+              orderId: response.razorpay_order_id,
+              signature: response.razorpay_signature,
+              amount: data.amount,
+              currency: data.currency,
+              status: "success",
+              plan: planDetails?.planId,
+              user: email,
             };
-            const invoiceResponse = await axios.post(
-              "/api/payments/invoice",
-              json,
-              { responseType: "arraybuffer" }
+
+            const resultRes = await axios.post(
+              "/api/payments/transaction",
+              payment
             );
 
-            const blob = new Blob([invoiceResponse.data], {
-              type: "application/pdf",
+            if (resultRes.status !== 201) {
+              throw new Error("Payment verification failed");
+            }
+
+            await Swal.fire({
+              title: "Success!",
+              text: "Your Payment is successful! You are now a member of Operant Biomedical federation.",
+              icon: "success",
             });
 
-            const link = document.createElement("a");
-            link.href = window.URL.createObjectURL(blob);
-            link.download = `invoice_${data.id}.pdf`;
+            // Generate and download invoice
+            try {
+              const json = {
+                orderId: resultRes.data.transaction.orderId,
+              };
+              const invoiceResponse = await axios.post(
+                "/api/payments/invoice",
+                json,
+                { responseType: "arraybuffer" }
+              );
 
-            document.body.appendChild(link);
-            setTimeout(() => {
-              link.click();
+              const blob = new Blob([invoiceResponse.data], {
+                type: "application/pdf",
+              });
 
-              document.body.removeChild(link);
-            }, 1000);
+              const link = document.createElement("a");
+              link.href = window.URL.createObjectURL(blob);
+              link.download = `invoice_${data.id}.pdf`;
+
+              document.body.appendChild(link);
+              setTimeout(() => {
+                link.click();
+                document.body.removeChild(link);
+              }, 1000);
+            } catch (error) {
+              console.error("Error downloading invoice:", error);
+              // Don't block the flow if invoice download fails
+            }
+
+            router.push("/membership");
           } catch (error) {
-            console.error("Error downloading invoice:", error);
+            console.error("Payment processing error:", error);
+            Swal.fire({
+              title: "Error!",
+              text: "Payment verification failed. Please contact support.",
+              icon: "error",
+            });
           }
+        },
+        modal: {
+          ondismiss: function () {
+            Swal.fire({
+              title: "Payment Cancelled",
+              text: "Your payment was cancelled. You can try again when you're ready.",
+              icon: "info",
+            });
+          },
         },
       };
 
       const paymentObject = new (window as any).Razorpay(options);
       paymentObject.open();
-    } catch (error: any) {}
+    } catch (error: any) {
+      console.error("Payment initialization error:", error);
+      Swal.fire({
+        title: "Error!",
+        text:
+          error.response?.data?.message ||
+          "Failed to initialize payment. Please try again.",
+        icon: "error",
+      });
+    }
   };
 
   const initializeRazorpay = () => {
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.onload = () => {
-      setPaymentInitialized(true);
-    };
-    script.onerror = () => {
-      setPaymentInitialized(false);
-    };
-    document.body.appendChild(script);
+    return new Promise<void>((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => {
+        setPaymentInitialized(true);
+        resolve();
+      };
+      script.onerror = () => {
+        setPaymentInitialized(false);
+        reject(new Error("Failed to load Razorpay SDK"));
+      };
+      document.body.appendChild(script);
+    });
   };
 
   const handleChange = (

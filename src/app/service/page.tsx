@@ -3,7 +3,6 @@
 import React from "react";
 import Service from "@/components/service/Service";
 import Testimonial from "@/components/testimonial/Testimonial";
-import AboutHomeFour from "@/components/about/AboutHomeFour";
 import { motion } from "framer-motion";
 
 // export const metadata = {
@@ -69,9 +68,7 @@ const ServicePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-              >
-                <AboutHomeFour />
-              </motion.div>
+              ></motion.div>
             </div>
           </main>
         </div>

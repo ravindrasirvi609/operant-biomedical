@@ -1,8 +1,7 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
+import gsap from "gsap";
 
 const MouseMove = () => {
-  
   const mousemoveHandler = (e: any) => {
     try {
       let tl = gsap.timeline({

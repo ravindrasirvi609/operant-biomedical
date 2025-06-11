@@ -53,36 +53,179 @@ const service_data: ServiceType[] = [
 // Additional services for the extra section
 const additional_services = [
   {
-    title: "Research Collaboration",
+    title: "International Experience Program (IEP)",
     description:
-      "Partner with leading institutions on cutting-edge biomedical research initiatives.",
+      "The International Experience Program (IEP) is a comprehensive initiative designed to provide individuals with opportunities to gain valuable cross-cultural exposure and professional development in international settings.",
     features: [
-      "Access to specialized expertise",
-      "Shared resources and infrastructure",
-      "Joint publication opportunities",
-      "Multi-disciplinary research teams",
+      "Cross-cultural exposure",
+      "Professional development",
+      "International networking",
+      "Global perspective building",
     ],
   },
   {
-    title: "Data Analysis",
+    title: "Precision Research Collaboration",
     description:
-      "Comprehensive data processing and analytical services for biomedical research.",
+      "Precision Research Collaboration facilitates the pooling of expertise, resources, and perspectives from diverse institutions and individuals to tackle complex scientific challenges and drive innovation.",
     features: [
-      "Advanced statistical analysis",
-      "Machine learning implementation",
-      "Visualization of complex datasets",
-      "Customized analytical pipelines",
+      "Expertise pooling",
+      "Resource sharing",
+      "Multi-institutional collaboration",
+      "Innovation acceleration",
     ],
   },
   {
-    title: "Clinical Trials Support",
+    title: "Conferences & Training",
     description:
-      "End-to-end support for planning and executing clinical trials.",
+      "Conferences, Guest Lectures, Training & Workshops offer dynamic platforms for knowledge exchange, skill development, and networking, fostering professional growth and innovation in diverse fields.",
     features: [
-      "Protocol development",
-      "Regulatory compliance",
-      "Patient recruitment strategies",
-      "Data collection and management",
+      "Knowledge exchange",
+      "Skill development",
+      "Professional networking",
+      "Innovation workshops",
+    ],
+  },
+  {
+    title: "Research Grant & Funding",
+    description:
+      "Our Research Grant and Funding Assistance service acts as your strategic partner, unlocking avenues to financial support for your groundbreaking research endeavors.",
+    features: [
+      "Funding identification",
+      "Proposal development",
+      "Strategic planning",
+      "Resource optimization",
+    ],
+  },
+  {
+    title: "Publication Support",
+    description:
+      "Publication Support offers customized services to enhance academic publishing endeavors, ranging from refining manuscripts to selecting appropriate journals, with the goal of enhancing research impact on a global scale.",
+    features: [
+      "Manuscript refinement",
+      "Journal selection",
+      "Impact optimization",
+      "Global reach enhancement",
+    ],
+  },
+  {
+    title: "Regulatory Guidance",
+    description:
+      "Consultation & Expertise, Regulatory Guidance provides tailored support and insights to navigate the intricate landscape of regulations, ensuring compliance and facilitating successful strategies.",
+    features: [
+      "Compliance assurance",
+      "Regulatory navigation",
+      "Strategic planning",
+      "Expert consultation",
+    ],
+  },
+  {
+    title: "Intellectual Property Protection",
+    description:
+      "Intellectual Property Protection safeguards your innovative ideas and creations through strategic legal measures, preserving their value and ensuring your rightful ownership.",
+    features: [
+      "IP strategy development",
+      "Legal protection",
+      "Value preservation",
+      "Ownership assurance",
+    ],
+  },
+  {
+    title: "Customized Research",
+    description:
+      "Customized Biomedical Research tailors scientific inquiries to specific needs, leveraging advanced methodologies to address unique challenges and drive transformative advancements in healthcare.",
+    features: [
+      "Tailored methodologies",
+      "Specific solutions",
+      "Advanced techniques",
+      "Healthcare innovation",
+    ],
+  },
+  {
+    title: "Ethical Review Support",
+    description:
+      "Ethical Review Support offers comprehensive assistance in navigating ethical considerations, ensuring research protocols align with regulatory standards and uphold the highest ethical principles.",
+    features: [
+      "Ethical compliance",
+      "Protocol review",
+      "Standards alignment",
+      "Best practices guidance",
+    ],
+  },
+  {
+    title: "Educational Technology",
+    description:
+      "Educational Technology Support provides tailored solutions and guidance to integrate innovative educational technologies seamlessly into learning environments, enhancing engagement and optimizing learning outcomes.",
+    features: [
+      "Tech integration",
+      "Learning optimization",
+      "Engagement enhancement",
+      "Innovative solutions",
+    ],
+  },
+  {
+    title: "Co-curricular Activities",
+    description:
+      "End-to-end Co-curricular Activities orchestrate comprehensive programs, from conceptualization to execution, fostering holistic development and enriching experiences beyond the classroom.",
+    features: [
+      "Program development",
+      "Holistic growth",
+      "Experience enrichment",
+      "Comprehensive planning",
+    ],
+  },
+  {
+    title: "Accreditation Support",
+    description:
+      "Accreditation Support streamlines the accreditation process, offering expert guidance and resources to ensure compliance with standards, ultimately enhancing credibility and quality assurance.",
+    features: [
+      "Process streamlining",
+      "Standards compliance",
+      "Quality assurance",
+      "Expert guidance",
+    ],
+  },
+  {
+    title: "International Collaboration",
+    description:
+      "International Collaboration facilitates cross-border partnerships, harnessing diverse expertise and perspectives to drive innovation, expand networks, and tackle global challenges collaboratively.",
+    features: [
+      "Cross-border partnerships",
+      "Global networking",
+      "Innovation facilitation",
+      "Collaborative solutions",
+    ],
+  },
+  {
+    title: "Clinical Trial Optimization",
+    description:
+      "Accelerate the pace of biomedical discovery with our Clinical Trial Optimization Solutions.",
+    features: [
+      "Trial acceleration",
+      "Process optimization",
+      "Efficiency enhancement",
+      "Discovery acceleration",
+    ],
+  },
+  {
+    title: "Translational Research",
+    description:
+      "Bridge the gap between bench and bedside with our Translational Research Support Services.",
+    features: [
+      "Research translation",
+      "Clinical application",
+      "Implementation support",
+      "Innovation bridging",
+    ],
+  },
+  {
+    title: "Data Analytics & Biostatistics",
+    description:
+      "Harness the power of data to drive biomedical innovation with our Data Analytics and Biostatistics Consulting services.",
+    features: [
+      "Advanced analytics",
+      "Statistical consulting",
+      "Data-driven insights",
+      "Innovation support",
     ],
   },
 ];
