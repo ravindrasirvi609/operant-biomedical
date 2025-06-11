@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface DataType {
   id: number;
@@ -126,6 +127,10 @@ const faq_data: DataType[] = [
 
 const MemberFaqArea = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
   const toggleAccordion = (index: number) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -134,66 +139,80 @@ const MemberFaqArea = () => {
   return (
     <>
       <div className="container">
-        <div className="cs_section_heading cs_style_1">
-          <div className="cs_section_heading_text">
-            <div className="anim_text_writting text-center">
-              <h1>Membership Benefits</h1>
-            </div>
+        <div
+          ref={ref}
+          className={`text-center mb-12 ${
+            inView ? "animate-fade-in" : "opacity-0"
+          }`}
+        >
+          <div className="inline-block px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+            <span className="text-primary-600 dark:text-primary-300 text-sm font-medium">
+              Membership Benefits
+            </span>
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Why Join Our Community?
+          </h2>
+          <p className="text-gray-600 dark:text-white/80 text-lg max-w-2xl mx-auto">
+            Discover the exclusive benefits and opportunities that come with
+            being a member of our research community.
+          </p>
         </div>
       </div>
 
-      <div className="cs_height_100 cs_height_lg_60"></div>
-
       <div className="container">
-        <div className="cs_accordeon anim_div_ShowDowns">
-          <div className="row">
-            {faq_data.map((item, i) => (
-              <div key={i} className="col-md-6 mb-0">
-                <div
-                  onClick={() => toggleAccordion(i)}
-                  className={`cs_accordion_item cs_color_1 ${
-                    i === activeIndex ? "active cs_icon" : ""
-                  }`}
-                >
-                  <div className="cs_accordion_header">
-                    <p
-                      className="cs_accordion_title cs_m0"
-                      id={`heading${item.id}`}
-                    >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {faq_data.map((item, i) => (
+            <div
+              key={i}
+              className={`transform transition-all duration-300 ${
+                inView ? "animate-fade-in" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <div
+                onClick={() => toggleAccordion(i)}
+                className={`glass-dark rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  i === activeIndex ? "ring-2 ring-primary-500" : ""
+                }`}
+              >
+                <div className="p-6">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       {item.question}
-                    </p>
+                    </h3>
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 25 25"
-                      width="30"
-                      style={{
-                        transform:
-                          i === activeIndex ? "rotate(-90deg)" : "none",
-                      }}
+                      className={`w-6 h-6 text-primary-600 dark:text-primary-400 transform transition-transform duration-300 ${
+                        i === activeIndex ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
                       <path
-                        style={{ fill: `#ffffff` }}
-                        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-                        data-name="Right"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
                       />
                     </svg>
                   </div>
-
                   <div
-                    className={`cs_accordion_body ${
-                      i === activeIndex ? "" : "d-none"
+                    className={`mt-4 text-gray-600 dark:text-white/80 transition-all duration-300 ${
+                      i === activeIndex
+                        ? "max-h-96 opacity-100"
+                        : "max-h-0 opacity-0 overflow-hidden"
                     }`}
                   >
                     {item.ans}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="cs_height_150 cs_height_lg_60"></div>
+      <div className="h-24 md:h-16"></div>
     </>
   );
 };

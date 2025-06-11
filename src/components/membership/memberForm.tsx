@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -33,13 +34,14 @@ interface planDetails {
   price: number;
   currency: string;
 }
+
 interface MembersFormProps {
   pramsId: any;
 }
+
 const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
   const router = useRouter();
-
-  const initialValues: FormValues = {
+  const [formData, setFormData] = useState<FormValues>({
     title: "",
     name: "",
     email: "",
@@ -59,14 +61,12 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
     linkedin: "",
     website: "",
     profilePicture: null,
-  };
-
-  const [formData, setFormData] = useState<FormValues>(initialValues);
+  });
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState<string>("");
   const [paymentInitialized, setPaymentInitialized] = useState(false);
   const [planDetails, setPlanDetails] = useState<planDetails>();
-  const emailRef = useRef<string>(""); // Use ref to store email
+  const emailRef = useRef<string>("");
 
   useEffect(() => {
     getMembershipDetails(pramsId);
@@ -105,7 +105,7 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
       };
       const response = await axios.post("/api/payments/rozorpay", payload);
       const data = response.data;
-      const email = emailRef.current; // Access email value from the ref
+      const email = emailRef.current;
 
       const options = {
         name: "Operant Biomedical federation",
@@ -233,37 +233,51 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
       setLoading(false);
     }
   };
+
   return (
-    <>
-      <div className="cs_height_150 cs_height_lg_120"></div>
-      <section>
-        <div className="container">
-          <div className="cs_contact">
-            <div className="cs_contact_text">
-              <p className="cs_contact_subtitle anim_text_upanddowns">
-                Membership Form
-              </p>
-              <h1 className="cs_contact_title anim_text_writting">
-                Become a Member
-              </h1>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          {/* Form Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center px-4 py-2 bg-primary-500/10 rounded-full mb-4">
+              <span className="text-primary-600 dark:text-primary-300 text-sm font-medium">
+                Complete Your Profile
+              </span>
             </div>
-            <div className="cs_height_80 cs_height_lg_20"></div>
-            <div className="cs_from anim_div_ShowDowns">
-              <form onSubmit={handleSubmit}>
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="title" className="form-label">
-                      Title <span className="text-danger">*</span>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Become a Member
+            </h2>
+            <p className="text-gray-600 dark:text-white/80 text-lg">
+              Fill in your details to complete your membership registration
+            </p>
+          </div>
+
+          {/* Form Container */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Personal Information Section */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
+                  Personal Information
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="title"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Title <span className="text-red-500">*</span>
                     </label>
                     <select
-                      className="form-select"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="title"
                       name="title"
                       value={formData.title}
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Choose...</option>
+                      <option value="">Select Title</option>
                       <option value="MR">Mr.</option>
                       <option value="MRS">Mrs.</option>
                       <option value="MS">Ms.</option>
@@ -272,92 +286,139 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       <option value="REV">Rev.</option>
                     </select>
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="name" className="form-label">
-                      Name <span className="text-danger">*</span>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="name"
                       name="name"
+                      placeholder="Enter your full name"
                       value={formData.name}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="email" className="form-label">
-                      Email <span className="text-danger">*</span>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="email"
                       name="email"
+                      placeholder="Enter your email address"
                       value={formData.email}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="designation" className="form-label">
-                      Designation <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="designation"
-                      name="designation"
-                      value={formData.designation}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="department" className="form-label">
-                      Department <span className="text-danger">*</span>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Phone Number <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      id="department"
-                      name="department"
-                      value={formData.department}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <label htmlFor="phone" className="form-label">
-                      Phone <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="number"
-                      className="form-control"
+                      type="tel"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="phone"
                       name="phone"
+                      placeholder="Enter your phone number"
                       value={formData.phone}
                       onChange={handleChange}
                       required
                     />
                   </div>
                 </div>
+              </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="DateOfBirth" className="form-label">
-                      Date Of Birth <span className="text-danger">*</span>
+              {/* Professional Information Section */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
+                  Professional Information
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="designation"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Designation <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      id="designation"
+                      name="designation"
+                      placeholder="Enter your designation"
+                      value={formData.designation}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="department"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Department <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      id="department"
+                      name="department"
+                      placeholder="Enter your department"
+                      value={formData.department}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="collegeName"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      College/University <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      id="collegeName"
+                      name="collegeName"
+                      placeholder="Enter your college/university name"
+                      value={formData.collegeName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="DateOfBirth"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Date of Birth <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="date"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="DateOfBirth"
                       name="DateOfBirth"
                       value={formData.DateOfBirth.toString()}
@@ -365,231 +426,311 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
                       required
                     />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="aadharNumber" className="form-label">
-                      Aadhar Number <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="aadharNumber"
-                      name="aadharNumber"
-                      value={formData.aadharNumber}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
                 </div>
+              </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="collegeName" className="form-label">
-                      College Name <span className="text-danger">*</span>
+              {/* Address Information Section */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
+                  Address Information
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="col-span-2 space-y-2">
+                    <label
+                      htmlFor="address"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Address <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
-                      id="collegeName"
-                      name="collegeName"
-                      value={formData.collegeName}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="address" className="form-label">
-                      Address <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="address"
                       name="address"
+                      placeholder="Enter your full address"
                       value={formData.address}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="city" className="form-label">
-                      City <span className="text-danger">*</span>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="city"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      City <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="city"
                       name="city"
+                      placeholder="Enter your city"
                       value={formData.city}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="state" className="form-label">
-                      State <span className="text-danger">*</span>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="state"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      State <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="state"
                       name="state"
+                      placeholder="Enter your state"
                       value={formData.state}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="country" className="form-label">
-                      Country <span className="text-danger">*</span>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="country"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Country <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="country"
                       name="country"
+                      placeholder="Enter your country"
                       value={formData.country}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="postalCode" className="form-label">
-                      Postal Code <span className="text-danger">*</span>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="postalCode"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Postal Code <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="postalCode"
                       name="postalCode"
+                      placeholder="Enter your postal code"
                       value={formData.postalCode}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="twitter" className="form-label">
-                      Twitter
+                </div>
+              </div>
+
+              {/* Additional Information Section */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
+                  Additional Information
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="aadharNumber"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Aadhar Number <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      id="aadharNumber"
+                      name="aadharNumber"
+                      placeholder="Enter your Aadhar number"
+                      value={formData.aadharNumber}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-span-2 space-y-2">
+                    <label
+                      htmlFor="bio"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Bio <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 min-h-[120px]"
+                      id="bio"
+                      name="bio"
+                      placeholder="Tell us about yourself"
+                      value={formData.bio}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="twitter"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Twitter Profile
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="twitter"
                       name="twitter"
+                      placeholder="Enter your Twitter handle"
                       value={formData.twitter}
                       onChange={handleChange}
                     />
                   </div>
-                </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <label htmlFor="linkedin" className="form-label">
-                      LinkedIn
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="linkedin"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      LinkedIn Profile
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="linkedin"
                       name="linkedin"
+                      placeholder="Enter your LinkedIn profile URL"
                       value={formData.linkedin}
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="website" className="form-label">
-                      Website
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="website"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Personal Website
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
                       id="website"
                       name="website"
+                      placeholder="Enter your website URL"
                       value={formData.website}
                       onChange={handleChange}
                     />
                   </div>
-                </div>
 
-                <div className="mb-3">
-                  <label htmlFor="bio" className="form-label">
-                    Bio <span className="text-danger">*</span>
-                  </label>
-                  <textarea
-                    className="form-control"
-                    id="bio"
-                    name="bio"
-                    value={formData.bio}
-                    onChange={handleChange}
-                    required
-                  ></textarea>
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="profilePicture" className="form-label">
-                    Profile Picture <span className="text-danger">*</span>
-                  </label>
-                  <input
-                    type="file"
-                    className="form-control"
-                    id="profilePicture"
-                    name="profilePicture"
-                    accept=".jpg, .jpeg, .png"
-                    required
-                    onChange={(e) => {
-                      const file = e.target.files ? e.target.files[0] : null;
-                      if (file && file.size > 2 * 1024 * 1024) {
-                        // If the file size is greater than 2MB, show an error message and reset the input field
-                        alert("File size exceeds 2MB");
-                        e.target.value = ""; // Reset the input field
-                      } else {
-                        setFormData({
-                          ...formData,
-                          profilePicture: file,
-                        });
-                      }
-                    }}
-                  />
-                </div>
-
-                {loading && <div>Loading...</div>}
-
-                <div className="mb-3">
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    disabled={loading}
-                  >
-                    <span>Pay Now</span>
-                    <svg
-                      width="19"
-                      height="13"
-                      viewBox="0 0 19 13"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="profilePicture"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                     >
-                      <path
-                        d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </button>
+                      Profile Picture <span className="text-red-500">*</span>
+                    </label>
+                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg hover:border-primary-500 dark:hover:border-primary-400 transition-colors duration-200">
+                      <div className="space-y-1 text-center">
+                        <svg
+                          className="mx-auto h-12 w-12 text-gray-400"
+                          stroke="currentColor"
+                          fill="none"
+                          viewBox="0 0 48 48"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div className="flex text-sm text-gray-600 dark:text-gray-400">
+                          <label
+                            htmlFor="profilePicture"
+                            className="relative cursor-pointer bg-white dark:bg-gray-700 rounded-md font-medium text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="profilePicture"
+                              name="profilePicture"
+                              type="file"
+                              className="sr-only"
+                              accept=".jpg, .jpeg, .png"
+                              required
+                              onChange={(e) => {
+                                const file = e.target.files
+                                  ? e.target.files[0]
+                                  : null;
+                                if (file && file.size > 2 * 1024 * 1024) {
+                                  Swal.fire({
+                                    title: "Error!",
+                                    text: "File size exceeds 2MB",
+                                    icon: "error",
+                                  });
+                                  e.target.value = "";
+                                } else {
+                                  setFormData({
+                                    ...formData,
+                                    profilePicture: file,
+                                  });
+                                }
+                              }}
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          PNG, JPG, JPEG up to 2MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </form>
-            </div>
+              </div>
+
+              {/* Loading State */}
+              {loading && (
+                <div className="flex items-center justify-center py-4">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-500"></div>
+                </div>
+              )}
+
+              {/* Submit Button */}
+              <div className="flex justify-end pt-6">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+                >
+                  <span>Complete Registration</span>
+                  <svg
+                    className="ml-2 -mr-1 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-      </section>
-      <div className="cs_height_150 cs_height_lg_60"></div>
-    </>
+      </div>
+    </div>
   );
 };
 

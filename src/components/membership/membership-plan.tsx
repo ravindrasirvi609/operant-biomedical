@@ -1,8 +1,9 @@
 "use client";
 import axios from "axios";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import MembersForm from "./memberForm";
+import Dialog from "@/components/ui/dialog";
 
 interface DataType {
   _id: string;
@@ -18,6 +19,9 @@ const MembershipPlan = () => {
   });
 
   const [membershipPlan, setMembershipPlan] = useState<DataType[]>([]);
+  const [selectedPlan, setSelectedPlan] = useState<DataType | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   useEffect(() => {
     const fetchMembershipList = async () => {
       try {
@@ -25,53 +29,18 @@ const MembershipPlan = () => {
           method: "POST",
         });
         setMembershipPlan(response.data.membershipPlans);
-        console.log(response.data); // Handle response data as needed
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchMembershipList(); // Call the async function
+    fetchMembershipList();
   }, []);
 
-  const plansData = [
-    {
-      id: 1,
-      title: "Basic",
-      price: "5,000",
-      description: "Access to basic research resources and community forums",
-      features: [
-        "Basic research tools access",
-        "Community forum participation",
-        "Monthly newsletter",
-        "Basic support",
-      ],
-    },
-    {
-      id: 2,
-      title: "Professional",
-      price: "10,000",
-      description: "Enhanced research capabilities and priority support",
-      features: [
-        "Advanced research tools",
-        "Priority support",
-        "Exclusive webinars",
-        "Research collaboration opportunities",
-      ],
-    },
-    {
-      id: 3,
-      title: "Enterprise",
-      price: "25,000",
-      description: "Full access to all resources and dedicated support",
-      features: [
-        "Full research suite access",
-        "Dedicated support team",
-        "Custom research solutions",
-        "Priority collaboration opportunities",
-      ],
-    },
-  ];
+  const handlePlanSelect = (plan: DataType) => {
+    setSelectedPlan(plan);
+    setIsDialogOpen(true);
+  };
 
   return (
     <>
@@ -97,10 +66,10 @@ const MembershipPlan = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {plansData.map((plan, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {membershipPlan.map((plan, index) => (
             <div
-              key={plan.id}
+              key={plan._id}
               className={`glass-dark p-8 rounded-xl transform transition-all duration-500 hover:scale-105 ${
                 inView ? "animate-fade-in" : "opacity-0"
               }`}
@@ -111,38 +80,17 @@ const MembershipPlan = () => {
                   {plan.title}
                 </h3>
                 <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                  ₹{plan.price}
+                  ₹{plan.price.toLocaleString()}
                 </div>
                 <p className="text-gray-600 dark:text-white/80">
                   {plan.description}
                 </p>
               </div>
 
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center text-gray-700 dark:text-white/90"
-                  >
-                    <svg
-                      className="w-5 h-5 text-primary-600 dark:text-primary-400 mr-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <button className="w-full btn-primary group">
+              <button
+                onClick={() => handlePlanSelect(plan)}
+                className="w-full btn-primary group"
+              >
                 Get Started
                 <svg
                   className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1"
@@ -162,6 +110,15 @@ const MembershipPlan = () => {
           ))}
         </div>
       </div>
+
+      <Dialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        title="Complete Your Membership"
+      >
+        {selectedPlan && <MembersForm pramsId={selectedPlan._id} />}
+      </Dialog>
+
       <div className="h-24 md:h-16"></div>
     </>
   );
