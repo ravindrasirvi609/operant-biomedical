@@ -14,8 +14,20 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const HeroHomeOne = () => {
+  const [dimensions, setDimensions] = useState({ width: 1200, height: 800 });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+  }, []);
+
   const heroData = [
     {
       id: 1,
@@ -309,8 +321,8 @@ const HeroHomeOne = () => {
             key={i}
             className="absolute w-2 h-2 bg-white/20 rounded-full"
             initial={{
-              x: Math.random() * window?.innerWidth || 1200,
-              y: Math.random() * window?.innerHeight || 800,
+              x: Math.random() * dimensions.width,
+              y: Math.random() * dimensions.height,
             }}
             animate={{
               y: [0, -20, 0],

@@ -1,4 +1,6 @@
 export function scrollSmother(windowObject) {
+  if (typeof window === "undefined") return;
+  
   if (typeof windowObject !== "undefined") {
     !(function (e, t) {
       "object" == typeof exports && "undefined" != typeof module

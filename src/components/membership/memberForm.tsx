@@ -91,7 +91,37 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
     setPlanDetails(planDetails);
   };
 
+  const initializeRazorpay = () => {
+    if (typeof window === "undefined") {
+      return Promise.resolve();
+    }
+
+    return new Promise<void>((resolve, reject) => {
+      if ((window as any).Razorpay) {
+        setPaymentInitialized(true);
+        resolve();
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => {
+        setPaymentInitialized(true);
+        resolve();
+      };
+      script.onerror = () => {
+        setPaymentInitialized(false);
+        reject(new Error("Failed to load Razorpay SDK"));
+      };
+      document.body.appendChild(script);
+    });
+  };
+
   const makePayment = async () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     if (!paymentInitialized) {
       Swal.fire({
         title: "Error!",
@@ -215,22 +245,6 @@ const MembersForm: React.FC<MembersFormProps> = ({ pramsId }) => {
         icon: "error",
       });
     }
-  };
-
-  const initializeRazorpay = () => {
-    return new Promise<void>((resolve, reject) => {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/checkout.js";
-      script.onload = () => {
-        setPaymentInitialized(true);
-        resolve();
-      };
-      script.onerror = () => {
-        setPaymentInitialized(false);
-        reject(new Error("Failed to load Razorpay SDK"));
-      };
-      document.body.appendChild(script);
-    });
   };
 
   const handleChange = (

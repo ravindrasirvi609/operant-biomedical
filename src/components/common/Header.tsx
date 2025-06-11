@@ -86,12 +86,14 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     setMounted(true);
-    const checkLocalStorage = localStorage.getItem("theme");
-    if (!checkLocalStorage) {
-      const checkDarkTheme = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      setTheme(checkDarkTheme ? "dark" : "light");
+    if (typeof window !== "undefined") {
+      const checkLocalStorage = localStorage.getItem("theme");
+      if (!checkLocalStorage) {
+        const checkDarkTheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        setTheme(checkDarkTheme ? "dark" : "light");
+      }
     }
   }, [setTheme]);
 
