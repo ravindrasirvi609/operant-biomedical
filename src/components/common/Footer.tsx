@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
                   />
                 </svg>
                 <span className="text-gray-600 dark:text-gray-300">
-                  admin@obrf.com
+                  admin@obrf.org.in
                 </span>
               </li>
               <li className="flex items-start space-x-3">
