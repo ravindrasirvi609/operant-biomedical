@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import Image from "next/image";
 
 interface SubMenuItem {
@@ -120,11 +119,10 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/assets/img/_Logo.png"
+                src="/assets/img/OBRF Logo.png"
                 alt="Operant Logo"
-                width={100}
-                height={100}
-                className=" bg-primary-500 rounded-full"
+                width={60}
+                height={60}
               />
             </Link>
 

@@ -57,8 +57,10 @@ const BannerAbout = () => {
               <div className="absolute inset-0 bg-white/10 rounded-full animate-pulse"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
-                  src={logo}
+                  src="/assets/img/OBRF Logo.png"
                   alt="Operant Biomedical Research Federation"
+                  width={300}
+                  height={300}
                   className="w-3/4 h-auto"
                   priority
                 />
