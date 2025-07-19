@@ -1,156 +1,64 @@
 import React from "react";
+import Link from "next/link";
 
-const Refund = () => {
-  return (
-    <div>
-      <div>
-        <div id="smooth-wrapper">
-          <div id="smooth-content">
-            <main>
-              <div className="container my-5">
-                <div className="bg-light p-5 rounded shadow-sm">
-                  <h1 className="mb-4 text-center">
-                    Refund and Shipping Policy
-                  </h1>
-
-                  <section className="mb-5">
-                    <h4>Refund Policy</h4>
-                    <p>
-                      Operant Biomedical Research Federation (OBRF) is dedicated
-                      to ensuring your satisfaction with our services and
-                      products. If you are not satisfied with your purchase,
-                      please review our refund policy below:
-                    </p>
-                    <h6>Eligibility for Refunds</h6>
-                    <p>
-                      To be eligible for a refund, the following conditions must
-                      be met:
-                    </p>
-                    <ul className=" mb-3">
-                      <li>
-                        The request for a refund must be made within 30 days of
-                        the purchase date.
-                      </li>
-                      <li>
-                        The product or service must be unused and in the same
-                        condition as when you received it.
-                      </li>
-                      <li>
-                        Proof of purchase, such as a receipt or order number,
-                        must be provided.
-                      </li>
-                    </ul>
-                    <h6>Non-Refundable Items</h6>
-                    <p>Certain items are non-refundable, including:</p>
-                    <ul className="mb-3">
-                      <li>Downloadable software products</li>
-                      <li>Services that have already been rendered</li>
-                      <li>
-                        Products that have been used or damaged by the customer
-                      </li>
-                    </ul>
-                    <h6>How to Request a Refund</h6>
-                    <p>
-                      To request a refund, please contact our customer service
-                      team with your order details and the reason for the refund
-                      request. You can reach us at:
-                    </p>
-                    <ul className="list-group list-group-flush mb-3">
-                      <li className="list-group-item">
-                        Email:{" "}
-                        <a href="mailto:admin@opf.org.in">admin@opf.org.in.</a>
-                      </li>
-                      <li className="list-group-item">
-                        Phone: +91-94609-71652
-                      </li>
-                    </ul>
-                    <h6>Processing Refunds</h6>
-                    <p>
-                      Once your refund request is received and inspected, we
-                      will notify you of the approval or rejection of your
-                      refund. If approved, the refund will be processed and a
-                      credit will be applied to your original method of payment
-                      within a certain number of days.
-                    </p>
-                  </section>
-
-                  <section className="mb-5">
-                    <h4>Shipping Policy</h4>
-                    <p>
-                      OBRF aims to provide efficient and reliable shipping
-                      services. Please review our shipping policy below:
-                    </p>
-                    <h6>Shipping Rates and Delivery Estimates</h6>
-                    <p>
-                      Shipping charges and delivery estimates will vary based on
-                      the destination and the shipping method selected at
-                      checkout. The estimated delivery time will be provided at
-                      checkout.
-                    </p>
-                    <h6>Order Processing Time</h6>
-                    <p>
-                      All orders are processed within 1-2 business days. Orders
-                      are not shipped or delivered on weekends or holidays. If
-                      we experience a high volume of orders, shipments may be
-                      delayed by a few days. Please allow additional days in
-                      transit for delivery. If there will be a significant delay
-                      in the shipment of your order, we will contact you via
-                      email or phone.
-                    </p>
-                    <h6>Shipping Confirmation and Order Tracking</h6>
-                    <p>
-                      You will receive a shipping confirmation email once your
-                      order has shipped containing your tracking number(s). The
-                      tracking number will be active within 24 hours.
-                    </p>
-                    <h6>Customs, Duties, and Taxes</h6>
-                    <p>
-                      OBRF is not responsible for any customs and taxes applied
-                      to your order. All fees imposed during or after shipping
-                      are the responsibility of the customer (tariffs, taxes,
-                      etc.).
-                    </p>
-                    <h6>Damages</h6>
-                    <p>
-                      OBRF is not liable for any products damaged or lost during
-                      shipping. If you received your order damaged, please
-                      contact the shipment carrier to file a claim. Please save
-                      all packaging materials and damaged goods before filing a
-                      claim.
-                    </p>
-                    <h6>International Shipping</h6>
-                    <p>
-                      We currently do not ship outside the domestic United
-                      States. If you have any questions regarding our shipping
-                      policy, please contact us at{" "}
-                      <a href="mailto:admin@opf.org.in">admin@opf.org.in</a>.
-                    </p>
-                  </section>
-
-                  <section>
-                    <h4>Contact Us</h4>
-                    <p>
-                      If you have any questions about our refund and shipping
-                      policy, please contact us:
-                    </p>
-                    <ul className="list-group list-group-flush">
-                      <li className="list-group-item">
-                        By email:{" "}
-                        <a href="mailto:admin@opf.org.in">admin@opf.org.in.</a>
-                      </li>
-                      <li className="list-group-item">
-                        By phone: +91-94609-71652
-                      </li>
-                    </ul>
-                  </section>
-                </div>
-              </div>
-            </main>
-          </div>
-        </div>
+const RefundPolicyPage = () => (
+  <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 flex items-center justify-center py-12 px-4">
+    <div className="max-w-2xl w-full bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 md:p-12 border border-primary-100 dark:border-primary-900">
+      <h1 className="text-3xl md:text-4xl font-extrabold mb-4 text-primary-700 dark:text-primary-400 text-center drop-shadow-lg">
+        Refund & Transfer Policy
+      </h1>
+      <p className="mb-6 text-lg text-gray-700 dark:text-gray-200 text-center">
+        Thank you for choosing to be part of the scientific community at{" "}
+        <span className="font-semibold">
+          Operant Biomedical Research Federation
+        </span>
+        .
+      </p>
+      <p className="mb-4 text-base text-gray-700 dark:text-gray-300">
+        We would like to bring to your attention our policy regarding refunds
+        and transfer of registrations/payments.
+      </p>
+      <ul className="list-disc list-inside mb-4 text-base text-gray-700 dark:text-gray-300 space-y-2">
+        <li>
+          All payments made towards conference registration fees, course
+          enrollments, membership fees, or any associated services are{" "}
+          <span className="font-semibold text-primary-700 dark:text-primary-400">
+            non-refundable
+          </span>{" "}
+          under any circumstances.
+        </li>
+        <li>
+          Once a payment has been successfully processed, it shall be considered{" "}
+          <span className="font-semibold text-primary-700 dark:text-primary-400">
+            final and non-transferable
+          </span>{" "}
+          to another individual, event, or service.
+        </li>
+      </ul>
+      <p className="mb-4 text-base text-gray-700 dark:text-gray-300">
+        This policy is in place to maintain fairness, streamline administrative
+        processes, and ensure the highest standards of planning and delivery for
+        all our academic and scientific initiatives.
+      </p>
+      <p className="mb-4 text-base text-gray-700 dark:text-gray-300">
+        We strongly advise all participants and members to carefully review the
+        event or service details before making a payment. For any clarification
+        or assistance, you are welcome to reach out to our support team prior to
+        registration or payment.
+      </p>
+      <p className="mb-6 text-base text-gray-700 dark:text-gray-300">
+        We appreciate your understanding and cooperation.
+      </p>
+      <div className="text-center">
+        <Link
+          href="/contact"
+          className="inline-block px-6 py-2 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors duration-300 shadow"
+        >
+          Contact Support
+        </Link>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
-export default Refund;
+export default RefundPolicyPage;
