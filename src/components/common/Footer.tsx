@@ -262,6 +262,12 @@ const Footer: React.FC = () => {
                 Terms of Service
               </Link>
               <Link
+                href="/refund"
+                className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm transition-colors duration-200"
+              >
+                Refund Policy
+              </Link>
+              <Link
                 href="/sitemap"
                 className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm transition-colors duration-200"
               >
