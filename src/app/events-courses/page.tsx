@@ -149,7 +149,7 @@ const EventsCoursesPage = () => {
           <div className="hidden md:block flex-1 text-center">
             {/* You can add an event-related illustration or logo here */}
             <img
-              src="/assets/img/OBRF Logo.png"
+              src="/74bannerlogo.jpg"
               alt="IPC Event Logo"
               className="mx-auto w-64 h-64 object-contain rounded-2xl shadow-2xl bg-white/80 p-6"
             />
@@ -343,7 +343,7 @@ const EventsCoursesPage = () => {
       </section>
 
       {/* Courses Section - Redesigned as Hero */}
-      <section className="w-full bg-gradient-to-r from-primary-100 to-blue-100 dark:from-primary-900 dark:to-blue-950 text-primary-900 dark:text-white py-12 md:py-20 mb-12 shadow-lg">
+      <section className="w-full bg-gradient-to-r from-primary-100 to-blue-500 dark:from-primary-900 dark:to-blue-950 text-black dark:text-white py-12 md:py-20 mb-12 shadow-lg">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex-1">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
