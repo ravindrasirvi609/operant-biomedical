@@ -18,7 +18,7 @@ const event = {
   title: "74th Indian Pharmaceutical Congress 2025",
   theme: "AI & TECHNOLOGY IN PHARMA: EDUCATE, INNOVATE, EMPOWER",
   host: "Association of Pharmaceutical Teachers of India",
-  organizer: "Indian Pharmaceutical Congress Association",
+  organizer: "Operant Biomedical Federation",
   date: "Dec 19-21, 2025 (Friday-Sunday)",
   location: "BIEC Bengaluru",
   attendees: "Pharma professionals, educators, students, and industry leaders",
@@ -390,10 +390,7 @@ const EventsCoursesPage = () => {
                   of Completion, downloadable materials, access to all live and
                   recorded sessions
                 </li>
-                <li>
-                  <span className="font-semibold">Refund Policy:</span> Full
-                  refund within 7 days of course start
-                </li>
+               
               </ul>
             </div>
             {/* Teaching Plan Section */}
