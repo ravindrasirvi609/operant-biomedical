@@ -59,7 +59,7 @@ const HomePage = () => {
         <PortfolioHomeOne />
 
         {/* Awards Section */}
-        <AwardsHomeOne />
+        {/* <AwardsHomeOne /> */}
 
         {/* Testimonials Section */}
         <Testimonial />

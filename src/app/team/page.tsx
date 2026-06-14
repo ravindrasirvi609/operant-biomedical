@@ -30,7 +30,7 @@ const TeamPage = () => {
                   className="text-center"
                 >
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                    Our Expert Team
+                    Our Leadership Team
                   </h1>
                   <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
                     Meet the dedicated professionals who drive our mission

@@ -34,7 +34,7 @@ const index = () => {
             <div className="relative z-20">
               <FunFactHomeOne />
               <About />
-              <AwardsHomeOne />
+              {/* <AwardsHomeOne /> */}
               <Testimonial />
               <Gellary />
               <BrandHomeOne />
