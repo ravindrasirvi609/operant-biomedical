@@ -156,12 +156,12 @@ const Header: React.FC = () => {
                 </div>
               ))}
             </nav>
-            {/* Upcoming Events and Courses Button */}
+            {/* Upcoming Programs Button */}
             <Link
               href="/events-courses"
               className="hidden md:inline-block ml-4 px-6 py-2 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors duration-300 shadow"
             >
-              Upcoming Events and Courses
+              Upcoming Programs
             </Link>
           </div>
         </div>
