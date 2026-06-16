@@ -62,10 +62,18 @@ const WebinarRegistrationPage = () => {
                   </div>
                   <div className="rounded-2xl bg-white/10 p-4">
                     <p className="text-xs uppercase tracking-[0.2em] text-teal-200">
-                      Delivery
+                      Date & Time
                     </p>
                     <p className="mt-2 text-sm font-semibold">
-                      Fully responsive registration flow with DB + email automation
+                      25 June 2025 • 03:30 PM IST
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 p-4 sm:col-span-2">
+                    <p className="text-xs uppercase tracking-[0.2em] text-teal-200">
+                      Platform
+                    </p>
+                    <p className="mt-2 text-sm font-semibold">
+                      Online MS Teams
                     </p>
                   </div>
                 </div>

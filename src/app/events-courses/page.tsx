@@ -18,9 +18,9 @@ const event = {
   organizer: "Operant Biomedical Research Federation (OBRF)",
   description:
     "A focused webinar for medical professionals, clinicians, researchers, academicians, postgraduate students, and healthcare innovators exploring how AI is changing medical research and where ICMR funding can support the next step.",
-  mode: "Online webinar",
-  date: "To be announced",
-  time: "To be announced",
+  mode: "Online MS Teams",
+  date: "25 June 2025",
+  time: "03:30 PM IST",
   audience:
     "Medical professionals, clinicians, researchers, academicians, postgraduate students, and healthcare innovators",
   ctaPrimary: "#register",
