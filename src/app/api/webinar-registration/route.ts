@@ -143,13 +143,59 @@ export async function POST(req: NextRequest) {
       }),
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("Resend error:", errorText);
+    const participantEmailResponse = await fetch(
+      "https://api.resend.com/emails",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          from: "OBRF Webinar <noreply@obrf.org.in>",
+          to: payload.email,
+          subject: "Your OBRF Webinar Registration is Successful",
+          html: `
+            <div style="font-family: Arial, sans-serif; padding: 24px; color: #0f172a; background: #f8fafc; max-width: 720px; margin: auto; border: 1px solid #e2e8f0; border-radius: 16px;">
+              <div style="background: linear-gradient(135deg, #0f172a, #0f766e); padding: 24px; border-radius: 14px; color: white;">
+                <p style="margin: 0; text-transform: uppercase; letter-spacing: 0.18em; font-size: 12px;">OBRF Webinar</p>
+                <h1 style="margin: 12px 0 0; font-size: 28px;">Registration successful</h1>
+              </div>
+              <p style="font-size: 16px; line-height: 1.8; margin-top: 20px;">Dear ${payload.fullName},</p>
+              <p style="font-size: 16px; line-height: 1.8;">Thank you for registering for the OBRF webinar on <strong>Innovative Approaches in Medical Research: Leveraging AI Technologies and ICMR Funding Opportunities</strong>.</p>
+              <p style="font-size: 16px; line-height: 1.8;">We have successfully received your registration details. Our team will review the submission and share further communication regarding the event as it becomes available.</p>
+              <div style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px;">
+                <h2 style="font-size: 18px; margin: 0 0 12px;">Registration summary</h2>
+                <ul style="padding-left: 20px; line-height: 1.8; margin: 0;">
+                  <li><strong>Name:</strong> ${payload.fullName}</li>
+                  <li><strong>Email:</strong> ${payload.email}</li>
+                  <li><strong>Mobile:</strong> ${payload.mobileNumber}</li>
+                  <li><strong>Organization:</strong> ${payload.organizationName}</li>
+                  <li><strong>Professional Category:</strong> ${payload.professionalCategory}</li>
+                </ul>
+              </div>
+              <p style="font-size: 16px; line-height: 1.8; margin-top: 24px;">If you need any assistance, please contact us at <a href="mailto:${adminEmail}" style="color: #0f766e; text-decoration: none;">${adminEmail}</a>.</p>
+              <p style="font-size: 16px; line-height: 1.8; margin-top: 20px;">Warm regards,</p>
+              <p style="font-size: 16px; line-height: 1.8; font-weight: bold;">Operant Biomedical Research Federation</p>
+            </div>
+          `,
+        }),
+      }
+    );
+
+    if (!response.ok || !participantEmailResponse.ok) {
+      const adminErrorText = !response.ok ? await response.text() : "";
+      const participantErrorText = !participantEmailResponse.ok
+        ? await participantEmailResponse.text()
+        : "";
+      console.error("Resend error:", {
+        adminErrorText,
+        participantErrorText,
+      });
       return NextResponse.json(
         {
           error:
-            "Registration was saved, but the notification email could not be sent.",
+            "Registration was saved, but one or more notification emails could not be sent.",
           registrationId: registration._id,
         },
         { status: 201 }
