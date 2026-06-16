@@ -24,6 +24,7 @@ const event = {
   audience:
     "Medical professionals, clinicians, researchers, academicians, postgraduate students, and healthcare innovators",
   ctaPrimary: "#register",
+  registrationLink: "/webinar-registration",
   ctaSecondary: "#overview",
 };
 
@@ -114,10 +115,10 @@ const EventsCoursesPage = () => {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href={event.ctaPrimary}
+                href={event.registrationLink}
                 className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
               >
-                Register interest
+                Register now
               </Link>
               <Link
                 href={event.ctaSecondary}
