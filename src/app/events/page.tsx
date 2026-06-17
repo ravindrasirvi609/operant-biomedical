@@ -323,7 +323,7 @@ const EventsCoursesPage = () => {
                 Review details
               </Link>
               <Link
-                href="#"
+                href="/webinar-registration"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
               >
                 Add registration link

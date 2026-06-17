@@ -158,7 +158,7 @@ const Header: React.FC = () => {
             </nav>
             {/* Upcoming Programs Button */}
             <Link
-              href="/events-courses"
+              href="/events"
               className="hidden md:inline-block ml-4 px-6 py-2 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors duration-300 shadow"
             >
               Upcoming Programs
