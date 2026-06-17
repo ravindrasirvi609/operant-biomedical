@@ -145,7 +145,7 @@ const EventsCoursesPage = () => {
                     <img
                       src="/assets/img/OBRF Logo.png"
                       alt="OBRF logo"
-                      className="h-16 w-16 rounded-xl object-contain"
+                      className="h-16 w-16 rounded-xl object-contain bg-white"
                     />
                   </div>
                 </div>
