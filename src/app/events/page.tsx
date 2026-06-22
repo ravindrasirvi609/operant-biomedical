@@ -61,6 +61,23 @@ const webinarNotes = [
   "The webinar is intended to be a launchpad for future workshops on grant writing and AI applications in healthcare research.",
 ];
 
+const speakers = [
+  {
+    role: "Keynote Speaker",
+    name: "Dr Taruna Madan Gupta",
+    designation: "Scientist G & Head",
+    department: "Development Research, ICMR, New Delhi",
+    image: "/drtarunamadan.jpg",
+  },
+  {
+    role: "Moderator",
+    name: "Dr Neelam Bajaj",
+    designation: "Associate Professor",
+    department: "Dept. of Dentistry, AIIMS Nagpur",
+    image: "/drneelam.webp",
+  },
+];
+
 const EventsCoursesPage = () => {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.16),_transparent_35%),linear-gradient(180deg,_#f8fbff_0%,_#ffffff_45%,_#f5f7ff_100%)] text-slate-900 dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_30%),linear-gradient(180deg,_#020617_0%,_#0f172a_55%,_#020617_100%)] dark:text-slate-100">
@@ -198,6 +215,51 @@ const EventsCoursesPage = () => {
             webinar is about, why it matters, and what they will gain from
             attending.
           </p>
+        </div>
+
+        <div className="mb-10">
+          <div className="mb-6 flex items-center gap-3">
+            <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-600/10 text-sky-700 dark:text-sky-300">
+              <FaUsers />
+            </span>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-sky-600 dark:text-sky-400">
+                Speakers
+              </p>
+              <h3 className="text-2xl font-black">Meet the keynote speaker and moderator</h3>
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {speakers.map((speaker) => (
+              <article
+                key={speaker.role}
+                className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+              >
+                <div className="grid gap-0 sm:grid-cols-[160px_1fr]">
+                  <div className="relative min-h-[220px] bg-slate-100 dark:bg-slate-800">
+                    <img
+                      src={speaker.image}
+                      alt={speaker.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-sm font-bold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-400">
+                      {speaker.role}
+                    </p>
+                    <h4 className="mt-3 text-2xl font-black">{speaker.name}</h4>
+                    <p className="mt-3 text-base font-semibold text-slate-700 dark:text-slate-200">
+                      {speaker.designation}
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                      {speaker.department}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">

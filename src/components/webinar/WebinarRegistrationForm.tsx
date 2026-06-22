@@ -120,7 +120,12 @@ const WebinarRegistrationForm = () => {
       await axios.post("/api/webinar-registration", form);
       await Swal.fire({
         title: "Registration successful",
-        text: "Your webinar registration has been submitted and the admin team has been notified.",
+        html: `
+          <p>Your webinar registration has been submitted successfully.</p>
+          <p style="margin-top: 10px;">A confirmation email has been sent to your registered email address.</p>
+          <p style="margin-top: 10px;">Please join the WhatsApp group for more events, news, and information.</p>
+          <a href="https://chat.whatsapp.com/I4rPdgTTAwQ3xZx7fzUINP" target="_blank" rel="noreferrer" style="display:inline-block;margin-top:16px;padding:12px 20px;border-radius:999px;background:#16a34a;color:#fff;text-decoration:none;font-weight:700;">Join WhatsApp group</a>
+        `,
         icon: "success",
         confirmButtonColor: "#0f766e",
       });

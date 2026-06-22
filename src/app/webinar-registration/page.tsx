@@ -9,6 +9,8 @@ export const metadata = {
 };
 
 const WebinarRegistrationPage = () => {
+  const whatsappGroupLink = "https://chat.whatsapp.com/I4rPdgTTAwQ3xZx7fzUINP";
+
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(20,184,166,0.18),_transparent_32%),linear-gradient(180deg,_#f0fdfa_0%,_#ffffff_45%,_#eff6ff_100%)] text-slate-900 dark:bg-[radial-gradient(circle_at_top,_rgba(20,184,166,0.15),_transparent_28%),linear-gradient(180deg,_#020617_0%,_#0f172a_60%,_#020617_100%)] dark:text-slate-100">
       <section className="relative overflow-hidden border-b border-slate-200/70 dark:border-slate-800">
@@ -98,6 +100,30 @@ const WebinarRegistrationPage = () => {
           </div>
 
           <WebinarRegistrationForm />
+
+          <div className="mt-10 rounded-[1.75rem] border border-emerald-200 bg-emerald-50 p-6 text-emerald-950 shadow-sm dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-50">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-300">
+              Stay connected
+            </p>
+            <h3 className="mt-3 text-2xl font-black">
+              Join our WhatsApp group for more events, news, and updates
+            </h3>
+            <p className="mt-3 max-w-3xl leading-8 text-emerald-900/80 dark:text-emerald-50/80">
+              After registration, please join the WhatsApp group to receive
+              updates about upcoming events, important news, and useful
+              information from OBRF.
+            </p>
+            <div className="mt-5">
+              <Link
+                href={whatsappGroupLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-500"
+              >
+                Join WhatsApp group
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </main>
