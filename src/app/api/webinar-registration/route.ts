@@ -2,8 +2,6 @@ import { connect } from "@/dbConfig/dbConfig";
 import WebinarRegistration from "@/models/webinarRegistrationModel";
 import { NextRequest, NextResponse } from "next/server";
 
-connect();
-
 const adminEmail = "admin@obrf.org.in";
 
 function normalizeString(value: unknown) {
@@ -12,6 +10,8 @@ function normalizeString(value: unknown) {
 
 export async function POST(req: NextRequest) {
   try {
+    await connect();
+
     const body = await req.json();
 
     const payload = {

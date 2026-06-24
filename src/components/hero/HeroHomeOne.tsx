@@ -35,7 +35,7 @@ const HeroHomeOne = () => {
       subtitle: "Leading Biomedical Research Federation",
       description:
         "Join our network of medical professionals and researchers dedicated to advancing healthcare through collaborative research, innovative solutions, and professional development.",
-      img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop",
+      img: "/assets/img/hero_img.jpg",
       btn_text: "Explore Research",
       btn_link: "/research",
       alt: "Modern medical research laboratory with advanced equipment",
@@ -47,7 +47,7 @@ const HeroHomeOne = () => {
       subtitle: "Professional Development",
       description:
         "Access cutting-edge research facilities, collaborate with leading medical professionals, and contribute to groundbreaking healthcare innovations.",
-      img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
+      img: "/assets/img/hero_img_1.jpg",
       btn_text: "Join Our Network",
       btn_link: "/membership",
       alt: "Medical professionals collaborating in a modern research facility",
@@ -59,7 +59,7 @@ const HeroHomeOne = () => {
       subtitle: "Innovation Hub",
       description:
         "Discover breakthrough medical technologies and research methodologies that are shaping the future of healthcare delivery and patient care.",
-      img: "https://images.unsplash.com/photo-1581093458791-9d15482442f6?q=80&w=2070&auto=format&fit=crop",
+      img: "/assets/img/hero_img_6.jpg",
       btn_text: "Learn More",
       btn_link: "/innovation",
       alt: "Advanced medical technology and research equipment",
