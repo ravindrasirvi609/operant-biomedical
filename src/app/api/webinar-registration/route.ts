@@ -152,7 +152,7 @@ export async function POST(req: NextRequest) {
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          from: "OBRF Webinar <noreply@obrf.org.in>",
+          from: "OBRF Webinar <noreply@opf.org.in>",
           to: payload.email,
           subject: "Your OBRF Webinar Registration is Successful",
           html: `
