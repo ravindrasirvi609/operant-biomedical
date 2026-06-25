@@ -80,8 +80,8 @@ export default function WebinarCertificateClient({ email }: { email: string }) {
       const lineHeight = Math.round(fontSize * 1.34);
       lines.forEach((line, index) => {
         const isNameLine = index === 0;
-        const isFinalLine = index === lines.length - 1;
-        const weight = isNameLine || isFinalLine ? 700 : 500;
+        const isThemeLine = index === 2 || index === 3;
+        const weight = isNameLine || isThemeLine ? 700 : 500;
         const size = isNameLine ? fontSize + 2 : fontSize;
         ctx.font = `${weight} ${size}px ${fontFamily}`;
         ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
