@@ -73,9 +73,9 @@ export default function WebinarCertificateClient({ email }: { email: string }) {
       ctx.fillStyle = "#1e293b";
 
       const lines = buildCertificateLines(registration.fullName);
-      const fontSize = fitFontSize(ctx, lines, canvas.width * 0.74, 38, 30);
+      const fontSize = fitFontSize(ctx, lines, canvas.width * 0.74, 44, 30);
       ctx.font = `500 ${fontSize}px Arial, sans-serif`;
-      const startY = canvas.height * 0.52;
+      const startY = canvas.height * 0.51;
       const lineHeight = Math.round(fontSize * 1.42);
       lines.forEach((line, index) => {
         ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
@@ -180,8 +180,9 @@ function buildCertificateLines(fullName: string) {
   return [
     `This is to certify that ${fullName} has successfully`,
     `participated as a Delegate in the Online Webinar on`,
-    `"Innovative Approaches in Medical Research: Leveraging AI Technologies`,
-    `and ICMR Funding Opportunities", organized by the Operant Biomedical Research Federation (OBRF) on 25 June 2026.`,
+    `"Innovative Approaches in Medical Research: Leveraging AI`,
+    `Technologies and ICMR Funding Opportunities", organized by the`,
+    `Operant Biomedical Research Federation (OBRF) on 25 June 2026.`,
   ];
 }
 
