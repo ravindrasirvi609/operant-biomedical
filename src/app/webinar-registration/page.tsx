@@ -1,4 +1,5 @@
 import WebinarRegistrationForm from "@/components/webinar/WebinarRegistrationForm";
+import { WEBINAR_REGISTRATION_CLOSED } from "@/lib/webinarRegistrationStatus";
 import Link from "next/link";
 import React from "react";
 
@@ -29,15 +30,23 @@ const WebinarRegistrationPage = () => {
               Innovative Approaches in Medical Research
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-              Register for the webinar on AI technologies and ICMR funding opportunities. Your details will be stored in the database and the OBRF admin team will receive an email notification automatically.
+              {WEBINAR_REGISTRATION_CLOSED
+                ? "Registration for this webinar is currently closed."
+                : "Register for the webinar on AI technologies and ICMR funding opportunities. Your details will be stored in the database and the OBRF admin team will receive an email notification automatically."}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="#registration-form"
-                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
-              >
-                Start registration
-              </Link>
+              {!WEBINAR_REGISTRATION_CLOSED ? (
+                <Link
+                  href="#registration-form"
+                  className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
+                >
+                  Start registration
+                </Link>
+              ) : (
+                <span className="inline-flex items-center justify-center rounded-full bg-slate-200 px-6 py-3 text-sm font-bold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                  Registration closed
+                </span>
+              )}
               <Link
                 href="/events-courses"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-700 transition hover:border-teal-300 hover:text-teal-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-teal-500 dark:hover:text-teal-300"
@@ -89,29 +98,35 @@ const WebinarRegistrationPage = () => {
         <div className="mx-auto max-w-5xl rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 md:p-10">
           <div className="mb-8 max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-teal-600 dark:text-teal-400">
-              Complete registration
+              {WEBINAR_REGISTRATION_CLOSED ? "Registration closed" : "Complete registration"}
             </p>
             <h2 className="mt-3 text-3xl font-black sm:text-4xl">
-              Share your details once and we handle the rest
+              {WEBINAR_REGISTRATION_CLOSED
+                ? "Thank you for your interest"
+                : "Share your details once and we handle the rest"}
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
-              All required fields from the webinar brief are included, along with consent capture and interest tracking for future workshops.
+              {WEBINAR_REGISTRATION_CLOSED
+                ? "The registration window has closed. If you need help, please contact the team or check the events page for future opportunities."
+                : "All required fields from the webinar brief are included, along with consent capture and interest tracking for future workshops."}
             </p>
           </div>
 
-          <WebinarRegistrationForm />
+          <WebinarRegistrationForm isClosed={WEBINAR_REGISTRATION_CLOSED} />
 
           <div className="mt-10 rounded-[1.75rem] border border-emerald-200 bg-emerald-50 p-6 text-emerald-950 shadow-sm dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-50">
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-300">
               Stay connected
             </p>
             <h3 className="mt-3 text-2xl font-black">
-              Join our WhatsApp group for more events, news, and updates
+              {WEBINAR_REGISTRATION_CLOSED
+                ? "Join our WhatsApp group for future event updates"
+                : "Join our WhatsApp group for more events, news, and updates"}
             </h3>
             <p className="mt-3 max-w-3xl leading-8 text-emerald-900/80 dark:text-emerald-50/80">
-              After registration, please join the WhatsApp group to receive
-              updates about upcoming events, important news, and useful
-              information from OBRF.
+              {WEBINAR_REGISTRATION_CLOSED
+                ? "Even though this registration is closed, you can stay connected for future webinars, workshops, and announcements from OBRF."
+                : "After registration, please join the WhatsApp group to receive updates about upcoming events, important news, and useful information from OBRF."}
             </p>
             <div className="mt-5">
               <Link

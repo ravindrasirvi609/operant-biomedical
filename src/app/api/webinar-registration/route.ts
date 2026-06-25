@@ -1,5 +1,6 @@
 import { connect } from "@/dbConfig/dbConfig";
 import WebinarRegistration from "@/models/webinarRegistrationModel";
+import { WEBINAR_REGISTRATION_CLOSED } from "@/lib/webinarRegistrationStatus";
 import { NextRequest, NextResponse } from "next/server";
 
 const adminEmail = "admin@obrf.org.in";
@@ -39,6 +40,13 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    if (WEBINAR_REGISTRATION_CLOSED) {
+      return NextResponse.json(
+        { error: "Webinar registration is now closed." },
+        { status: 403 }
+      );
+    }
+
     await connect();
 
     const body = await req.json();

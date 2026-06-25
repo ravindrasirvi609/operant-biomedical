@@ -1,0 +1,3 @@
+export const WEBINAR_REGISTRATION_CLOSED =
+  process.env.WEBINAR_REGISTRATION_CLOSED === "true";
+
