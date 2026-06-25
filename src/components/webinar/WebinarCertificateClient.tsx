@@ -73,9 +73,9 @@ export default function WebinarCertificateClient({ email }: { email: string }) {
       ctx.fillStyle = "#1e293b";
 
       const lines = buildCertificateLines(registration.fullName);
-      const fontSize = fitFontSize(ctx, lines, canvas.width * 0.74, 44, 30);
-      ctx.font = `500 ${fontSize}px Arial, sans-serif`;
-      const startY = canvas.height * 0.51;
+      const fontSize = fitFontSize(ctx, lines, canvas.width * 0.74, 52, 30);
+      ctx.font = `500 ${fontSize}px "Times New Roman", Times, serif`;
+      const startY = canvas.height * 0.50;
       const lineHeight = Math.round(fontSize * 1.42);
       lines.forEach((line, index) => {
         ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
@@ -194,7 +194,7 @@ function fitFontSize(
   minSize: number
 ) {
   for (let size = preferredSize; size >= minSize; size -= 1) {
-    ctx.font = `500 ${size}px Arial, sans-serif`;
+    ctx.font = `500 ${size}px "Times New Roman", Times, serif`;
     const widestLine = lines.reduce(
       (widest, line) =>
         Math.max(widest, ctx.measureText(line).width),
