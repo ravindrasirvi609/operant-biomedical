@@ -71,13 +71,19 @@ export default function WebinarCertificateClient({ email }: { email: string }) {
 
       ctx.textAlign = "center";
       ctx.fillStyle = "#1e293b";
+      ctx.textBaseline = "middle";
+      const fontFamily = `Georgia, "Times New Roman", serif`;
 
       const lines = buildCertificateLines(registration.fullName);
-      const fontSize = fitFontSize(ctx, lines, canvas.width * 0.74, 44, 30);
-      ctx.font = `500 ${fontSize}px Arial, sans-serif`;
-      const startY = canvas.height * 0.51;
-      const lineHeight = Math.round(fontSize * 1.42);
+      const fontSize = fitFontSize(ctx, lines, canvas.width * 0.74, 52, 36, fontFamily);
+      const startY = canvas.height * 0.495;
+      const lineHeight = Math.round(fontSize * 1.34);
       lines.forEach((line, index) => {
+        const isNameLine = index === 0;
+        const isFinalLine = index === lines.length - 1;
+        const weight = isNameLine || isFinalLine ? 700 : 500;
+        const size = isNameLine ? fontSize + 2 : fontSize;
+        ctx.font = `${weight} ${size}px ${fontFamily}`;
         ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
       });
     };
@@ -191,10 +197,11 @@ function fitFontSize(
   lines: string[],
   maxWidth: number,
   preferredSize: number,
-  minSize: number
+  minSize: number,
+  fontFamily: string
 ) {
   for (let size = preferredSize; size >= minSize; size -= 1) {
-    ctx.font = `500 ${size}px Arial, sans-serif`;
+    ctx.font = `500 ${size}px ${fontFamily}`;
     const widestLine = lines.reduce(
       (widest, line) =>
         Math.max(widest, ctx.measureText(line).width),
