@@ -8,6 +8,35 @@ function normalizeString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+export async function GET(req: NextRequest) {
+  try {
+    await connect();
+
+    const { searchParams } = new URL(req.url);
+    const email = normalizeString(searchParams.get("email")).toLowerCase();
+
+    if (!email) {
+      return NextResponse.json(
+        { error: "Email is required." },
+        { status: 400 }
+      );
+    }
+
+    const registration = await WebinarRegistration.findOne({ email }).lean();
+
+    return NextResponse.json({
+      exists: Boolean(registration),
+      registration,
+    });
+  } catch (error) {
+    console.error("Webinar registration lookup error:", error);
+    return NextResponse.json(
+      { error: "Failed to look up webinar registration." },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     await connect();
